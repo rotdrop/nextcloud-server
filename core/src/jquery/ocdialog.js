@@ -173,6 +173,7 @@ $.widget('oc.ocdialog', {
 			if (value) {
 				const $closeButton = $('<a class="oc-dialog-close"></a>')
 				this.$dialog.prepend($closeButton)
+				this.$dialog.addClass('oc-dialog-has-close')
 				$closeButton.on('click', function() {
 					self.options.closeCallback && self.options.closeCallback()
 					self.close()
