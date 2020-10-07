@@ -180,6 +180,7 @@ $.widget('oc.ocdialog', {
 				const $closeButton = $('<button class="oc-dialog-close"></button>')
 				$closeButton.attr('aria-label', t('core', 'Close "{dialogTitle}" dialog', { dialogTitle: this.$title || this.options.title }))
 				this.$dialog.prepend($closeButton)
+				this.$dialog.addClass('oc-dialog-has-close')
 				$closeButton.on('click keydown', function(event) {
 					if (isA11yActivation(event)) {
 						self.options.closeCallback && self.options.closeCallback()
