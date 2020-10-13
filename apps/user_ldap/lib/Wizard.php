@@ -430,7 +430,7 @@ class Wizard extends LDAPUtility {
 	 * @throws \Exception
 	 */
 	public function fetchGroups($dbKey, $confKey) {
-		$obclasses = ['posixGroup', 'group', 'zimbraDistributionList', 'groupOfNames', 'groupOfUniqueNames'];
+		$obclasses = ['posixGroup', 'group', 'zimbraDistributionList', 'groupOfNames', 'groupOfUniqueNames', 'groupOfMembers'];
 
 		$filterParts = [];
 		foreach ($obclasses as $obclass) {
@@ -510,7 +510,7 @@ class Wizard extends LDAPUtility {
 			throw new \Exception('Could not connect to LDAP');
 		}
 
-		$obclasses = ['groupOfNames', 'groupOfUniqueNames', 'group', 'posixGroup', '*'];
+		$obclasses = ['groupOfNames', 'groupOfUniqueNames', 'group', 'posixGroup', 'groupOfMembers', '*'];
 		$this->determineFeature($obclasses,
 								'objectclass',
 								'ldap_groupfilter_objectclass',
