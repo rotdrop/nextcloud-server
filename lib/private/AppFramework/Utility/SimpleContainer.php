@@ -117,7 +117,7 @@ class SimpleContainer implements ArrayAccess, ContainerInterface, IContainer {
 					' Class can not be instantiated');
 			}
 		} catch (ReflectionException $e) {
-			throw new QueryException($baseMsg . ' ' . $e->getMessage());
+			throw new QueryException($baseMsg . ' ' . $e->getMessage(), $e->getCode(), $e);
 		}
 	}
 
