@@ -1,6 +1,6 @@
 <?php
 /**
- * @copyright Copyright (c) 2016, ownCloud, Inc.
+ * @copyright Copyright (c) 2016, 2023, ownCloud, Inc.
  *
  * @author Bernhard Posselt <dev@bernhard-posselt.com>
  * @author Christoph Wurst <christoph@winzerhof-wurst.at>
@@ -120,7 +120,7 @@ class SimpleContainer implements ArrayAccess, ContainerInterface, IContainer {
 			}
 		} catch (ReflectionException $e) {
 			// Class does not exist
-			throw new QueryNotFoundException($baseMsg . ' ' . $e->getMessage());
+			throw new QueryNotFoundException($baseMsg . ' ' . $e->getMessage(), $e->getCode(), $e);
 		}
 	}
 
