@@ -223,6 +223,13 @@ class L10N implements IL10N {
 	}
 
 	/**
+	 * @return string The app this object was configured for
+	 */	
+	public function getAppName(): string {
+		return $this->app;
+	}
+	
+	/**
 	 * @param string $translationFile
 	 * @return bool
 	 */
