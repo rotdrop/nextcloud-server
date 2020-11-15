@@ -356,7 +356,7 @@ const Dialogs = {
 				event.preventDefault()
 				$form.submit()
 			})
-
+			
 
 			/**
 			 * Checks whether the given file name is valid.
@@ -445,7 +445,10 @@ const Dialogs = {
 					self._handleTreeListSelect(event, type)
 				})
 				self.$filelist.on('click', 'tr', function(event) {
-					self._handlePickerClick(event, $(this), type)
+					self._handlePickerClick(event, $(this), type, false)
+				})
+				self.$filelist.on('dblclick', 'tr', function(event) {
+					self._handlePickerClick(event, $(this), type, true)
 				})
 				self.$fileListHeader.on('click', 'a', function(event) {
 					var dir = self.$filePicker.data('path')
@@ -1140,7 +1143,18 @@ const Dialogs = {
 			self.filelist = files
 			if (filter && filter.length > 0 && filter.indexOf('*') === -1) {
 				files = files.filter(function(file) {
-					return file.type === 'dir' || filter.indexOf(file.mimetype) !== -1
+					if (file.type === 'dir' || filter.indexOf(file.mimetype) !== -1) {
+						return true;
+					}
+					for (var i = 0; i < filter.length; i++) {
+						const filterString = filter[i];
+						const regexp = new RegExp(filterString);
+						if (regexp.test(file.mimetype)) {
+							console.info("filter matches");
+							return true;
+						}
+					}
+					return false;
 				})
 			}
 
@@ -1295,7 +1309,7 @@ const Dialogs = {
 	/**
 	 * handle clicks made in the filepicker
 	 */
-	_handlePickerClick: function(event, $element, type) {
+	_handlePickerClick: function(event, $element, type, dblclick) {
 		var getOcDialog = this.$filePicker.closest('.oc-dialog')
 		var buttonEnableDisable = getOcDialog.find('.primary')
 		if ($element.data('type') === 'file') {
@@ -1304,6 +1318,10 @@ const Dialogs = {
 			}
 			$element.toggleClass('filepicker_element_selected')
 			buttonEnableDisable.prop('disabled', false)
+			if (dblclick) {
+				// submit the file
+				buttonEnableDisable.trigger('click');
+			}
 		} else if ($element.data('type') === 'dir') {
 			this._fillFilePicker(this.$filePicker.data('path') + '/' + $element.data('entryname'))
 			this._changeButtonsText(type, $element.data('entryname'))
