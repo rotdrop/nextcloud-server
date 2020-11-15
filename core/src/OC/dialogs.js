@@ -477,8 +477,11 @@ const Dialogs = {
 				})
 				self.$filelist.on('click keydown', 'tr', function(event) {
 					if (isA11yActivation(event)) {
-						self._handlePickerClick(event, $(this), type)
+						self._handlePickerClick(event, $(this), type, false)
 					}
+				})
+				self.$filelist.on('dblclick', 'tr', function(event) {
+					self._handlePickerClick(event, $(this), type, true)
 				})
 				self.$fileListHeader.on('click keydown', 'a', function(event) {
 					if (isA11yActivation(event)) {
@@ -1165,7 +1168,6 @@ const Dialogs = {
 		} else {
 			self.$fileListHeader.find('[data-sort=' + self.filepicker.sortField + '] .sort-indicator').addClass('icon-triangle-s')
 		}
-
 		// Wrap within a method because a promise cannot return multiple values
 		// But the client impleemntation still does it...
 		var getFolderContents = async function(dir) {
@@ -1364,7 +1366,7 @@ const Dialogs = {
 	/**
 	 * handle clicks made in the filepicker
 	 */
-	_handlePickerClick: function(event, $element, type) {
+	_handlePickerClick: function(event, $element, type, dblclick) {
 		var getOcDialog = this.$filePicker.closest('.oc-dialog')
 		var buttonEnableDisable = getOcDialog.find('.primary')
 		if ($element.data('type') === 'file') {
@@ -1373,6 +1375,10 @@ const Dialogs = {
 			}
 			$element.toggleClass('filepicker_element_selected')
 			buttonEnableDisable.prop('disabled', false)
+			if (dblclick) {
+				// submit the file
+				buttonEnableDisable.trigger('click');
+			}
 		} else if ($element.data('type') === 'dir') {
 			this._fillFilePicker(this.$filePicker.data('path') + '/' + $element.data('entryname'), type)
 			this._changeButtonsText(type, $element.data('entryname'))
