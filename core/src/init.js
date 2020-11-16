@@ -346,7 +346,8 @@ export const initCore = () => {
 
 		const toggleSnapperOnSize = () => {
 			if ($(window).width() > breakpointMobileWidth) {
-				snapper.close()
+				// snapper.close() nope, why should, the resize event
+				// can be artificial, and the app may want to have it open.
 				snapper.disable()
 
 				navigationBarSlideGestureEnabled = false
