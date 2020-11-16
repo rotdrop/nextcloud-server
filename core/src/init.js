@@ -260,8 +260,9 @@ export const initCore = () => {
 
 		const toggleSnapperOnSize = () => {
 			if ($(window).width() > breakpointMobileWidth) {
-				$appNavigation.attr('aria-hidden', 'false')
-				snapper.close()
+				// $appNavigation.attr('aria-hidden', 'false')
+				// snapper.close()) nope, why should, the resize event
+				// can be artificial, and the app may want to have it open.
 				snapper.disable()
 
 				navigationBarSlideGestureEnabled = false
