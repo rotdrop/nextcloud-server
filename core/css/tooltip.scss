@@ -87,6 +87,11 @@
             border-top-color: var(--color-main-background);
         }
     }
+    &[x-placement^='top'] .tooltip-arrow,
+    &.top .tooltip-arrow {
+        left: 50%;
+        margin-left: -10px;
+    }
     &.top-left .tooltip-arrow {
         right: 10px;
         margin-bottom: -10px;
