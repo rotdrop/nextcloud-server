@@ -1,20 +1,22 @@
+NPMFLAGS = --legacy-peer-deps
+
 all: clean dev-setup build-js-production
 
 # Dev env management
 dev-setup: clean npm-init
 
 npm-init:
-	npm ci
+	npm $(NPMFLAGS) ci  
 
 npm-update:
-	npm update
+	npm $(NPMFLAGS) update
 
 # Building
 build-js:
-	npm run dev
+	npm $(NPMFLAGS) run dev
 
 build-js-production:
-	npm run build
+	npm $(NPMFLAGS) run build
 
 watch-js:
 	npm run watch
