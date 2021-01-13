@@ -21,24 +21,3 @@
  * along with this program. If not, see <http://www.gnu.org/licenses/>.
  *
  */
-
-$.prototype.tooltip = (function(tooltip) {
-	return function(config) {
-		try {
-			return tooltip.call(this, config)
-		} catch (ex) {
-			if (ex instanceof TypeError && config === 'destroy') {
-				if (window.TESTING === undefined) {
-					console.error('Deprecated call $.tooltip(\'destroy\') has been deprecated and should be removed')
-				}
-				return tooltip.call(this, 'dispose')
-			}
-			if (ex instanceof TypeError && config === 'fixTitle') {
-				if (window.TESTING === undefined) {
-					console.error('Deprecated call $.tooltip(\'fixTitle\') has been deprecated and should be removed')
-				}
-				return tooltip.call(this, '_fixTitle')
-			}
-		}
-	}
-})($.prototype.tooltip)
