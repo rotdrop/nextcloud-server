@@ -377,6 +377,14 @@ const Dialogs = {
 			if (modal === undefined) {
 				modal = false
 			}
+
+			// wrap callback in _.once():
+			// only call callback once and not twice (button handler and close
+			// event) but call it for the close event, if ESC or the x is hit
+			if (callback !== undefined) {
+				callback = _.once(callback)
+			}
+
 			$('body').append($dlg)
 			var buttonlist = []
 			switch (buttons) {
@@ -403,10 +411,10 @@ const Dialogs = {
 				break
 			case Dialogs.OK_BUTTON:
 				var functionToCall = function() {
-					$(dialogId).ocdialog('close')
 					if (callback !== undefined) {
-						callback()
+						callback(true)
 					}
+					$(dialogId).ocdialog('close')
 				}
 				buttonlist[0] = {
 					text: t('core', 'OK'),
