@@ -65,6 +65,9 @@ abstract class Controller {
 					}
 					$response->setHeaders(array_merge($dataHeaders, $headers));
 
+					// also keep the CSP headers
+					$response->setContentSecurityPolicy($data->getContentSecurityPolicy());
+
 					if ($data->getETag() !== null) {
 						$response->setETag($data->getETag());
 					}
