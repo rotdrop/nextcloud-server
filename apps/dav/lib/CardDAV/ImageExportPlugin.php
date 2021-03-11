@@ -25,7 +25,7 @@
 namespace OCA\DAV\CardDAV;
 
 use OCP\Files\NotFoundException;
-use Sabre\CardDAV\Card;
+use Sabre\CardDAV\ICard as Card;
 use Sabre\DAV\Server;
 use Sabre\DAV\ServerPlugin;
 use Sabre\HTTP\RequestInterface;
@@ -100,8 +100,14 @@ class ImageExportPlugin extends ServerPlugin {
 		$response->setHeader('Etag', $node->getETag());
 		$response->setHeader('Pragma', 'public');
 
+        try {
+          $resourceId = $addressbook->getResourceId();
+        } catch (\Throwable $t) {
+          $resourceId = $addressbookpath;
+        }
+
 		try {
-			$file = $this->cache->get($addressbook->getResourceId(), $node->getName(), $size, $node);
+			$file = $this->cache->get($resourceId, $node->getName(), $size, $node);
 			$response->setHeader('Content-Type', $file->getMimeType());
 			$fileName = $node->getName() . '.' . PhotoCache::ALLOWED_CONTENT_TYPES[$file->getMimeType()];
 			$response->setHeader('Content-Disposition', "attachment; filename=$fileName");
