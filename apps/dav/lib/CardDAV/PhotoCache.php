@@ -15,7 +15,7 @@ use OCP\Files\SimpleFS\ISimpleFile;
 use OCP\Files\SimpleFS\ISimpleFolder;
 use OCP\Image;
 use Psr\Log\LoggerInterface;
-use Sabre\CardDAV\Card;
+use Sabre\CardDAV\ICard as Card;
 use Sabre\VObject\Document;
 use Sabre\VObject\Parameter;
 use Sabre\VObject\Property\Binary;
@@ -140,7 +140,7 @@ class PhotoCache {
 	 * @throws NotFoundException
 	 * @throws NotPermittedException
 	 */
-	private function getFolder(int $addressBookId, string $cardUri, bool $createIfNotExists = true): ISimpleFolder {
+	private function getFolder($addressBookId, string $cardUri, bool $createIfNotExists = true): ISimpleFolder {
 		$hash = md5($addressBookId . ' ' . $cardUri);
 		try {
 			return $this->getPhotoCacheAppData()->getFolder($hash);

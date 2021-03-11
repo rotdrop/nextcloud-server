@@ -9,7 +9,7 @@ namespace OCA\DAV\CardDAV;
 
 use OCP\AppFramework\Http;
 use OCP\Files\NotFoundException;
-use Sabre\CardDAV\Card;
+use Sabre\CardDAV\ICard as Card;
 use Sabre\DAV\Server;
 use Sabre\DAV\ServerPlugin;
 use Sabre\HTTP\RequestInterface;
@@ -84,8 +84,14 @@ class ImageExportPlugin extends ServerPlugin {
 		$response->setHeader('Cache-Control', 'private, max-age=3600, must-revalidate');
 		$response->setHeader('Etag', $node->getETag());
 
+        try {
+          $resourceId = $addressbook->getResourceId();
+        } catch (\Throwable $t) {
+          $resourceId = $addressbookpath;
+        }
+
 		try {
-			$file = $this->cache->get($addressbook->getResourceId(), $node->getName(), $size, $node);
+			$file = $this->cache->get($resourceId, $node->getName(), $size, $node);
 			$response->setHeader('Content-Type', $file->getMimeType());
 			$fileName = $node->getName() . '.' . PhotoCache::ALLOWED_CONTENT_TYPES[$file->getMimeType()];
 			$sanitized = str_replace(['/', '\\'], '-', $fileName);
