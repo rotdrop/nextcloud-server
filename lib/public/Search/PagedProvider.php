@@ -46,7 +46,7 @@ abstract class PagedProvider extends Provider {
 	 * @since 8.0.0
 	 * @deprecated 20.0.0
 	 */
-	public function __construct($options) {
+	public function __construct($options = []) {
 		parent::__construct($options);
 	}
 
