@@ -73,7 +73,12 @@ class CryptoSessionData implements \ArrayAccess, ISession {
 			$this->close();
 		} catch (SessionNotAvailableException $e) {
 			// This exception can occur if session is already closed
-			// So it is safe to ignore it and let the garbage collector to proceed
+            // So it is safe to ignore it and let the garbage collector to proceed
+
+            // Still this is fatal if the _THIS_ session wrapper has modified data:
+            if ($this->isModified) {
+                throw new SessionNotAvailableException('Session wrapper has modified data which cannot be saved.', $e->getCode(), $e);
+            }
 		}
 	}
 
