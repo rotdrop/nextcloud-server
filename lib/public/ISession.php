@@ -97,6 +97,11 @@ interface ISession {
 	 */
 	public function close();
 
+    /**
+     * Return true if the session is not open.
+     */
+    public function isClosed():bool;
+
 	/**
 	 * Wrapper around session_regenerate_id
 	 *
