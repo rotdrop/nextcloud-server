@@ -80,4 +80,11 @@ abstract class Session implements \ArrayAccess, ISession {
 	public function close() {
 		$this->sessionClosed = true;
 	}
+
+    /**
+     * Return true if the session is not open
+     */
+    public function isClosed():bool {
+        return $this->sessionClosed;
+    }
 }
