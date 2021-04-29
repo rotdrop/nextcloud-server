@@ -174,7 +174,8 @@ class ViewController extends Controller {
 	/**
 	 * @NoCSRFRequired
 	 * @NoAdminRequired
-	 *
+     * @UseSession
+     *
 	 * @param string $dir
 	 * @param string $view
 	 * @param string $fileid
