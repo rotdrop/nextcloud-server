@@ -153,8 +153,9 @@ class L10N implements IL10N {
 		}
 
 		$value = new \DateTime();
-		if ($data instanceof \DateTime) {
-			$value = $data;
+		if ($data instanceof \DateTimeInterface) {
+			$value->setTimestamp($data->getTimestamp())
+				->setTimezone($data->getTimezone());
 		} elseif (\is_string($data) && !is_numeric($data)) {
 			$data = strtotime($data);
 			$value->setTimestamp($data);
