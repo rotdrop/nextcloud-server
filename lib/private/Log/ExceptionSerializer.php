@@ -191,7 +191,7 @@ class ExceptionSerializer {
 	public function serializeException(\Throwable $exception) {
 		$data = [
 			'Exception' => get_class($exception),
-			'Message' => $exception->getMessage(),
+			'Message' => $exception->getMessage().' '.$exception->getFile().':'.$exception->getLine(),
 			'Code' => $exception->getCode(),
 			'Trace' => $this->encodeTrace($exception->getTrace()),
 			'File' => $exception->getFile(),
