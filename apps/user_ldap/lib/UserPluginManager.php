@@ -63,12 +63,12 @@ class UserPluginManager {
 		foreach ($this->which as $action => $v) {
 			if (is_int($action) && (bool)($respondToActions & $action)) {
 				$this->which[$action] = $plugin;
-				\OC::$server->getLogger()->debug("Registered action ".$action." to plugin ".get_class($plugin), ['app' => 'user_ldap']);
+				//\OC::$server->getLogger()->debug("Registered action ".$action." to plugin ".get_class($plugin), ['app' => 'user_ldap']);
 			}
 		}
 		if (method_exists($plugin,'deleteUser')) {
 			$this->which['deleteUser'] = $plugin;
-			\OC::$server->getLogger()->debug("Registered action deleteUser to plugin ".get_class($plugin), ['app' => 'user_ldap']);
+			//\OC::$server->getLogger()->debug("Registered action deleteUser to plugin ".get_class($plugin), ['app' => 'user_ldap']);
 		}
 	}
 
