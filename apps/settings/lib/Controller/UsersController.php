@@ -174,14 +174,14 @@ class UsersController extends Controller {
 		if ($this->config->getSystemValue('sort_groups_by_name', false)) {
 			$sortGroupsBy = \OC\Group\MetaData::SORT_GROUPNAME;
 		} else {
-			if ($this->appManager->isEnabledForUser('user_ldap')) {
-				$isLDAPUsed =
-					$this->groupManager->isBackendUsed('\OCA\User_LDAP\Group_Proxy');
-				if ($isLDAPUsed) {
-					// LDAP user count can be slow, so we sort by group name here
-					$sortGroupsBy = \OC\Group\MetaData::SORT_GROUPNAME;
-				}
-			}
+			// if ($this->appManager->isEnabledForUser('user_ldap')) {
+			// 	$isLDAPUsed =
+			// 		$this->groupManager->isBackendUsed('\OCA\User_LDAP\Group_Proxy');
+			// 	if ($isLDAPUsed) {
+			// 		// LDAP user count can be slow, so we sort by group name here
+			// 		$sortGroupsBy = \OC\Group\MetaData::SORT_GROUPNAME;
+			// 	}
+			// }
 		}
 
 		$canChangePassword = $this->canAdminChangeUserPasswords();
@@ -197,11 +197,11 @@ class UsersController extends Controller {
 		$groupsInfo->setSorting($sortGroupsBy);
 		[$adminGroup, $groups] = $groupsInfo->get();
 
-		if (!$isLDAPUsed && $this->appManager->isEnabledForUser('user_ldap')) {
-			$isLDAPUsed = (bool)array_reduce($this->userManager->getBackends(), function ($ldapFound, $backend) {
-				return $ldapFound || $backend instanceof User_Proxy;
-			});
-		}
+		// if (!$isLDAPUsed && $this->appManager->isEnabledForUser('user_ldap')) {
+		// 	$isLDAPUsed = (bool)array_reduce($this->userManager->getBackends(), function ($ldapFound, $backend) {
+		// 		return $ldapFound || $backend instanceof User_Proxy;
+		// 	});
+		// }
 
 		$disabledUsers = -1;
 		$userCount = 0;
