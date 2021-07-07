@@ -1,6 +1,8 @@
 [submodule "3rdparty"]
 	path = 3rdparty
 	url = https://github.com/nextcloud/3rdparty.git
+	branch = stable22
 [submodule "bug-fixes/nextcloud-files"]
 	path = bug-fixes/nextcloud-files
 	url = git@github.com:rotdrop/nextcloud-files.git
+	branch = bugfix/human-file-size-use-language-not-locale-for-number-formatting
