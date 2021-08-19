@@ -1396,4 +1396,36 @@ class UsersController extends AUserData {
 
 		return new DataResponse();
 	}
+
+	/**
+	 * @NoAdminRequired
+	 * @NoSubAdminRequired
+     *
+	 * checks the given password
+	 *
+	 * @param string $userId
+	 * @param string $password
+	 * @return DataResponse
+	 */
+	public function checkPassword(string $userId, string $password): DataResponse {
+
+		try {
+			$user = $this->userManager->get($userId);
+			$currentUser = $this->userSession->getUser();
+
+			$valid = (int)(($this->groupManager->isAdmin($currentUser->getUID())
+							|| $this->groupManager->getSubAdmin()->isUserAccessible($currentUser, $user))
+						   && ($this->userManager->checkPassword($userId, $password) !== false));
+		} catch(\Throwable $t) {
+			// ignore
+			$valid = 0;
+		}
+
+		$data = [
+			'valid' => $valid,
+		];
+
+		return new DataResponse($data);
+	}
+
 }
