@@ -104,7 +104,8 @@ OC.MimeTypeList={
     "application/internet-shortcut": "link",
     "application/km": "mindmap",
     "application/x-freemind": "mindmap",
-    "application/vnd.xmind.workbook": "mindmap"
+    "application/vnd.xmind.workbook": "mindmap",
+    "image/targa": "image/tga"
 },
 	files: [
     "application",
@@ -132,5 +133,9 @@ OC.MimeTypeList={
     "x-office-presentation",
     "x-office-spreadsheet"
 ],
-	themes: []
+	themes: {
+    "cafevdb": [
+        "dir-database"
+    ]
+}
 };
