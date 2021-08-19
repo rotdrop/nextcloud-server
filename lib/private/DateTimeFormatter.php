@@ -86,7 +86,7 @@ class DateTimeFormatter implements \OCP\IDateTimeFormatter {
 				$dateTime->setTimestamp($timestamp->getTimestamp())
 						 ->setTimezone($timestamp->getTimezone());
 			} else {
-				$dateTime->setTimestamp($timestamp);
+				$dateTime->setTimestamp((int)$timestamp);
 			}
 		} else {
 			$dateTime = $timestamp;
