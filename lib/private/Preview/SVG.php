@@ -54,7 +54,14 @@ class SVG extends ProviderV2 {
 
 			// Do not parse SVG files with references
 			if (stripos($content, 'xlink:href') !== false) {
-				return null;
+				if (preg_match_all('/xlink:href="([^"]*)"/', $content, $matches) > 0) {
+					foreach ($matches[1] as $link) {
+						if ($link[0] != '#') {
+							return null;
+						}
+					}
+					// \OCP\Util::writeLog('preview', print_r($matches, true), \OCP\Util::INFO);
+				}
 			}
 
 			$svg->readImageBlob($content);
