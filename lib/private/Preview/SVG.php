@@ -93,8 +93,17 @@ class SVG extends ProviderV2 {
 
 		// check for any potential external reference (include custom namespace prefix)
 		if (preg_match('/["\s\']([a-z_][a-z0-9_.-]*:)?href\s*=/i', $content)) {
-			return false;
+			if (preg_match_all('/xlink:href="([^"]*)"/', $content, $matches) > 0) {
+				foreach ($matches[1] as $link) {
+					if ($link[0] != '#') {
+						return false;
+					}
+				}
+			} else {
+				return false;
+			}
 		}
+
 		return true;
 	}
 }
