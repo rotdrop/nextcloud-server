@@ -2216,6 +2216,15 @@ $CONFIG = [
  */
 'debug' => false,
 
+
+/**
+ * Set this to true in order to print exception stack traces even if 'debug'
+ * is false. This only affects the exceptions display in the error page template.
+ *
+ * Defaults to ``false``
+ */
+'verbose_exceptions' => false,
+
 /**
  * Sets the data-fingerprint of the current data served
  *
