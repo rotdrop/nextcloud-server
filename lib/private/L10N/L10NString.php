@@ -74,18 +74,14 @@ class L10NString implements \JsonSerializable {
 			//\OCP\Util::writeLog($app, "Translation for ``".$text."'' not found.", ILogger::INFO);
 		}
 
-		if (is_array($identity)) {
-			$pipeCheck = implode('', $identity);
-			if (strpos($pipeCheck, '|') !== false) {
-				return 'Can not use pipe character in translations';
-			}
-
-			$identity = implode('|', $identity);
-		} elseif (strpos($identity, '|') !== false) {
-			return 'Can not use pipe character in translations';
+		if (!$this->pipeCheck($identity)) {
+			return 'Can not use unescaped pipe character in translations, prepend another pipe character to escape a single pipe character';
 		}
 
 		$beforeIdentity = $identity;
+		if (is_array($identity)) {
+			$identity = implode('|', $identity);
+		}
 		$identity = str_replace('%n', '%count%', $identity);
 
 		$parameters = [];
@@ -105,5 +101,19 @@ class L10NString implements \JsonSerializable {
 	 */
 	public function jsonSerialize() {
 		return $this->__toString();
+	}
+
+	/**
+	 * @param string|array $identity
+	 * @return bool
+	 */
+	private function pipeCheck($identity) {
+		$pipeCheck = is_array($identity) ? implode('', $identity) : $identity;
+		if (preg_match('/^\|++$/', $pipeCheck)) {
+			$parts = explode('|', $pipeCheck);
+		} elseif (preg_match_all('/(?:\|\||[^\|])++/', $pipeCheck, $matches)) {
+			$parts = $matches[0];
+		}
+		return count($matches) <= 1;
 	}
 }
