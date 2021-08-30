@@ -77,7 +77,9 @@ class L10NString implements \JsonSerializable {
 		if (!$this->pipeCheck($identity)) {
 			return 'Can not use unescaped pipe character in translations, prepend another pipe character to escape a single pipe character';
 		}
-
+		if (is_array($identity)) {
+			$identity = implode('|', $identity);
+		}
 		$identity = str_replace('%n', '%count%', $identity);
 
 		// $count as %count% as per \Symfony\Contracts\Translation\TranslatorInterface
