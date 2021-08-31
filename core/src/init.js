@@ -211,6 +211,8 @@ export const initCore = () => {
 			// close is implicit in the button by snap.js
 			if (snapper.state().state !== 'left') {
 				snapper.open()
+			} else if ($(window).width() > breakpointMobileWidth) {
+				snapper.close()
 			}
 		})
 		$('#app-navigation-toggle').keypress(e => {
