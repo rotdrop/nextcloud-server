@@ -470,21 +470,21 @@ class Generator {
 			/*
 			 * Scale to the nearest power of four
 			 */
-			$pow4height = 4 ** ceil(log($height) / log(4));
-			$pow4width = 4 ** ceil(log($width) / log(4));
+			$pow2height = 2 ** ceil(log($height) / log(2));
+			$pow2width = 2 ** ceil(log($width) / log(2));
 
 			// Minimum size is 64
-			$pow4height = max($pow4height, 64);
-			$pow4width = max($pow4width, 64);
+			$pow2height = max($pow2height, 64);
+			$pow2width = max($pow2width, 64);
 
-			$ratioH = $height / $pow4height;
-			$ratioW = $width / $pow4width;
+			$ratioH = $height / $pow2height;
+			$ratioW = $width / $pow2width;
 
 			if ($ratioH < $ratioW) {
-				$width = $pow4width;
+				$width = $pow2width;
 				$height /= $ratioW;
 			} else {
-				$height = $pow4height;
+				$height = $pow2height;
 				$width /= $ratioH;
 			}
 		}
