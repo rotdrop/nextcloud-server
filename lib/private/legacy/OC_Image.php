@@ -790,7 +790,7 @@ class OC_Image implements \OCP\IImage {
 			imagesavealpha($this->resource, true);
 		}
 
-		if (!$this->resource) {
+		if (!$this->valid()) {
 			$this->logger->debug('OC_Image->loadFromFile, could not load', ['app' => 'core']);
 			return false;
 		}
