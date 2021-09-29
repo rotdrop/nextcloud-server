@@ -327,6 +327,7 @@ class UsersController extends AUserData {
 	 * @param array $subadmin
 	 * @param string $quota
 	 * @param string $language
+	 * @param string $backend
 	 * @return DataResponse
 	 * @throws OCSException
 	 */
@@ -338,7 +339,8 @@ class UsersController extends AUserData {
 		array $groups = [],
 		array $subadmin = [],
 		string $quota = '',
-		string $language = ''
+		string $language = '',
+		string $backend = ''
 	): DataResponse {
 		$user = $this->userSession->getUser();
 		$isAdmin = $this->groupManager->isAdmin($user->getUID());
@@ -348,9 +350,30 @@ class UsersController extends AUserData {
 			$userid = $this->createNewUserId();
 		}
 
-		if ($this->userManager->userExists($userid)) {
-			$this->logger->error('Failed addUser attempt: User already exists.', ['app' => 'ocs_api']);
-			throw new OCSException($this->l10nFactory->get('provisioning_api')->t('User already exists'), 102);
+		if (!empty($backend)) {
+			// search for the backend ...
+			$userInterface = null;
+			foreach ($this->userManager->getBackends() as $oneBackend) {
+				if ($oneBackend->getBackendName() == $backend) {
+					$userInterface = $oneBackend;
+					break;
+				}
+			}
+			if (empty($userInterface)) {
+				$errorString = $this->l10nFactory->get('provisioning_api')->t($errorTemplate = 'Requested user-backend "%s" does not exist', $backend);
+				$this->logger->error('Failed addUser attempt: ' . sprintf($errorTemplate, $backend) . '.', ['app' => 'ocs_api']);
+				throw new OCSException($errorString, 102);
+			}
+			if ($userInterface->userExists($userid)) {
+				$errorString = 'User already exists in backend "' . $backend . '"';
+				$this->logger->error('Failed addUser attempt: ' . $errorString . '.', ['app' => 'ocs_api']);
+				throw new OCSException($this->l10nFactory->get('provisioning_api')->t('User already exists'), 102);
+			}
+		} else {
+			if ($this->userManager->userExists($userid)) {
+				$this->logger->error('Failed addUser attempt: User already exists.', ['app' => 'ocs_api']);
+				throw new OCSException($this->l10nFactory->get('provisioning_api')->t('User already exists'), 102);
+			}
 		}
 
 		if ($groups !== []) {
@@ -417,7 +440,11 @@ class UsersController extends AUserData {
 		}
 
 		try {
-			$newUser = $this->userManager->createUser($userid, $password);
+			if (empty($userInterface)) {
+				$newUser = $this->userManager->createUser($userid, $password);
+			} else {
+				$newUser = $this->userManager->createUserFromBackend($userid, $password, $userInterface);
+			}
 			$this->logger->info('Successful addUser call with userid: ' . $userid, ['app' => 'ocs_api']);
 
 			foreach ($groups as $group) {
