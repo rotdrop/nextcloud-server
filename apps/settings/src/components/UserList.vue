@@ -76,14 +76,6 @@
 					name="email"
 					type="email">
 				<div class="groups modal__item">
-					<!-- hidden input trick for vanilla html5 form validation -->
-					<input v-if="!settings.isAdmin"
-						id="newgroups"
-						:class="{'icon-loading-small': loading.groups}"
-						:required="!settings.isAdmin"
-						:value="newUser.groups"
-						tabindex="-1"
-						type="text">
 					<Multiselect v-model="newUser.groups"
 						:close-on-select="false"
 						:disabled="loading.groups||loading.all"
