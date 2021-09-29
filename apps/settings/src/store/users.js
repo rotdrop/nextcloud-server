@@ -546,9 +546,9 @@ const actions = {
 	 * @param {string} options.language User language
 	 * @return {Promise}
 	 */
-	addUser({ commit, dispatch }, { userid, password, displayName, email, groups, subadmin, quota, language }) {
+	addUser({ commit, dispatch }, { userid, password, displayName, email, groups, subadmin, quota, language, backend }) {
 		return api.requireAdmin().then((response) => {
-			return api.post(generateOcsUrl('cloud/users'), { userid, password, displayName, email, groups, subadmin, quota, language })
+			return api.post(generateOcsUrl('cloud/users'), { userid, password, displayName, email, groups, subadmin, quota, language, backend })
 				.then((response) => dispatch('addUserData', userid || response.data.ocs.data.id))
 				.catch((error) => { throw error })
 		}).catch((error) => {
