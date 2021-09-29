@@ -257,6 +257,12 @@ class UsersController extends Controller {
 		/* LANGUAGES */
 		$languages = $this->l10nFactory->getLanguages();
 
+        /* USER BACKENDS */
+        $userBackends = [];
+        foreach ($this->userManager->getBackends() as $backend) {
+			$userBackends[] = $backend->getBackendName();
+        }
+
 		/* FINAL DATA */
 		$serverData = [];
 		// groups
@@ -276,6 +282,7 @@ class UsersController extends Controller {
 		$serverData['newUserGenerateUserID'] = $this->config->getAppValue('core', 'newUser.generateUserID', 'no') === 'yes';
 		$serverData['newUserRequireEmail'] = $this->config->getAppValue('core', 'newUser.requireEmail', 'no') === 'yes';
 		$serverData['newUserSendEmail'] = $this->config->getAppValue('core', 'newUser.sendEmail', 'yes') === 'yes';
+		$serverData['userBackends'] = $userBackends;
 
 		return new TemplateResponse('settings', 'settings-vue', ['serverData' => $serverData, 'pageTitle' => $this->l10n->t('Users')]);
 	}
