@@ -235,11 +235,37 @@
 			</span>
 		</td>
 
-		<td v-if="showConfig.showUserBackend || showConfig.showStoragePath"
+		<td v-if="showConfig.showUserBackend"
+			class="row__cell row__cell--large"
+			data-cy-user-list-cell-user-backend>
+			<template v-if="editing">
+				<label class="hidden-visually"
+					:for="'user-backend' + uniqueId">
+					{{ t('settings', 'Set the user backend') }}
+				</label>
+				<NcSelect :id="'user-backend' + uniqueId"
+					data-cy-user-list-input-user-backend
+					:data-loading="loading.userBackends || undefined"
+					:allow-empty="false"
+					:disabled="isLoadingField"
+					:loading="loading.userBackends"
+					:clearable="false"
+					:append-to-body="false"
+					:options="userBackends"
+					:placeholder="t('settings', 'Select user backend')"
+					:value="userBackend"
+					label="name"
+					@input="setUserBackend" />
+			</template>
+			<span v-else-if="!isObfuscated">
+				{{ userBackend }}
+			</span>
+		</td>
+
+		<td v-if="showConfig.showStoragePath"
 			data-cy-user-list-cell-storage-location
 			class="row__cell row__cell--large">
 			<template v-if="!isObfuscated">
-				<span v-if="showConfig.showUserBackend">{{ user.backend }}</span>
 				<span v-if="showConfig.showStoragePath"
 					:title="user.storageLocation"
 					class="row__subtitle">
@@ -358,6 +384,10 @@ export default {
 			type: Array,
 			required: true,
 		},
+        userBackends: {
+            type: Array,
+            required: true,
+        },
 		settings: {
 			type: Object,
 			required: true,
@@ -387,6 +417,7 @@ export default {
 				delete: false,
 				disable: false,
 				languages: false,
+				userBackends: false,
 				wipe: false,
 				manager: false,
 			},
@@ -891,6 +922,29 @@ export default {
 			}
 			return lang
 		},
+
+        /**
+         * Dispatch user-backend set request
+         *
+         * @param {string} userBackend The user-backend for this user.
+         * @returns {string}
+         */
+        async setUserBackend(userBackend) {
+            this.loading.userBackends = true
+            // ensure we only send the preset id
+            try {
+                await this.$store.dispatch('setUserData', {
+                    userid: this.user.id,
+                    key: 'backend',
+                    value: userBackend,
+                })
+            } catch (error) {
+                console.error(error)
+            } finally {
+                this.loading.userBackends = false
+            }
+            return userBackend
+        },
 
 		/**
 		 * Dispatch new welcome mail request

@@ -147,6 +147,19 @@
 					:options="languages"
 					label="name" />
 			</div>
+			<div v-if="showConfig.showUserBackend"
+				class="modal__item">
+				<label class="modal__label"
+					for="new-user-backend">
+					{{ t('settings', 'Backend') }}
+				</label>
+				<NcSelect	v-model="newUser.backend"
+					class="modal__select"
+					input-id="new-user-backend"
+					:placeholder="t('settings', 'Set user backend')"
+					:clearable="false"
+					:options="userBackends" />
+			</div>
 			<div :class="['modal__item managers', { 'icon-loading-small': loading.manager }]">
 				<label class="modal__label"
 					for="new-user-manager">
@@ -272,6 +285,10 @@ export default {
 				...this.settings.languages.otherLanguages,
 			]
 		},
+
+		userBackends() {
+			return this.settings.userBackends
+		},
 	},
 
 	async beforeMount() {
@@ -291,6 +308,7 @@ export default {
 					subadmin: this.newUser.subAdminsGroups.map(group => group.id),
 					quota: this.newUser.quota.id,
 					language: this.newUser.language.code,
+					backend: this.newUser.backend,
 					manager: this.newUser.manager.id,
 				})
 

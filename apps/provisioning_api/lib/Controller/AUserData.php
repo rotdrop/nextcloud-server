@@ -67,6 +67,7 @@ abstract class AUserData extends OCSController {
 	public const USER_FIELD_QUOTA = 'quota';
 	public const USER_FIELD_MANAGER = 'manager';
 	public const USER_FIELD_NOTIFICATION_EMAIL = 'notify_email';
+	public const USER_FIELD_BACKEND = 'backend';
 
 	/** @var IUserManager */
 	protected $userManager;
