@@ -143,6 +143,13 @@
 						label="name"
 						track-by="code" />
 				</div>
+				<div v-if="showConfig.showUserBackend" class="userBackend modal__item">
+					<Multiselect v-model="newUser.backend"
+						:allow-empty="true"
+						:options="userBackends"
+						:placeholder="t('settings', 'User backend')"
+						class="multiselect-vue" />
+				</div>
 				<div v-if="showConfig.showStoragePath" class="storageLocation" />
 				<div v-if="showConfig.showUserBackend" class="userBackend" />
 				<div v-if="showConfig.showLastLogin" class="lastLogin" />
@@ -286,6 +293,7 @@ const newUser = {
 		code: 'en',
 		name: t('settings', 'Default language'),
 	},
+	backend: '',
 }
 
 export default {
@@ -408,6 +416,9 @@ export default {
 		isDarkTheme() {
 			return window.getComputedStyle(this.$el)
 				.getPropertyValue('--background-invert-if-dark') === 'invert(100%)'
+		},
+		userBackends() {
+			return this.settings.userBackends
 		},
 	},
 	watch: {
@@ -558,6 +569,7 @@ export default {
 				quota: this.newUser.quota.id,
 				language: this.newUser.language.code,
 				manager: this.newUser.manager.id,
+				backend: this.newUser.backend,
 			})
 				.then(() => {
 					this.resetForm()

@@ -109,7 +109,9 @@ class Manager extends PublicEmitter implements IUserManager {
 		$cachedUsers = &$this->cachedUsers;
 		$this->listen('\OC\User', 'postDelete', function ($user) use (&$cachedUsers) {
 			/** @var \OC\User\User $user */
-			unset($cachedUsers[$user->getUID()]);
+			$uid = $cachedUsers[$user->getUID()];
+			unset($cachedUsers[$uid]);
+			$this->cache->remove(sha1($uid));
 		});
 		$this->eventDispatcher = $eventDispatcher;
 		$this->displayNameCache = new DisplayNameCache($cacheFactory, $this);
@@ -129,7 +131,39 @@ class Manager extends PublicEmitter implements IUserManager {
 	 * @param \OCP\UserInterface $backend
 	 */
 	public function registerBackend($backend) {
+		$this->cachedUsers = [];
+		$this->cache->clear();
+
 		$this->backends[] = $backend;
+
+		// order the backends in the way they are used in self::createUser()
+		//
+		// First come extra-backends with createUser() facility, then
+		// the local data-base backend, then all other backends,
+		// each class sorted by their name.
+		//
+		$localBackends = [];
+		$createUserBackends = [];
+		$otherBackends = [];
+		foreach ($this->backends as $backend) {
+			if ($backend instanceof IUserBackend) {
+				$name = $backend->getBackendName();
+			} else {
+				$name = get_class($backend);
+			}
+			if ($backend instanceof Database) {
+				$localBackends[$name] = $backend;
+			} else if ($backend->implementsActions(Backend::CREATE_USER)) {
+				$createUserBackends[$name] = $backend;
+			} else {
+				$otherBackends[$name] = $backend;
+			}
+		}
+		ksort($localBackends);
+		ksort($createUserBackends);
+		ksort($otherBackends);
+
+		$this->backends = array_merge($createUserBackends, $localBackends, $otherBackends);
 	}
 
 	/**
@@ -139,6 +173,7 @@ class Manager extends PublicEmitter implements IUserManager {
 	 */
 	public function removeBackend($backend) {
 		$this->cachedUsers = [];
+		$this->cache->clear();
 		if (($i = array_search($backend, $this->backends)) !== false) {
 			unset($this->backends[$i]);
 		}
@@ -150,6 +185,7 @@ class Manager extends PublicEmitter implements IUserManager {
 	public function clearBackends() {
 		$this->cachedUsers = [];
 		$this->backends = [];
+		$this->cache->clear();
 	}
 
 	/**
@@ -207,8 +243,9 @@ class Manager extends PublicEmitter implements IUserManager {
 			$uid = $backend->getRealUID($uid);
 		}
 
-		if (isset($this->cachedUsers[$uid])) {
-			return $this->cachedUsers[$uid];
+		$user = $this->cachedUsers[$uid]??null;
+		if (!empty($user) && $user->getBackend() === $backend) {
+			return $user;
 		}
 
 		$user = new User($uid, $backend, $this->dispatcher, $this, $this->config);
@@ -391,20 +428,17 @@ class Manager extends PublicEmitter implements IUserManager {
 		$assertion = \OC::$server->get(IAssertion::class);
 		$assertion->createUserIsLegit();
 
-		$localBackends = [];
-		foreach ($this->backends as $backend) {
-			if ($backend instanceof Database) {
-				// First check if there is another user backend
-				$localBackends[] = $backend;
-				continue;
-			}
-
-			if ($backend->implementsActions(Backend::CREATE_USER)) {
-				return $this->createUserFromBackend($uid, $password, $backend);
-			}
+		if (!$this->verifyUid($uid)) {
+			throw new \InvalidArgumentException($l->t('Username is invalid because files already exist for this user'));
 		}
 
-		foreach ($localBackends as $backend) {
+		// Check if user already exists
+		if ($this->userExists($uid)) {
+			throw new \InvalidArgumentException($l->t('The username is already being used'));
+		}
+
+		// registerBackend() has sorted the backends in a predictable manner:
+		foreach ($this->backends as $backend) {
 			if ($backend->implementsActions(Backend::CREATE_USER)) {
 				return $this->createUserFromBackend($uid, $password, $backend);
 			}
@@ -423,16 +457,16 @@ class Manager extends PublicEmitter implements IUserManager {
 	public function createUserFromBackend($uid, $password, UserInterface $backend) {
 		$l = \OC::$server->getL10N('lib');
 
-		$this->validateUserId($uid, true);
+		$this->validateUserId($uid, false);
+
+		// Check if user already exists in this backend
+		if ($backend->userExists($uid)) {
+			throw new \InvalidArgumentException($l->t('The username is already being used'));
+		}
 
 		// No empty password
 		if (trim($password) === '') {
 			throw new \InvalidArgumentException($l->t('A valid password must be provided'));
-		}
-
-		// Check if user already exists
-		if ($this->userExists($uid)) {
-			throw new \InvalidArgumentException($l->t('The username is already being used'));
 		}
 
 		/** @deprecated 21.0.0 use BeforeUserCreatedEvent event with the IEventDispatcher instead */

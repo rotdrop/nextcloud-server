@@ -1362,6 +1362,7 @@ doesnotexist:-o-prefocus, .strengthify-wrapper {
 			.languages,
 			.storageLocation,
 			.userBackend,
+			.userBackendChoice,
 			.lastLogin {
 				min-width: $grid-col-min-width;
 
@@ -1378,6 +1379,7 @@ doesnotexist:-o-prefocus, .strengthify-wrapper {
 				&.displayName,
 				&.mailAddress,
 				&.userBackend,
+				&.userBackendChoice,
 				&.languages {
 					overflow: hidden;
 				}

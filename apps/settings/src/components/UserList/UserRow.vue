@@ -47,6 +47,7 @@
 		:feedback-message="feedbackMessage"
 		:groups="groups"
 		:languages="languages"
+		:user-backends="userBackends"
 		:loading="loading"
 		:opened-menu.sync="openedMenu"
 		:settings="settings"
@@ -232,10 +233,20 @@
 				<span slot="noResult">{{ t('settings', 'No results') }}</span>
 			</NcMultiselect>
 		</div>
+		<div v-if="showConfig.showUserBackend && settings.isAdmin"
+			:class="{'icon-loading-small': loading.userBackend}"
+			class="userBackendChoice">
+			<NCMultiselect :allow-empty="false"
+				:disabled="loading.userBackend||loading.all"
+				:options="userBackends"
+				:placeholder="t('settings', 'Select user backend')"
+				:value="userBackend"
+				class="multiselect-vue"
+				@input="setUserBackend" />
+		</div>
 
 		<!-- don't show this on edit mode -->
-		<div v-if="showConfig.showStoragePath || showConfig.showUserBackend"
-			class="storageLocation" />
+		<div v-if="showConfig.showStoragePath" class="storageLocation" />
 		<div v-if="showConfig.showLastLogin" />
 
 		<div class="userActions">
@@ -324,6 +335,10 @@ export default {
 			type: Array,
 			required: true,
 		},
+		userBackends: {
+			type: Array,
+			required: true,
+		},
 		externalActions: {
 			type: Array,
 			default: () => [],
@@ -353,6 +368,7 @@ export default {
 				delete: false,
 				disable: false,
 				languages: false,
+				userBackend: false,
 				wipe: false,
 				manager: false,
 			},
@@ -736,6 +752,29 @@ export default {
 				this.loading.languages = false
 			}
 			return lang
+		},
+
+		/**
+		 * Dispatch user-backend set request
+		 *
+		 * @param {string} userBackend The user-backend for this user.
+		 * @returns {string}
+		 */
+		async setUserBackend(userBackend) {
+			this.loading.userBackend = true
+			// ensure we only send the preset id
+			try {
+				await this.$store.dispatch('setUserData', {
+					userid: this.user.id,
+					key: 'backend',
+					value: userBackend,
+				})
+			} catch (error) {
+				console.error(error)
+			} finally {
+				this.loading.userBackend = false
+			}
+			return userBackend
 		},
 
 		/**
