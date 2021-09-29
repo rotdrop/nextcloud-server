@@ -565,8 +565,10 @@ class Access extends LDAPUtility {
 				// setups, and most importantly: this is not intended.
 				return false;
 			}
+			$intNameForce = (bool)$this->connection->ldapExpertUsernameForce;
 		} else {
 			$intName = $this->sanitizeGroupIDCandidate($ldapName);
+			$intNameForce = false;
 		}
 
 		//a new user/group! Add it only if it doesn't conflict with other backend's users or existing groups
@@ -576,7 +578,8 @@ class Access extends LDAPUtility {
 		$originalTTL = $this->connection->ldapCacheTTL;
 		$this->connection->setConfiguration(['ldapCacheTTL' => 0]);
 		if ($intName !== ''
-			&& (($isUser && !$this->ncUserManager->userExists($intName))
+			&& ($intNameForce
+				|| ($isUser && !$this->ncUserManager->userExists($intName))
 				|| (!$isUser && !\OC::$server->getGroupManager()->groupExists($intName))
 			)
 		) {
