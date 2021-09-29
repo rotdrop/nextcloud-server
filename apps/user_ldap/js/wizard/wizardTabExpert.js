@@ -27,6 +27,10 @@ OCA = OCA || {};
 					$element: $('#ldap_expert_username_attr'),
 					setMethod: 'setUsernameAttribute'
 				},
+				ldap_expert_username_force: {
+					$element: $('#ldap_expert_username_force'),
+					setMethod: 'setUsernameForce'
+				},
 				ldap_expert_uuid_user_attr: {
 					$element: $('#ldap_expert_uuid_user_attr'),
 					setMethod: 'setUserUUIDAttribute'
@@ -70,6 +74,15 @@ OCA = OCA || {};
 		 */
 		setUsernameAttribute: function(attribute) {
 			this.setElementValue(this.managedItems.ldap_expert_username_attr.$element, attribute);
+		},
+
+		/**
+		 * sets the force flag for sticking to the LDAP ID (username) in case of conflicts.
+		 *
+		 * @param {string} attribute
+		 */
+		setUsernameForce: function(force) {
+			this.setElementValue(this.managedItems.ldap_expert_username_force.$element, force);
 		},
 
 		/**
