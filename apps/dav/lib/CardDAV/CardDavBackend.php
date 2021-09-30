@@ -655,16 +655,16 @@ class CardDavBackend implements BackendInterface, SyncSupport {
 		$uid = $this->getUID($cardData);
 
 		$q = $this->db->getQueryBuilder();
-		$q->select('uid')
+		$q->select('uri')
 			->from($this->dbCardsTable)
 			->where($q->expr()->eq('addressbookid', $q->createNamedParameter($addressBookId)))
-			->andWhere($q->expr()->eq('uid', $q->createNamedParameter($uid)))
+			->andWhere($q->expr()->eq('uri', $q->createNamedParameter($cardUri)))
 			->setMaxResults(1);
 		$result = $q->execute();
 		$count = (bool)$result->fetchOne();
 		$result->closeCursor();
 		if ($count) {
-			throw new \Sabre\DAV\Exception\BadRequest('VCard object with uid already exists in this addressbook collection.');
+			throw new \Sabre\DAV\Exception\BadRequest('VCard object with uri "' . $cardUri . '" already exists in this addressbook collection.');
 		}
 
 		$query = $this->db->getQueryBuilder();
