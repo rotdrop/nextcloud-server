@@ -397,6 +397,15 @@ class Manager extends PublicEmitter implements IUserManager {
 		$assertion = \OC::$server->get(IAssertion::class);
 		$assertion->createUserIsLegit();
 
+		if (!$this->verifyUid($uid)) {
+			throw new \InvalidArgumentException($l->t('Username is invalid because files already exist for this user'));
+		}
+
+		// Check if user already exists
+		if ($this->userExists($uid)) {
+			throw new \InvalidArgumentException($l->t('The username is already being used'));
+		}
+
 		$localBackends = [];
 		foreach ($this->backends as $backend) {
 			if ($backend instanceof Database) {
@@ -429,16 +438,16 @@ class Manager extends PublicEmitter implements IUserManager {
 	public function createUserFromBackend($uid, $password, UserInterface $backend) {
 		$l = \OC::$server->getL10N('lib');
 
-		$this->validateUserId($uid, true);
+		$this->validateUserId($uid, false);
+
+		// Check if user already exists in this backend
+		if ($backend->userExists($uid)) {
+			throw new \InvalidArgumentException($l->t('The username is already being used'));
+		}
 
 		// No empty password
 		if (trim($password) === '') {
 			throw new \InvalidArgumentException($l->t('A valid password must be provided'));
-		}
-
-		// Check if user already exists
-		if ($this->userExists($uid)) {
-			throw new \InvalidArgumentException($l->t('The username is already being used'));
 		}
 
 		/** @deprecated 21.0.0 use BeforeUserCreatedEvent event with the IEventDispatcher instead */
