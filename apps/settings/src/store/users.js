@@ -524,7 +524,7 @@ const actions = {
 	 */
 	setUserData(context, { userid, key, value }) {
 		const allowedEmpty = ['email', 'displayname']
-		if (['email', 'language', 'quota', 'displayname', 'password'].indexOf(key) !== -1) {
+		if (['email', 'language', 'quota', 'displayname', 'password', 'backend'].indexOf(key) !== -1) {
 			// We allow empty email or displayname
 			if (typeof value === 'string'
 				&& (

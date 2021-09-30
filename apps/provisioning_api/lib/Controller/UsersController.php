@@ -365,7 +365,7 @@ class UsersController extends AUserData {
 				throw new OCSException($errorString, 102);
 			}
 			if ($userInterface->userExists($userid)) {
-				$errorString = 'User already exists in backend "' . $backend . '"';
+				$errorString = 'User already "' . $userid . '" exists in backend "' . $backend . '"';
 				$this->logger->error('Failed addUser attempt: ' . $errorString . '.', ['app' => 'ocs_api']);
 				throw new OCSException($errorString, 102);
 			}
@@ -850,6 +850,7 @@ class UsersController extends AUserData {
 				$permittedFields[] = IAccountManager::PROPERTY_BIOGRAPHY;
 				$permittedFields[] = IAccountManager::PROPERTY_PROFILE_ENABLED;
 				$permittedFields[] = self::USER_FIELD_QUOTA;
+				$permittedFields[] = self::USER_FIELD_BACKEND;
 				$permittedFields[] = self::USER_FIELD_NOTIFICATION_EMAIL;
 			} else {
 				// No rights
@@ -918,6 +919,19 @@ class UsersController extends AUserData {
 					throw new OCSException('Invalid locale', 102);
 				}
 				$this->config->setUserValue($targetUser->getUID(), 'core', 'locale', $value);
+				break;
+			case self::USER_FIELD_BACKEND:
+				$newBackend = $value;
+				$oldBackend = $targetUser->getBackend()->getBackendName();
+				if ($oldBacked != $newBackend) {
+					$email = $targetUser->getEMailAddress()??'';
+					if ($email === '') {
+						throw new OCSException('Changing the user backend requires an email address to send a password link to.', 108);
+					}
+					$language = $this->config->getUserValue($targetUser->getUID(), 'core', 'lang');
+					/** @var IUser $targetUser */
+					$this->addUser($targetUser->getUID(), '', $targetUser->getDisplayName(), $email, [], [], $targetUser->getQuota(), $language, $newBackend);
+				}
 				break;
 			case self::USER_FIELD_NOTIFICATION_EMAIL:
 				$success = false;
