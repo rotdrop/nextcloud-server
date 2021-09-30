@@ -196,8 +196,9 @@ class Manager extends PublicEmitter implements IUserManager {
 			$uid = $backend->getRealUID($uid);
 		}
 
-		if (isset($this->cachedUsers[$uid])) {
-			return $this->cachedUsers[$uid];
+		$user = $this->cachedUsers[$uid]??null;
+		if (!empty($user) && $user->getBackend() == $backend) {
+			return $user;
 		}
 
 		$user = new User($uid, $backend, $this->dispatcher, $this, $this->config);
