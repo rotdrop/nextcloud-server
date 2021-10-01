@@ -69,6 +69,8 @@ use OCP\IRequest;
 use OCP\IURLGenerator;
 use OCP\IUser;
 use OCP\IUserManager;
+use OCP\IUserBackend;
+use OCP\UserInterface;
 use OCP\IUserSession;
 use OCP\L10N\IFactory;
 use OCP\Security\Events\GenerateSecurePasswordEvent;
@@ -457,7 +459,7 @@ class UsersController extends AUserData {
 
 			if ($displayName !== '') {
 				try {
-					$this->editUser($userid, self::USER_FIELD_DISPLAYNAME, $displayName);
+					$this->editUserInternal($userid, self::USER_FIELD_DISPLAYNAME, $displayName);
 				} catch (OCSException $e) {
 					if ($newUser instanceof IUser) {
 						$newUser->delete();
@@ -467,11 +469,11 @@ class UsersController extends AUserData {
 			}
 
 			if ($quota !== '') {
-				$this->editUser($userid, self::USER_FIELD_QUOTA, $quota);
+				$this->editUserInternal($newUser, self::USER_FIELD_QUOTA, $quota);
 			}
 
 			if ($language !== '') {
-				$this->editUser($userid, self::USER_FIELD_LANGUAGE, $language);
+				$this->editUserInternal($newUser, self::USER_FIELD_LANGUAGE, $language);
 			}
 
 			// Send new user mail only if a mail is set
@@ -763,12 +765,19 @@ class UsersController extends AUserData {
 	 * @throws OCSException
 	 */
 	public function editUser(string $userId, string $key, string $value): DataResponse {
-		$currentLoggedInUser = $this->userSession->getUser();
-
 		$targetUser = $this->userManager->get($userId);
 		if ($targetUser === null) {
 			throw new OCSException('', OCSController::RESPOND_NOT_FOUND);
 		}
+
+		$this->editUserInternal($targetUser, $key, $value);
+
+		return new DataResponse();
+	}
+
+	private function editUserInternal(IUser $targetUser, string $key, string $value)
+	{
+		$currentLoggedInUser = $this->userSession->getUser();
 
 		$permittedFields = [];
 		if ($targetUser->getUID() === $currentLoggedInUser->getUID()) {
@@ -939,15 +948,60 @@ class UsersController extends AUserData {
 				break;
 			case self::USER_FIELD_BACKEND:
 				$newBackend = $value;
-				$oldBackend = $targetUser->getBackend()->getBackendName();
-				if ($oldBacked != $newBackend) {
+				$oldBackend = $targetUser->getBackend();
+
+				if ($oldBackend->getBackendName() != $newBackend) {
+					/** @var IUser $targetUser */
 					$email = $targetUser->getEMailAddress()??'';
 					if ($email === '') {
 						throw new OCSException('Changing the user backend requires an email address to send a password link to.', 108);
 					}
 					$language = $this->config->getUserValue($targetUser->getUID(), 'core', 'lang');
-					/** @var IUser $targetUser */
-					$this->addUser($targetUser->getUID(), '', $targetUser->getDisplayName(), $email, [], [], $targetUser->getQuota(), $language, $newBackend);
+					$displayName = $targetUser->getDisplayName();
+					$quota = $targetUser->getQuota();
+
+					// set a couple of fields to zero in the original
+					// user in order to have the addUser() trigger the
+					// change events.
+					$targetUser->setEMailAddress(''); // reset to trigger change in addUser()
+					$targetUser->setDisplayName('');
+					$targetUser->setQuota('');
+
+					try {
+						$this->addUser($targetUser->getUID(), '', $displayName, $email, [], [], $quota, $language, $newBackend);
+
+						// If this has succeeded, perhaps the user should be deleted in the old backend, if possible
+						try {
+							/** @var UserInterface $oldBackend */
+							$oldBackend->deleteUser($targetUser->getUID());
+							$this->logger->info(
+								'Deleted user {UID} in old backend "' . $oldBackend->getBackendName() . '"',
+								[
+									'app' => 'provisioning_api',
+									'UID' => $targetUser->getUID(),
+								]);
+						} catch (\Throwable $t) {
+							$this->logger->info(
+								'Cannot delete user in old backend "' . $oldBackend->getBackendName() . '"',
+								[
+									'app' => 'provisioning_api',
+									'exception' => $t,
+								]
+							);
+						}
+					} catch (\Throwable $t) {
+						// try to restore the original properties
+						$targetUser->setEMailAddress($email);
+						$targetUser->setQuota($quota);
+						$targetUser->setDisplayName($displayName);
+						$this->logger->error('Failed addUser attempt with exeption.',
+											 [
+												 'app' => 'ocs_api',
+												 'exception' => $t,
+											 ]);
+						// whatever these hard-coded codes mean ...
+						throw new OCSException('Unable to create user "' . $targetUser->getUID() . '" in new backend', 101);
+					}
 				}
 				break;
 			case self::USER_FIELD_NOTIFICATION_EMAIL:
@@ -1061,7 +1115,6 @@ class UsersController extends AUserData {
 			default:
 				throw new OCSException('', 103);
 		}
-		return new DataResponse();
 	}
 
 	/**
