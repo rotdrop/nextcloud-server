@@ -946,7 +946,7 @@ class UsersController extends AUserData {
 					// set a couple of fields to zero in the original
 					// user in order to have the addUser() trigger the
 					// change events.
-					$targetUser->setEMailAddress(''); // reset to trigger change in addUser()
+					$targetUser->setEMailAddress('');
 					$targetUser->setDisplayName('');
 					$targetUser->setQuota('');
 
