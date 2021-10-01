@@ -424,6 +424,7 @@ class User_LDAP extends BackendUtility implements IUserBackend, UserInterface, I
 		$this->access->getUserMapper()->unmap($uid); // we don't emit unassign signals here, since it is implicit to delete signals fired from core
 		$this->access->userManager->invalidate($uid);
 		$this->access->connection->clearCache();
+
 		return true;
 	}
 
@@ -494,7 +495,6 @@ class User_LDAP extends BackendUtility implements IUserBackend, UserInterface, I
 		$displayName = $this->access->readAttribute(
 			$this->access->username2dn($uid),
 			$this->access->connection->ldapUserDisplayName);
-
 		if ($displayName && (count($displayName) > 0)) {
 			$displayName = $displayName[0];
 
@@ -648,6 +648,11 @@ class User_LDAP extends BackendUtility implements IUserBackend, UserInterface, I
 					// the NC user creation work flow requires a know user id up front
 					$uuid = $this->access->getUUID($dn, true);
 					if (is_string($uuid)) {
+						$user = $this->access->userManager->get($username);
+						if ($user instanceof OfflineUser) {
+							$user->unmark(); // undelete
+							$this->access->userManager->invalidate($username);
+						}
 						$this->access->mapAndAnnounceIfApplicable(
 							$this->access->getUserMapper(),
 							$dn,
