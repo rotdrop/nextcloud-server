@@ -71,6 +71,7 @@ use OCP\IUser;
 use OCP\IUserManager;
 use OCP\IUserBackend;
 use OCP\UserInterface;
+use OCP\IAvatarManager;
 use OCP\IUserSession;
 use OCP\L10N\IFactory;
 use OCP\Security\Events\GenerateSecurePasswordEvent;
@@ -96,6 +97,8 @@ class UsersController extends AUserData {
 	private $knownUserService;
 	/** @var IEventDispatcher */
 	private $eventDispatcher;
+	/** @var IAvatarManager */
+	private $avatarManager;
 
 	public function __construct(
 		string $appName,
@@ -112,6 +115,7 @@ class UsersController extends AUserData {
 		ISecureRandom $secureRandom,
 		RemoteWipe $remoteWipe,
 		KnownUserService $knownUserService,
+		IAvatarManager $avatarManager,
 		IEventDispatcher $eventDispatcher
 	) {
 		parent::__construct(
@@ -132,6 +136,7 @@ class UsersController extends AUserData {
 		$this->secureRandom = $secureRandom;
 		$this->remoteWipe = $remoteWipe;
 		$this->knownUserService = $knownUserService;
+		$this->avatarManager = $avatarManager;
 		$this->eventDispatcher = $eventDispatcher;
 	}
 
@@ -947,7 +952,8 @@ class UsersController extends AUserData {
 					if ($email === '') {
 						throw new OCSException('Changing the user backend requires an email address to send a password link to.', 108);
 					}
-					$language = $this->config->getUserValue($targetUser->getUID(), 'core', 'lang');
+					$userId = $targetUser->getUID();
+					$language = $this->config->getUserValue($userId, 'core', 'lang');
 					$displayName = $targetUser->getDisplayName();
 					$quota = $targetUser->getQuota();
 
@@ -958,8 +964,15 @@ class UsersController extends AUserData {
 					$targetUser->setDisplayName('');
 					$targetUser->setQuota('');
 
+					// try to transfer the avatar
+					/** @var \OCP\IAvatar $avatar */
+					$avatar = $this->avatarManager->getAvatar($userId);
+					if ($avatar->isCustomAvatar()) {
+						$avatarImage = $avatar->get(-1);
+					}
+
 					try {
-						$this->addUser($targetUser->getUID(), '', $displayName, $email, [], [], $quota, $language, $newBackend);
+						$this->addUser($userId, '', $displayName, $email, [], [], $quota, $language, $newBackend);
 
 						// If this has succeeded, perhaps the user should be deleted in the old backend, if possible
 						try {
@@ -980,6 +993,12 @@ class UsersController extends AUserData {
 								]
 							);
 						}
+
+						if (!empty($avatarImage)) {
+							$avatar = $this->avatarManager->getAvatar($userId);
+							$avatar->set($avatarImage);
+						}
+
 					} catch (\Throwable $t) {
 						// try to restore the original properties
 						$targetUser->setEMailAddress($email);
