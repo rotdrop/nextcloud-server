@@ -99,11 +99,13 @@ class Manager extends PublicEmitter implements IUserManager {
 								IEventDispatcher $eventDispatcher) {
 		$this->config = $config;
 		$this->dispatcher = $oldDispatcher;
-		$this->cache = $cacheFactory->createDistributed('user_backend_map');
+		$this->cache = $cache = $cacheFactory->createDistributed('user_backend_map');
 		$cachedUsers = &$this->cachedUsers;
-		$this->listen('\OC\User', 'postDelete', function ($user) use (&$cachedUsers) {
+		$this->listen('\OC\User', 'postDelete', function ($user) use (&$cachedUsers, $cache) {
 			/** @var \OC\User\User $user */
-			unset($cachedUsers[$user->getUID()]);
+			$uid = $cachedUsers[$user->getUID()];
+			unset($cachedUsers[$uid]);
+			$this->cache->remove(sha1($uid));
 		});
 		$this->eventDispatcher = $eventDispatcher;
 	}
@@ -122,7 +124,39 @@ class Manager extends PublicEmitter implements IUserManager {
 	 * @param \OCP\UserInterface $backend
 	 */
 	public function registerBackend($backend) {
+		$this->cachedUsers = [];
+		$this->cache->clear();
+
 		$this->backends[] = $backend;
+
+		// order the backends in the way they are used in self::createUser()
+		//
+		// First come extra-backends with createUser() facility, then
+		// the local data-base backend, then all other backends,
+		// each class sorted by their name.
+		//
+		$localBackends = [];
+		$createUserBackends = [];
+		$otherBackends = [];
+		foreach ($this->backends as $backend) {
+			if ($backend instanceof IUserBackend) {
+				$name = $backend->getBackendName();
+			} else {
+				$name = get_class($backend);
+			}
+			if ($backend instanceof Database) {
+				$localBackends[$name] = $backend;
+			} else if ($backend->implementsActions(Backend::CREATE_USER)) {
+				$createUserBackends[$name] = $backend;
+			} else {
+				$otherBackends[$name] = $backend;
+			}
+		}
+		ksort($localBackends);
+		ksort($createUserBackends);
+		ksort($otherBackends);
+
+		$this->backends = array_merge($createUserBackends, $localBackends, $otherBackends);
 	}
 
 	/**
@@ -132,6 +166,7 @@ class Manager extends PublicEmitter implements IUserManager {
 	 */
 	public function removeBackend($backend) {
 		$this->cachedUsers = [];
+		$this->cache->clear();
 		if (($i = array_search($backend, $this->backends)) !== false) {
 			unset($this->backends[$i]);
 		}
@@ -143,6 +178,7 @@ class Manager extends PublicEmitter implements IUserManager {
 	public function clearBackends() {
 		$this->cachedUsers = [];
 		$this->backends = [];
+		$this->cache->clear();
 	}
 
 	/**
@@ -197,7 +233,7 @@ class Manager extends PublicEmitter implements IUserManager {
 		}
 
 		$user = $this->cachedUsers[$uid]??null;
-		if (!empty($user) && $user->getBackend() == $backend) {
+		if (!empty($user) && $user->getBackend() === $backend) {
 			return $user;
 		}
 
@@ -399,20 +435,8 @@ class Manager extends PublicEmitter implements IUserManager {
 			throw new \InvalidArgumentException($l->t('The username is already being used'));
 		}
 
-		$localBackends = [];
+		// registerBackend() has sorted the backends in a predictable manner:
 		foreach ($this->backends as $backend) {
-			if ($backend instanceof Database) {
-				// First check if there is another user backend
-				$localBackends[] = $backend;
-				continue;
-			}
-
-			if ($backend->implementsActions(Backend::CREATE_USER)) {
-				return $this->createUserFromBackend($uid, $password, $backend);
-			}
-		}
-
-		foreach ($localBackends as $backend) {
 			if ($backend->implementsActions(Backend::CREATE_USER)) {
 				return $this->createUserFromBackend($uid, $password, $backend);
 			}
