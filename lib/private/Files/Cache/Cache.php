@@ -116,6 +116,16 @@ class Cache implements ICache {
 	}
 
 	/**
+	 * Get the file-id of the storage from the storage-cache
+	 *
+	 * @return int
+	 */
+	protected function getStorageFileId() {
+		$storageInfo = $this->storageCache->getStorageInfo();
+		return $storageInfo['fileid']??-1;
+	}
+
+	/**
 	 * get the stored metadata of a file or folder
 	 *
 	 * @param string|int $file either the path of a file or folder or the file id for a file or folder
@@ -526,6 +536,14 @@ class Cache implements ICache {
 	 */
 	#[\Override]
 	public function getId($file) {
+
+		if (empty($file)) {
+			$id = (int)$this->getStorageFileId();
+			if ($id > 0) {
+				return $id;
+			}
+		}
+
 		// normalize file
 		$file = $this->normalize($file);
 
