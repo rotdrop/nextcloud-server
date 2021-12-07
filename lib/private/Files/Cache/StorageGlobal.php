@@ -44,6 +44,9 @@ class StorageGlobal {
 	/** @var array[] */
 	private $cache = [];
 
+	/** @var string[] */
+	private $idByNumericIdCache = [];
+
 	public function __construct(IDBConnection $connection) {
 		$this->connection = $connection;
 	}
@@ -54,12 +57,38 @@ class StorageGlobal {
 	public function loadForStorageIds(array $storageIds) {
 		$builder = $this->connection->getQueryBuilder();
 		$query = $builder->select(['id', 'numeric_id', 'available', 'last_checked'])
-			->from('storages')
-			->where($builder->expr()->in('id', $builder->createNamedParameter(array_values($storageIds), IQueryBuilder::PARAM_STR_ARRAY)));
+			->from('storages');
+		if (count($storageIds) === 1) {
+			$query->where($builder->expr()->eq('id', $builder->createNamedParameter($storageIds[0])));
+		} else {
+			$query->where($builder->expr()->in('id', $builder->createNamedParameter(array_values($storageIds), IQueryBuilder::PARAM_STR_ARRAY)));
+		}
 
 		$result = $query->execute();
 		while ($row = $result->fetch()) {
 			$this->cache[$row['id']] = $row;
+			$this->idByNumericIdCache[$row['numeric_id']] = $row['id'];
+		}
+		$result->closeCursor();
+	}
+
+	/**
+	 * @param string[] $numericIds
+	 */
+	public function loadForNumericIds(array $numericIds) {
+		$builder = $this->connection->getQueryBuilder();
+		$query = $builder->select(['id', 'numeric_id', 'available', 'last_checked'])
+			->from('storages');
+		if (count($numericIds) === 1) {
+			$query->where($builder->expr()->eq('numeric_id', $builder->createNamedParameter($numericIds[0])));
+		} else {
+			$query->where($builder->expr()->in('numeric_id', $builder->createNamedParameter(array_values($numericIds), IQueryBuilder::PARAM_STR_ARRAY)));
+		}
+
+		$result = $query->execute();
+		while ($row = $result->fetch()) {
+			$this->cache[$row['id']] = $row;
+			$this->idByNumericIdCache[$row['numeric_id']] = $row['id'];
 		}
 		$result->closeCursor();
 	}
@@ -70,23 +99,27 @@ class StorageGlobal {
 	 */
 	public function getStorageInfo($storageId) {
 		if (!isset($this->cache[$storageId])) {
-			$builder = $this->connection->getQueryBuilder();
-			$query = $builder->select(['id', 'numeric_id', 'available', 'last_checked'])
-				->from('storages')
-				->where($builder->expr()->eq('id', $builder->createNamedParameter($storageId)));
-
-			$result = $query->execute();
-			$row = $result->fetch();
-			$result->closeCursor();
-
-			if ($row) {
-				$this->cache[$storageId] = $row;
-			}
+			$this->loadForStorageIds([$storageId]);
 		}
 		return isset($this->cache[$storageId]) ? $this->cache[$storageId] : null;
 	}
 
+	/**
+	 * Get the string id for the storage
+	 *
+	 * @param int $numericId
+	 * @return string|null either the storage id string or null if the numeric id is not known
+	 */
+	public function getStorageId($numericId)
+	{
+		if (!isset($this->idByNumericIdCache[$numericId])) {
+			$this->loadForNumericIds([$numericId]);
+		}
+		return $this->idByNumericIdCache[$numericId]??null;
+	}
+
 	public function clearCache() {
 		$this->cache = [];
+		$this->idByNumericIdCache = [];
 	}
 }

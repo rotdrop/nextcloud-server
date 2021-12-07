@@ -127,18 +127,7 @@ class Storage {
 	 * @return string|null either the storage id string or null if the numeric id is not known
 	 */
 	public static function getStorageId($numericId) {
-		$query = \OC::$server->getDatabaseConnection()->getQueryBuilder();
-		$query->select('id')
-			->from('storages')
-			->where($query->expr()->eq('numeric_id', $query->createNamedParameter($numericId)));
-		$result = $query->execute();
-		$row = $result->fetch();
-		$result->closeCursor();
-		if ($row) {
-			return $row['id'];
-		} else {
-			return null;
-		}
+		return self::getGlobalCache()->getStorageId($numericId);
 	}
 
 	/**
