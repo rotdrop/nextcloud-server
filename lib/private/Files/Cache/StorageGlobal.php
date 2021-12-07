@@ -51,6 +51,18 @@ class StorageGlobal {
 		$this->connection = $connection;
 	}
 
+	static private function selectStorageInfo($builder)
+	{
+		return $builder->select(['id', 'numeric_id', 'available', 'last_checked', 'fileid'])
+			->from('storages', 'storages')
+			->leftJoin(
+				'storages', 'filecache', 'fc',
+				$builder->expr()->andX(
+					$builder->expr()->eq('storages.numeric_id', 'fc.storage'),
+					$builder->expr()->eq('fc.path', $builder->createNamedParameter(''))
+				));
+	}
+
 	/**
 	 * @param string[] $storageIds
 	 */
@@ -59,8 +71,7 @@ class StorageGlobal {
 		$storageIds = array_map([Storage::class, 'adjustStorageId'], $storageIds);
 
 		$builder = $this->connection->getQueryBuilder();
-		$query = $builder->select(['id', 'numeric_id', 'available', 'last_checked'])
-			->from('storages');
+		$query = self::selectStorageInfo($builder);
 		if (count($storageIds) === 1) {
 			$query->where($builder->expr()->eq('id', $builder->createNamedParameter($storageIds[0])));
 		} else {
@@ -80,8 +91,7 @@ class StorageGlobal {
 	 */
 	public function loadForNumericIds(array $numericIds) {
 		$builder = $this->connection->getQueryBuilder();
-		$query = $builder->select(['id', 'numeric_id', 'available', 'last_checked'])
-			->from('storages');
+		$query = self::selectStorageInfo($builder);
 		if (count($numericIds) === 1) {
 			$query->where($builder->expr()->eq('numeric_id', $builder->createNamedParameter($numericIds[0])));
 		} else {
