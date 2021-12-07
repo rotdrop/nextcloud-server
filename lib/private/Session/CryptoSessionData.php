@@ -73,12 +73,15 @@ class CryptoSessionData implements \ArrayAccess, ISession {
 			$this->close();
 		} catch (SessionNotAvailableException $e) {
 			// This exception can occur if session is already closed
-            // So it is safe to ignore it and let the garbage collector to proceed
+			// So it is safe to ignore it and let the garbage collector to proceed
 
-            // Still this is fatal if the _THIS_ session wrapper has modified data:
-            if ($this->isModified) {
-                throw new SessionNotAvailableException('Session wrapper has modified data which cannot be saved.', $e->getCode(), $e);
-            }
+			// Still this is fatal if the _THIS_ session wrapper has modified data:
+			if ($this->isModified) {
+				$e = new SessionNotAvailableException('Error while trying to close modified session in destructor', $e->getCode(), $e);
+				$logger = \OC::$server->get(\OCP\ILogger::class);
+				$logger->logException($e);
+				// throw new SessionNotAvailableException('Session wrapper has modified data which cannot be saved.', $e->getCode(), $e);
+			}
 		}
 	}
 
@@ -102,9 +105,12 @@ class CryptoSessionData implements \ArrayAccess, ISession {
 	 * @param mixed $value
 	 */
 	public function set(string $key, $value) {
-        if ($this->session->isClosed()) {
-			throw new SessionNotAvailableException('Session has been closed - no further changes to the session are allowed');
-        }
+		if ($this->session->isClosed()) {
+			$e = new SessionNotAvailableException('Session is already closed while trying to set ' . $key . ' => ' . (string)$value);
+			$logger = \OC::$server->get(\OCP\ILogger::class);
+			$logger->logException($e);
+			// throw new SessionNotAvailableException('Session has been closed - no further changes to the session are allowed');
+		}
 		$this->sessionValues[$key] = $value;
 		$this->isModified = true;
 	}
@@ -191,12 +197,12 @@ class CryptoSessionData implements \ArrayAccess, ISession {
 		$this->session->close();
 	}
 
-    /**
-     * Return true if the session is not open
-     */
-    public function isClosed():bool {
-        return $this->session->isClosed();
-    }
+	/**
+	 * Return true if the session is not open
+	 */
+	public function isClosed():bool {
+		return $this->session->isClosed();
+	}
 
 	/**
 	 * @param mixed $offset
