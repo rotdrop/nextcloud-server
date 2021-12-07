@@ -55,6 +55,9 @@ class StorageGlobal {
 	 * @param string[] $storageIds
 	 */
 	public function loadForStorageIds(array $storageIds) {
+
+		$storageIds = array_map([Storage::class, 'adjustStorageId'], $storageIds);
+
 		$builder = $this->connection->getQueryBuilder();
 		$query = $builder->select(['id', 'numeric_id', 'available', 'last_checked'])
 			->from('storages');
