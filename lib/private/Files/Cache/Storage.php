@@ -99,6 +99,14 @@ class Storage {
 	}
 
 	/**
+	 * @return array
+	 */
+	public function getStorageInfo()
+	{
+		return self::getGlobalCache()->getStorageInfo($this->storageId);
+	}
+
+	/**
 	 * Adjusts the storage id to use md5 if too long
 	 * @param string $storageId storage id
 	 * @return string unchanged $storageId if its length is less than 64 characters,
