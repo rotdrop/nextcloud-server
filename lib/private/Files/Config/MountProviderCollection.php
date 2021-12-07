@@ -45,7 +45,7 @@ class MountProviderCollection implements IMountProviderCollection, Emitter {
 	private $homeProviders = [];
 
 	/**
-	 * @var \OCP\Files\Config\IMountProvider[]
+	 * @var array<int, \OCP\Files\Config\IMountProvider[]>
 	 */
 	private $providers = [];
 
@@ -84,7 +84,7 @@ class MountProviderCollection implements IMountProviderCollection, Emitter {
 		$loader = $this->loader;
 		$mounts = array_map(function (IMountProvider $provider) use ($user, $loader) {
 			return $provider->getMountsForUser($user, $loader);
-		}, $this->providers);
+		}, array_merge(...$this->providers));
 		$mounts = array_filter($mounts, function ($result) {
 			return is_array($result);
 		});
@@ -97,34 +97,22 @@ class MountProviderCollection implements IMountProviderCollection, Emitter {
 	public function addMountForUser(IUser $user, IMountManager $mountManager) {
 		// shared mount provider gets to go last since it needs to know existing files
 		// to check for name collisions
-		$firstMounts = [];
-		$firstProviders = array_filter($this->providers, function (IMountProvider $provider) {
-			return (get_class($provider) !== 'OCA\Files_Sharing\MountProvider');
-		});
-		$lastProviders = array_filter($this->providers, function (IMountProvider $provider) {
-			return (get_class($provider) === 'OCA\Files_Sharing\MountProvider');
-		});
-		foreach ($firstProviders as $provider) {
-			$mounts = $provider->getMountsForUser($user, $this->loader);
-			if (is_array($mounts)) {
-				$firstMounts = array_merge($firstMounts, $mounts);
-			}
-		}
-		$firstMounts = $this->filterMounts($user, $firstMounts);
-		array_walk($firstMounts, [$mountManager, 'addMount']);
 
-		$lateMounts = [];
-		foreach ($lastProviders as $provider) {
-			$mounts = $provider->getMountsForUser($user, $this->loader);
-			if (is_array($mounts)) {
-				$lateMounts = array_merge($lateMounts, $mounts);
+		$priorizedMounts = [];
+		foreach ($this->providers as $priority => $providers) {
+			$priorityMounts = [];
+			foreach ($providers as $provider) {
+				$mounts = $provider->getMountsForUser($user, $this->loader);
+				if (is_array($mounts)) {
+					$priorityMounts = array_merge($priorityMounts, $mounts);
+				}
 			}
+			$priorityMounts = $this->filterMounts($user, $priorityMounts);
+			array_walk($priorityMounts, [$mountManager, 'addMount']);
+			$priorizedMounts[$priority] = $priorityMounts;
 		}
 
-		$lateMounts = $this->filterMounts($user, $lateMounts);
-		array_walk($lateMounts, [$mountManager, 'addMount']);
-
-		return array_merge($lateMounts, $firstMounts);
+		return array_merge(...$priorizedMounts);
 	}
 
 	/**
@@ -150,9 +138,16 @@ class MountProviderCollection implements IMountProviderCollection, Emitter {
 	 * Add a provider for mount points
 	 *
 	 * @param \OCP\Files\Config\IMountProvider $provider
+	 *
+	 * @param int $priority
 	 */
-	public function registerProvider(IMountProvider $provider) {
-		$this->providers[] = $provider;
+	public function registerProvider(IMountProvider $provider, int $priority = self::DEFAULT_PRIORITY) {
+		if ($provider instanceof \OCA\Files_Sharing\MountProvider
+			&& $priority === self::DEFAULT_PRIORITY) {
+			$priority = self::SHARES_PRIORITY;
+		}
+		$this->providers[$priority][] = $provider;
+		ksort($this->providers);
 
 		$this->emit('\OC\Files\Config', 'registerMountProvider', [$provider]);
 	}
