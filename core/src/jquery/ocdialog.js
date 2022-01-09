@@ -263,7 +263,6 @@ $.widget('oc.ocdialog', {
 		this.enterCallback = null
 	},
 	close() {
-		console.info('CLOSE', this.options.closeCallback)
 		this.options.closeCallback && this.options.closeCallback()
 		this._destroyOverlay()
 		const self = this
