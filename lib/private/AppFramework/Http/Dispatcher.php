@@ -139,10 +139,21 @@ class Dispatcher {
 				}
 
 				if ($numExecuted > 100) {
-					$this->logger->warning('Controller {class}::{method} executed {count} queries.', [
+					$queries = $databaseStatsAfter['queries'];
+					$limit = 10;
+					$queryStrings = [];
+					foreach ($queries as $sql => $count) {
+						$queryStrings[] = $count . ': ' . '"' . $sql . '"';
+						if (--$limit <= 0) {
+							break;
+						}
+					}
+					$queryStrings = implode(' **** ', $queryStrings);
+					$this->logger->warning('Controller {class}::{method} executed {count} queries. {queries}' , [
 						'class' => get_class($controller),
 						'method' => $methodName,
 						'count' => $numExecuted,
+						'queries' => $queryStrings,
 					]);
 				}
 			}
