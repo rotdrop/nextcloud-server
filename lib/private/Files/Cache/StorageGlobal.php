@@ -68,14 +68,14 @@ class StorageGlobal {
 	 */
 	public function loadForStorageIds(array $storageIds) {
 
-		$storageIds = array_map([Storage::class, 'adjustStorageId'], $storageIds);
+		$storageIds = array_values(array_map([Storage::class, 'adjustStorageId'], $storageIds));
 
 		$builder = $this->connection->getQueryBuilder();
 		$query = self::selectStorageInfo($builder);
 		if (count($storageIds) === 1) {
 			$query->where($builder->expr()->eq('id', $builder->createNamedParameter($storageIds[0])));
 		} else {
-			$query->where($builder->expr()->in('id', $builder->createNamedParameter(array_values($storageIds), IQueryBuilder::PARAM_STR_ARRAY)));
+			$query->where($builder->expr()->in('id', $builder->createNamedParameter($storageIds, IQueryBuilder::PARAM_STR_ARRAY)));
 		}
 
 		$result = $query->execute();
