@@ -1,7 +1,7 @@
 <?php
 
 /**
- * SPDX-FileCopyrightText: 2016-2024 Nextcloud GmbH and Nextcloud contributors
+ * SPDX-FileCopyrightText: 2016-2025 Nextcloud GmbH and Nextcloud contributors
  * SPDX-FileCopyrightText: 2016 ownCloud, Inc.
  * SPDX-License-Identifier: AGPL-3.0-only
  */
@@ -23,6 +23,16 @@ class CachedMountInfo implements ICachedMountInfo {
 	protected string $key;
 
 	/**
+	 * @var bool
+	 */
+	protected $enableSharing;
+
+	/**
+	 * @var bool
+	 */
+	protected $authenticated;
+
+	/**
 	 * CachedMountInfo constructor.
 	 *
 	 * @param IUser $user
@@ -40,6 +50,8 @@ class CachedMountInfo implements ICachedMountInfo {
 		string $mountProvider,
 		?int $mountId = null,
 		string $rootInternalPath = '',
+		bool $enableSharing = true,
+		bool $authenticated = false
 	) {
 		$this->user = $user;
 		$this->storageId = $storageId;
@@ -52,6 +64,8 @@ class CachedMountInfo implements ICachedMountInfo {
 		}
 		$this->mountProvider = $mountProvider;
 		$this->key = $rootId . '::' . $mountPoint;
+		$this->enableSharing = $enableSharing;
+		$this->authenticated = $authenticated;
 	}
 
 	/**
@@ -117,5 +131,25 @@ class CachedMountInfo implements ICachedMountInfo {
 
 	public function getKey(): string {
 		return $this->key;
+	}
+
+	/**
+	 * Whether this mount point can be shared with others
+	 *
+	 * @return bool
+	 * @since 24.0.0
+	 */
+	public function getEnableSharing(): bool {
+		return (bool)$this->enableSharing;
+	}
+
+	/**
+	 * Whether this mount point needs authentication
+	 *
+	 * @return bool
+	 * @since 24.0.0
+	 */
+	public function getAuthenticated(): bool {
+		return (bool)$this->authenticated;
 	}
 }
