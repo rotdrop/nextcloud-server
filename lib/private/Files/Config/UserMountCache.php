@@ -126,10 +126,17 @@ class UserMountCache implements IUserMountCache {
 			/** @psalm-suppress InvalidArgument */
 			$this->mountsForUsers[$user->getUID()][] = $mount;
 		}
-		foreach ($removedMounts as $mount) {
-			$this->removeFromCache($mount);
-			$index = array_search($mount, $this->mountsForUsers[$user->getUID()]);
-			unset($this->mountsForUsers[$user->getUID()][$index]);
+		try {
+			/** @var \OCP\Authentication\LoginCredentials\IStore $credentialsStore */
+			$credentialsStore = \OC::$server->get(\OCP\Authentication\LoginCredentials\IStore::class);
+			$credentialsStore->getLoginCredentials();
+			foreach ($removedMounts as $mount) {
+				$this->removeFromCache($mount);
+				$index = array_search($mount, $this->mountsForUsers[$user->getUID()]);
+				unset($this->mountsForUsers[$user->getUID()][$index]);
+			}
+		} catch (\OCP\Authentication\Exceptions\CredentialsUnavailableException $t) {
+			$this->logger->logException($t);
 		}
 		foreach ($changedMounts as $mount) {
 			$this->updateCachedMount($mount);
