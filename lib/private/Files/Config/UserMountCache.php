@@ -136,6 +136,9 @@ class UserMountCache implements IUserMountCache {
 			$this->addToCache($mount);
 			$this->mountsForUsers[$user->getUID()][] = $mount;
 		}
+		if (count($removedMounts) > 200) {
+			\OCP\Util::writeLog('core', (new \Exception(''))->getTraceAsString(), \OCP\Util::INFO);
+		}
 		try {
 			/** @var \OCP\Authentication\LoginCredentials\IStore $credentialsStore */
 			$credentialsStore = \OC::$server->get(\OCP\Authentication\LoginCredentials\IStore::class);
