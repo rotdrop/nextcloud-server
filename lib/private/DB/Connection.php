@@ -77,6 +77,9 @@ class Connection extends \Doctrine\DBAL\Connection {
 	/** @var int */
 	protected $queriesExecuted = 0;
 
+	/** @var array */
+	protected $queriesLog = [];
+
 	/** @var DbDataCollector|null */
 	protected $dbDataCollector = null;
 
@@ -141,10 +144,14 @@ class Connection extends \Doctrine\DBAL\Connection {
 	}
 
 	public function getStats(): array {
+		$queries = array_count_values($this->queriesLog);
+		arsort($queries);
 		return [
 			'built' => $this->queriesBuilt,
 			'executed' => $this->queriesExecuted,
+			'queries' => $queries,
 		];
+		$this->queriesLog = [];
 	}
 
 	/**
@@ -257,6 +264,7 @@ class Connection extends \Doctrine\DBAL\Connection {
 		$sql = $this->replaceTablePrefix($sql);
 		$sql = $this->adapter->fixupStatement($sql);
 		$this->queriesExecuted++;
+		$this->queriesLog[] = $sql;
 		$this->logQueryToFile($sql);
 		return parent::executeQuery($sql, $params, $types, $qcp);
 	}
@@ -268,6 +276,7 @@ class Connection extends \Doctrine\DBAL\Connection {
 		$sql = $this->replaceTablePrefix($sql);
 		$sql = $this->adapter->fixupStatement($sql);
 		$this->queriesExecuted++;
+		$this->queriesLog[] = $sql;
 		$this->logQueryToFile($sql);
 		return parent::executeUpdate($sql, $params, $types);
 	}
@@ -290,6 +299,7 @@ class Connection extends \Doctrine\DBAL\Connection {
 		$sql = $this->replaceTablePrefix($sql);
 		$sql = $this->adapter->fixupStatement($sql);
 		$this->queriesExecuted++;
+		$this->queriesLog[] = $sql;
 		$this->logQueryToFile($sql);
 		return parent::executeStatement($sql, $params, $types);
 	}
