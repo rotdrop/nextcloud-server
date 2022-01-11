@@ -220,6 +220,20 @@ class UserMountCache implements IUserMountCache {
 		$query->execute();
 	}
 
+	private function bulkRemoveFromCache(IUser $user, array $mounts)
+	{
+		// @todo perhaps check whether the user is the same and equals $user for all mounts
+		$rootIds = array_values(array_filter(array_map(function(ICachedMountInfo $mount) use ($user) {
+			return $mount->getUser() == $user ? $mount->getRootId() : null;
+		}, $mounts)));
+		$builder = $this->connection->getQueryBuilder();
+
+		$query = $builder->delete('mounts')
+			->where($builder->expr()->eq('user_id', $builder->createNamedParameter($mount->getUser()->getUID())))
+			->andWhere($builder->expr()->in('root_id', $builder->createNamedParameter($getRootIds, IQueryBuilder::PARAM_INT_ARRAY)));
+		$query->execute();
+	}
+
 	private function dbRowToMountInfo(array $row) {
 		$user = $this->userManager->get($row['user_id']);
 		if (is_null($user)) {
