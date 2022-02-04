@@ -106,7 +106,7 @@ class CryptoSessionData implements \ArrayAccess, ISession {
 	 */
 	public function set(string $key, $value) {
 		if ($this->session->isClosed()) {
-			$e = new SessionNotAvailableException('Session is already closed while trying to set ' . $key . ' => ' . (string)$value);
+			$e = new SessionNotAvailableException('Session is already closed while trying to set a value for key "' . $key . '".');
 			$logger = \OC::$server->get(\OCP\ILogger::class);
 			$logger->logException($e);
 			// throw new SessionNotAvailableException('Session has been closed - no further changes to the session are allowed');
