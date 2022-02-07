@@ -128,6 +128,7 @@ class GroupsController extends AUserData {
 				'disabled' => $group->countDisabled(),
 				'canAdd' => $group->canAddUser(),
 				'canRemove' => $group->canRemoveUser(),
+				'backends' => $group->getBackendNames(),
 			];
 		}, $groups);
 
@@ -262,7 +263,11 @@ class GroupsController extends AUserData {
 	 *
 	 * 200: Group created successfully
 	 */
-	public function addGroup(string $groupid, string $displayname = ''): DataResponse {
+	public function addGroup(
+		string $groupid,
+		string $displayname = '',
+		string $backendName = ''
+	): DataResponse {
 		// Validate name
 		if (empty($groupid)) {
 			$this->logger->error('Group name not supplied', ['app' => 'provisioning_api']);
@@ -272,7 +277,24 @@ class GroupsController extends AUserData {
 		if ($this->groupManager->groupExists($groupid)) {
 			throw new OCSException('group exists', 102);
 		}
-		$group = $this->groupManager->createGroup($groupid);
+		if (!empty($backendName)) {
+			$groupInterface = null;
+			foreach ($this->groupManager->getBackends() as $oneBackend) {
+				if ($oneBackend->getBackendName() == $backendName) {
+					$groupInterface = $oneBackend;
+				}
+			}
+			if (empty($groupInterface)) {
+				$errorString = 'Requested group-backend "' . $backendName . '" does not exist';
+				$this->logger->error('Failed addGroup attempt: ' . $errorString . '.', ['app' => 'ocs_api']);
+				throw new OCSException($errorString, 102);
+			}
+		}
+		if (empty($groupInterface)) {
+			$group = $this->groupManager->createGroup($groupid);
+		} else {
+			$group = $this->groupManager->createGroupFromBackend($groupid, $groupInterface);
+		}
 		if ($group === null) {
 			throw new OCSException('Not supported by backend', 103);
 		}
