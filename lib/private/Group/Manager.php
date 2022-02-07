@@ -265,6 +265,27 @@ class Manager extends PublicEmitter implements IGroupManager {
 	}
 
 	/**
+	 * @param string $gid
+	 * @param GroupInterface] $backend
+	 * @return \OCP\IGroup|null
+	 */
+	public function createGroupFromBackend($gid, GroupInterface $backend)
+	{
+		if ($group = $this->get($gid) && $group->getBa) {
+			return $group;
+		}
+		if ($backend->implementsActions(Backend::CREATE_GROUP)) {
+			$this->emit('\OC\Group', 'preCreate', [$gid]);
+			if ($backend->createGroup($gid)) {
+				$group = $this->getGroupObject($gid);
+				$this->emit('\OC\Group', 'postCreate', [$group]);
+				return $group;
+			}
+		}
+		return null;
+	}
+
+	/**
 	 * @param string $search
 	 * @param ?int $limit
 	 * @param ?int $offset
