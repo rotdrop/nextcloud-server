@@ -43,6 +43,9 @@ class L10NString implements \JsonSerializable {
 	/** @var integer */
 	protected $count;
 
+	/** @var bool */
+	static protected $eventLock = false;
+
 	/**
 	 * @param L10N $l10n
 	 * @param string|string[] $text
@@ -64,7 +67,8 @@ class L10NString implements \JsonSerializable {
 		$identity = $this->text;
 		if (array_key_exists($this->text, $translations)) {
 			$identity = $translations[$this->text];
-		} else {
+		} else if (!self::$eventLock) {
+			self::$eventLock = true;
 			$text = $this->text;
 			$app = $this->l10n->getAppName();
 			$language = $this->l10n->getLanguageCode();
@@ -72,6 +76,7 @@ class L10NString implements \JsonSerializable {
 			$event = new Events\TranslationNotFound($text, $language, $locale, $app);
 			\OC::$server->query(IEventDispatcher::class)->dispatchTyped($event);
 			//\OCP\Util::writeLog($app, "Translation for ``".$text."'' not found.", ILogger::INFO);
+			self::$eventLock = false;
 		}
 
 		if (!$this->pipeCheck($identity)) {
