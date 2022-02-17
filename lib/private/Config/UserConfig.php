@@ -422,7 +422,7 @@ class UserConfig implements IUserConfig {
 	 * @return Generator<string>
 	 * @since 31.0.0
 	 */
-	public function searchUsersByValueString(string $app, string $key, string $value, bool $caseInsensitive = false): Generator {
+	public function searchUsersByValueString(string $app, string $key, ?string $value, bool $caseInsensitive = false): Generator {
 		return $this->searchUsersByTypedValue($app, $key, $value, $caseInsensitive);
 	}
 
@@ -478,12 +478,12 @@ class UserConfig implements IUserConfig {
 	 *
 	 * @param string $app
 	 * @param string $key
-	 * @param string|array $value
+	 * @param null|string|array $value
 	 * @param bool $caseInsensitive
 	 *
 	 * @return Generator<string>
 	 */
-	private function searchUsersByTypedValue(string $app, string $key, string|array $value, bool $caseInsensitive = false): Generator {
+	private function searchUsersByTypedValue(string $app, string $key, null|string|array $value, bool $caseInsensitive = false): Generator {
 		$this->assertParams('', $app, $key, allowEmptyUser: true);
 		$this->matchAndApplyLexiconDefinition('', $app, $key);
 
@@ -498,48 +498,49 @@ class UserConfig implements IUserConfig {
 		$qb->where($qb->expr()->eq('appid', $qb->createNamedParameter($app)));
 		$qb->andWhere($qb->expr()->eq('configkey', $qb->createNamedParameter($key)));
 
-		$configValueColumn = ($this->connection->getDatabaseProvider() === IDBConnection::PLATFORM_ORACLE) ? $qb->expr()->castColumn('configvalue', IQueryBuilder::PARAM_STR) : 'configvalue';
-		if (is_array($value)) {
-			$where = $qb->expr()->in('indexed', $qb->createNamedParameter($value, IQueryBuilder::PARAM_STR_ARRAY));
-			// in case lexicon does not exist for this key - or is not set as indexed - we keep searching for non-index entries if 'flags' is set as not indexed
-			if ($lexiconEntry?->isFlagged(self::FLAG_INDEXED) !== true) {
-				$where = $qb->expr()->orX(
-					$where,
-					$qb->expr()->andX(
-						$qb->expr()->neq($qb->expr()->bitwiseAnd('flags', self::FLAG_INDEXED), $qb->createNamedParameter(self::FLAG_INDEXED, IQueryBuilder::PARAM_INT)),
-						$qb->expr()->in($configValueColumn, $qb->createNamedParameter($value, IQueryBuilder::PARAM_STR_ARRAY))
-					)
-				);
-			}
-		} else {
-			if ($caseInsensitive) {
-				$where = $qb->expr()->eq($qb->func()->lower('indexed'), $qb->createNamedParameter(strtolower($value)));
+		if ($value !== 0) {
+			$configValueColumn = ($this->connection->getDatabaseProvider() === IDBConnection::PLATFORM_ORACLE) ? $qb->expr()->castColumn('configvalue', IQueryBuilder::PARAM_STR) : 'configvalue';
+			if (is_array($value)) {
+				$where = $qb->expr()->in('indexed', $qb->createNamedParameter($value, IQueryBuilder::PARAM_STR_ARRAY));
 				// in case lexicon does not exist for this key - or is not set as indexed - we keep searching for non-index entries if 'flags' is set as not indexed
 				if ($lexiconEntry?->isFlagged(self::FLAG_INDEXED) !== true) {
 					$where = $qb->expr()->orX(
 						$where,
 						$qb->expr()->andX(
 							$qb->expr()->neq($qb->expr()->bitwiseAnd('flags', self::FLAG_INDEXED), $qb->createNamedParameter(self::FLAG_INDEXED, IQueryBuilder::PARAM_INT)),
-							$qb->expr()->eq($qb->func()->lower($configValueColumn), $qb->createNamedParameter(strtolower($value)))
+							$qb->expr()->in($configValueColumn, $qb->createNamedParameter($value, IQueryBuilder::PARAM_STR_ARRAY))
 						)
 					);
 				}
 			} else {
-				$where = $qb->expr()->eq('indexed', $qb->createNamedParameter($value));
-				// in case lexicon does not exist for this key - or is not set as indexed - we keep searching for non-index entries if 'flags' is set as not indexed
-				if ($lexiconEntry?->isFlagged(self::FLAG_INDEXED) !== true) {
-					$where = $qb->expr()->orX(
-						$where,
-						$qb->expr()->andX(
-							$qb->expr()->neq($qb->expr()->bitwiseAnd('flags', self::FLAG_INDEXED), $qb->createNamedParameter(self::FLAG_INDEXED, IQueryBuilder::PARAM_INT)),
-							$qb->expr()->eq($configValueColumn, $qb->createNamedParameter($value))
-						)
-					);
+				if ($caseInsensitive) {
+					$where = $qb->expr()->eq($qb->func()->lower('indexed'), $qb->createNamedParameter(strtolower($value)));
+					// in case lexicon does not exist for this key - or is not set as indexed - we keep searching for non-index entries if 'flags' is set as not indexed
+					if ($lexiconEntry?->isFlagged(self::FLAG_INDEXED) !== true) {
+						$where = $qb->expr()->orX(
+							$where,
+							$qb->expr()->andX(
+								$qb->expr()->neq($qb->expr()->bitwiseAnd('flags', self::FLAG_INDEXED), $qb->createNamedParameter(self::FLAG_INDEXED, IQueryBuilder::PARAM_INT)),
+								$qb->expr()->eq($qb->func()->lower($configValueColumn), $qb->createNamedParameter(strtolower($value)))
+							)
+						);
+					}
+				} else {
+					$where = $qb->expr()->eq('indexed', $qb->createNamedParameter($value));
+					// in case lexicon does not exist for this key - or is not set as indexed - we keep searching for non-index entries if 'flags' is set as not indexed
+					if ($lexiconEntry?->isFlagged(self::FLAG_INDEXED) !== true) {
+						$where = $qb->expr()->orX(
+							$where,
+							$qb->expr()->andX(
+								$qb->expr()->neq($qb->expr()->bitwiseAnd('flags', self::FLAG_INDEXED), $qb->createNamedParameter(self::FLAG_INDEXED, IQueryBuilder::PARAM_INT)),
+								$qb->expr()->eq($configValueColumn, $qb->createNamedParameter($value))
+							)
+						);
+					}
 				}
 			}
+			$qb->andWhere($where);
 		}
-
-		$qb->andWhere($where);
 		$result = $qb->executeQuery();
 		while ($row = $result->fetch()) {
 			yield $row['userid'];
