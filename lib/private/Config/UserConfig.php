@@ -406,7 +406,7 @@ class UserConfig implements IUserConfig {
 	 * @return Generator<string>
 	 * @since 31.0.0
 	 */
-	public function searchUsersByValueString(string $app, string $key, string $value, bool $caseInsensitive = false): Generator {
+	public function searchUsersByValueString(string $app, string $key, ?string $value, bool $caseInsensitive = false): Generator {
 		return $this->searchUsersByTypedValue($app, $key, $value, $caseInsensitive);
 	}
 
@@ -462,12 +462,12 @@ class UserConfig implements IUserConfig {
 	 *
 	 * @param string $app
 	 * @param string $key
-	 * @param string|array $value
+	 * @param null|string|array $value
 	 * @param bool $caseInsensitive
 	 *
 	 * @return Generator<string>
 	 */
-	private function searchUsersByTypedValue(string $app, string $key, string|array $value, bool $caseInsensitive = false): Generator {
+	private function searchUsersByTypedValue(string $app, string $key, null|string|array $value, bool $caseInsensitive = false): Generator {
 		$this->assertParams('', $app, $key, allowEmptyUser: true);
 
 		$qb = $this->connection->getQueryBuilder();
@@ -477,45 +477,47 @@ class UserConfig implements IUserConfig {
 		$qb->andWhere($qb->expr()->eq('configkey', $qb->createNamedParameter($key)));
 
 		$configValueColumn = ($this->connection->getDatabaseProvider() === IDBConnection::PLATFORM_ORACLE) ? $qb->expr()->castColumn('configvalue', IQueryBuilder::PARAM_STR) : 'configvalue';
-		if ($this->isUpgradedTo31()) {
-			// search within 'indexed' OR 'configvalue' only if 'flags' is set as not indexed
-			// TODO: when implementing config lexicon remove the searches on 'configvalue' if value is set as indexed
-			if (is_array($value)) {
-				$where = $qb->expr()->orX(
-					$qb->expr()->in('indexed', $qb->createNamedParameter($value, IQueryBuilder::PARAM_STR_ARRAY)),
-					$qb->expr()->andX(
-						$qb->expr()->neq($qb->expr()->bitwiseAnd('flags', self::FLAG_INDEXED), $qb->createNamedParameter(self::FLAG_INDEXED, IQueryBuilder::PARAM_INT)),
-						$qb->expr()->in($configValueColumn, $qb->createNamedParameter($value, IQueryBuilder::PARAM_STR_ARRAY))
-					)
-				);
-			} else {
-				if ($caseInsensitive) {
+		if ($value !== null) {
+			if ($this->isUpgradedTo31()) {
+				// search within 'indexed' OR 'configvalue' only if 'flags' is set as not indexed
+				// TODO: when implementing config lexicon remove the searches on 'configvalue' if value is set as indexed
+				if (is_array($value)) {
 					$where = $qb->expr()->orX(
-						$qb->expr()->eq($qb->func()->lower('indexed'), $qb->createNamedParameter(strtolower($value))),
+						$qb->expr()->in('indexed', $qb->createNamedParameter($value, IQueryBuilder::PARAM_STR_ARRAY)),
 						$qb->expr()->andX(
 							$qb->expr()->neq($qb->expr()->bitwiseAnd('flags', self::FLAG_INDEXED), $qb->createNamedParameter(self::FLAG_INDEXED, IQueryBuilder::PARAM_INT)),
-							$qb->expr()->eq($qb->func()->lower($configValueColumn), $qb->createNamedParameter(strtolower($value)))
+							$qb->expr()->in($configValueColumn, $qb->createNamedParameter($value, IQueryBuilder::PARAM_STR_ARRAY))
 						)
 					);
 				} else {
-					$where = $qb->expr()->orX(
-						$qb->expr()->eq('indexed', $qb->createNamedParameter($value)),
-						$qb->expr()->andX(
-							$qb->expr()->neq($qb->expr()->bitwiseAnd('flags', self::FLAG_INDEXED), $qb->createNamedParameter(self::FLAG_INDEXED, IQueryBuilder::PARAM_INT)),
-							$qb->expr()->eq($configValueColumn, $qb->createNamedParameter($value))
-						)
-					);
+					if ($caseInsensitive) {
+						$where = $qb->expr()->orX(
+							$qb->expr()->eq($qb->func()->lower('indexed'), $qb->createNamedParameter(strtolower($value))),
+							$qb->expr()->andX(
+								$qb->expr()->neq($qb->expr()->bitwiseAnd('flags', self::FLAG_INDEXED), $qb->createNamedParameter(self::FLAG_INDEXED, IQueryBuilder::PARAM_INT)),
+								$qb->expr()->eq($qb->func()->lower($configValueColumn), $qb->createNamedParameter(strtolower($value)))
+							)
+						);
+					} else {
+						$where = $qb->expr()->orX(
+							$qb->expr()->eq('indexed', $qb->createNamedParameter($value)),
+							$qb->expr()->andX(
+								$qb->expr()->neq($qb->expr()->bitwiseAnd('flags', self::FLAG_INDEXED), $qb->createNamedParameter(self::FLAG_INDEXED, IQueryBuilder::PARAM_INT)),
+								$qb->expr()->eq($configValueColumn, $qb->createNamedParameter($value))
+							)
+						);
+					}
+				}
+			} else {
+				if ($caseInsensitive) {
+					$where = $qb->expr()->eq($qb->func()->lower($configValueColumn), $qb->createNamedParameter(strtolower($value)));
+				} else {
+					$where = $qb->expr()->eq($configValueColumn, $qb->createNamedParameter($value));
 				}
 			}
-		} else {
-			if ($caseInsensitive) {
-				$where = $qb->expr()->eq($qb->func()->lower($configValueColumn), $qb->createNamedParameter(strtolower($value)));
-			} else {
-				$where = $qb->expr()->eq($configValueColumn, $qb->createNamedParameter($value));
-			}
-		}
 
-		$qb->andWhere($where);
+			$qb->andWhere($where);
+		}
 		$result = $qb->executeQuery();
 		while ($row = $result->fetch()) {
 			yield $row['userid'];
