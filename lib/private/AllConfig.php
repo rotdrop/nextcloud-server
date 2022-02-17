@@ -478,21 +478,24 @@ class AllConfig implements \OCP\IConfig {
 	 * @param string $value the value to get the user for
 	 * @return array of user IDs
 	 */
-	public function getUsersForUserValue($appName, $key, $value) {
+	public function getUsersForUserValue($appName, $key, $value = null) {
 		// TODO - FIXME
 		$this->fixDIInit();
 
 		$sql = 'SELECT `userid` FROM `*PREFIX*preferences` ' .
 				'WHERE `appid` = ? AND `configkey` = ? ';
 
-		if ($this->getSystemValue('dbtype', 'sqlite') === 'oci') {
-			//oracle hack: need to explicitly cast CLOB to CHAR for comparison
-			$sql .= 'AND to_char(`configvalue`) = ?';
+		if ($value !== null) {
+			if ($this->getSystemValue('dbtype', 'sqlite') === 'oci') {
+				//oracle hack: need to explicitly cast CLOB to CHAR for comparison
+				$sql .= 'AND to_char(`configvalue`) = ?';
+			} else {
+				$sql .= 'AND `configvalue` = ?';
+			}
+			$result = $this->connection->executeQuery($sql, [$appName, $key, $value]);
 		} else {
-			$sql .= 'AND `configvalue` = ?';
+			$result = $this->connection->executeQuery($sql, [$appName, $key]);
 		}
-
-		$result = $this->connection->executeQuery($sql, [$appName, $key, $value]);
 
 		$userIDs = [];
 		while ($row = $result->fetch()) {
