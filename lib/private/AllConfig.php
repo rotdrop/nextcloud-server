@@ -485,20 +485,22 @@ class AllConfig implements IConfig {
 	 * @param string $value the value to get the user for
 	 * @return array of user IDs
 	 */
-	public function getUsersForUserValue($appName, $key, $value) {
+	public function getUsersForUserValue($appName, $key, $value = null) {
 		// TODO - FIXME
 		$this->fixDIInit();
 
 		$qb = $this->connection->getQueryBuilder();
-		$result = $qb->select('userid')
+		$query = $qb->select('userid')
 			->from('preferences')
 			->where($qb->expr()->eq('appid', $qb->createNamedParameter($appName, IQueryBuilder::PARAM_STR)))
-			->andWhere($qb->expr()->eq('configkey', $qb->createNamedParameter($key, IQueryBuilder::PARAM_STR)))
-			->andWhere($qb->expr()->eq(
+			->andWhere($qb->expr()->eq('configkey', $qb->createNamedParameter($key, IQueryBuilder::PARAM_STR)));
+		if ($value !== null) {
+			$query->andWhere($qb->expr()->eq(
 				$qb->expr()->castColumn('configvalue', IQueryBuilder::PARAM_STR),
 				$qb->createNamedParameter($value, IQueryBuilder::PARAM_STR))
-			)->orderBy('userid')
-			->executeQuery();
+			);
+		}
+		$result = $query->orderBy('userid')->executeQuery();
 
 		$userIDs = [];
 		while ($row = $result->fetch()) {
