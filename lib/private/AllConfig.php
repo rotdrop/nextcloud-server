@@ -365,7 +365,7 @@ class AllConfig implements IConfig {
 	 * @deprecated 31.0.0 - use {@see IUserConfig::searchUsersByValueString} directly
 	 */
 	#[\Override]
-	public function getUsersForUserValue($appName, $key, $value) {
+	public function getUsersForUserValue($appName, $key, $value = null) {
 		/** @var list<string> $result */
 		$result = iterator_to_array(Server::get(IUserConfig::class)->searchUsersByValueString($appName, $key, $value));
 		return $result;
