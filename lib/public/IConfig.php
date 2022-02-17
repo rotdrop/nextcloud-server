@@ -200,7 +200,7 @@ interface IConfig {
 	 *
 	 * @param string $appName app to get the value for
 	 * @param string $key the key to get the value for
-	 * @param array $userIds the user IDs to fetch the values for
+	 * @param null|array $userIds the user IDs to fetch the values for, all users with values if null
 	 * @return array Mapped values: userId => value
 	 * @since 8.0.0
 	 */
@@ -260,9 +260,9 @@ interface IConfig {
 	 *
 	 * @param string $appName the app to get the user for
 	 * @param string $key the key to get the user for
-	 * @param string $value the value to get the user for
+	 * @param null|string $value the value to get the user for, all users with set key if $value is null
 	 * @return array of user IDs
 	 * @since 8.0.0
 	 */
-	public function getUsersForUserValue($appName, $key, $value);
+	public function getUsersForUserValue($appName, $key, $value = null);
 }
