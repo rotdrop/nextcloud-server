@@ -87,7 +87,7 @@ class Store implements IStore {
 			throw new CredentialsUnavailableException();
 		}
 
-		$trySession = false;
+		$trySession = defined('OC_CONSOLE');
 		try {
 			$sessionId = $this->session->getId();
 			$token = $this->tokenProvider->getToken($sessionId);
