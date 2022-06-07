@@ -44,6 +44,8 @@ use OCP\Group\Backend\ISetDisplayNameBackend;
 use OCP\Group\Backend\INamedBackend;
 use OCP\IDBConnection;
 
+use OC\Cache\CappedMemoryCache;
+
 /**
  * Class for group management in a SQL Database (e.g. MySQL, SQLite)
  */
@@ -59,8 +61,13 @@ class Database extends ABackend implements
 			   ISetDisplayNameBackend,
 			   INamedBackend {
 
-	/** @var string[] */
-	private $groupCache = [];
+	private const GROUP_CACHE_CAPACITY = 512;
+
+	/** @var CappedMemoryCache */
+	private $groupCache;
+
+	/** @var bool */
+	private $cacheValid;
 
 	/** @var IDBConnection */
 	private $dbConn;
@@ -72,6 +79,8 @@ class Database extends ABackend implements
 	 */
 	public function __construct(IDBConnection $dbConn = null) {
 		$this->dbConn = $dbConn;
+		$this->groupCache = new CappedMemoryCache(self::GROUP_CACHE_CAPACITY);
+		$this->cacheValid = false;
 	}
 
 	/**
@@ -264,10 +273,11 @@ class Database extends ABackend implements
 	 * Returns a list with all groups
 	 */
 	public function getGroups($search = '', $limit = null, $offset = null) {
+
 		$this->fixDI();
 
 		$query = $this->dbConn->getQueryBuilder();
-		$query->select('gid')
+		$query->select('gid', 'displayname')
 			->from('groups')
 			->orderBy('gid', 'ASC');
 
@@ -284,11 +294,26 @@ class Database extends ABackend implements
 			->setFirstResult($offset);
 		$result = $query->execute();
 
+		if ($search === '' && (int)$offset == 0) {
+			// shoot down the cache if we have a chance to get the complete table
+			$this->groupCache->clear();
+			$this->cacheValid = false;
+		}
+
 		$groups = [];
 		while ($row = $result->fetch()) {
 			$groups[] = $row['gid'];
+			$this->groupCache[$row['gid']] = [
+				'gid' => $row['gid'],
+				'displayname' => $row['displayname'],
+			];
 		}
 		$result->closeCursor();
+
+		if ($search === '' && (int)$offset == 0) {
+			$this->cacheValid = !$this->groupCache->isCapped()
+				&& ($limit === null || count($groups) <= $limit);
+		}
 
 		return $groups;
 	}
@@ -451,6 +476,10 @@ class Database extends ABackend implements
 			}
 		}
 
+		if ($this->cacheValid) {
+			return '';
+		}
+
 		$this->fixDI();
 
 		$query = $this->dbConn->getQueryBuilder();
@@ -462,10 +491,22 @@ class Database extends ABackend implements
 		$displayName = $result->fetchOne();
 		$result->closeCursor();
 
+		if ($displayName !== false) {
+			$this->groupCache[$gid] = [
+				'gid' => $gid,
+				'displayname' => $displayName,
+			];
+		}
+
 		return (string) $displayName;
 	}
 
 	public function getGroupDetails(string $gid): array {
+
+		if (!$this->cacheValid && !$this->groupCache->isCapped()) {
+		 	$this->getGroups(limit: self::GROUP_CACHE_CAPACITY);
+		}
+
 		$displayName = $this->getDisplayName($gid);
 		if ($displayName !== '') {
 			return ['displayName' => $displayName];
