@@ -37,6 +37,11 @@ class CachedMountInfo implements ICachedMountInfo {
 	protected string $mountProvider;
 
 	/**
+	 * @var bool
+	 */
+	protected $enableSharing;
+
+	/**
 	 * CachedMountInfo constructor.
 	 *
 	 * @param IUser $user
@@ -53,7 +58,8 @@ class CachedMountInfo implements ICachedMountInfo {
 		string $mountPoint,
 		string $mountProvider,
 		int $mountId = null,
-		string $rootInternalPath = ''
+		string $rootInternalPath = '',
+		bool $enableSharing = true
 	) {
 		$this->user = $user;
 		$this->storageId = $storageId;
@@ -65,6 +71,7 @@ class CachedMountInfo implements ICachedMountInfo {
 			throw new \Exception("Mount provider $mountProvider name exceeds the limit of 128 characters");
 		}
 		$this->mountProvider = $mountProvider;
+		$this->enableSharing = $enableSharing;
 	}
 
 	/**
@@ -131,5 +138,15 @@ class CachedMountInfo implements ICachedMountInfo {
 
 	public function getMountProvider(): string {
 		return $this->mountProvider;
+	}
+
+	/**
+	 * Whether this mount point can be shared with others
+	 *
+	 * @return bool
+	 * @since 24.0.0
+	 */
+	public function getEnableSharing() {
+		return (bool)$this->enableSharing;
 	}
 }

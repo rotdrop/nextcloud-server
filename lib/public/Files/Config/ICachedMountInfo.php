@@ -84,4 +84,12 @@ interface ICachedMountInfo {
 	 * @since 24.0.0
 	 */
 	public function getMountProvider(): string;
+
+	/**
+	 * Whether this mount point can be shared with others
+	 *
+	 * @return bool
+	 * @since 24.0.0
+	 */
+	public function getEnableSharing(): bool;
 }
