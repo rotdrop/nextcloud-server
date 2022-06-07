@@ -76,4 +76,12 @@ interface ICachedMountInfo {
 	 * @since 11.0.0
 	 */
 	public function getRootInternalPath();
+
+	/**
+	 * Whether this mount point can be shared with others
+	 *
+	 * @return bool
+	 * @since 24.0.0
+	 */
+	public function getEnableSharing();
 }

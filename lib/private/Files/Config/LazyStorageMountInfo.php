@@ -81,4 +81,14 @@ class LazyStorageMountInfo extends CachedMountInfo {
 	public function getRootInternalPath() {
 		return $this->mount->getInternalPath($this->mount->getMountPoint());
 	}
+
+	/**
+	 * Whether this mount point can be shared with others
+	 *
+	 * @return bool
+	 * @since 24.0.0
+	 */
+	public function getEnableSharing() {
+		return (bool)$this->mount->getOption('enable_sharing', true);
+	}
 }
