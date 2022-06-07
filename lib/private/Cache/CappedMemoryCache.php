@@ -30,10 +30,11 @@ use OCP\ICache;
  * @template T
  * @deprecated use OCP\Cache\CappedMemoryCache instead
  */
-class CappedMemoryCache implements ICache, \ArrayAccess {
+class CappedMemoryCache implements ICache, \ArrayAccess, \Countable {
 	private $capacity;
 	/** @var T[] */
 	private $cache = [];
+	private $capped = false;
 
 	public function __construct($capacity = 512) {
 		$this->capacity = $capacity;
@@ -73,6 +74,7 @@ class CappedMemoryCache implements ICache, \ArrayAccess {
 
 	public function clear($prefix = '') {
 		$this->cache = [];
+		$this->capped = false;
 		return true;
 	}
 
@@ -108,12 +110,25 @@ class CappedMemoryCache implements ICache, \ArrayAccess {
 		return $this->cache;
 	}
 
+	public function count()
+	{
+		return count($this->cache);
+	}
+
+	public function isCapped()
+	{
+		return $this->capped;
+	}
+
 
 	private function garbageCollect() {
-		while (count($this->cache) > $this->capacity) {
-			reset($this->cache);
-			$key = key($this->cache);
-			$this->remove($key);
+		if (count($this->cache) > $this->capacity) {
+			$this->capped = true;
+			while (count($this->cache) > $this->capacity) {
+				reset($this->cache);
+				$key = key($this->cache);
+				$this->remove($key);
+			}
 		}
 	}
 
