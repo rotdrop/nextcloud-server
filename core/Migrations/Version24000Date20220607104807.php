@@ -31,6 +31,10 @@ class Version24000Date20220607104807 extends SimpleMigrationStep {
 				'default' => 1,
 			]);
 			$table->addIndex(['enable_sharing'], 'mounts_enable_sharing');
+			$table->addColumn('authenticated', Types::SMALLINT, [
+				'default' => 0,
+			]);
+			$table->addIndex(['authenticated'], 'mounts_authenticated');
 			return $schema;
 		}
 		return null;

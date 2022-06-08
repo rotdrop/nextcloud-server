@@ -95,6 +95,15 @@ class UserMountCache implements IUserMountCache {
 			$forUser = \OC_User::getUser();
 		}
 
+		try {
+			/** @var \OCP\Authentication\LoginCredentials\IStore $store */
+			$store = \OC::$server->get(\OCP\Authentication\LoginCredentials\IStore::class);
+			$store->getLoginCredentials();
+			$authenticated = true;
+		} catch (\OCP\Authentication\Exceptions\CredentialsUnavailableException $e) {
+			$authenticated = false;
+		}
+
 		// filter out non-proper storages coming from unit tests
 		$mounts = array_filter($mounts, function (IMountPoint $mount) {
 			return $mount instanceof SharedMount || $mount->getStorage() && $mount->getStorage()->getCache();
@@ -114,7 +123,7 @@ class UserMountCache implements IUserMountCache {
 		}, $newMounts);
 		$newMounts = array_combine($newMountRootIds, $newMounts);
 
-		$cachedMounts = $this->getMountsForUser($user, $forUser != $user->getUID() ? true : null);
+		$cachedMounts = $this->getMountsForUser($user, $forUser != $user->getUID() ? true : null, $authenticated ? null : false);
 		$cachedMountRootIds = array_map(function (ICachedMountInfo $mount) {
 			return $mount->getRootId();
 		}, $cachedMounts);
@@ -171,7 +180,8 @@ class UserMountCache implements IUserMountCache {
 					$newMount->getMountPoint() !== $cachedMount->getMountPoint() ||
 					$newMount->getStorageId() !== $cachedMount->getStorageId() ||
 					$newMount->getMountId() !== $cachedMount->getMountId() ||
-					$newMount->getEnableSharing() !== $cachedMount->getEnableSharing()
+					$newMount->getEnableSharing() !== $cachedMount->getEnableSharing() ||
+					$newMount->getAuthenticated() !== $cachedMount->getAuthenticated()
 				) {
 					$changed[] = $newMount;
 				}
@@ -188,7 +198,8 @@ class UserMountCache implements IUserMountCache {
 				'user_id' => $mount->getUser()->getUID(),
 				'mount_point' => $mount->getMountPoint(),
 				'mount_id' => $mount->getMountId(),
-				'enable_sharing' => (int)$mount->getEnableSharing()
+				'enable_sharing' => (int)$mount->getEnableSharing(),
+				'authenticated' => (int)$mount->getAuthenticated()
 			], ['root_id', 'user_id']);
 		} else {
 			// in some cases this is legitimate, like orphaned shares
@@ -204,6 +215,7 @@ class UserMountCache implements IUserMountCache {
 			->set('mount_point', $builder->createNamedParameter($mount->getMountPoint()))
 			->set('mount_id', $builder->createNamedParameter($mount->getMountId(), IQueryBuilder::PARAM_INT))
 			->set('enable_sharing', $builder->createNamedParameter($mount->getEnableSharing(), IQueryBuilder::PARAM_BOOL))
+			->set('authenticated', $builder->createNamedParameter($mount->getAuthenticated(), IQueryBuilder::PARAM_BOOL))
 			->where($builder->expr()->eq('user_id', $builder->createNamedParameter($mount->getUser()->getUID())))
 			->andWhere($builder->expr()->eq('root_id', $builder->createNamedParameter($mount->getRootId(), IQueryBuilder::PARAM_INT)));
 
@@ -242,7 +254,7 @@ class UserMountCache implements IUserMountCache {
 		if (!is_null($mount_id)) {
 			$mount_id = (int)$mount_id;
 		}
-		return new CachedMountInfo($user, (int)$row['storage_id'], (int)$row['root_id'], $row['mount_point'], $mount_id, isset($row['path']) ? $row['path'] : '', $row['enable_sharing'] ?? true);
+		return new CachedMountInfo($user, (int)$row['storage_id'], (int)$row['root_id'], $row['mount_point'], $mount_id, isset($row['path']) ? $row['path'] : '', $row['enable_sharing'] ?? true, $row['authenticated'] ?? false);
 	}
 
 	/**
@@ -250,16 +262,19 @@ class UserMountCache implements IUserMountCache {
 	 * @param bool $sharable
 	 * @return ICachedMountInfo[]
 	 */
-	public function getMountsForUser(IUser $user, ?bool $shareable = null) {
+	public function getMountsForUser(IUser $user, ?bool $shareable = null, ?bool $authenticated = null) {
 		if (!isset($this->mountsForUsers[$user->getUID()])) {
 			$builder = $this->connection->getQueryBuilder();
-			$query = $builder->select('storage_id', 'root_id', 'user_id', 'mount_point', 'mount_id', 'f.path', 'enable_sharing')
+			$query = $builder->select('storage_id', 'root_id', 'user_id', 'mount_point', 'mount_id', 'f.path', 'enable_sharing', 'authenticated')
 				->from('mounts', 'm')
 				->innerJoin('m', 'filecache', 'f', $builder->expr()->eq('m.root_id', 'f.fileid'))
 				->where($builder->expr()->eq('user_id', $builder->createPositionalParameter($user->getUID())));
 
 			if ($shareable !== null) {
 				$query->andWhere($builder->expr()->eq('enable_sharing', $builder->createPositionalParameter($shareable)));
+			}
+			if ($authenticated !== null) {
+				$query->andWhere($builder->expr()->eq('authenticated', $builder->createPositionalParameter($authenticated)));
 			}
 
 			$result = $query->execute();
@@ -278,7 +293,7 @@ class UserMountCache implements IUserMountCache {
 	 */
 	public function getMountsForStorageId($numericStorageId, $user = null) {
 		$builder = $this->connection->getQueryBuilder();
-		$query = $builder->select('storage_id', 'root_id', 'user_id', 'mount_point', 'mount_id', 'f.path', 'enable_sharing')
+		$query = $builder->select('storage_id', 'root_id', 'user_id', 'mount_point', 'mount_id', 'f.path', 'enable_sharing', 'authenticated')
 			->from('mounts', 'm')
 			->innerJoin('m', 'filecache', 'f', $builder->expr()->eq('m.root_id', 'f.fileid'))
 			->where($builder->expr()->eq('storage_id', $builder->createPositionalParameter($numericStorageId, IQueryBuilder::PARAM_INT)));
@@ -300,7 +315,7 @@ class UserMountCache implements IUserMountCache {
 	 */
 	public function getMountsForRootId($rootFileId) {
 		$builder = $this->connection->getQueryBuilder();
-		$query = $builder->select('storage_id', 'root_id', 'user_id', 'mount_point', 'mount_id', 'f.path', 'enable_sharing')
+		$query = $builder->select('storage_id', 'root_id', 'user_id', 'mount_point', 'mount_id', 'f.path', 'enable_sharing', 'authenticated')
 			->from('mounts', 'm')
 			->innerJoin('m', 'filecache', 'f', $builder->expr()->eq('m.root_id', 'f.fileid'))
 			->where($builder->expr()->eq('root_id', $builder->createPositionalParameter($rootFileId, IQueryBuilder::PARAM_INT)));
@@ -354,7 +369,7 @@ class UserMountCache implements IUserMountCache {
 			return [];
 		}
 		$builder = $this->connection->getQueryBuilder();
-		$query = $builder->select('storage_id', 'root_id', 'user_id', 'mount_point', 'mount_id', 'f.path', 'enable_sharing')
+		$query = $builder->select('storage_id', 'root_id', 'user_id', 'mount_point', 'mount_id', 'f.path', 'enable_sharing', 'authenticated')
 			->from('mounts', 'm')
 			->innerJoin('m', 'filecache', 'f', $builder->expr()->eq('m.root_id', 'f.fileid'))
 			->where($builder->expr()->eq('storage_id', $builder->createPositionalParameter($storageId, IQueryBuilder::PARAM_INT)));
@@ -385,6 +400,8 @@ class UserMountCache implements IUserMountCache {
 				$mount->getMountPoint(),
 				$mount->getMountId(),
 				$mount->getRootInternalPath(),
+				$mount->getEnableSharing(),
+				$mount->getAuthenticated(),
 				$internalPath
 			);
 		}, $filteredMounts);
