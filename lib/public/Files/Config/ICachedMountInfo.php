@@ -84,4 +84,12 @@ interface ICachedMountInfo {
 	 * @since 24.0.0
 	 */
 	public function getEnableSharing();
+
+	/**
+	 * Whether this mount point needs authentication
+	 *
+	 * @return bool
+	 * @since 24.0.0
+	 */
+	public function getAuthenticated();
 }

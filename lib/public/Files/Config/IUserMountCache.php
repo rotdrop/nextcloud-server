@@ -47,11 +47,12 @@ interface IUserMountCache {
 	 * Get all cached mounts for a user
 	 *
 	 * @param IUser $user
-	 * @param bool $sharable
+	 * @param null|bool $sharable
+	 * @param null|bool $authenticated
 	 * @return ICachedMountInfo[]
 	 * @since 9.0.0
 	 */
-	public function getMountsForUser(IUser $user, ?bool $shareable = null);
+	public function getMountsForUser(IUser $user, ?bool $shareable = null, ?bool $authenticated = null);
 
 	/**
 	 * Get all cached mounts by storage

@@ -64,6 +64,11 @@ class CachedMountInfo implements ICachedMountInfo {
 	protected $enableSharing;
 
 	/**
+	 * @var bool
+	 */
+	protected $authenticated;
+
+	/**
 	 * CachedMountInfo constructor.
 	 *
 	 * @param IUser $user
@@ -73,7 +78,7 @@ class CachedMountInfo implements ICachedMountInfo {
 	 * @param int|null $mountId
 	 * @param string $rootInternalPath
 	 */
-	public function __construct(IUser $user, $storageId, $rootId, $mountPoint, $mountId = null, $rootInternalPath = '', $enableSharing = true) {
+	public function __construct(IUser $user, $storageId, $rootId, $mountPoint, $mountId = null, $rootInternalPath = '', $enableSharing = true, $authenticated = false) {
 		$this->user = $user;
 		$this->storageId = $storageId;
 		$this->rootId = $rootId;
@@ -81,6 +86,7 @@ class CachedMountInfo implements ICachedMountInfo {
 		$this->mountId = $mountId;
 		$this->rootInternalPath = $rootInternalPath;
 		$this->enableSharing = $enableSharing;
+		$this->authenticated = $authenticated;
 	}
 
 	/**
@@ -153,5 +159,15 @@ class CachedMountInfo implements ICachedMountInfo {
 	 */
 	public function getEnableSharing() {
 		return (bool)$this->enableSharing;
+	}
+
+	/**
+	 * Whether this mount point needs authentication
+	 *
+	 * @return bool
+	 * @since 24.0.0
+	 */
+	public function getAuthenticated() {
+		return (bool)$this->authenticated;
 	}
 }
