@@ -26,13 +26,21 @@ class Version24000Date20220607104807 extends SimpleMigrationStep {
 		$schema = $schemaClosure();
 
 		$table = $schema->getTable('mounts');
+		$changed = false;
 		if (!$table->hasColumn('enable_sharing')) {
 			$table->addColumn('enable_sharing', Types::SMALLINT, [
 				'default' => 1,
 			]);
 			$table->addIndex(['enable_sharing'], 'mounts_enable_sharing');
-			return $schema;
+			$changed = true;
 		}
-		return null;
+		if (!$table->hasColumn('authenticated')) {
+			$table->addColumn('authenticated', Types::SMALLINT, [
+				'default' => 0,
+			]);
+			$table->addIndex(['authenticated'], 'mounts_authenticated');
+			$changed = true;
+		}
+		return $changed ? $schema : null;
 	}
 }
