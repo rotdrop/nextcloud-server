@@ -117,6 +117,7 @@ class GroupsController extends AUserData {
 				'disabled' => $group->countDisabled(),
 				'canAdd' => $group->canAddUser(),
 				'canRemove' => $group->canRemoveUser(),
+				'backends' => $group->getBackendNames(),
 			];
 		}, $groups);
 
