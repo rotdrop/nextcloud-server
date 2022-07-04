@@ -156,6 +156,9 @@ abstract class Common implements Storage, ILockingStorage, IWriteStreamStorage {
 			return $this->isUpdatable($path);
 		}
 		$parent = dirname($path);
+		if ($parent === '.') {
+			$parent = '';
+		}
 		return $this->isUpdatable($parent) && $this->isUpdatable($path);
 	}
 
