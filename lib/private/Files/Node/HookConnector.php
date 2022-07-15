@@ -165,7 +165,7 @@ class HookConnector {
 
 	public function rename($arguments) {
 		$source = $this->getNodeForPath($arguments['oldpath']);
-		$target = $this->getNodeForPath($arguments['newpath']);
+		$target = $this->getNodeForPath($arguments['newpath'], $source);
 		$this->root->emit('\OC\Files', 'preRename', [$source, $target]);
 		$this->dispatcher->dispatch('\OCP\Files::preRename', new GenericEvent([$source, $target]));
 
@@ -179,8 +179,8 @@ class HookConnector {
 	}
 
 	public function postRename($arguments) {
-		$source = $this->getNodeForPath($arguments['oldpath']);
 		$target = $this->getNodeForPath($arguments['newpath']);
+		$source = $this->getNodeForPath($arguments['oldpath'], $target);
 		$this->root->emit('\OC\Files', 'postRename', [$source, $target]);
 		$this->dispatcher->dispatch('\OCP\Files::postRename', new GenericEvent([$source, $target]));
 
@@ -190,7 +190,7 @@ class HookConnector {
 
 	public function copy($arguments) {
 		$source = $this->getNodeForPath($arguments['oldpath']);
-		$target = $this->getNodeForPath($arguments['newpath']);
+		$target = $this->getNodeForPath($arguments['newpath'], $source);
 		$this->root->emit('\OC\Files', 'preCopy', [$source, $target]);
 		$this->dispatcher->dispatch('\OCP\Files::preCopy', new GenericEvent([$source, $target]));
 
@@ -222,7 +222,7 @@ class HookConnector {
 		$this->dispatcher->dispatchTyped($event);
 	}
 
-	private function getNodeForPath(string $path): Node {
+	private function getNodeForPath(string $path, $relatedNode = null) {
 		$info = Filesystem::getView()->getFileInfo($path);
 		if (!$info) {
 			$fullPath = Filesystem::getView()->getAbsolutePath($path);
@@ -231,7 +231,8 @@ class HookConnector {
 			} else {
 				$info = null;
 			}
-			if (Filesystem::is_dir($path)) {
+			if (Filesystem::is_dir($path)
+				|| ($info === null && !empty($relatedNode) && ($relatedNode instanceof \OCP\Files\Folder))) {
 				return new NonExistingFolder($this->root, $this->view, $fullPath, $info);
 			} else {
 				return new NonExistingFile($this->root, $this->view, $fullPath, $info);
