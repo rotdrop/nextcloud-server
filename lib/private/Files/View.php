@@ -796,7 +796,7 @@ class View {
 				if ($this->shouldEmitHooks($path1) && (Cache\Scanner::isPartialFile($path1) && !Cache\Scanner::isPartialFile($path2))) {
 					// if it was a rename from a part file to a regular file it was a write and not a rename operation
 					$this->emit_file_hooks_pre($exists, false, $path2, $run);
-				} elseif ($this->shouldEmitHooks($path1)) {
+				} elseif ($this->shouldEmitHooks($path1) or $this->shouldEmitHooks($path2)) {
 					\OC_Hook::emit(
 						Filesystem::CLASSNAME, Filesystem::signal_rename,
 						[
@@ -869,7 +869,7 @@ class View {
 							$this->emit_file_hooks_post($exists, false, $path2);
 						}
 					} elseif ($result) {
-						if ($this->shouldEmitHooks($path1) and $this->shouldEmitHooks($path2)) {
+						if ($this->shouldEmitHooks($path1) or $this->shouldEmitHooks($path2)) {
 							\OC_Hook::emit(
 								Filesystem::CLASSNAME,
 								Filesystem::signal_post_rename,
