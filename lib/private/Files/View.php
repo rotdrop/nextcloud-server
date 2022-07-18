@@ -268,7 +268,7 @@ class View {
 	 * for \OC\Files\Storage\Storage via basicOperation().
 	 */
 	public function mkdir($path) {
-		return $this->basicOperation('mkdir', $path, ['create', 'write']);
+		return $this->basicOperation('mkdir', $path, ['create_folder', 'create', 'write']);
 	}
 
 	/**
@@ -606,8 +606,14 @@ class View {
 	 * @param string $path
 	 * @param bool $run
 	 */
-	protected function emit_file_hooks_pre($exists, $path, &$run) {
+	protected function emit_file_hooks_pre($exists, $directory, $path, &$run) {
 		if (!$exists) {
+			if ($directory) {
+				\OC_Hook::emit(Filesystem::CLASSNAME, Filesystem::signal_create_folder, [
+					Filesystem::signal_param_path => $this->getHookPath($path),
+					Filesystem::signal_param_run => &$run,
+				]);
+			}
 			\OC_Hook::emit(Filesystem::CLASSNAME, Filesystem::signal_create, [
 				Filesystem::signal_param_path => $this->getHookPath($path),
 				Filesystem::signal_param_run => &$run,
@@ -628,8 +634,13 @@ class View {
 	 * @param bool $exists
 	 * @param string $path
 	 */
-	protected function emit_file_hooks_post($exists, $path) {
+	protected function emit_file_hooks_post($exists, $directory, $path) {
 		if (!$exists) {
+			if ($directory) {
+				\OC_Hook::emit(Filesystem::CLASSNAME, Filesystem::signal_post_create_folder, [
+					Filesystem::signal_param_path => $this->getHookPath($path),
+				]);
+			}
 			\OC_Hook::emit(Filesystem::CLASSNAME, Filesystem::signal_post_create, [
 				Filesystem::signal_param_path => $this->getHookPath($path),
 			]);
@@ -662,7 +673,7 @@ class View {
 				$exists = $this->file_exists($path);
 				$run = true;
 				if ($this->shouldEmitHooks($path)) {
-					$this->emit_file_hooks_pre($exists, $path, $run);
+					$this->emit_file_hooks_pre($exists, false, $path, $run);
 				}
 				if (!$run) {
 					$this->unlockFile($path, ILockingProvider::LOCK_SHARED);
@@ -690,7 +701,7 @@ class View {
 					$this->changeLock($path, ILockingProvider::LOCK_SHARED);
 
 					if ($this->shouldEmitHooks($path) && $result !== false) {
-						$this->emit_file_hooks_post($exists, $path);
+						$this->emit_file_hooks_post($exists, false, $path);
 					}
 					$this->unlockFile($path, ILockingProvider::LOCK_SHARED);
 					return $result;
@@ -765,11 +776,12 @@ class View {
 		) {
 			$path1 = $this->getRelativePath($absolutePath1);
 			$path2 = $this->getRelativePath($absolutePath2);
-			$exists = $this->file_exists($path2);
 
 			if ($path1 == null or $path2 == null) {
 				return false;
 			}
+
+			$exists = $this->file_exists($path2);
 
 			$this->lockFile($path1, ILockingProvider::LOCK_SHARED, true);
 			try {
@@ -778,7 +790,7 @@ class View {
 				$run = true;
 				if ($this->shouldEmitHooks($path1) && (Cache\Scanner::isPartialFile($path1) && !Cache\Scanner::isPartialFile($path2))) {
 					// if it was a rename from a part file to a regular file it was a write and not a rename operation
-					$this->emit_file_hooks_pre($exists, $path2, $run);
+					$this->emit_file_hooks_pre($exists, false, $path2, $run);
 				} elseif ($this->shouldEmitHooks($path1)) {
 					\OC_Hook::emit(
 						Filesystem::CLASSNAME, Filesystem::signal_rename,
@@ -849,7 +861,7 @@ class View {
 
 					if ((Cache\Scanner::isPartialFile($path1) && !Cache\Scanner::isPartialFile($path2)) && $result !== false) {
 						if ($this->shouldEmitHooks()) {
-							$this->emit_file_hooks_post($exists, $path2);
+							$this->emit_file_hooks_post($exists, false, $path2);
 						}
 					} elseif ($result) {
 						if ($this->shouldEmitHooks($path1) and $this->shouldEmitHooks($path2)) {
@@ -899,6 +911,7 @@ class View {
 				return false;
 			}
 			$run = true;
+			$directory = $this->is_dir($path1);
 
 			$this->lockFile($path2, ILockingProvider::LOCK_SHARED);
 			$this->lockFile($path1, ILockingProvider::LOCK_SHARED);
@@ -917,7 +930,7 @@ class View {
 							Filesystem::signal_param_run => &$run
 						]
 					);
-					$this->emit_file_hooks_pre($exists, $path2, $run);
+					$this->emit_file_hooks_pre($exists, $directory, $path2, $run);
 				}
 				if ($run) {
 					$mount1 = $this->getMount($path1);
@@ -954,7 +967,7 @@ class View {
 								Filesystem::signal_param_newpath => $this->getHookPath($path2)
 							]
 						);
-						$this->emit_file_hooks_post($exists, $path2);
+						$this->emit_file_hooks_post($exists, $directory, $path2);
 					}
 				}
 			} catch (\Exception $e) {
