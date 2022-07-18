@@ -782,6 +782,7 @@ class View {
 			}
 
 			$exists = $this->file_exists($path2);
+			$directory = $this->is_dir($path1);
 
 			$this->lockFile($path1, ILockingProvider::LOCK_SHARED, true);
 			try {
@@ -800,6 +801,8 @@ class View {
 							Filesystem::signal_param_run => &$run
 						]
 					);
+				} elseif ($this->shouldEmitHooks($path2)) {
+					$this->emit_file_hooks_pre($exists, $directory, $path2, $run);
 				}
 				if ($run) {
 					$this->verifyPath(dirname($path2), basename($path2));
@@ -864,7 +867,7 @@ class View {
 							$this->emit_file_hooks_post($exists, false, $path2);
 						}
 					} elseif ($result) {
-						if ($this->shouldEmitHooks($path1) and $this->shouldEmitHooks($path2)) {
+						if ($this->shouldEmitHooks($path1) /* and $this->shouldEmitHooks($path2) */) {
 							\OC_Hook::emit(
 								Filesystem::CLASSNAME,
 								Filesystem::signal_post_rename,
@@ -873,6 +876,9 @@ class View {
 									Filesystem::signal_param_newpath => $this->getHookPath($path2)
 								]
 							);
+						} elseif ($this->shouldEmitHooks($path2)) {
+							// create from the point of view of the user's folder
+							$this->emit_file_hooks_post($exists, $directory, $path2);
 						}
 					}
 				}
