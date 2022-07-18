@@ -30,6 +30,7 @@ use OC\Files\Filesystem;
 use OC\Files\View;
 use OCP\EventDispatcher\GenericEvent;
 use OCP\EventDispatcher\IEventDispatcher;
+use OCP\Files\Events\Node\BeforeFolderCreatedEvent;
 use OCP\Files\Events\Node\BeforeNodeCopiedEvent;
 use OCP\Files\Events\Node\BeforeNodeCreatedEvent;
 use OCP\Files\Events\Node\BeforeNodeDeletedEvent;
@@ -37,6 +38,7 @@ use OCP\Files\Events\Node\BeforeNodeReadEvent;
 use OCP\Files\Events\Node\BeforeNodeRenamedEvent;
 use OCP\Files\Events\Node\BeforeNodeTouchedEvent;
 use OCP\Files\Events\Node\BeforeNodeWrittenEvent;
+use OCP\Files\Events\Node\FolderCreatedEvent;
 use OCP\Files\Events\Node\NodeCopiedEvent;
 use OCP\Files\Events\Node\NodeCreatedEvent;
 use OCP\Files\Events\Node\NodeDeletedEvent;
@@ -87,6 +89,9 @@ class HookConnector {
 
 		Util::connectHook('OC_Filesystem', 'create', $this, 'create');
 		Util::connectHook('OC_Filesystem', 'post_create', $this, 'postCreate');
+
+		Util::connectHook('OC_Filesystem', 'create_folder', $this, 'createFolder');
+		Util::connectHook('OC_Filesystem', 'post_create_folder', $this, 'postCreateFolder');
 
 		Util::connectHook('OC_Filesystem', 'delete', $this, 'delete');
 		Util::connectHook('OC_Filesystem', 'post_delete', $this, 'postDelete');
@@ -139,6 +144,24 @@ class HookConnector {
 		$this->dispatcher->dispatchTyped($event);
 	}
 
+	public function createFolder($arguments) {
+		$node = $this->getNodeForPath($arguments['path'], FileInfo::TYPE_FOLDER);
+		$this->root->emit('\OC\Files', 'preCreateFolder', [$node]);
+		$this->legacyDispatcher->dispatch('\OCP\Files::preCreateFolder', new GenericEvent($node));
+
+		$event = new BeforeFolderCreatedEvent($node);
+		$this->dispatcher->dispatchTyped($event);
+	}
+
+	public function postCreateFolder($arguments) {
+		$node = $this->getNodeForPath($arguments['path']);
+		$this->root->emit('\OC\Files', 'postCreateFolder', [$node]);
+		$this->legacyDispatcher->dispatch('\OCP\Files::postCreateFolder', new GenericEvent($node));
+
+		$event = new FolderCreatedEvent($node);
+		$this->dispatcher->dispatchTyped($event);
+	}
+
 	public function delete($arguments) {
 		$node = $this->getNodeForPath($arguments['path']);
 		$this->deleteMetaCache[$node->getPath()] = $node->getFileInfo();
@@ -179,7 +202,7 @@ class HookConnector {
 
 	public function rename($arguments) {
 		$source = $this->getNodeForPath($arguments['oldpath']);
-		$target = $this->getNodeForPath($arguments['newpath'], $source);
+		$target = $this->getNodeForPath($arguments['newpath'], $source->getType());
 		$this->root->emit('\OC\Files', 'preRename', [$source, $target]);
 		$this->legacyDispatcher->dispatch('\OCP\Files::preRename', new GenericEvent([$source, $target]));
 
@@ -189,7 +212,7 @@ class HookConnector {
 
 	public function postRename($arguments) {
 		$target = $this->getNodeForPath($arguments['newpath']);
-		$source = $this->getNodeForPath($arguments['oldpath'], $target);
+		$source = $this->getNodeForPath($arguments['oldpath'], $target->getType());
 		$this->root->emit('\OC\Files', 'postRename', [$source, $target]);
 		$this->legacyDispatcher->dispatch('\OCP\Files::postRename', new GenericEvent([$source, $target]));
 
@@ -199,7 +222,7 @@ class HookConnector {
 
 	public function copy($arguments) {
 		$source = $this->getNodeForPath($arguments['oldpath']);
-		$target = $this->getNodeForPath($arguments['newpath'], $source);
+		$target = $this->getNodeForPath($arguments['newpath'], $source->getType());
 		$this->root->emit('\OC\Files', 'preCopy', [$source, $target]);
 		$this->legacyDispatcher->dispatch('\OCP\Files::preCopy', new GenericEvent([$source, $target]));
 
@@ -226,7 +249,7 @@ class HookConnector {
 		$this->dispatcher->dispatchTyped($event);
 	}
 
-	private function getNodeForPath(string $path, $relatedNode = null) {
+	private function getNodeForPath(string $path, ?string $nonExtistingType = null) {
 		$info = Filesystem::getView()->getFileInfo($path);
 		if (!$info) {
 			$fullPath = Filesystem::getView()->getAbsolutePath($path);
@@ -235,8 +258,7 @@ class HookConnector {
 			} else {
 				$info = null;
 			}
-			if (Filesystem::is_dir($path)
-				|| ($info === null && !empty($relatedNode) && ($relatedNode instanceof \OCP\Files\Folder))) {
+			if (($info === null && $nonExtistingType === FileInfo::TYPE_FOLDER) || Filesystem::is_dir($path)) {
 				return new NonExistingFolder($this->root, $this->view, $fullPath, $info);
 			} else {
 				return new NonExistingFile($this->root, $this->view, $fullPath, $info);
