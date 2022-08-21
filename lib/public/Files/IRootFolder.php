@@ -45,4 +45,15 @@ interface IRootFolder extends Folder, Emitter {
 	 * @since 8.2.0
 	 */
 	public function getUserFolder($userId);
+
+	/**
+	 * Returns the path of the user's files folder
+	 *
+	 * @param string $userId user ID
+	 * @return string
+	 * @throws NoUserException
+	 *
+	 * @since 23.0.0
+	 */
+	public function getUserFolderPath($userId);
 }

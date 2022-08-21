@@ -392,6 +392,34 @@ class Root extends Folder implements IRootFolder {
 		return $this->userFolderCache->get($userId);
 	}
 
+	/**
+	 * Returns the path of the user's files folder
+	 *
+	 * @param string $userId user ID
+	 * @return string
+	 * @throws NoUserException
+	 */
+	public function getUserFolderPath($userId) {
+		$userObject = $this->userManager->get($userId);
+
+		if (is_null($userObject)) {
+			$this->logger->error(
+				sprintf(
+					'Backends provided no user object for %s',
+					$userId
+				),
+				[
+					'app' => 'files',
+				]
+			);
+			throw new NoUserException('Backends provided no user object');
+		}
+
+		$userId = $userObject->getUID();
+
+		return '/' . $userId . '/files';
+	}
+
 	public function clearCache() {
 		$this->userFolderCache = new CappedMemoryCache();
 	}
