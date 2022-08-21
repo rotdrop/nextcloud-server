@@ -69,4 +69,15 @@ interface IRootFolder extends Folder, Emitter {
 	 * @since 25.0.9
 	 */
 	public function getMount(string $mountPoint): IMountPoint;
+
+	/**
+	 * Returns the path of the user's files folder
+	 *
+	 * @param string $userId user ID
+	 * @return string
+	 * @throws NoUserException
+	 *
+	 * @since 23.0.0
+	 */
+	public function getUserFolderPath($userId);
 }

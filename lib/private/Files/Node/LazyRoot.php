@@ -40,7 +40,17 @@ class LazyRoot extends LazyFolder implements IRootFolder {
 		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
+	/**
+	 * @inheritDoc
+	 */
 	public function getByIdInPath(int $id, string $path) {
+		return $this->__call(__FUNCTION__, func_get_args());
+	}
+
+	/**
+	 * @inheritDoc
+	 */
+	public function getUserFolderPath($userId) {
 		return $this->__call(__FUNCTION__, func_get_args());
 	}
 }
