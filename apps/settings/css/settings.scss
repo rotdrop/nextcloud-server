@@ -118,6 +118,11 @@ select {
 		padding-left: 30px;
 		opacity: 0.7;
 	}
+
+        .details__groups-list {
+		max-height: calc( var(--default-line-height) * 12);
+		overflow: auto;
+	}
 }
 
 
