@@ -167,6 +167,11 @@ export const initCore = () => {
 			if (animating || snapper.state().state !== 'closed') {
 				return
 			}
+			// animating MUST be set here because of snapper
+			// open/close is deferred, so there may come any event in
+			// between before finally oldSnapperClose() is called. So
+			// animating really has to be set here now.
+			animating = true
 			oldSnapperOpen(SNAPPER_OPEN)
 		}
 
@@ -174,6 +179,11 @@ export const initCore = () => {
 			if (animating || snapper.state().state === 'closed') {
 				return
 			}
+			// animating MUST be set here because of snapper
+			// open/close is deferred, so there may come any event in
+			// between before finally oldSnapperClose() is called. So
+			// animating really has to be set here now.
+			animating = true
 			oldSnapperClose()
 		}
 
