@@ -582,7 +582,8 @@
 					iconClass: 'icon-details',
 					permissions: OC.PERMISSION_NONE,
 					actionHandler: function(fileName, context) {
-						self._updateDetailsView(fileName);
+						var fileList = context.fileList || self
+						fileList._updateDetailsView(fileName);
 					}
 				});
 			}
