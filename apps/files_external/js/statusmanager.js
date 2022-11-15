@@ -567,7 +567,7 @@ OCA.Files_External.StatusManager.Utils = {
 		}
 		if (active) {
 			link.off('click.connectivity');
-			OCA.Files.App.fileList.fileActions.display(link.parent(), true, OCA.Files.App.fileList);
+			OCA.Files.App.fileList.fileActions.display(link.parent(), true, OCA.Files_External.App.fileList);
 		} else {
 			link.find('.fileactions, .nametext .action').remove();  // from files/js/fileactions (display)
 			link.off('click.connectivity');
