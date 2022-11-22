@@ -1,4 +1,4 @@
-NPMFLAGS = --legacy-peer-deps
+NPMFLAGS = # --legacy-peer-deps
 
 all: clean dev-setup build-js-production
 
