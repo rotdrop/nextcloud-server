@@ -51,6 +51,11 @@ class CryptoSessionData implements \ArrayAccess, ISession {
 	protected $isModified = false;
 	public const encryptedSessionName = 'encrypted_session_data';
 
+	public function getWrapped()
+	{
+		return $this->session;
+	}
+
 	/**
 	 * @param ISession $session
 	 * @param ICrypto $crypto
@@ -76,7 +81,7 @@ class CryptoSessionData implements \ArrayAccess, ISession {
 			// So it is safe to ignore it and let the garbage collector to proceed
 
 			// Still this is fatal if the _THIS_ session wrapper has modified data:
-			if ($this->isModified) {
+			if (false && $this->isModified) {
 				$e = new SessionNotAvailableException('Error while trying to close modified session in destructor', $e->getCode(), $e);
 				$logger = \OC::$server->get(\OCP\ILogger::class);
 				$logger->logException($e);
@@ -105,7 +110,7 @@ class CryptoSessionData implements \ArrayAccess, ISession {
 	 * @param mixed $value
 	 */
 	public function set(string $key, $value) {
-		if ($this->session->isClosed()) {
+		if (false && $this->session->isClosed()) {
 			$e = new SessionNotAvailableException('Session is already closed while trying to set a value for key "' . $key . '".');
 			$logger = \OC::$server->get(\OCP\ILogger::class);
 			$logger->logException($e);
