@@ -29,8 +29,6 @@ import settings from './settings'
 import oc from './oc'
 import { showError } from '@nextcloud/dialogs'
 
-require('@nextcloud/dialogs/styles/toast.scss')
-
 Vue.use(Vuex)
 
 const debug = process.env.NODE_ENV !== 'production'
