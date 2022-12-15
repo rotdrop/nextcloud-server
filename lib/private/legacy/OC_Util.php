@@ -102,10 +102,6 @@ class OC_Util {
 			$userObject = \OC::$server->get(\OCP\IUserSession::class)->getUser();
 		} else {
 			$userObject = \OC::$server->get(\OCP\IUserManager::class)->get($user);
-			if ($userObject) {
-				// otherwise $setupManager->setForPath() will use the wrong user
-				\OC::$server->get(\OCP\IUserSession::class)->setUser($userObject);
-			}
 		}
 
 		/** @var SetupManager $setupManager */
