@@ -204,6 +204,13 @@ class CryptoSessionData implements \ArrayAccess, ISession {
 	}
 
 	/**
+	 * Return true if the session is not open
+	 */
+	public function isClosed():bool {
+		return $this->session->isClosed();
+	}
+
+	/**
 	 * @param mixed $offset
 	 * @return bool
 	 */
