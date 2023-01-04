@@ -419,7 +419,7 @@ class MigrationService {
 				// so we wrap it here, to make debugging easier.
 				throw new \Exception('Database error when running migration ' . $version . ' for app ' . $this->getApp() . PHP_EOL. $e->getMessage(), 0, $e);
 			} catch (\Throwable $t) {
-				throw new \Exception('Error when running migration ' . $version . ' for app ' . $this->getApp() . PHP_EOL. $e->getMessage(), 0, $t);
+				throw new \Exception('Error when running migration ' . $version . ' for app ' . $this->getApp() . PHP_EOL. $t->getMessage(), 0, $t);
 			}
 		}
 	}
