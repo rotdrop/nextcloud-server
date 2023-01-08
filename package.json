@@ -17,7 +17,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:jsunit": "karma start tests/karma.config.js --single-run",
-    "sass": "sass --style compressed --load-path core/css core/css/ apps/*/css",
+    "sass": "sass --style compressed --load-path core/css core/css/ apps/dashboard/css apps/dav/css apps/encryption/css apps/federation/css apps/files/css apps/files_external/css apps/files_sharing/css apps/settings/css apps/systemtags/css apps/theming/css apps/twofactor_backupcodes/css apps/user_ldap/css apps/user_status/css",
     "sass:watch": "sass --watch --load-path core/css core/css/ apps/*/css",
     "sass:icons": "babel-node core/src/icons.js",
     "cypress": "npm run cypress:component && npm run cypress:e2e",
