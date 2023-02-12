@@ -4578,6 +4578,10 @@ kbd {
   border-width: 10px 10px 0;
   border-top-color: var(--color-main-background);
 }
+.tooltip[x-placement^=top] .tooltip-arrow, .tooltip.top .tooltip-arrow {
+  left: 50%;
+  margin-left: -10px;
+}
 .tooltip.top-left .tooltip-arrow {
   right: 10px;
   margin-bottom: -10px;
