@@ -165,10 +165,51 @@ class Plugin extends \Sabre\CalDAV\Schedule\Plugin {
 			$this->pathOfCalendarObjectChange = $request->getPath();
 		}
 
+		//parent::calendarObjectChange($request, $response, $vCal, $calendarPath, $modified, $isNew);
+
+		if (!$this->scheduleReply($this->server->httpRequest)) {
+			return;
+		}
+
+		/** @var Calendar $calendarNode */
+		$calendarNode = $this->server->tree->getNodeForPath($calendarPath);
+
+		// Original code in parent class:
+		//
+		// $addresses = $this->getAddressesForPrincipal(
+		//  	$calendarNode->getOwner()
+		// );
+
+		// Allow also writable shared calendars:
+		$addresses = $this->getAddressesForPrincipal(
+			$calendarNode->getPrincipalURI()
+		);
+
+		/** @var VCalendar $oldObj */
+		if (!$isNew) {
+			/** @var \Sabre\CalDAV\CalendarObject $node */
+			$node = $this->server->tree->getNodeForPath($request->getPath());
+			$oldObj = Reader::read($node->get());
+		} else {
+			$oldObj = null;
+		}
+
 		try {
-			parent::calendarObjectChange($request, $response, $vCal, $calendarPath, $modified, $isNew);
+			/**
+			 * Sabre has several issues with faulty argument type specifications
+			 * in its doc-block comments. Passing null is ok here.
+			 *
+			 * @psalm-suppress PossiblyNullArgument
+			 * @psalm-suppress ArgumentTypeCoercion
+			 */
+			$this->processICalendarChange($oldObj, $vCal, $addresses, [], $modified);
 		} catch (SameOrganizerForAllComponentsException $e) {
 			$this->handleSameOrganizerException($e, $vCal, $calendarPath);
+		}
+
+		if ($oldObj) {
+			// Destroy circular references so PHP will GC the object.
+			$oldObj->destroy();
 		}
 	}
 
@@ -188,6 +229,21 @@ class Plugin extends \Sabre\CalDAV\Schedule\Plugin {
 			$vCal = Reader::read($node->get());
 			$this->handleSameOrganizerException($e, $vCal, $path);
 		}
+	}
+
+	/**
+	 * This method checks the 'Schedule-Reply' header
+	 * and returns false if it's 'F', otherwise true.
+	 *
+	 * Copied from Sabre/DAV's Schedule plugin, because it's
+	 * private for whatever reason
+	 *
+	 * @param RequestInterface $request
+	 * @return bool
+	 */
+	private function scheduleReply(RequestInterface $request) {
+		$scheduleReply = $request->getHeader('Schedule-Reply');
+		return $scheduleReply !== 'F';
 	}
 
 	/**
