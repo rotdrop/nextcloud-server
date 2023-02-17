@@ -2191,6 +2191,11 @@ class CalDavBackend extends AbstractBackend implements SyncSupport, Subscription
 		$stmt->closeCursor();
 		if ($row) {
 			if ($row['principaluri'] != $principalUri) {
+				/**
+				 * This seeems to be a false positive: we have "use Sabre\Uri" and Uri\split() IS defined.
+				 *
+				 * @psalm-suppress UndefinedFunction
+				 */
 				[, $name] = Uri\split($row['principaluri']);
 				$calendarUri = $row['calendaruri'] . '_shared_by_' . $name;
 			} else {
