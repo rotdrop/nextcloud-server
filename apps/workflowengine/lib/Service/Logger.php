@@ -118,6 +118,7 @@ class Logger {
 
 		$context = [
 			'ev' => $logContext->getDetails()['eventName'],
+			'level' => ILogger::DEBUG,
 		];
 
 		$logContext->setDescription('Flow handling for event done');
