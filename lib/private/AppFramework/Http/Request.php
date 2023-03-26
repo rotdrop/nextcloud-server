@@ -716,7 +716,7 @@ class Request implements \ArrayAccess, \Countable, IRequest {
 	 * @return string Path info
 	 */
 	public function getRawPathInfo(): string {
-		if (defined('OC_CONSOLE')) {
+		if (defined('OC_CONSOLE') || \OC::$CLI) {
 			return '';
 		}
 
