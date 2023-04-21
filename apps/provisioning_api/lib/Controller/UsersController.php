@@ -464,7 +464,7 @@ class UsersController extends AUserData {
 
 			if ($displayName !== '') {
 				try {
-					$this->editUserInternal($userid, self::USER_FIELD_DISPLAYNAME, $displayName);
+					$this->editUserInternal($newUser, self::USER_FIELD_DISPLAYNAME, $displayName);
 				} catch (OCSException $e) {
 					if ($newUser instanceof IUser) {
 						$newUser->delete();
