@@ -586,13 +586,13 @@
 					mime: 'all',
 					order: -50,
 					iconClass: 'icon-details',
-					permissions: OC.PERMISSION_NONE,
+					permissions: OC.PERMISSION_ALL,
 					actionHandler: function(fileName, context) {
 						var fileList = context.fileList || self
 						fileList._updateDetailsView(fileName);
 					}
 				});
-			}
+                        }
 
 			this._onFileActionsUpdated = _.debounce(_.bind(this._onFileActionsUpdated, this), 100);
 			this.fileActions.on('registerAction', this._onFileActionsUpdated);
