@@ -82,21 +82,20 @@ import { getCapabilities } from '@nextcloud/capabilities'
 			var fileActions = fileList.fileActions
 			var oldCreateRow = fileList._createRow
 			fileList._createRow = function(fileData) {
-
 				var tr = oldCreateRow.apply(this, arguments)
 				var sharePermissions = OCA.Sharing.Util.getSharePermissions(fileData)
 
 				if (fileData.permissions === 0) {
 					// no permission, disabling sidebar
-					delete fileActions.actions.all.Comment
-					delete fileActions.actions.all.Details
-					delete fileActions.actions.all.Goto
+					// delete fileActions.actions.all.Comment
+					// delete fileActions.actions.all.Details
+					// delete fileActions.actions.all.Goto
 				}
 				if (_.isFunction(fileData.canDownload) && !fileData.canDownload()) {
-					delete fileActions.actions.all.Download
+					// delete fileActions.actions.all.Download
 					if ((fileData.permissions & OC.PERMISSION_UPDATE) === 0) {
 						// neither move nor copy is allowed, remove the action completely
-						delete fileActions.actions.all.MoveCopy
+						// delete fileActions.actions.all.MoveCopy
 					}
 				}
 				tr.attr('data-share-permissions', sharePermissions)
