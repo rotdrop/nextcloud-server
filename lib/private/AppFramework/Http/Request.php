@@ -714,6 +714,10 @@ class Request implements \ArrayAccess, \Countable, IRequest {
 	 * @return string Path info
 	 */
 	public function getRawPathInfo(): string {
+		if (\OC::$CLI) {
+			return '';
+		}
+
 		$requestUri = isset($this->server['REQUEST_URI']) ? $this->server['REQUEST_URI'] : '';
 		// remove too many slashes - can be caused by reverse proxy configuration
 		$requestUri = preg_replace('%/{2,}%', '/', $requestUri);
@@ -733,7 +737,7 @@ class Request implements \ArrayAccess, \Countable, IRequest {
 			if ($path === $pathInfo || str_starts_with($pathInfo, $path . '/')) {
 				$pathInfo = substr($pathInfo, \strlen($path));
 			} else {
-				throw new \Exception("The requested uri($requestUri) cannot be processed by the script '$scriptName')");
+				throw new \Exception("The requested uri ('$requestUri') cannot be processed by the script '$scriptName')");
 			}
 		}
 		if ($name === null) {
