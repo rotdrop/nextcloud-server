@@ -35,6 +35,7 @@ class CappedMemoryCache implements ICache, \ArrayAccess {
 	private int $capacity;
 	/** @var T[] */
 	private array $cache = [];
+	private bool $capped = false;
 
 	/**
 	 * @inheritdoc
@@ -92,6 +93,7 @@ class CappedMemoryCache implements ICache, \ArrayAccess {
 	 */
 	public function clear($prefix = ''): bool {
 		$this->cache = [];
+		$this->capped = false;
 		return true;
 	}
 
@@ -144,6 +146,7 @@ class CappedMemoryCache implements ICache, \ArrayAccess {
 	 */
 	private function garbageCollect(): void {
 		while (count($this->cache) > $this->capacity) {
+			$this->capped = true;
 			reset($this->cache);
 			$key = key($this->cache);
 			$this->remove($key);
@@ -156,5 +159,12 @@ class CappedMemoryCache implements ICache, \ArrayAccess {
 	 */
 	public static function isAvailable(): bool {
 		return true;
+	}
+
+	/**
+	 * @return bool
+	 */
+	public function isCapped():bool {
+		return $this->capped;
 	}
 }

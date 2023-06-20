@@ -30,6 +30,7 @@
 namespace OC\Group;
 
 use Doctrine\DBAL\Exception\UniqueConstraintViolationException;
+use OCP\Cache\CappedMemoryCache;
 use OCP\DB\QueryBuilder\IQueryBuilder;
 use OCP\Group\Backend\ABackend;
 use OCP\Group\Backend\IAddToGroupBackend;
@@ -62,8 +63,13 @@ class Database extends ABackend implements
 	ISetDisplayNameBackend,
 	ISearchableGroupBackend,
 	INamedBackend {
-	/** @var string[] */
-	private $groupCache = [];
+	private const GROUP_CACHE_CAPACITY = 512;
+
+	/** @var CappedMemoryCache */
+	private $groupCache;
+
+	/** @var bool */
+	private $cacheValid;
 
 	/** @var IDBConnection */
 	private $dbConn;
@@ -75,6 +81,8 @@ class Database extends ABackend implements
 	 */
 	public function __construct(IDBConnection $dbConn = null) {
 		$this->dbConn = $dbConn;
+		$this->groupCache = new CappedMemoryCache(self::GROUP_CACHE_CAPACITY);
+		$this->cacheValid = false;
 	}
 
 	/**
@@ -263,7 +271,7 @@ class Database extends ABackend implements
 		$this->fixDI();
 
 		$query = $this->dbConn->getQueryBuilder();
-		$query->select('gid')
+		$query->select('gid', 'displayname')
 			->from('groups')
 			->orderBy('gid', 'ASC');
 
@@ -284,11 +292,26 @@ class Database extends ABackend implements
 		}
 		$result = $query->execute();
 
+		if ($search === '' && $offset == 0) {
+			// shoot down the cache if we have a chance to get the complete table
+			$this->groupCache->clear();
+			$this->cacheValid = false;
+		}
+
 		$groups = [];
 		while ($row = $result->fetch()) {
 			$groups[] = $row['gid'];
+			$this->groupCache[$row['gid']] = [
+				'gid' => $row['gid'],
+				'displayname' => $row['displayname'],
+			];
 		}
 		$result->closeCursor();
+
+		if ($search === '' && $offset == 0) {
+			$this->cacheValid = !$this->groupCache->isCapped()
+				&& ($limit === null || count($groups) <= $limit);
+		}
 
 		return $groups;
 	}
@@ -458,6 +481,10 @@ class Database extends ABackend implements
 			}
 		}
 
+		if ($this->cacheValid) {
+			return '';
+		}
+
 		$this->fixDI();
 
 		$query = $this->dbConn->getQueryBuilder();
@@ -469,10 +496,22 @@ class Database extends ABackend implements
 		$displayName = $result->fetchOne();
 		$result->closeCursor();
 
+		if ($displayName !== false) {
+			$this->groupCache[$gid] = [
+				'gid' => $gid,
+				'displayname' => $displayName,
+			];
+		}
+
 		return (string) $displayName;
 	}
 
 	public function getGroupDetails(string $gid): array {
+
+		if (!$this->cacheValid && !$this->groupCache->isCapped()) {
+		 	$this->getGroups(limit: self::GROUP_CACHE_CAPACITY);
+		}
+
 		$displayName = $this->getDisplayName($gid);
 		if ($displayName !== '') {
 			return ['displayName' => $displayName];
