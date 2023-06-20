@@ -769,7 +769,7 @@ class View {
 				if ($this->shouldEmitHooks($source) && (Cache\Scanner::isPartialFile($source) && !Cache\Scanner::isPartialFile($target))) {
 					// if it was a rename from a part file to a regular file it was a write and not a rename operation
 					$this->emit_file_hooks_pre($exists, false, $target, $run);
-				} elseif ($this->shouldEmitHooks($source)) {
+				} elseif ($this->shouldEmitHooks($source) || $this->shouldEmitHooks($target)) {
 					$sourcePath = $this->getHookPath($source);
 					$targetPath = $this->getHookPath($target);
 					if ($sourcePath !== null && $targetPath !== null) {
@@ -851,7 +851,7 @@ class View {
 							$this->emit_file_hooks_post($exists, false, $target);
 						}
 					} elseif ($result) {
-						if ($this->shouldEmitHooks($source) && $this->shouldEmitHooks($target)) {
+						if ($this->shouldEmitHooks($source) || $this->shouldEmitHooks($target)) {
 							$sourcePath = $this->getHookPath($source);
 							$targetPath = $this->getHookPath($target);
 							if ($sourcePath !== null && $targetPath !== null) {
