@@ -33,7 +33,7 @@
 			'shares.others',
 			'shares.link'
 		],
-		
+
 		_buildTagSpan: function(tag, isMore = false) {
 			var $tag = $('<li class="system-tags__tag"></li>');
 			$tag.text(tag).addClass(isMore ? 'system-tags__tag--more' : '');
@@ -91,7 +91,7 @@
 			fileList.elementToFile = function ($el) {
 				var fileInfo = oldElementToFile.apply(this, arguments);
 				var systemTags = $el.attr('data-systemTags');
-				fileInfo.systemTags = systemTags?.split?.('|') || [];
+				fileInfo.systemTags = systemTags == '' ? [] : systemTags?.split?.('|') || [];
 				return fileInfo;
 			};
 
