@@ -182,7 +182,11 @@ class File implements IEntity, IDisplayText, IUrl, IIcon, IContextPortation {
 			case self::EVENT_NAMESPACE . 'postWrite':
 			case self::EVENT_NAMESPACE . 'postDelete':
 			case self::EVENT_NAMESPACE . 'postTouch':
-				return $this->event->getSubject();
+				$subject = $this->event->getSubject();
+				if (is_array($subject)) {
+					$subject = $subject[0];
+				}
+				return $subject;
 			case self::EVENT_NAMESPACE . 'postRename':
 			case self::EVENT_NAMESPACE . 'postCopy':
 				return $this->event->getSubject()[1];
