@@ -178,6 +178,27 @@ class Filesystem {
 	public const signal_delete = 'delete';
 
 	/**
+	 * signal emits when added to the file cache
+	 *
+	 * @parma string $path
+	 */
+	public const signal_add_to_cache = 'add_to_cache';
+
+	/**
+	 * signal emits when removed from the file cache
+	 *
+	 * @parma string $path
+	 */
+	public const signal_remove_from_cache = 'remove_from_cache';
+
+	/**
+	 * signal emits when cache is updated
+	 *
+	 * @parma string $path
+	 */
+	public const signal_update_cache = 'update_cache';
+
+	/**
 	 * parameters definitions for signals
 	 */
 	public const signal_param_path = 'path';
