@@ -94,6 +94,27 @@ class HookConnector {
 		Util::connectHook('OC_Filesystem', 'post_touch', $this, 'postTouch');
 
 		Util::connectHook('OC_Filesystem', 'read', $this, 'read');
+
+		Util::connectHook('OC_Filesystem', 'add_to_cache', $this, 'addToCache');
+
+		Util::connectHook('OC_Filesystem', 'remove_from_cache', $this, 'removeFromCache');
+
+		Util::connectHook('OC_Filesystem', 'update_cache', $this, 'updateCache');
+	}
+
+	public function addToCache($arguments) {
+		$node = $this->getNodeForPath($arguments['path']);
+		$this->legacyDispatcher->dispatch('\OCP\Files::addToCache', new GenericEvent($node));
+	}
+
+	public function removeFromCache($arguments) {
+		$node = $this->getNodeForPath($arguments['path']);
+		$this->legacyDispatcher->dispatch('\OCP\Files::removeFromCache', new GenericEvent($node));
+	}
+
+	public function updateCache($arguments) {
+		$node = $this->getNodeForPath($arguments['path']);
+		$this->legacyDispatcher->dispatch('\OCP\Files::updateCache', new GenericEvent($node));
 	}
 
 	public function write($arguments) {

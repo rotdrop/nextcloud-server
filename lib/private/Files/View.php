@@ -1331,6 +1331,55 @@ class View {
 		return new LazyUser($ownerId, $this->userManager);
 	}
 
+	private function installCacheEmitters($mount, $storage, $internalPath, $relativePath)
+	{
+		if (!$this->shouldEmitHooks($relativePath)) {
+			return [];
+		}
+		$mountPoint = $mount->getMountPoint();
+		$scanner = $storage->getScanner($internalPath);
+		$run = true;
+		$callbacks = [
+			'addToCache' => function($cachePath) use ($mountPoint) {
+				$path = substr(rtrim($mountPoint, '/') . '/' . $cachePath, strlen($this->fakeRoot));
+				$path = $this->getHookPath($path);
+				\OC_Hook::emit(Filesystem::CLASSNAME, Filesystem::signal_add_to_cache, [
+					Filesystem::signal_param_path => $path,
+				]);
+			},
+			'removeFromCache' => function($cachePath) use ($mountPoint) {
+				$path = substr(rtrim($mountPoint, '/') . '/' . $cachePath, strlen($this->fakeRoot));
+				$path = $this->getHookPath($path);
+				\OC_Hook::emit(Filesystem::CLASSNAME, Filesystem::signal_remove_from_cache, [
+					Filesystem::signal_param_path => $path,
+				]);
+			},
+			'updateCache' => function($cachePath) use ($mountPoint) {
+				$path = substr(rtrim($mountPoint, '/') . '/' . $cachePath, strlen($this->fakeRoot));
+				$path = $this->getHookPath($path);
+				\OC_Hook::emit(Filesystem::CLASSNAME, Filesystem::signal_update_cache, [
+					Filesystem::signal_param_path => $path,
+				]);
+			},
+		];
+		$scanner = $storage->getScanner($internalPath);
+		foreach ($callbacks as $method => $callback) {
+			$scanner->listen('\OC\Files\Cache\Scanner', $method, $callback);
+		}
+		return $callbacks;
+	}
+
+	private function removeCacheEmitters($storage, $internalPath, $callbacks)
+	{
+		if (empty($callbacks)) {
+			return;
+		}
+		$scanner = $storage->getScanner($internalPath);
+		foreach ($callbacks as $method => $callback) {
+			$scanner->removeListener('\OC\Files\Cache\Scanner', $method, $callback);
+		}
+	}
+
 	/**
 	 * Get file info from cache
 	 *
@@ -1394,7 +1443,10 @@ class View {
 		$storage = $mount->getStorage();
 		$internalPath = $mount->getInternalPath($path);
 		if ($storage) {
+
+			$callbacks = $this->installCacheEmitters($mount, $storage, $internalPath, $relativePath);
 			$data = $this->getCacheEntry($storage, $internalPath, $relativePath);
+			$this->removeCacheEmitters($storage, $internalPath, $callbacks);
 
 			if (!$data instanceof ICacheEntry) {
 				return false;
@@ -1464,7 +1516,9 @@ class View {
 		$user = \OC_User::getUser();
 
 		if (!$directoryInfo) {
+			$callbacks = $this->installCacheEmitters($mount, $storage, $internalPath, $directory);
 			$data = $this->getCacheEntry($storage, $internalPath, $directory);
+			$this->removeCacheEmitters($storage, $internalPath, $callbacks);
 			if (!$data instanceof ICacheEntry || !isset($data['fileid'])) {
 				return [];
 			}

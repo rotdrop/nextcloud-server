@@ -169,14 +169,41 @@ class Scanner extends PublicEmitter {
 			$scanner = $storage->getScanner();
 			$this->attachListener($mount);
 
-			$scanner->listen('\OC\Files\Cache\Scanner', 'removeFromCache', function ($path) use ($storage) {
+			$scanner->listen('\OC\Files\Cache\Scanner', 'removeFromCache', function ($path) use ($storage, $mount) {
 				$this->triggerPropagator($storage, $path);
+				$this->dispatcher->dispatchTyped(new NodeRemovedFromCache($storage, $path));
+				$home = '/' . $this->user . '/files';
+				$mountPath = $mount->getMountPoint();
+				if (str_starts_with($mountPath, $home)) {
+					$path = rtrim(substr($mountPath, strlen($home)), '/') . '/' . $path;
+					\OC_Hook::emit(Filesystem::CLASSNAME, Filesystem::signal_remove_from_cache, [
+						Filesystem::signal_param_path => $path,
+					]);
+				}
 			});
-			$scanner->listen('\OC\Files\Cache\Scanner', 'updateCache', function ($path) use ($storage) {
+			$scanner->listen('\OC\Files\Cache\Scanner', 'updateCache', function ($path) use ($storage, $mount) {
 				$this->triggerPropagator($storage, $path);
+				$this->dispatcher->dispatchTyped(new FileCacheUpdated($storage, $path));
+				$home = '/' . $this->user . '/files';
+				$mountPath = $mount->getMountPoint();
+				if (str_starts_with($mountPath, $home)) {
+					$path = rtrim(substr($mountPath, strlen($home)), '/') . '/' . $path;
+					\OC_Hook::emit(Filesystem::CLASSNAME, Filesystem::signal_update_cache, [
+						Filesystem::signal_param_path => $path,
+					]);
+				}
 			});
-			$scanner->listen('\OC\Files\Cache\Scanner', 'addToCache', function ($path) use ($storage) {
+			$scanner->listen('\OC\Files\Cache\Scanner', 'addToCache', function ($path) use ($storage, $mount) {
 				$this->triggerPropagator($storage, $path);
+				$this->dispatcher->dispatchTyped(new NodeAddedToCache($storage, $path));
+				$home = '/' . $this->user . '/files';
+				$mountPath = $mount->getMountPoint();
+				if (str_starts_with($mountPath, $home)) {
+					$path = rtrim(substr($mountPath, strlen($home)), '/') . '/' . $path;
+					\OC_Hook::emit(Filesystem::CLASSNAME, Filesystem::signal_add_to_cache, [
+						Filesystem::signal_param_path => $path,
+					]);
+				}
 			});
 
 			$propagator = $storage->getPropagator();
@@ -243,20 +270,44 @@ class Scanner extends PublicEmitter {
 			$scanner->setUseTransactions(false);
 			$this->attachListener($mount);
 
-			$scanner->listen('\OC\Files\Cache\Scanner', 'removeFromCache', function ($path) use ($storage) {
+			$scanner->listen('\OC\Files\Cache\Scanner', 'removeFromCache', function ($path) use ($storage, $mount) {
 				$this->postProcessEntry($storage, $path);
 				$this->dispatcher->dispatchTyped(new NodeRemovedFromCache($storage, $path));
+				$home = '/' . $this->user . '/files';
+				$mountPath = $mount->getMountPoint();
+				if (str_starts_with($mountPath, $home)) {
+					$path = rtrim(substr($mountPath, strlen($home)), '/') . '/' . $path;
+					\OC_Hook::emit(Filesystem::CLASSNAME, Filesystem::signal_remove_from_cache, [
+						Filesystem::signal_param_path => $path,
+					]);
+				}
 			});
-			$scanner->listen('\OC\Files\Cache\Scanner', 'updateCache', function ($path) use ($storage) {
+			$scanner->listen('\OC\Files\Cache\Scanner', 'updateCache', function ($path) use ($storage, $mount) {
 				$this->postProcessEntry($storage, $path);
 				$this->dispatcher->dispatchTyped(new FileCacheUpdated($storage, $path));
+				$home = '/' . $this->user . '/files';
+				$mountPath = $mount->getMountPoint();
+				if (str_starts_with($mountPath, $home)) {
+					$path = rtrim(substr($mountPath, strlen($home)), '/') . '/' . $path;
+					\OC_Hook::emit(Filesystem::CLASSNAME, Filesystem::signal_update_cache, [
+						Filesystem::signal_param_path => $path,
+					]);
+				}
 			});
-			$scanner->listen('\OC\Files\Cache\Scanner', 'addToCache', function ($path, $storageId, $data, $fileId) use ($storage) {
+			$scanner->listen('\OC\Files\Cache\Scanner', 'addToCache', function ($path, $storageId, $data, $fileId) use ($storage, $mount) {
 				$this->postProcessEntry($storage, $path);
 				if ($fileId) {
 					$this->dispatcher->dispatchTyped(new FileCacheUpdated($storage, $path));
 				} else {
 					$this->dispatcher->dispatchTyped(new NodeAddedToCache($storage, $path));
+				}
+				$home = '/' . $this->user . '/files';
+				$mountPath = $mount->getMountPoint();
+				if (str_starts_with($mountPath, $home)) {
+					$path = rtrim(substr($mountPath, strlen($home)), '/') . '/' . $path;
+					\OC_Hook::emit(Filesystem::CLASSNAME, Filesystem::signal_add_to_cache, [
+						Filesystem::signal_param_path => $path,
+					]);
 				}
 			});
 
