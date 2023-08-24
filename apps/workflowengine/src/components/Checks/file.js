@@ -1,5 +1,5 @@
 /**
- * @copyright Copyright (c) 2019 Julius Härtl <jus@bitgrid.net>
+ * @copyright Copyright (c) 2019, 2023 Julius Härtl <jus@bitgrid.net>
  *
  * @author Arthur Schiwon <blizzz@arthur-schiwon.de>
  * @author Julius Härtl <jus@bitgrid.net>
@@ -44,6 +44,19 @@ const FileChecks = [
 				return '/^dummy-.+$/i'
 			}
 			return 'filename.txt'
+		},
+		validate: stringValidator,
+	},
+
+	{
+		class: 'OCA\\WorkflowEngine\\Check\\FilePath',
+		name: t('workflowengine', 'File path'),
+		operators: stringOrRegexOperators,
+		placeholder: (check) => {
+			if (check.operator === 'matches' || check.operator === '!matches') {
+				return '|^dummy-.+$|i'
+			}
+			return '/parent/subdir/filename.txt'
 		},
 		validate: stringValidator,
 	},

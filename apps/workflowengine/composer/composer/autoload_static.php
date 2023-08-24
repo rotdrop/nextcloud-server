@@ -7,14 +7,14 @@ namespace Composer\Autoload;
 class ComposerStaticInitWorkflowEngine
 {
     public static $prefixLengthsPsr4 = array (
-        'O' => 
+        'O' =>
         array (
             'OCA\\WorkflowEngine\\' => 19,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'OCA\\WorkflowEngine\\' => 
+        'OCA\\WorkflowEngine\\' =>
         array (
             0 => __DIR__ . '/..' . '/../lib',
         ),
@@ -27,6 +27,7 @@ class ComposerStaticInitWorkflowEngine
         'OCA\\WorkflowEngine\\Check\\AbstractStringCheck' => __DIR__ . '/..' . '/../lib/Check/AbstractStringCheck.php',
         'OCA\\WorkflowEngine\\Check\\FileMimeType' => __DIR__ . '/..' . '/../lib/Check/FileMimeType.php',
         'OCA\\WorkflowEngine\\Check\\FileName' => __DIR__ . '/..' . '/../lib/Check/FileName.php',
+        'OCA\\WorkflowEngine\\Check\\FilePath' => __DIR__ . '/..' . '/../lib/Check/FilePath.php',
         'OCA\\WorkflowEngine\\Check\\FileSize' => __DIR__ . '/..' . '/../lib/Check/FileSize.php',
         'OCA\\WorkflowEngine\\Check\\FileSystemTags' => __DIR__ . '/..' . '/../lib/Check/FileSystemTags.php',
         'OCA\\WorkflowEngine\\Check\\RequestRemoteAddress' => __DIR__ . '/..' . '/../lib/Check/RequestRemoteAddress.php',
