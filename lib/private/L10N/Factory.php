@@ -478,7 +478,11 @@ class Factory implements IFactory {
 	 * @throws LanguageNotFoundException
 	 */
 	private function getLanguageFromRequest(?string $app = null): string {
-		$header = $this->request->getHeader('ACCEPT_LANGUAGE');
+		if (!defined('OC_CONSOLE')) {
+			$header = $this->request->getHeader('ACCEPT_LANGUAGE');
+		} else {
+			$header = locale_get_primary_language(setlocale(LC_MESSAGES, ''));
+		}
 		if ($header !== '') {
 			$available = $this->findAvailableLanguages($app);
 
