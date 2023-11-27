@@ -49,3 +49,9 @@ commit-cjh:
  core/css/tooltip.css.map
 	git commit -m "Update assets" || true
 	git commit -m "Update 3rdparty/ submodule after bugfix" 3rdparty/ || true
+
+occ-upgrade:
+	./occ upgrade
+	./occ app:update --all
+	./occ  maintenance:update:htaccess
+	./occ maintenance:mode --off
