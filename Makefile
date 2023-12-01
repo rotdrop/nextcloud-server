@@ -53,5 +53,6 @@ commit-cjh:
 occ-upgrade:
 	./occ upgrade
 	./occ app:update --all
-	./occ  maintenance:update:htaccess
+	./occ maintenance:update:htaccess
+	./occ maintenance:mimetype:update-js
 	./occ maintenance:mode --off
