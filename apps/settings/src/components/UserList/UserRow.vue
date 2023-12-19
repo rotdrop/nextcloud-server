@@ -236,7 +236,7 @@
 		<div v-if="showConfig.showUserBackend && settings.isAdmin"
 			:class="{'icon-loading-small': loading.userBackend}"
 			class="userBackendChoice">
-			<NCMultiselect :allow-empty="false"
+			<NcMultiselect :allow-empty="false"
 				:disabled="loading.userBackend||loading.all"
 				:options="userBackends"
 				:placeholder="t('settings', 'Select user backend')"
