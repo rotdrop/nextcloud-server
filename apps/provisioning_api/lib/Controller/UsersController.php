@@ -989,7 +989,7 @@ class UsersController extends AUserData {
 					// change events.
 					$targetUser->setEMailAddress('');
 					$targetUser->setDisplayName('');
-					$targetUser->setQuota('');
+					$targetUser->setQuota('default');
 
 					// try to transfer the avatar
 					/** @var \OCP\IAvatar $avatar */
@@ -999,7 +999,7 @@ class UsersController extends AUserData {
 					}
 
 					try {
-						$this->addUser($userId, '', $displayName, $email, [], [], $quota, $language, $newBackend);
+						$this->addUser($userId, '', $displayName, $email, [], [], $quota, $language, backend: $newBackend);
 
 						// If this has succeeded, perhaps the user should be deleted in the old backend, if possible
 						try {
