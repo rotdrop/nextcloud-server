@@ -24,6 +24,9 @@ use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 
+use OCP\EventDispatcher\GenericEvent;
+use Symfony\Component\EventDispatcher\GenericEvent as LegacyEvent;
+
 class Application extends App implements IBootstrap {
 	public const APP_ID = 'workflowengine';
 
@@ -76,6 +79,11 @@ class Application extends App implements IBootstrap {
 								/** @var Logger $flowLogger */
 								$flowLogger = $container->get(Logger::class);
 								$flowLogger->logEventInit($ctx);
+
+								if ($event instanceof LegacyEvent) {
+									\OC\Server::get(\OCP\ILogger::class)->info(__METHOD__ . 'STILL NOT FIXED UPSTREAM');
+									$event = new GenericEvent($event->getSubject());
+								}
 
 								if ($event instanceof Event) {
 									$entity->prepareRuleMatcher($ruleMatcher, $eventName, $event);
