@@ -8,51 +8,60 @@ Status: merged with 3996e30d0cef620e32ebae2f01c2e89dd999de5d
 commit 4bc6949635c09a7e1be5ee250ce6d9e3c4377170
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Tue Dec 19 17:44:46 2023 +0100
+Status: dropped, related to 3996e30d0cef620e32ebae2f01c2e89dd999de5d which has been rewritten
 
     Fix typo in app-settings (user backend).
 
 commit 693fe6d45ee7ac10c85ff4298f70ec7c0aa90400
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Fri Dec 1 18:04:00 2023 +0100
+Status: merged with 5a7500138470b238ec1be3d4e46496e27147b7f1
 
     Add mimetype update to occ-upgrade Makefile target.
 
 commit 0bb4c091672dc58b607959436979eaa14ec2652e
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Fri Dec 1 18:02:32 2023 +0100
+Status: dropped, fixed upstream
 
     Fix smart-picker (file selector callback arg is now an array).
 
 commit 5a7500138470b238ec1be3d4e46496e27147b7f1
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Tue Nov 28 00:34:31 2023 +0100
+Status: cherry-picked
 
     Add occ upgrade to Makefile
 
 commit 5ad9e1828ee3ec05ea66f4683537402257e90577
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Fri Nov 24 10:22:50 2023 +0100
+Status: cherry-picked
 
-    Add git commit target to Makefile
+Add git commit target to Makefile
 
 commit 4fe8a1e2cedb7ba85de9aa61ae577abb48ec7a08
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Mon Sep 25 12:45:21 2023 +0200
+Status: postponed, check if still needed
 
     Update the nextcloud-files bugfix.
 
 commit 5406cb92932b11ede4c88a971f250382c7ab0d70
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Wed Aug 30 11:44:59 2023 +0200
+Status: cherry-picked
 
     Initialize language from locale instead of from the request if in console mode.
 
 commit 43b307d99d3005ae24287d0ebb056370efafcd81
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Fri Aug 25 01:13:08 2023 +0200
+Status: cherry-picked
+Todo: is this really needed?
 
     Workflowengine: listen to cache events.
-    
+
     The use case are external storages like smb folder used to upload
     scanner data. Essentially, a cache miss is here just equivalent to a
     "file created", deleted, updated event. But those events do not fire in
@@ -61,75 +70,89 @@ Date:   Fri Aug 25 01:13:08 2023 +0200
 commit 1c5d73219e9aa653d46bc56e4fd5ba4480973c34
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Fri Aug 25 01:11:54 2023 +0200
+Status: cherry-picked
+Todo: is this really needed?
 
     Emit cache events backed by Node instances for use with the workflow engine.
 
 commit 62d05d47494e4845776e96015786f27b225eb14b
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Thu Aug 24 15:10:04 2023 +0200
+Status: cherry-picked
+Todo: is this really needed?
 
     Add a new FilePath check which matches the complete path, including the mountpoint.
 
 commit 9d276dae0c68fb334a39093c2041c7f4b37570be
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Thu Aug 24 15:09:38 2023 +0200
+Status: cherry-picked, with debug message.
 
     Cope with inconsistencies in event arguments.
 
 commit 35d6804225418ea23cf2255ce44fd1751b2d4cc7
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Thu Aug 24 12:06:15 2023 +0200
+Status: postponed, need to revisit my bug-fix first
 
     Rebuild bugfixes files at the start of the build process.
 
 commit e35c25ff626411c3782f39a64382e29cea8fe5c8
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Thu Aug 24 12:06:00 2023 +0200
+Status: postponed, need to revisit my bug-fix first
 
     Rebuild @nextcloud/files.
 
 commit 642f7d58ca4de4c1314ad41ab7d4b1c3bb2ebe6c
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Mon Aug 21 08:26:40 2023 +0200
+Status: dropped, fixed upstream
 
     Fix CSP for service worker in files ViewController
 
 commit d95f719a50c4e70cf64ae581913e3c6acff20894
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Mon Aug 21 08:25:14 2023 +0200
+Status: dropped, rewritten upstream
 
     Fix bogus use of string.split in systemtagsplugin.js
 
 commit 4b01a312c8675ce327ff9417f500b58ef2fc1d3c
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Tue Jun 20 12:03:26 2023 +0200
+Status: postponed, need the v28 doc
 
     Add skeleton/ folder from v27 distribution tarball.
 
 commit 3b43e6c1a0d659cab1330c7c817a1d0d325b3c8b
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Tue Jun 20 12:02:51 2023 +0200
+Status: postponed, need the v28 doc
 
     Add doc/ from v27 distribution tarball.
 
 commit aa6da1354b45fb3a0dbe1cc7a9c949e26f845773
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Wed Jun 14 19:24:51 2023 +0200
+Status: cherry-picked
 
     Fix bogus files_sharing app greedily deleting file-actions.
 
 commit 4bc003d3b00b726679cff4accf11ecc973699fee
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Fri Apr 16 11:37:21 2021 +0200
+Status: postponed, may no longer be neccessary
 
     Add submodule to bug-fix nextcloud-files formatFileSize() and replace @nextcloud/files by the bug-fixed version.
 
 commit 159499535f29283be01f6fdf30e4c1bfc3b4c5d6
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Tue Jun 20 11:48:33 2023 +0200
+Status: cherry-picked
 
     Protect some code paths when authenticating in console mode.
-    
+
     - disable throttler
     - always check the session for login credentials
     - do not assume there is a request uri
@@ -137,96 +160,109 @@ Date:   Tue Jun 20 11:48:33 2023 +0200
 commit a681655a6c38a80bd974cf4776c98d98dd9d0c26
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Thu Apr 13 15:54:12 2023 +0200
+Status: cherry-picked
 
     CalDAV\Activity\Backend: fix array to string conversion.
 
 commit 6536495b1d8de3ac11a61f49073f560e08f1db29
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Sun Mar 19 22:48:22 2023 +0100
+Status: cherry-picked
 
     Silence noisy workflowengine app.
 
 commit d1902ee3396dd3b3bc8065ea25c2f18d5346157f
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Thu Feb 16 19:03:21 2023 +0100
+Status: cherry-picked
 
     Revert 'Revert "send invitations for shared calendars"'
-    
+
     This is basically the original commit, but with the addition that
     CalDavBackend::getCalendarObjectByUID() also takes object in writable
     shared calendars into account and adjusts their uri s.t. the Sabre
     library can find the returned object uri in the user's calendar
     collection. It is also needed that getCalendarObjectByUID() prefers objects
     in shared writable calendars over private objects.
-    
+
     Signed-off-by: Claus-Justus Heine <himself@claus-justus-heine.de>
 
 commit 2125793935fb10a0c2a0afcc64e243f9e75e9f4a
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Sun Jan 8 23:32:00 2023 +0100
+Status: cherry-picked
 
     Don't flag package-lock.json binary.
 
 commit 5c66fa0c7755a698ff7cf2c411857ee7ff13b76e
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Sun Jan 8 23:31:06 2023 +0100
+Status: dropped, fixed upstream
 
     Name the core apps explicitly for the sass npm target.
 
 commit e40168628ad7f8eae538aa966d8273cf1af94e71
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Tue Nov 15 17:01:04 2022 +0100
+Status: dropped, rewritten upstream
 
     JS; fix files_external statusmanager.js using the wrong file-list (has to use its own!)
 
 commit e5b9c5553de0322b54c0fdb737ee7efaeb2bd5b1
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Tue Nov 15 18:25:06 2022 +0100
+Status: cherry-picked
 
     JS filelist: fix erroneous self reference.
 
 commit 43823d98c6ef0dd3bb0c858f157a5463b9d1e286
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Thu Oct 27 18:06:36 2022 +0200
+Status: dropped, fixed upstream
 
     core/Command/Basse: cancelOperation() MUST be public in order to be callable as signal handler.
 
 commit df45e911bb75e6f50e6872adf9d6b665884e40bf
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Wed Oct 12 13:24:10 2022 +0200
+Status: cherry-picked
 
     ControllerMethodReflector -- silence a PHP warning.
 
 commit b93817daf862f8457d18519995a5698886dc24e6
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Fri Sep 30 14:53:09 2022 +0200
+Status: cherry-picked
 
     Fix "animating" snapper protection, it was broken.
 
 commit 8239d5df45471d5856f5f2a40a727ddd7ec90ab8
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Wed Aug 31 15:32:01 2022 +0200
+Status: cherry-picked
 
     Settings, user groups: restrict the display to roughly 10 lines height.
 
 commit 132187d18844d3aa1282951fde9331ee1d7fea79
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Tue Jun 20 12:40:16 2023 +0200
+Status: cherry-picked
 
     Files\View::rename() -- emit "rename" hooks already if one of the two files is inside the user storage.
-    
+
     This happens prominently when restoring files from the trash-bin: there
     is no pre-event whatsover in this case, which is at least confusing.
     Other possibility would be a pre-restore event.
-    
+
     Signed-off-by: Claus-Justus Heine <himself@claus-justus-heine.de>
 
 commit 6a8989963a162364f3f6eb6ee3a32879c3696358
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Mon Jul 18 08:59:54 2022 +0200
+Status: cherry-picked
 
     File-system events: in order to distinguish a mkdir from file creation a separate event is needed.
-    
+
     Up to now mkdir emits pre-create and pre-write (with
     NonExistingFILE!!!!Node) and so does any file creation. In order to
     catch directory creation in the "pre" events a separate event is needed.
@@ -234,9 +270,10 @@ Date:   Mon Jul 18 08:59:54 2022 +0200
 commit cc7beb798e324796cbf85f43498df1448de8a3b4
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Fri Jul 15 12:03:44 2022 +0200
+Status: cherry-picked
 
     Files\Node\HookConnector: fix node type for non-existing rename and copy sources/targets.
-    
+
     Currently, HookConnector::getNodeForPath() just asks
     Filesystem::is_dir($path) if a FileInfo for $path cannot be found.
     However, if $path is a non-existing target in the pre-rename or pre-copy
@@ -244,7 +281,7 @@ Date:   Fri Jul 15 12:03:44 2022 +0200
     this will fail: Filesystem::is_dir($path) will return false (the $path
     does not event exist), and the a NonExistingFile node is generated in
     any case.
-    
+
     This is at least surprising: when renaming an existing folder to
     non-existing target I really would expect a NonExistingFolder node as
     target in the pre-rename event, and the same for the source in the
@@ -253,80 +290,90 @@ Date:   Fri Jul 15 12:03:44 2022 +0200
 commit 346b8b1edfcddaaab8a9f4ba05015c73902c164a
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Mon Feb 7 16:46:22 2022 +0100
+Status: cherry-picked
 
     Prepare for adding groups with specified backend.
 
 commit 01752634e51a7f28f9ceba3373fa74d655b8186c
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Tue Jun 20 14:26:25 2023 +0200
+Status: dropped, fixed upstream
 
     DB group-backend: do a little bit more caching in order to reduce the number of DB queries (just for getDisplayName()).
 
 commit 83a90fdc87cea8fc8299427c008c86d85a6fe590
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Wed May 25 08:05:31 2022 +0200
+Status: dropped, is too incomplete
 
     Document my private app-hacks in my private repo.
 
 commit 0a98d86b4433eb9f2cf7c9786db7abad13b1cc36
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Sun May 22 17:33:41 2022 +0200
+Status: cherry-picked
 
     OCSBadRequestException: allow Throwable as "previous" parameter, any reason to only allow \Exception?
 
 commit 6965debc97bc5aeeefa4ab8a45bd8b94c3d4a357
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Sat Apr 23 18:51:58 2022 +0200
+Status: cherry-picked
 
     Bump max_input_vars to infty.
 
 commit a284a9874f36132b35d7f95852c2e8f430f82ec5
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Fri Feb 18 00:34:53 2022 +0100
+Status: cherry-picked
 
     IConfig::getUsersForUserValue() -- interprete null value as request to fetch all users with given key set.
 
 commit 0e0f3577a7563eed2406b256adf635ca546e56a4
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Mon Feb 7 16:46:44 2022 +0100
+Status: cherry-picked
 
     Continue adding a user to a group until any of the group backends succeeds
 
 commit b774947c342e759c3df03c6cba43a8944c7fc433
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Tue Feb 1 12:47:57 2022 +0100
+Status: cherry-picked
 
     Collaboration, MailPlugin: Protect access to a potentially missing array component by ??.
-    
+
     Signed-off-by: Claus-Justus Heine <himself@claus-justus-heine.de>
 
 commit 3296ad33e885130a9ac6bc266d14b7296ff3511a
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Tue Jan 11 08:48:10 2022 +0100
+Status: cherry-picked
 
     Avoid excessive mount cache shootdown for authenticated and non-shareable mounts.
-    
+
     This commit adds two new mount-flags 'authenticated' and
     'enable_sharing' which are used to avoid a mount-cache shoot-down for
     file-systems which by design cannot be shared of need authentication.
-    
+
     This affects the way UserMountCache::registerMounts() cleans up the
     mount-cache:
-    
+
     - non-shareable mounts are left in the cache if the mounts are
       registered for another user the currently logged on user
     - authenticated mounts are left in the cache if credentials are not
       available.
-    
+
     The use case are special authenticated and non-shareable virtual
     file-systems.
 
 commit aec12f4df1393b1d4cdc2f89320e9c34e0a31bf8
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Tue Dec 7 14:55:16 2021 +0100
+Status: cherry-picked
 
     Address cache efficiency for the case of a large number of mounts.
-    
+
     - Files\Cache\Storage: also cache the reverse mapping between numerid_id and string id.
     - Files\Cache\StorageGlobal::loadForStorageIds() -- adjust the length of the storage Ids.
     - Files\Cache\ -- StorageGlobal: cache also the fileid of the storages.
@@ -334,9 +381,10 @@ Date:   Tue Dec 7 14:55:16 2021 +0100
 commit c2339d335efe77872034aac2dcb5068137e2feb2
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Tue Dec 7 14:18:44 2021 +0100
+Status: cherry-picked
 
     MountProviderCollection::registerProvider() -- optional priority in order to register first or last.
-    
+
     Additional constants IMountProviderCollection::DEFAULT_PRIORITY,
     SHARES_PRIORITY. Large priorities are mounted later than small
     priorities. This can be used to make sure that e.g. the share-mounts are
@@ -346,27 +394,31 @@ Date:   Tue Dec 7 14:18:44 2021 +0100
 commit a196f70531885a682d734e6386c65b864f772b55
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Tue Jun 20 10:00:07 2023 +0200
+Status: cherry-picked
 
     Catch more exceptions during migrations.
 
 commit 4dcf1d04375ef48e2e6d8da11b4c1e151ddd9d60
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Sat Oct 2 22:26:04 2021 +0200
+Status: cherry-picked
 
     Add auto-complete php for emacs.
 
 commit 56adfd23dbab85c064d570c656ac3c48d362dec6
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Fri Oct 1 17:14:22 2021 +0200
+Status: cherry-picked
 
     Undelete an "offline user" if createUser() is called with the same uid.
 
 commit 67a695ac948d0ff1f2a3936af3150b7f0a9b4f2c
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Thu Sep 30 18:04:58 2021 +0200
+Status: cherry-picked
 
     Fix userExists() to really check if it exists in LDAP.
-    
+
     User_LDAP::userExists() just returned true if the users exists at all,
     which is wrong. It should only return true if the user exists on LDAP (+
     cache logic of course), but not return true if it exists in any other
@@ -375,9 +427,10 @@ Date:   Thu Sep 30 18:04:58 2021 +0200
 commit 6053709e4e3fa6749e0f246c43b9c13eb15b9306
 Author: Claus-Justus Heine <himself@claus-justus-heine.de>
 Date:   Mon Dec 12 22:36:07 2022 +0100
+Status: cherry-picked
 
     Allow duplicate uid in cards-table.
-    
+
     There is also the URI column with is tagged with the user-backend. Now,
     Backend::getCard($uri) return then null if the user-backend has changed
     for given user-id. But then Backend::createCard($uri) bails out because
@@ -389,10 +442,10 @@ Date:   Thu Sep 30 01:32:20 2021 +0200
 Status: needs testing, merged with efaf441b4b3da869b71de0e12688b02d3941c8e8
 
     The changes make it to some extend possible to promote a user to another backend, e.g. from Database -> LDAP.
-    
+
     This is not a real transfer as the user is not deleted from the old
     backend, and an existing user in the target backend blocks the transfer.
-    
+
     Changes to the UserManger make sure that a user always comes with the
     same user backend.
 
@@ -437,7 +490,7 @@ Date:   Wed Aug 25 15:36:02 2021 +0200
 Status: cherry-picked
 
     Exception template: print trace if config verbose_exceptions is set, add CSS-classes to the exception template.
-    
+
     The idea is to have a styleable exception template.
 
 commit 96315fa9261de64d4c9af5a1f206cb7a7bfbadf8
@@ -468,7 +521,7 @@ Date:   Thu Feb 11 12:35:19 2021 +0100
 Status: cherry-picked
 
     Fix close-callback not called after pressing esc.
-    
+
     Add has-close class to dialog in order to add space for the close button.
     OC core legacy dialogs: always wrap the callback in _.once().
 
@@ -584,5 +637,3 @@ Date:   Tue Oct 13 18:56:50 2020 +0200
 Status: cherry-picked
 
     Allow groupOfMembers as well.
-
-
