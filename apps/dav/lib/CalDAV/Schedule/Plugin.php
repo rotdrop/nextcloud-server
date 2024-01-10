@@ -232,21 +232,6 @@ class Plugin extends \Sabre\CalDAV\Schedule\Plugin {
 	}
 
 	/**
-	 * This method checks the 'Schedule-Reply' header
-	 * and returns false if it's 'F', otherwise true.
-	 *
-	 * Copied from Sabre/DAV's Schedule plugin, because it's
-	 * private for whatever reason
-	 *
-	 * @param RequestInterface $request
-	 * @return bool
-	 */
-	private function scheduleReply(RequestInterface $request) {
-		$scheduleReply = $request->getHeader('Schedule-Reply');
-		return $scheduleReply !== 'F';
-	}
-
-	/**
 	 * @inheritDoc
 	 */
 	public function scheduleLocalDelivery(ITip\Message $iTipMessage):void {
