@@ -56,3 +56,4 @@ occ-upgrade:
 	./occ maintenance:update:htaccess
 	./occ maintenance:mimetype:update-js
 	./occ maintenance:mode --off
+	chmod g+w config/config.php
