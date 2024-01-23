@@ -253,10 +253,15 @@ export default defineComponent({
 			}
 
 			logger.debug('Opening file ' + node.path, { node })
-			getFileActions()
+			const availableActions = getFileActions()
 				.filter(action => !action.enabled || action.enabled([node], this.currentView))
 				.sort((a, b) => (a.order || 0) - (b.order || 0))
-				.filter(action => !!action?.default)[0].exec(node, this.currentView, this.currentFolder.path)
+				.filter(action => !!action?.default)
+			if (availableActions.length === 0) {
+				console.trace('NO DEFAULT FILE ACTION FOR THIS FILE', openFileInfo, getFileActions())
+			} else {
+				availableActions[0].exec(node, this.currentView, this.currentFolder.path)
+			}
 		},
 
 		getFileId(node) {
