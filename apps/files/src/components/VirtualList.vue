@@ -186,7 +186,7 @@ export default Vue.extend({
 			const lastIndex = this.dataSources.length - this.startIndex - this.shownItems
 			const hiddenAfterItems = Math.floor(Math.min(this.dataSources.length - this.startIndex, lastIndex) / this.columnCount)
 			return {
-				paddingTop: `${Math.floor(this.startIndex / this.columnCount) * this.itemHeight}px`,
+				paddingTop: `${Math.floor(this.startIndex / this.rowCount) * this.itemHeight}px`,
 				paddingBottom: isOverScrolled ? 0 : `${hiddenAfterItems * this.itemHeight}px`,
 			}
 		},
