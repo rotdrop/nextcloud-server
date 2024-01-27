@@ -27,6 +27,8 @@ declare(strict_types=1);
  */
 namespace OC\EventDispatcher;
 
+use Throwable;
+
 use OC\Broadcast\Events\BroadcastEvent;
 use OC\Log;
 use OCP\Broadcast\Events\IBroadcastEvent;
@@ -90,14 +92,20 @@ class EventDispatcher implements IEventDispatcher {
 	 * @deprecated
 	 */
 	public function dispatch(string $eventName,
-		Event $event): void {
-		$this->dispatcher->dispatch($event, $eventName);
+							 Event $event): void {
+		try {
+			$this->dispatcher->dispatch($event, $eventName);
 
-		if ($event instanceof ABroadcastedEvent && !$event->isPropagationStopped()) {
-			// Propagate broadcast
-			$this->dispatch(
-				IBroadcastEvent::class,
-				new BroadcastEvent($event)
+			if ($event instanceof ABroadcastedEvent && !$event->isPropagationStopped()) {
+				// Propagate broadcast
+				$this->dispatch(
+					IBroadcastEvent::class,
+					new BroadcastEvent($event)
+				);
+			}
+		} catch (Throwable $t) {
+			\OC::$server->get(\OCP\ILogger::class)->logException(
+				new Exception('Broadcasting ' . get_class($event) . ' failed.', 0, $t)
 			);
 		}
 	}

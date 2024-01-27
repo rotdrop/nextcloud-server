@@ -27,6 +27,9 @@ declare(strict_types=1);
 
 namespace OC\EventDispatcher;
 
+use Throwable;
+use Exception;
+
 use OCP\AppFramework\QueryException;
 use OCP\EventDispatcher\Event;
 use OCP\EventDispatcher\IEventListener;
@@ -83,6 +86,12 @@ final class ServiceEventListener {
 			}
 		}
 
-		$this->service->handle($event);
+		try {
+			$this->service->handle($event);
+		} catch (Throwable $t) {
+			\OC::$server->get(\OCP\ILogger::class)->logException(
+				new Exception('Calling ' . get_class($this->service) . '::handle() failed.', 0, $t)
+			);
+		}
 	}
 }
