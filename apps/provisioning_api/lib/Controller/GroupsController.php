@@ -97,22 +97,33 @@ class GroupsController extends AUserDataOCSController {
 	 * 200: Groups details returned
 	 */
 	#[NoAdminRequired]
+	#[SubAdminRequired]
 	#[AuthorizedAdminSetting(settings: Sharing::class)]
 	#[AuthorizedAdminSetting(settings: Users::class)]
 	public function getGroupsDetails(string $search = '', ?int $limit = null, int $offset = 0): DataResponse {
+		$user = $this->userSession->getUser();
+		$isAdmin = $this->groupManager->isAdmin($user->getUID());
 		$groups = $this->groupManager->search($search, $limit, $offset);
-		$groups = array_values(array_map(function ($group) {
-			/** @var IGroup $group */
-			return [
-				'id' => $group->getGID(),
-				'displayname' => $group->getDisplayName(),
-				'usercount' => $group->count(),
-				'disabled' => $group->countDisabled(),
-				'canAdd' => $group->canAddUser(),
-				'canRemove' => $group->canRemoveUser(),
-				'backends' => $group->getBackendNames(),
-			];
-		}, $groups));
+		$groups = array_values(array_filter(array_map(function ($group) use ($user, $isAdmin) {
+
+			$isSubadminOfGroup = $this->groupManager->getSubAdmin()->isSubAdminOfGroup($user, $group);
+
+			// Check subadmin has access to this group
+			if ($isAdmin || $isSubadminOfGroup) {
+				/** @var IGroup $group */
+				return [
+					'id' => $group->getGID(),
+					'displayname' => $group->getDisplayName(),
+					'usercount' => $group->count(),
+					'disabled' => $group->countDisabled(),
+					'canAdd' => $group->canAddUser(),
+					'canRemove' => $group->canRemoveUser(),
+					'backends' => $group->getBackendNames(),
+				];
+			} else {
+				return null;
+			}
+		}, $groups)));
 
 		return new DataResponse(['groups' => $groups]);
 	}
