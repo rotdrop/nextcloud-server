@@ -48,10 +48,6 @@ export default {
 			type: Array,
 			required: true,
 		},
-		userBackends: {
-			type: Array,
-			required: true,
-		},
 		externalActions: {
 			type: Array,
 			default: () => [],
@@ -153,14 +149,6 @@ export default {
 				return OC.Util.relativeModifiedDate(this.user.lastLogin)
 			}
 			return t('settings', 'Never')
-		},
-
-		userBackends() {
-			return this.settings.userBackends
-		},
-
-		userBackend() {
-			return this.user.backend
 		},
 	},
 }

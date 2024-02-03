@@ -655,9 +655,9 @@ const actions = {
 	 * @param {string} options.manager User manager
 	 * @return {Promise}
 	 */
-	addUser({ commit, dispatch }, { userid, password, displayName, email, groups, subadmin, quota, language, manager, backend }) {
+	addUser({ commit, dispatch }, { userid, password, displayName, email, groups, subadmin, quota, language, manager }) {
 		return api.requireAdmin().then((response) => {
-			return api.post(generateOcsUrl('cloud/users'), { userid, password, displayName, email, groups, subadmin, quota, language, manager, backend })
+			return api.post(generateOcsUrl('cloud/users'), { userid, password, displayName, email, groups, subadmin, quota, language, manager })
 				.then((response) => dispatch('addUserData', userid || response.data.ocs.data.id))
 				.catch((error) => { throw error })
 		}).catch((error) => {
@@ -711,7 +711,7 @@ const actions = {
 	 */
 	setUserData(context, { userid, key, value }) {
 		const allowedEmpty = ['email', 'displayname', 'manager']
-		if (['email', 'language', 'quota', 'displayname', 'password', 'manager', 'backend'].indexOf(key) !== -1) {
+		if (['email', 'language', 'quota', 'displayname', 'password', 'manager'].indexOf(key) !== -1) {
 			// We allow empty email or displayname
 			if (typeof value === 'string'
 				&& (

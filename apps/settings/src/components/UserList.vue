@@ -56,7 +56,6 @@
 				subAdminsGroups,
 				quotaOptions,
 				languages,
-				userBackends,
 				externalActions,
 			}"
 			@scroll-end="handleScrollEnd">
@@ -113,7 +112,6 @@ const newUser = {
 		code: 'en',
 		name: t('settings', 'Default language'),
 	},
-	backend: '',
 }
 
 export default {
@@ -249,10 +247,6 @@ export default {
 					languages: this.settings.languages.otherLanguages,
 				},
 			]
-		},
-
-		userBackends() {
-			return this.settings.userBackends
 		},
 	},
 
