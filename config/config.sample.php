@@ -1365,6 +1365,17 @@ $CONFIG = [
  */
 
 /**
+ * Curstom priorities for user (and group) backends. Backends with higher
+ * priorities are preferred. Backends not listed here have priority
+ * 0. Backends which are not able to create users come after backends which
+ * are able to do so.
+ */
+'user_backend_priorities' => [
+  'LDAP' => 1000,
+  'FOOBAR' => -100,
+],
+
+/**
  * Previews
  *
  * Nextcloud supports generating previews for various file types, such as images, audio files, and text files.
