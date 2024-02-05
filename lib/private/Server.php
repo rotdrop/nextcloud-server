@@ -487,6 +487,7 @@ class Server extends ServerContainer implements IServerContainer {
 				$this->get(ICacheFactory::class),
 				$this->get(IRemoteAddress::class),
 				$this->get(IUserSession::class),
+				$this->get(\OCP\IConfig::class),
 			);
 			return $groupManager;
 		});
