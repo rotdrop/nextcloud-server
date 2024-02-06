@@ -31,6 +31,10 @@ OCA = OCA || {};
 					$element: $('#ldap_expert_username_force'),
 					setMethod: 'setUsernameForce'
 				},
+				ldap_expert_groupname_force: {
+					$element: $('#ldap_expert_groupname_force'),
+					setMethod: 'setGroupnameForce'
+				},
 				ldap_expert_uuid_user_attr: {
 					$element: $('#ldap_expert_uuid_user_attr'),
 					setMethod: 'setUserUUIDAttribute'
@@ -83,6 +87,15 @@ OCA = OCA || {};
 		 */
 		setUsernameForce: function(force) {
 			this.setElementValue(this.managedItems.ldap_expert_username_force.$element, force);
+		},
+
+		/**
+		 * sets the force flag for sticking to the LDAP ID (groupname) in case of conflicts.
+		 *
+		 * @param {string} attribute
+		 */
+		setGroupnameForce: function(force) {
+			this.setElementValue(this.managedItems.ldap_expert_groupname_force.$element, force);
 		},
 
 		/**
