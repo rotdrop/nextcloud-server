@@ -585,7 +585,7 @@ class Access extends LDAPUtility {
 				$ldapName = $ldapName[0];
 			}
 			$intName = $this->sanitizeGroupIDCandidate($ldapName);
-			$intNameForce = false;
+			$intNameForce = (bool)$this->connection->ldapExpertGroupnameForce;
 		}
 
 		//a new user/group! Add it only if it doesn't conflict with other backend's users or existing groups
