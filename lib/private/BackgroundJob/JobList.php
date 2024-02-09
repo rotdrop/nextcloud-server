@@ -317,6 +317,7 @@ class JobList implements IJobList {
 				/** @var IJob $job */
 				$job = \OCP\Server::get($row['class']);
 			} catch (QueryException $e) {
+				$this->logger->info('ERROR', [ 'exception' => $e ]);
 				if (class_exists($row['class'])) {
 					$class = $row['class'];
 					$job = new $class();
