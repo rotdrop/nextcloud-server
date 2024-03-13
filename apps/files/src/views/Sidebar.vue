@@ -22,7 +22,7 @@
 				:name="t('files', 'Favorite')"
 				inline />
 			{{ size }}
-			<NcDateTime :timestamp="fileInfo.mtime" />
+			<NcDateTime v-if="fileInfo" :timestamp="fileInfo.mtime" />
 		</template>
 
 		<!-- TODO: create a standard to allow multiple elements here? -->
@@ -476,7 +476,7 @@ export default {
 
 				await this.$nextTick()
 
-				if (focusTabAfterLoad) {
+				if (focusTabAfterLoad && this.$refs.sidebar) {
 					this.$refs.sidebar.focusActiveTabContent()
 				}
 			} catch (error) {
