@@ -24,7 +24,7 @@
 					inline />
 				<span>{{ size }}</span>
 				<span class="sidebar__subname-separator">•</span>
-				<NcDateTime :timestamp="fileInfo.mtime" />
+				<NcDateTime v-if="fileInfo" :timestamp="fileInfo.mtime" />
 				<span class="sidebar__subname-separator">•</span>
 				<span>{{ t('files', 'Owner') }}</span>
 				<NcUserBubble :user="ownerId"
