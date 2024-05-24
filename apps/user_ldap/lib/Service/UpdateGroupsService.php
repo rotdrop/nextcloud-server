@@ -157,7 +157,7 @@ class UpdateGroupsService {
 		$this->logger->debug('service "updateGroups" - dealing with created Groups.');
 
 		foreach ($createdGroups as $createdGroup) {
-			$this->logger->info('service "updateGroups" - new group "' . $createdGroup . '" found.');
+			$this->logger->debug('service "updateGroups" - new group "' . $createdGroup . '" found.');
 
 			$users = $this->groupBackend->usersInGroup($createdGroup);
 			$groupObject = $this->groupManager->get($createdGroup);
@@ -211,7 +211,7 @@ class UpdateGroupsService {
 			}
 		}
 
-		$this->logger->info(
+		$this->logger->debug(
 			'service "updateGroups" - groups {removedGroups} were removed.',
 			[
 				'removedGroups' => $removedGroups
