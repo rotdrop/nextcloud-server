@@ -25,6 +25,7 @@ declare(strict_types=1);
  */
 namespace OCA\Settings\SetupChecks;
 
+use OCP\IConfig;
 use OCP\IL10N;
 use OCP\SetupCheck\ISetupCheck;
 use OCP\SetupCheck\SetupResult;
@@ -32,6 +33,7 @@ use OCP\SetupCheck\SetupResult;
 class AppDirsWithDifferentOwner implements ISetupCheck {
 	public function __construct(
 		private IL10N $l10n,
+		protected IConfig $config,
 	) {
 	}
 
@@ -90,6 +92,10 @@ class AppDirsWithDifferentOwner implements ISetupCheck {
 	}
 
 	public function run(): SetupResult {
+		$shouldCheck = $this->config->getSystemValue('check_app_dirs_with_different_owner', true);
+		if (!$shouldCheck) {
+			return SetupResult::success($this->l10n->t('App directories owner check ignored as requested by config.'));
+		}
 		$currentUser = posix_getuid();
 		$currentUserInfos = posix_getpwuid($currentUser) ?: [];
 		$appDirsWithDifferentOwner = $this->getAppDirsWithDifferentOwner($currentUser);
