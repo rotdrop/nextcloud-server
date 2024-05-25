@@ -120,7 +120,7 @@ class ConnectionFactory {
 		$normalizedType = $this->normalizeType($type);
 		$eventManager = new EventManager();
 		$eventManager->addEventSubscriber(new SetTransactionIsolationLevel());
-		$connectionParams = $this->createConnectionParams('', $additionalConnectionParams);
+		$connectionParams = $this->createConnectionParams(overrideParams: $additionalConnectionParams);
 		switch ($normalizedType) {
 			case 'pgsql':
 				// pg_connect used by Doctrine DBAL does not support URI notation (enclosed in brackets)
@@ -189,9 +189,10 @@ class ConnectionFactory {
 	 * Create the connection parameters for the config
 	 *
 	 * @param string $configPrefix
+	 * @param null|array $overrideParams
 	 * @return array
 	 */
-	public function createConnectionParams(string $configPrefix = '', array $additionalConnectionParams = []) {
+	public function createConnectionParams(string $configPrefix = '', ?array $overrideParams = null) {
 		$type = $this->config->getValue('dbtype', 'sqlite');
 
 		$connectionParams = array_merge($this->getDefaultConnectionParams($type), [
@@ -235,8 +236,10 @@ class ConnectionFactory {
 		if ($this->config->getValue('dbpersistent', false)) {
 			$connectionParams['persistent'] = true;
 		}
-		$connectionParams = array_merge($connectionParams, $additionalConnectionParams);
 
+		if (!empty($overrideParams)) {
+			$connectionParams = array_merge($connectionParams, $overrideParams);
+		}
 		$replica = $this->config->getValue($configPrefix . 'dbreplica', $this->config->getValue('dbreplica', [])) ?: [$connectionParams];
 		return array_merge($connectionParams, [
 			'primary' => $connectionParams,

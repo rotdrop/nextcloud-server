@@ -251,13 +251,12 @@ class ConvertType extends Command implements CompletionAwareInterface {
 
 	protected function getToDBConnection(InputInterface $input, OutputInterface $output) {
 		$type = $input->getArgument('type');
-		$connectionParams = $this->connectionFactory->createConnectionParams();
-		$connectionParams = array_merge($connectionParams, [
+		$connectionParams = [
 			'host' => $input->getArgument('hostname'),
 			'user' => $input->getArgument('username'),
 			'password' => $input->getOption('password'),
 			'dbname' => $input->getArgument('database'),
-		]);
+		];
 		if ($input->getOption('port')) {
 			$connectionParams['port'] = $input->getOption('port');
 		}
