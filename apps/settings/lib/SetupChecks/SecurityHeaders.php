@@ -40,7 +40,8 @@ class SecurityHeaders implements ISetupCheck {
 
 	public function run(): SetupResult {
 		$urls = [
-			['get', $this->urlGenerator->linkToRoute('heartbeat'), [200]],
+			// ['get', $this->urlGenerator->linkToRoute('heartbeat'), [200]],
+			['get', 'heartbeat', [200]],
 		];
 		$securityHeaders = [
 			'X-Content-Type-Options' => ['nosniff', null],
