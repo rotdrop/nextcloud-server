@@ -1,6 +1,6 @@
 <?php
 /**
- * @copyright Copyright (c) 2016, ownCloud, Inc.
+ * @copyright Copyright (c) 2016, 2024, ownCloud, Inc.
  *
  * @author Björn Schießle <bjoern@schiessle.org>
  * @author Daniel Kesselberg <mail@danielkesselberg.de>
@@ -106,7 +106,7 @@ class SharedMount extends MountPoint implements MoveableMount, ISharedMountPoint
 	) {
 		$cacheKey = $this->user->getUID() . '/' . $share->getId() . '/' . $share->getTarget();
 		$cached = $this->cache->get($cacheKey);
-		if ($cached !== null) {
+		if (false && $cached !== null) {
 			return $cached;
 		}
 
@@ -168,6 +168,11 @@ class SharedMount extends MountPoint implements MoveableMount, ISharedMountPoint
 	 * @return mixed
 	 */
 	private function generateUniqueTarget($path, $view, array $mountpoints) {
+		if ($path == '/camerata') {
+			\OC::$server->get(\OCP\ILogger::class)->debug('BLOODY SHIT NEXTCLOUD BASTARD PATH ' . $path);
+			return $path;
+		}
+
 		$pathinfo = pathinfo($path);
 		$ext = isset($pathinfo['extension']) ? '.' . $pathinfo['extension'] : '';
 		$name = $pathinfo['filename'];

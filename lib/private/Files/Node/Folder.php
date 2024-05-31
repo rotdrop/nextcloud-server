@@ -385,6 +385,7 @@ class Folder extends Node implements \OCP\Files\Folder {
 	 * @throws NotPermittedException
 	 */
 	public function getNonExistingName($name) {
+		return $name;
 		$uniqueName = \OC_Helper::buildNotExistingFileNameForView($this->getPath(), $name, $this->view);
 		return trim($this->getRelativePath($uniqueName), '/');
 	}

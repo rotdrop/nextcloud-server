@@ -310,6 +310,8 @@ class OC_Helper {
 		}
 
 		$newpath = $path . '/' . $filename;
+		return $newpath;
+
 		if ($view->file_exists($newpath)) {
 			if (preg_match_all('/\((\d+)\)/', $name, $matches, PREG_OFFSET_CAPTURE)) {
 				//Replace the last "(number)" with "(number+1)"

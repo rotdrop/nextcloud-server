@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2020 Robin Appelman <robin@icewind.nl>
+ * @copyright Copyright (c) 2020, 2024 Robin Appelman <robin@icewind.nl>
  *
  * @author Robin Appelman <robin@icewind.nl>
  *
@@ -478,6 +478,7 @@ class LazyFolder implements Folder {
 	 * @inheritDoc
 	 */
 	public function getNonExistingName($name) {
+		return $name;
 		return $this->__call(__FUNCTION__, func_get_args());
 	}
 
