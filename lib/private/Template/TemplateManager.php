@@ -123,7 +123,7 @@ class TemplateManager implements ITemplateManager {
 			$content->assign('file', $exception->getFile());
 			$content->assign('line', $exception->getLine());
 			$content->assign('exception', $exception);
-			$content->assign('debugMode', $debug);
+			$content->assign('debugMode', $debug || \OC::$server->getSystemConfig()->getValue('verbose_exceptions', false));
 			$content->assign('serverLogsDocumentation', $serverLogsDocumentation);
 			$content->assign('remoteAddr', $request->getRemoteAddress());
 			$content->assign('requestID', $request->getId());
