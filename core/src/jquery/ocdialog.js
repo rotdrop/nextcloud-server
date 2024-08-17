@@ -162,6 +162,7 @@ $.widget('oc.ocdialog', {
 				const $closeButton = $('<button class="oc-dialog-close"></button>')
 				$closeButton.attr('aria-label', t('core', 'Close "{dialogTitle}" dialog', { dialogTitle: this.$title || this.options.title }))
 				this.$dialog.prepend($closeButton)
+				this.$dialog.addClass('oc-dialog-has-close')
 				$closeButton.on('click keydown', function(event) {
 					if (isA11yActivation(event)) {
 						self.options.closeCallback && self.options.closeCallback()
@@ -179,7 +180,7 @@ $.widget('oc.ocdialog', {
 			this.$dialog.css('height', value)
 			break
 		case 'close':
-			this.closeCB = value
+			this.options.closeCallback = value
 			break
 		}
 		// this._super(key, value);
@@ -262,6 +263,7 @@ $.widget('oc.ocdialog', {
 	},
 	close() {
 		this._clearFocusTrap()
+		this.options.closeCallback && this.options.closeCallback()
 		this._destroyOverlay()
 		const self = this
 		// Ugly hack to catch remaining keyup events.
