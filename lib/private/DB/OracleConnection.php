@@ -7,7 +7,7 @@
  */
 namespace OC\DB;
 
-class OracleConnection extends Connection {
+class OracleConnection extends ReplicaConnection {
 	/**
 	 * Quote the keys of the array
 	 * @param array<string, string> $data

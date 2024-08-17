@@ -34,7 +34,7 @@ class ConnectionFactory {
 			'adapter' => AdapterMySQL::class,
 			'charset' => 'UTF8',
 			'driver' => 'pdo_mysql',
-			'wrapperClass' => Connection::class,
+			'wrapperClass' => ReplicaConnection::class,
 		],
 		'oci' => [
 			'adapter' => AdapterOCI8::class,
@@ -45,12 +45,12 @@ class ConnectionFactory {
 		'pgsql' => [
 			'adapter' => AdapterPgSql::class,
 			'driver' => 'pdo_pgsql',
-			'wrapperClass' => Connection::class,
+			'wrapperClass' => ReplicaConnection::class,
 		],
 		'sqlite3' => [
 			'adapter' => AdapterSqlite::class,
 			'driver' => 'pdo_sqlite',
-			'wrapperClass' => Connection::class,
+			'wrapperClass' => ReplicaConnection::class,
 		],
 	];
 
@@ -216,11 +216,19 @@ class ConnectionFactory {
 		}
 		$connectionParams = array_merge($connectionParams, $additionalConnectionParams);
 
-		$replica = $this->config->getValue($configPrefix . 'dbreplica', $this->config->getValue('dbreplica', [])) ?: [$connectionParams];
-		return array_merge($connectionParams, [
-			'primary' => $connectionParams,
-			'replica' => $replica,
-		]);
+		$replica = $this->config->getValue($configPrefix . 'dbreplica', $this->config->getValue('dbreplica', null)) ?? null;
+		if ($replica !== null) {
+			if (empty($replica)) {
+				$replica = [$connectionParams];
+			}
+			return array_merge($connectionParams, [
+				'primary' => $connectionParams,
+				'replica' => $replica,
+			]);
+		} else {
+			$connectionParams['wrapperClass'] = SimpleConnection::class;
+			return $connectionParams;
+		}
 	}
 
 	/**
