@@ -81,7 +81,7 @@ REBASE=false
 
 NCDIR=$(realpath .)
 
-VALID_ARGS=$(getopt -o br --long build,rebase -- "$@")
+VALID_ARGS=$(getopt -o bro: --long build,rebase,only: -- "$@")
 if [[ $? -ne 0 ]]; then
     exit 1;
 fi
@@ -96,6 +96,10 @@ while [ : ]; do
     -r|--rebase)
         REBASE=true
         shift
+        ;;
+    -o|--only)
+        APPS=$2
+        shift 2
         ;;
     --) shift;
         break
