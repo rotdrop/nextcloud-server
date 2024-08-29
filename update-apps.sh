@@ -69,11 +69,11 @@ BUILD_COMMANDS=(
 
 declare -A REBASE_BRANCHES
 REBASE_BRANCHES=(
-    [richdocuments]=stable30
-    [calendar]=stable5.0
-    [workflow_pdf_converter]=stable30
-    [twofactor_gateway]=master
-    [mail]=stable3.7
+    [richdocuments]=origin/stable30
+    [calendar]=origin/stable5.0
+    [workflow_pdf_converter]=origin/stable30
+    [twofactor_gateway]=origin/master
+    [mail]=origin/stable3.7
 )
 
 BUILD=false
