@@ -140,13 +140,14 @@ for i in $APPS; do
             continue
             ;;
     esac
+    if $REBASE && [ -n "${REBASE_BRANCHES[$i]}" ]; then
+        echo "*** Rebasing $i to ${REBASE_BRANCHES[$i]} ***"
+        git checkout . || exit 1
+        git rebase ${REBASE_BRANCHES[$i]} || exit 1
+    fi
     if $BUILD && [ -n "${BUILD_COMMANDS[$i]}" ]; then
         echo "*** Rebuilding $i ***"
         ${BUILD_COMMANDS[$i]} || exit 1
-    fi
-    if $REBASE && [ -n "${REBASE_BRANCHES[$i]}" ]; then
-        echo "*** Rebasing $i to ${REBASE_BRANCHES[$i]} ***"
-        git rebase ${REBASE_BRANCHES[$i]} || exit 1
     fi
     echo
     cd $NCDIR
