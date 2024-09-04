@@ -58,22 +58,26 @@ BUILD_COMMANDS=(
     [cafevdb]="make build"
     [cafevdbmembers]="make build"
     [calendar]="run-krankerl.sh"
+    [collectives]="make setup-dev node-modules build-js-production composer-install-no-dev"
+    [files_lock]="run-krankerl.sh"
+    [groupfolders]="make"
+    [mail]="make install-deps optimize-js"
     [maps]="make"
     [richdocuments]="run-krankerl.sh"
-    [workflow_pdf_converter]="run-krankerl.sh"
     [twofactor_gateway]="run-krankerl.sh"
-    [groupfolders]="make"
-    [files_lock]="run-krankerl.sh"
-    [mail]="make install-deps optimize-js"
+    [workflow_pdf_converter]="run-krankerl.sh"
 )
 
 declare -A REBASE_BRANCHES
 REBASE_BRANCHES=(
-    [richdocuments]=origin/stable30
     [calendar]=origin/stable5.0
-    [workflow_pdf_converter]=origin/stable30
-    [twofactor_gateway]=origin/master
+    [files_lock]=origin/stable30
+    [groupfolders]=origin/stable30
     [mail]=origin/stable3.7
+    [maps]=origin/release
+    [richdocuments]=origin/stable30
+    [twofactor_gateway]=origin/master
+    [workflow_pdf_converter]=origin/stable30
 )
 
 BUILD=false
