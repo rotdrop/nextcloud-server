@@ -1,4 +1,4 @@
-#!/usr/bin/env php
+#!/usr/bin/env php8.2
 <?php
 /**
  * Copyright (c) 2013 Thomas Müller <thomas.mueller@tmit.eu>
