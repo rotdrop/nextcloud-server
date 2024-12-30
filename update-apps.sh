@@ -63,6 +63,8 @@ BUILD_COMMANDS=(
     [groupfolders]="make"
     [mail]="make install-deps optimize-js"
     [maps]="make"
+    # TODO: remove photos git
+    [photos]="make dev-setup build-js-production && rm -rf vendor/* && composer install --no-dev"
     [richdocuments]="run-krankerl.sh"
     [twofactor_gateway]="run-krankerl.sh"
     [workflow_pdf_converter]="run-krankerl.sh"
@@ -148,7 +150,7 @@ for i in $APPS; do
     fi
     if $BUILD && [ -n "${BUILD_COMMANDS[$i]}" ]; then
         echo "*** Rebuilding $i ***"
-        ${BUILD_COMMANDS[$i]} || exit 1
+        { eval ${BUILD_COMMANDS[$i]}; } || exit 1
     fi
     echo
     cd $NCDIR
