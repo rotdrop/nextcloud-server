@@ -73,7 +73,7 @@ REBASE_BRANCHES=(
     [calendar]=origin/stable5.0
     [files_lock]=origin/stable30
     [groupfolders]=origin/stable30
-    [mail]=origin/stable3.7
+    [mail]=origin/stable4.1
     [maps]=origin/release
     [richdocuments]=origin/stable30
     [twofactor_gateway]=origin/master
@@ -136,12 +136,9 @@ for i in $APPS; do
             ;;
     esac
     case $BRANCH in
-        stable*|master)
+        stable*|master|main)
             echo "Performing simple pull from upstream"
             git pull
-            echo
-            cd $NCDIR
-            continue
             ;;
     esac
     if $REBASE && [ -n "${REBASE_BRANCHES[$i]}" ]; then
