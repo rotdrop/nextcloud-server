@@ -84,10 +84,11 @@ REBASE_BRANCHES=(
 
 BUILD=false
 REBASE=false
+STATUS=false
 
 NCDIR=$(realpath .)
 
-VALID_ARGS=$(getopt -o bro: --long build,rebase,only: -- "$@")
+VALID_ARGS=$(getopt -o bro:s --long build,rebase,only:,status -- "$@")
 if [[ $? -ne 0 ]]; then
     exit 1;
 fi
@@ -107,19 +108,37 @@ while [ : ]; do
         APPS=$2
         shift 2
         ;;
+    -s|--status)
+        STATUS=true
+        shift
+        ;;
     --) shift;
         break
         ;;
   esac
 done
 
+declare -A ATTENTION
+
 for i in $APPS; do
-    echo
     cd $NCDIR/apps/$i
     if ! [ -e .git ]; then
         cd $NCDIR
         continue
     fi
+    if $STATUS; then
+        APP_STATUS=$(git status)
+        case "$APP_STATUS" in
+            *diverged*)
+                ATTENTION[$i]=diverged
+                ;;
+            *)
+                ;;
+        esac
+        cd $NCDIR
+        continue
+    fi
+    echo
     BRANCH=$(git status |grep -i "On branch"|awk '{ print $3; }')
     # REMOTE=$(git rev-parse --abbrev-ref --symbolic-full-name @{u})
     if [ -n "${STABLE_BRANCHES[$i]}" ]; then
@@ -154,4 +173,8 @@ for i in $APPS; do
     fi
     echo
     cd $NCDIR
+done
+
+for x in "${!ATTENTION[@]}"; do
+    printf "[%s]=%s\n" "$x" "${ATTENTION[$x]}"
 done
