@@ -6,6 +6,24 @@
  */
 
 function print_exception(Throwable $e, \OCP\IL10N $l): void {
+	print_unescaped('<h3>');
+    p($l->t('Details'));
+	print_unescaped('</h3>');
+	print_unescaped('<ul><li>');
+	p($l->t('Type: %s', [get_class($e)]));
+	print_unescaped('</li><li>');
+	p($l->t('Code: %s', [$e->getCode()]));
+	print_unescaped('</li><li>');
+	p($l->t('Message: %s', [$e->getMessage()]));
+	print_unescaped('</li><li>');
+	p($l->t('File: %s', [$e->getFile()]));
+	print_unescaped('</li><li>');
+	p($l->t('Line: %s', [$e->getLine()]));
+	print_unescaped('</li></ul>');
+	print_unescaped('<br />');
+	print_unescaped('<h3>');
+    p($l->t('Trace'));
+	print_unescaped('</h3>');
 	print_unescaped('<pre>');
 	p($e->getTraceAsString());
 	print_unescaped('</pre>');
