@@ -502,7 +502,7 @@ $CONFIG = [
 
 /**
  * Enable SMTP class debugging.
- * NOTE: ``loglevel`` will likely need to be adjusted too. See docs: 
+ * NOTE: ``loglevel`` will likely need to be adjusted too. See docs:
  *   https://docs.nextcloud.com/server/latest/admin_manual/configuration_server/email_configuration.html#enabling-debug-mode
  *
  * Defaults to ``false``
@@ -619,6 +619,21 @@ $CONFIG = [
 'mail_sendmailmode' => 'smtp',
 
 /**
+ * A regexp to whitelist allowed email recipients. Mainly meant while
+ * developing in order to avoid spamming unrelated parties. The emails will be
+ * sent anyway, but to the admin address. The display-name part of the address
+ * contains the original recipient.
+ */
+'mail_allowed_recipients_regexp' => '',
+
+/**
+ * An email address which receives the messages which failed the
+ * mail_allowed_recipients_regexp test. That address is NOT tested against the
+ * regexp.
+ */
+'mail_disallowed_recipients_receiver' => '',
+
+/**
  * Proxy Configurations
  */
 
@@ -663,7 +678,7 @@ $CONFIG = [
  * are generated within Nextcloud using any kind of command line tools (cron or
  * occ). The value should contain the full base URL:
  * ``https://www.example.com/nextcloud``
- * Please make sure to set the value to the URL that your users mainly use to access this Nextcloud. 
+ * Please make sure to set the value to the URL that your users mainly use to access this Nextcloud.
  * Otherwise there might be problems with the URL generation via cron.
  *
  * Defaults to ``''`` (empty string)
@@ -1334,18 +1349,18 @@ $CONFIG = [
 /**
  * custom path for ffmpeg binary
  *
- * Defaults to ``null`` and falls back to searching ``avconv`` and ``ffmpeg`` 
+ * Defaults to ``null`` and falls back to searching ``avconv`` and ``ffmpeg``
  * in the configured ``PATH`` environment
  */
 'preview_ffmpeg_path' => '/usr/bin/ffmpeg',
 
 /**
  * Set the URL of the Imaginary service to send image previews to.
- * Also requires the ``OC\Preview\Imaginary`` provider to be enabled in the 
- * ``enabledPreviewProviders`` array, to create previews for these mimetypes: bmp, 
+ * Also requires the ``OC\Preview\Imaginary`` provider to be enabled in the
+ * ``enabledPreviewProviders`` array, to create previews for these mimetypes: bmp,
  * x-bitmap, png, jpeg, gif, heic, heif, svg+xml, tiff, webp and illustrator.
  *
- * If you want Imaginary to also create preview images from PDF Documents, you 
+ * If you want Imaginary to also create preview images from PDF Documents, you
  * have to add the ``OC\Preview\ImaginaryPDF`` provider as well.
  *
  * See https://github.com/h2non/imaginary
@@ -2077,9 +2092,9 @@ $CONFIG = [
 /**
  * Deny extensions from being used for filenames.
  * Matching existing files can no longer be updated and in matching folders no files can be created anymore.
- * 
+ *
  * The '.part' extension is always forbidden, as this is used internally by Nextcloud.
- * 
+ *
  * Defaults to ``array('.filepart', '.part')``
  */
 'forbidden_filename_extensions' => ['.part', '.filepart'],
