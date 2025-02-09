@@ -689,6 +689,21 @@ $CONFIG = [
 'mail_sendmailmode' => 'smtp',
 
 /**
+ * A regexp to whitelist allowed email recipients. Mainly meant while
+ * developing in order to avoid spamming unrelated parties. The emails will be
+ * sent anyway, but to the admin address. The display-name part of the address
+ * contains the original recipient.
+ */
+'mail_allowed_recipients_regexp' => '',
+
+/**
+ * An email address which receives the messages which failed the
+ * mail_allowed_recipients_regexp test. That address is NOT tested against the
+ * regexp.
+ */
+'mail_disallowed_recipients_receiver' => '',
+
+/**
  * Proxy Configurations
  */
 
