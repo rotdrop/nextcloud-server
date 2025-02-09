@@ -37,6 +37,7 @@ APPS="
  spreed
  suspicious_login
  text
+ twofactor_email
  twofactor_gateway
  twofactor_totp
  user_sql
@@ -89,12 +90,13 @@ STATUS=false
 NCDIR=$(realpath .)
 
 VALID_ARGS=$(getopt -o bro:s --long build,rebase,only:,status -- "$@")
+# shellcheck disable=SC2181
 if [[ $? -ne 0 ]]; then
     exit 1;
 fi
 
 eval set -- "$VALID_ARGS"
-while [ : ]; do
+while true; do
   case "$1" in
     -b|--build)
         BUILD=true
@@ -120,59 +122,78 @@ done
 
 declare -A ATTENTION
 
-for i in $APPS; do
-    cd $NCDIR/apps/$i
+SHORT_PWD=$(basename "$(pwd)")
+CMD=$(basename "$0")
+
+function setTitle
+{
+    if [ -n "$1" ]; then
+        echo -ne "\033]2;.../$SHORT_PWD - $CMD: $1\007"
+    else
+        echo -ne "\033]2;\007"
+    fi
+}
+
+for APP in $APPS; do
+    setTitle "$APP"
+    cd "$NCDIR/apps/$APP" || exit 1
     if ! [ -e .git ]; then
-        cd $NCDIR
+        cd "$NCDIR" || exit 1
         continue
     fi
     if $STATUS; then
         APP_STATUS=$(git status)
         case "$APP_STATUS" in
             *diverged*)
-                ATTENTION[$i]=diverged
+                ATTENTION[$APP]=diverged
                 ;;
             *)
                 ;;
         esac
-        cd $NCDIR
+        cd "$NCDIR" || exit 1
         continue
     fi
     echo
     BRANCH=$(git status |grep -i "On branch"|awk '{ print $3; }')
     # REMOTE=$(git rev-parse --abbrev-ref --symbolic-full-name @{u})
-    if [ -n "${STABLE_BRANCHES[$i]}" ]; then
-        STABLE_BRANCH=${STABLE_BRANCHES[$i]}
+    if [ -n "${STABLE_BRANCHES[$APP]}" ]; then
+        STABLE_BRANCH=${STABLE_BRANCHES[$APP]}
     else
         STABLE_BRANCH=$CORE_BRANCH
     fi
-    echo "** Updating $i@$BRANCH **"
+    echo "** Updating $APP@$BRANCH **"
+    setTitle "$APP (git fetch)"
     git fetch --all -p
     case $BRANCH in
-        $STABLE_BRANCH)
+        "$STABLE_BRANCH")
             ;;
         stable*)
+            setTitle "$APP (git checkout $STABLE_BRANCH)"
             echo "Updating to $STABLE_BRANCH"
-            git checkout $STABLE_BRANCH
+            git checkout "$STABLE_BRANCH"
             ;;
     esac
     case $BRANCH in
         stable*|master|main)
+            setTitle "$APP (git pull from $BRANCH)"
             echo "Performing simple pull from upstream"
             git pull
             ;;
     esac
-    if $REBASE && [ -n "${REBASE_BRANCHES[$i]}" ]; then
-        echo "*** Rebasing $i to ${REBASE_BRANCHES[$i]} ***"
+    if $REBASE && [ -n "${REBASE_BRANCHES[$APP]}" ]; then
+        setTitle "$APP (git rebase ${REBASE_BRANCHES[$APP]})"
+        echo "*** Rebasing $APP to ${REBASE_BRANCHES[$APP]} ***"
         git checkout . || exit 1
-        git rebase ${REBASE_BRANCHES[$i]} || exit 1
+        git rebase "${REBASE_BRANCHES[$APP]}" || exit 1
     fi
-    if $BUILD && [ -n "${BUILD_COMMANDS[$i]}" ]; then
-        echo "*** Rebuilding $i ***"
-        { eval ${BUILD_COMMANDS[$i]}; } || exit 1
+    if $BUILD && [ -n "${BUILD_COMMANDS[$APP]}" ]; then
+        setTitle "$APP (build)"
+        echo "*** Rebuilding $APP ***"
+        { eval "${BUILD_COMMANDS[$APP]}"; } || exit 1
     fi
     echo
-    cd $NCDIR
+    setTitle
+    cd "$NCDIR" || exit 1
 done
 
 for x in "${!ATTENTION[@]}"; do
