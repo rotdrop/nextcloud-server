@@ -345,8 +345,6 @@ class Log implements ILogger, IDataLogger {
 		$data = array_merge($serializer->serializeException($exception), $data);
 		$data = $this->interpolateMessage($data, isset($context['message']) && $context['message'] !== '' ? $context['message'] : ('Exception thrown: ' . get_class($exception)), 'CustomMessage');
 
-		array_walk($context, [$this->normalizer, 'format']);
-
 		$this->eventDispatcher?->dispatchTyped(new BeforeMessageLoggedEvent($app, $level, $data));
 
 		try {
@@ -357,8 +355,9 @@ class Log implements ILogger, IDataLogger {
 				$this->writeLog($app, $data, $level);
 			}
 
-			$context['level'] = $level;
 			if (!is_null($this->crashReporters)) {
+				array_walk($context, [$this->normalizer, 'format']);
+				$context['level'] = $level;
 				$this->crashReporters->delegateReport($exception, $context);
 			}
 		} catch (Throwable $e) {
