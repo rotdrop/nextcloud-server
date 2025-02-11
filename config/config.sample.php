@@ -222,11 +222,19 @@ $CONFIG = [
 	'mail_allowed_recipients_regexp' => '',
 
 	/**
+	 * The Vue devtools need unsafe eval to function at all (+ some JS
+	 * hacks). This is a security risk, really only enable this while runing a
+	 * local NC instance for development purposes.
+	 */
+	'debug.enable-unsafe-eval' => false,
+
+	/**
 	 * An email address which receives the messages which failed the
 	 * mail_allowed_recipients_regexp test. That address is NOT tested against the
 	 * regexp.
 	 */
 	'mail_disallowed_recipients_receiver' => '',
+
 
 	/**
 	 * User Experience
