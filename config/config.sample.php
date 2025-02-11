@@ -2576,6 +2576,13 @@ $CONFIG = [
 'debug' => false,
 
 /**
+ * The Vue devtools need unsafe eval to function at all (+ some JS
+ * hacks). This is a security risk, really only enable this while runing a
+ * local NC instance for development purposes.
+ */
+'debug.enable-unsafe-eval' => false,
+
+/**
  * Set the data fingerprint for the current data served. Used by clients to
  * detect if a backup has been restored. Update this by running:
  * ./occ maintenance:data-fingerprint
