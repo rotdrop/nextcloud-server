@@ -15,13 +15,16 @@ use OCP\AppFramework\Http\ContentSecurityPolicy;
 use OCP\AppFramework\Http\EmptyContentSecurityPolicy;
 use OCP\AppFramework\Http\Response;
 use OCP\AppFramework\Middleware;
+use OCP\IConfig;
 
 class CSPMiddleware extends Middleware {
 
 	public function __construct(
 		private ContentSecurityPolicyManager $policyManager,
 		private ContentSecurityPolicyNonceManager $cspNonceManager,
+		private IConfig $config,
 	) {
+		$this->setUnsafeEval = $config->getSystemValue('debug.enable-unsafe-eval', false);
 	}
 
 	/**
@@ -38,6 +41,9 @@ class CSPMiddleware extends Middleware {
 		$policy = !is_null($response->getContentSecurityPolicy()) ? $response->getContentSecurityPolicy() : new ContentSecurityPolicy();
 
 		if (get_class($policy) === EmptyContentSecurityPolicy::class) {
+			if ($this->setUnsafeEval) {
+				$policy->allowEvalScript();
+			}
 			return $response;
 		}
 
@@ -48,6 +54,9 @@ class CSPMiddleware extends Middleware {
 			$defaultPolicy->useJsNonce($this->cspNonceManager->getNonce());
 		}
 
+		if ($this->setUnsafeEval) {
+			$defaultPolicy->allowEvalScript();
+		}
 		$response->setContentSecurityPolicy($defaultPolicy);
 
 		return $response;
