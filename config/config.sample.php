@@ -2386,6 +2386,13 @@ $CONFIG = [
 'debug' => false,
 
 /**
+ * The Vue devtools need unsafe eval to function at all (+ some JS
+ * hacks). This is a security risk, really only enable this while runing a
+ * local NC instance for development purposes.
+ */
+'debug.enable-unsafe-eval' => false,
+
+/**
  * Sets the data-fingerprint of the current data served
  *
  * This is a property used by the clients to find out if a backup has been
