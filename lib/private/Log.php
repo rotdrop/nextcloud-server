@@ -358,8 +358,9 @@ class Log implements ILogger, IDataLogger {
 				$this->writeLog($app, $data, $level);
 			}
 
-			$context['level'] = $level;
 			if (!is_null($this->crashReporters)) {
+				array_walk($context, [$this->normalizer, 'format']);
+				$context['level'] = $level;
 				$this->crashReporters->delegateReport($exception, $context);
 			}
 		} catch (Throwable $e) {
