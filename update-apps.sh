@@ -51,6 +51,7 @@ declare -A STABLE_BRANCHES
 STABLE_BRANCHES=(
     [contacts]=stable7.0
     [calendar]=stable5.1
+    [mail]=stable4.2
 )
 
 declare -A BUILD_COMMANDS
@@ -73,10 +74,10 @@ BUILD_COMMANDS=(
 
 declare -A REBASE_BRANCHES
 REBASE_BRANCHES=(
-    [calendar]=origin/stable5.0
+    [calendar]=origin/stable5.1
     [files_lock]=origin/stable30
     [groupfolders]=origin/stable30
-    [mail]=origin/stable4.1
+    [mail]=origin/stable4.2
     [maps]=origin/release
     [richdocuments]=origin/stable30
     [twofactor_gateway]=origin/master
