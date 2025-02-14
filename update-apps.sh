@@ -49,8 +49,8 @@ CORE_BRANCH=stable30
 
 declare -A STABLE_BRANCHES
 STABLE_BRANCHES=(
-    [contacts]=stable6.0
-    [calendar]=stable4.7
+    [contacts]=stable7.0
+    [calendar]=stable5.1
 )
 
 declare -A BUILD_COMMANDS
