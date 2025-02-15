@@ -160,7 +160,7 @@ class Base {
 		try {
 			include $file;
 			$data = ob_get_contents();
-		} catch (\Exception $e) {
+		} catch (\Throwable $e) {
 			@ob_end_clean();
 			throw $e;
 		}
