@@ -2,7 +2,7 @@
 
 export LC_ALL=C
 
-APPS="
+ALL_APPS="
  activity
  bav
  cafevdb
@@ -50,7 +50,7 @@ CORE_BRANCH=stable30
 declare -A STABLE_BRANCHES
 STABLE_BRANCHES=(
     [contacts]=stable7.0
-    [calendar]=stable5.1
+    [calendar]=stable5.2
     [mail]=stable4.2
 )
 
@@ -74,7 +74,7 @@ BUILD_COMMANDS=(
 
 declare -A REBASE_BRANCHES
 REBASE_BRANCHES=(
-    [calendar]=origin/stable5.1
+    [calendar]=origin/stable5.2
     [files_lock]=origin/stable30
     [groupfolders]=origin/stable30
     [mail]=origin/stable4.2
@@ -87,10 +87,12 @@ REBASE_BRANCHES=(
 BUILD=false
 REBASE=false
 STATUS=false
+LIST=false
+APPS="${ALL_APPS}"
 
 NCDIR=$(realpath .)
 
-VALID_ARGS=$(getopt -o bro:s --long build,rebase,only:,status -- "$@")
+VALID_ARGS=$(getopt -o blor:s --long build,list,rebase,only:,status -- "$@")
 # shellcheck disable=SC2181
 if [[ $? -ne 0 ]]; then
     exit 1;
@@ -99,25 +101,29 @@ fi
 eval set -- "$VALID_ARGS"
 while true; do
   case "$1" in
+    -l|--list)
+      LIST=true
+      shift
+      ;;
     -b|--build)
-        BUILD=true
-        shift
-        ;;
+      BUILD=true
+      shift
+      ;;
     -r|--rebase)
-        REBASE=true
-        shift
-        ;;
+      REBASE=true
+      shift
+      ;;
     -o|--only)
-        APPS=$2
-        shift 2
-        ;;
+      APPS=$2
+      shift 2
+      ;;
     -s|--status)
-        STATUS=true
-        shift
-        ;;
+      STATUS=true
+      shift
+      ;;
     --) shift;
-        break
-        ;;
+      break
+      ;;
   esac
 done
 
@@ -134,6 +140,10 @@ function setTitle
         echo -ne "\033]2;\007"
     fi
 }
+
+if $LIST; then
+  echo $ALL_APPS
+fi
 
 for APP in $APPS; do
     setTitle "$APP"
