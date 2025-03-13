@@ -118,6 +118,7 @@ class TypeFilter extends FileListFilter {
 		})
 			.$on('update:presets', this.setPresets.bind(this))
 			.$mount()
+		this.setPresets(this.currentPresets)
 	}
 
 	public filter(nodes: INode[]): INode[] {
