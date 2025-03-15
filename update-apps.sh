@@ -45,7 +45,7 @@ ALL_APPS="
  workflow_pdf_converter
 "
 
-CORE_BRANCH=stable30
+CORE_BRANCH=stable31
 
 declare -A STABLE_BRANCHES
 STABLE_BRANCHES=(
@@ -75,13 +75,13 @@ BUILD_COMMANDS=(
 declare -A REBASE_BRANCHES
 REBASE_BRANCHES=(
     [calendar]=origin/stable5.2
-    [files_lock]=origin/stable30
-    [groupfolders]=origin/stable30
+    [files_lock]=origin/$CORE_BRANCH
+    [groupfolders]=origin/$CORE_BRANCH
     [mail]=origin/stable4.2
     [maps]=origin/release
-    [richdocuments]=origin/stable30
+    [richdocuments]=origin/$CORE_BRANCH
     [twofactor_gateway]=origin/master
-    [workflow_pdf_converter]=origin/stable30
+    [workflow_pdf_converter]=origin/$CORE_BRANCH
 )
 
 BUILD=false
