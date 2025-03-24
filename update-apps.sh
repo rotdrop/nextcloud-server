@@ -84,7 +84,20 @@ REBASE_BRANCHES=(
     [workflow_pdf_converter]=origin/stable30
 )
 
+declare -A SUBREPO_APPS
+SUBREPO_APPS=(
+    [bav]=true
+    [cafevdb]=true
+    [cafevdbmembers]=true
+    [dokuwiki]=true
+    [files_archive]=true
+    [mail_roundcube]=true
+    [pdf_downloader]=true
+    [redaxo]=true
+)
+
 BUILD=false
+PUSH=false
 REBASE=false
 STATUS=false
 LIST=false
@@ -92,7 +105,7 @@ APPS="${ALL_APPS}"
 
 NCDIR=$(realpath .)
 
-VALID_ARGS=$(getopt -o blor:s --long build,list,rebase,only:,status -- "$@")
+VALID_ARGS=$(getopt -o blor:s --long build,list,rebase,only:,status,push -- "$@")
 # shellcheck disable=SC2181
 if [[ $? -ne 0 ]]; then
     exit 1;
@@ -114,8 +127,16 @@ while true; do
       shift
       ;;
     -o|--only)
-      APPS=$2
+      ARG=$2
+      if [ "$ARG" = subrepo ]; then
+        ARG="$(echo "${!SUBREPO_APPS[*]}"|xargs -n1|sort|xargs)"
+      fi
+      APPS="$ARG"
       shift 2
+      ;;
+    --push)
+      PUSH=true
+      shift
       ;;
     -s|--status)
       STATUS=true
@@ -142,7 +163,8 @@ function setTitle
 }
 
 if $LIST; then
-  echo $ALL_APPS
+  echo "$APPS"
+  exit 0
 fi
 
 for APP in $APPS; do
@@ -191,6 +213,14 @@ for APP in $APPS; do
             git pull
             ;;
     esac
+    if ${SUBREPO_APPS[$APP]}; then
+      setTitle "$APP (git subrepo pull --all)"
+      git subrepo pull --all
+    fi
+    if $PUSH; then
+      setTitle "$APP (git push)"
+      git push
+    fi
     if $REBASE && [ -n "${REBASE_BRANCHES[$APP]}" ]; then
         setTitle "$APP (git rebase ${REBASE_BRANCHES[$APP]})"
         echo "*** Rebasing $APP to ${REBASE_BRANCHES[$APP]} ***"
