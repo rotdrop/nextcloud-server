@@ -32,6 +32,7 @@ ALL_APPS="
  privacy
  recommendations
  redaxo
+ related_resources
  richdocuments
  serverinfo
  spreed
@@ -39,6 +40,7 @@ ALL_APPS="
  text
  twofactor_email
  twofactor_gateway
+ twofactor_nextcloud_notification
  twofactor_totp
  user_sql
  viewer
@@ -73,6 +75,7 @@ BUILD_COMMANDS=(
     [files_archive]="make $BUILD_MODE"
     [files_lock]="run-krankerl.sh"
     [groupfolders]="make"
+    [logreader]="make"
     [mail]="make install-deps optimize-js"
     [mail_roundcube]="make $BUILD_MODE"
     [maps]="make"
@@ -90,6 +93,7 @@ REBASE_BRANCHES=(
     [calendar]=origin/stable5.2
     [files_lock]=origin/$CORE_BRANCH
     [groupfolders]=origin/$CORE_BRANCH
+    [logreader]=origin/$CORE_BRANCH
     [mail]=origin/stable4.3
     [maps]=origin/release
     [richdocuments]=origin/$CORE_BRANCH
