@@ -47,6 +47,14 @@ ALL_APPS="
 
 CORE_BRANCH=stable31
 
+BUILD=false
+BUILD_MODE=build
+PUSH=false
+REBASE=false
+STATUS=false
+LIST=false
+APPS="${ALL_APPS}"
+
 declare -A STABLE_BRANCHES
 STABLE_BRANCHES=(
     [contacts]=stable7.0
@@ -56,17 +64,22 @@ STABLE_BRANCHES=(
 
 declare -A BUILD_COMMANDS
 BUILD_COMMANDS=(
-    [bav]="make"
-    [cafevdb]="make build"
-    [cafevdbmembers]="make build"
+    [bav]="make $BUILD_MODE"
+    [cafevdb]="make $BUILD_MODE"
+    [cafevdbmembers]="make $BUILD_MODE"
     [calendar]="run-krankerl.sh"
     [collectives]="make setup-dev node-modules build-js-production composer-install-no-dev"
+    [dokuwiki]="make $BUILD_MODE"
+    [files_archive]="make $BUILD_MODE"
     [files_lock]="run-krankerl.sh"
     [groupfolders]="make"
     [mail]="make install-deps optimize-js"
+    [mail_roundcube]="make $BUILD_MODE"
     [maps]="make"
+    [pdf_downloader]="make $BUILD_MODE"
     # TODO: remove photos git
-    [photos]="make dev-setup build-js-production && rm -rf vendor/* && composer install --no-dev"
+    # [photos]="make dev-setup build-js-production && rm -rf vendor/* && composer install --no-dev"
+    [redaxo]="make $BUILD_MODE"
     [richdocuments]="run-krankerl.sh"
     [twofactor_gateway]="run-krankerl.sh"
     [workflow_pdf_converter]="run-krankerl.sh"
@@ -96,16 +109,9 @@ SUBREPO_APPS=(
     [redaxo]=true
 )
 
-BUILD=false
-PUSH=false
-REBASE=false
-STATUS=false
-LIST=false
-APPS="${ALL_APPS}"
-
 NCDIR=$(realpath .)
 
-VALID_ARGS=$(getopt -o blor:s --long build,list,rebase,only:,status,push -- "$@")
+VALID_ARGS=$(getopt -o bldor:s --long build,list,dev,only:,rebase,status,push -- "$@")
 # shellcheck disable=SC2181
 if [[ $? -ne 0 ]]; then
     exit 1;
@@ -120,6 +126,10 @@ while true; do
       ;;
     -b|--build)
       BUILD=true
+      shift
+      ;;
+    -d|--dev)
+      BUILD_MODE=dev
       shift
       ;;
     -r|--rebase)
