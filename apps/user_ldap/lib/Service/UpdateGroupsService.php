@@ -199,6 +199,9 @@ class UpdateGroupsService {
 	 */
 	public function handleRemovedGroups(array $removedGroups): void {
 		$this->logger->debug('service "updateGroups" - dealing with removed groups.');
+		if (empty($removedGroups)) {
+			return;
+		}
 
 		$this->groupMembershipMapper->deleteGroups($removedGroups);
 		foreach ($removedGroups as $group) {
