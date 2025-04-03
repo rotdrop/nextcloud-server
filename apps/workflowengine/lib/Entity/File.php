@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * SPDX-FileCopyrightText: 2019 Nextcloud GmbH and Nextcloud contributors
+ * SPDX-FileCopyrightText: 2019, 2025 Nextcloud GmbH and Nextcloud contributors
  * SPDX-License-Identifier: AGPL-3.0-or-later
  */
 namespace OCA\WorkflowEngine\Entity;
@@ -144,7 +144,6 @@ class File implements IEntity, IDisplayText, IUrl, IIcon, IContextPortation {
 			case self::EVENT_NAMESPACE . 'updateCache':
 				$subject = $this->event->getSubject();
 				if (is_array($subject)) {
-					\OC\Server::get(\OCP\ILogger::class)->info(__METHOD__ . 'STILL NOT FIXED UPSTREAM');
 					$subject = $subject[0];
 				}
 				return $subject;

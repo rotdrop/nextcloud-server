@@ -80,7 +80,6 @@ class Application extends App implements IBootstrap {
 								$flowLogger->logEventInit($ctx);
 
 								if ($event instanceof LegacyEvent) {
-									\OC\Server::get(\OCP\ILogger::class)->info(__METHOD__ . 'STILL NOT FIXED UPSTREAM');
 									$event = new GenericEvent($event->getSubject());
 								}
 
