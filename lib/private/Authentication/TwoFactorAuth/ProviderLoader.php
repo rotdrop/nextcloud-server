@@ -46,7 +46,7 @@ class ProviderLoader {
 						$providers[$provider->getId()] = $provider;
 					} catch (QueryException $exc) {
 						// Provider class can not be resolved
-						throw new Exception("Could not load two-factor auth provider $class");
+						throw new Exception("Could not load two-factor auth provider $class", 0, $exc);
 					}
 				}
 			}
@@ -60,7 +60,7 @@ class ProviderLoader {
 				$providers[$providerInstance->getId()] = $providerInstance;
 			} catch (QueryException $exc) {
 				// Provider class can not be resolved
-				throw new Exception('Could not load two-factor auth provider ' . $provider->getService());
+				throw new Exception('Could not load two-factor auth provider ' . $provider->getService(), 0, $exc);
 			}
 		}
 
