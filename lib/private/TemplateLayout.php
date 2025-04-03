@@ -139,6 +139,9 @@ class TemplateLayout extends \OC_Template {
 			$this->assign('bodyid', 'body-login');
 			$this->assign('user_displayname', '');
 			$this->assign('user_uid', '');
+			// satisfy layout.guest requirements
+			$theme = $this->config->getSystemValueString('enforce_theme', '');
+			$this->assign('enabledThemes', $theme === '' ? [] : [$theme]);
 		} elseif ($renderAs === TemplateResponse::RENDER_AS_GUEST) {
 			parent::__construct('core', 'layout.guest');
 			\OC_Util::addStyle('guest');
