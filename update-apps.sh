@@ -66,24 +66,24 @@ STABLE_BRANCHES=(
 
 declare -A BUILD_COMMANDS
 BUILD_COMMANDS=(
-    [bav]="make $BUILD_MODE"
-    [cafevdb]="make $BUILD_MODE"
-    [cafevdbmembers]="make $BUILD_MODE"
+    [bav]="make \$BUILD_MODE"
+    [cafevdb]="make \$BUILD_MODE"
+    [cafevdbmembers]="make \$BUILD_MODE"
     [calendar]="run-krankerl.sh"
     [collectives]="make setup-dev node-modules build-js-production composer-install-no-dev"
-    [dokuwiki]="make $BUILD_MODE"
-    [files_archive]="make $BUILD_MODE"
+    [dokuwiki]="make \$BUILD_MODE"
+    [files_archive]="make \$BUILD_MODE"
     [files_lock]="run-krankerl.sh"
     [groupfolders]="make"
     [ldap_write_support]="run-krankerl.sh"
     [logreader]="make"
     [mail]="make install-deps optimize-js"
-    [mail_roundcube]="make $BUILD_MODE"
+    [mail_roundcube]="make \$BUILD_MODE"
     [maps]="make"
-    [pdf_downloader]="make $BUILD_MODE"
+    [pdf_downloader]="make \$BUILD_MODE"
     # TODO: remove photos git
     # [photos]="make dev-setup build-js-production && rm -rf vendor/* && composer install --no-dev"
-    [redaxo]="make $BUILD_MODE"
+    [redaxo]="make \$BUILD_MODE"
     [richdocuments]="run-krankerl.sh"
     [twofactor_gateway]="run-krankerl.sh"
     [workflow_pdf_converter]="run-krankerl.sh"
@@ -246,6 +246,7 @@ for APP in $APPS; do
     if $BUILD && [ -n "${BUILD_COMMANDS[$APP]}" ]; then
         setTitle "$APP (build)"
         echo "*** Rebuilding $APP ***"
+        echo "Running ${BUILD_COMMANDS[$APP]}"
         { eval "${BUILD_COMMANDS[$APP]}"; } || exit 1
     fi
     echo
