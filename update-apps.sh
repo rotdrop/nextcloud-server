@@ -61,7 +61,7 @@ declare -A STABLE_BRANCHES
 STABLE_BRANCHES=(
     [contacts]=stable7.0
     [calendar]=stable5.2
-    [mail]=stable4.2
+    [mail]=stable5.0
 )
 
 declare -A BUILD_COMMANDS
@@ -96,7 +96,7 @@ REBASE_BRANCHES=(
     [groupfolders]=origin/$CORE_BRANCH
     [ldap_write_support]=origin/$CORE_BRANCH
     [logreader]=origin/$CORE_BRANCH
-    [mail]=origin/stable4.3
+    [mail]=origin/stable5.0
     [maps]=origin/release
     [richdocuments]=origin/$CORE_BRANCH
     [twofactor_gateway]=origin/master
