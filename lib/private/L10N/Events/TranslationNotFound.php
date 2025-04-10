@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 /**
- * @copyright Copyright (c) 2020, Claus-Justus Heine <himself@claus-justus-heine.de>
+ * @copyright Copyright (c) 2020, 2025, Claus-Justus Heine <himself@claus-justus-heine.de>
  *
  * @author Claus-Justus Heine <himself@claus-justus-heine.de>
  *
@@ -45,7 +45,7 @@ class TranslationNotFound extends Event {
 	/** @var array */
 	private $callerFrame;
 
-	public function __construct(string $phrase, string $language, string $locale = null, string $app = null, int $frame = 4) {
+	public function __construct(string $phrase, string $language, ?string $locale = null, ?string $app = null, int $frame = 4) {
 		parent::__construct();
 
 		$this->phrase = $phrase;
@@ -65,11 +65,11 @@ class TranslationNotFound extends Event {
 	public function getLanguage(): string {
 		return $this->language;
 	}
-	
+
 	public function getLocale(): string {
 		return $this->locale;
 	}
-	
+
 	public function getAppName(): string {
 		return $this->app;
 	}
