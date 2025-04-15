@@ -1,3 +1,5 @@
+SHELL = /bin/bash
+
 # SPDX-FileCopyrightText: 2018 Nextcloud GmbH and Nextcloud contributors
 # SPDX-License-Identifier: AGPL-3.0-or-later
 all: clean dev-setup build-js-production
@@ -73,8 +75,8 @@ doc:
  source venv/bin/activate;\
  pip install -r requirements.txt;\
  make admin-manual-html user-manual-html;\
- rsync -a admin_manual/_build/html/com/. ../../core/doc/admin/.;\
- rsync -a user_manual/_build/html/. ../../core/doc/user/.
+ rsync -a --delete --exclude .buildinfo admin_manual/_build/html/com/. ../../core/doc/admin/.;\
+ rsync -a --delete --exclude .buildinfo user_manual/_build/html/. ../../core/doc/user/.
 	rm -rf tmp/documentation
 	cd core/doc/user/;\
  find . -name "*.html" -exec sed -i 's|href="/server/latest/user_manual|href="/core/doc/user|g' {} \;
