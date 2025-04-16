@@ -136,8 +136,12 @@ See the table below for a version map, where migrating is easily possible:</p>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><p>10.13.x</p></td>
-<td><p>25.0.x (but at least 25.0.13)</p></td>
+<tr class="row-even"><td><p>10.13.x
+10.14.x
+10.15.x</p></td>
+<td><p>25.0.13
+25.0.13
+25.0.13</p></td>
 </tr>
 </tbody>
 </table>
@@ -164,8 +168,16 @@ since PHP versions prior PHP 8 are end of life, see
 </ul>
 </div></blockquote>
 <ol class="arabic simple" start="5">
-<li><p>If system cron was used, please verify if crontab entry was using the command <code class="docutils literal notranslate"><span class="pre">occ</span> <span class="pre">system:cron</span></code>. If yes, please adjust it to use the <code class="docutils literal notranslate"><span class="pre">php</span></code> command instead according to <a class="reference internal" href="../configuration_server/background_jobs_configuration.html#system-cron-configuration-label"><span class="std std-ref">the background jobs configuration documentation</span></a></p></li>
-<li><p>Use the <a class="reference internal" href="update.html"><span class="doc">Nextcloud built-in updater</span></a> to update your instance to the newest version.</p></li>
+<li><p>If system cron was used, please verify if crontab entry was using the command <code class="docutils literal notranslate"><span class="pre">occ</span> <span class="pre">system:cron</span></code>.
+If yes, please adjust it to use the <code class="docutils literal notranslate"><span class="pre">php</span></code> command instead according to <a class="reference internal" href="../configuration_server/background_jobs_configuration.html#system-cron-configuration-label"><span class="std std-ref">the background jobs configuration documentation</span></a></p></li>
+<li><p>As Nextcloud 25 is the last Nextcloud version supporting PHP 7 you need to upgrade your PHP installation afterwards to continue updating to current Nextcloud release.
+We recommend to update PHP to version 8.1 before continuing with the updates.</p></li>
+<li><p>Use the <a class="reference internal" href="update.html"><span class="doc">Nextcloud built-in updater</span></a> to update your instance to the newest version.
+This must be done for every major version, since updates between multiple major versions are not supported.
+So the update path would be: 26 → 27.1 → 28 → 29 → 30 → 31.</p></li>
+<li><p>When reaching Nextcloud 30 or 31 we recommend to update PHP again to a current version like PHP 8.3.
+You can do so also in between, as PHP 8.2 is already supported since Nextcloud 26 and PHP 8.3 since Nextcloud 28,
+but in most cases it is easier to first complete the Nextcloud version updates.</p></li>
 <li><p>Make sure to also verify the “Security &amp; setup warnings” in the “Overview” section on the settings page.</p></li>
 <li><p>In some cases, apps installed from the ownCloud Market might have been disabled as incompatible
 (ex: calendar and contacts), so you should reinstall the Nextcloud ones using
