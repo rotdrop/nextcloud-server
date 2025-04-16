@@ -77,9 +77,9 @@ class EventDispatcher implements IEventDispatcher {
 				);
 			}
 		} catch (Throwable $t) {
-			$this->logger(
+			$this->logger->error(
 				'Exception in event handler',
-				[ 'exception' => new Exception('Broadcasting ' . get_class($event) . ' failed.', 0, $t) ],
+				[ 'exception' => new \Exception('Broadcasting ' . get_class($event) . ' failed.', 0, $t) ],
 			);
 		}
 	}
