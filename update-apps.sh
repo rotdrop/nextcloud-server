@@ -19,6 +19,7 @@ ALL_APPS="
  files_pdfviewer
  files_texteditor
  groupfolders
+ htmlviewer
  ldap_contacts_backend
  ldap_write_support
  logreader
@@ -61,6 +62,7 @@ declare -A STABLE_BRANCHES
 STABLE_BRANCHES=(
     [contacts]=stable7.0
     [calendar]=stable5.2
+    [htmlviewer]=master
     [mail]=stable5.0
 )
 
@@ -75,6 +77,7 @@ BUILD_COMMANDS=(
     [files_archive]="make \$BUILD_MODE"
     [files_lock]="run-krankerl.sh"
     [groupfolders]="make"
+    [htmlviewer]="make"
     [ldap_write_support]="run-krankerl.sh"
     [logreader]="make"
     [mail]="make install-deps optimize-js"
