@@ -62,6 +62,7 @@ declare -A STABLE_BRANCHES
 STABLE_BRANCHES=(
     [contacts]=stable7.0
     [calendar]=stable5.2
+    [emlviewer]=master
     [htmlviewer]=master
     [mail]=stable5.0
 )
@@ -74,6 +75,7 @@ BUILD_COMMANDS=(
     [calendar]="run-krankerl.sh"
     [collectives]="make setup-dev node-modules build-js-production composer-install-no-dev"
     [dokuwiki]="make \$BUILD_MODE"
+    [emlviewer]="make"
     [files_archive]="make \$BUILD_MODE"
     [files_lock]="run-krankerl.sh"
     [groupfolders]="make"
