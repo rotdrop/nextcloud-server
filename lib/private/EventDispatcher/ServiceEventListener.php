@@ -71,7 +71,7 @@ final class ServiceEventListener {
 		try {
 			$this->service->handle($event);
 		} catch (Throwable $t) {
-			$this->logger(
+			$this->logger->error(
 				'Exception in event handler',
 				[ 'exception' => new Exception('Calling ' . get_class($this->service) . '::handle() failed.', 0, $t) ],
 			);
