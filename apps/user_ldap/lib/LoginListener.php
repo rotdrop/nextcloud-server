@@ -42,7 +42,7 @@ class LoginListener implements IEventListener {
 	}
 
 	public function onPostLogin(IUser $user): void {
-		$this->logger->info(
+		$this->logger->debug(
 			self::class . ' - {user} postLogin',
 			[
 				'app' => 'user_ldap',
