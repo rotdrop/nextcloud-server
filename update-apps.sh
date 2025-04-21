@@ -276,6 +276,7 @@ for APP in $APPS; do
             echo "Reset branch for app $APP is empty" 1>&2
             exit 1
         fi
+        echo "*** Hard resetting $APP to $RESET_BRANCH ***"
         git reset --hard "$RESET_BRANCH"
     fi
     case $BRANCH in
