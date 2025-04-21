@@ -119,7 +119,7 @@ SUBREPO_APPS=(
 declare -A RESET_BRANCHES
 RESET_BRANCHES=(
     [activity]=origin/stable31
-    [bav]=origin/stable31
+    [bav]=origin/master
     [cafevdb]=origin/nextcloud31
     [cafevdbmembers]=origin/stable31
     [calendar]=cjh/production/cafevdb/stable5.2
