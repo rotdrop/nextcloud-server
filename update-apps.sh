@@ -10,17 +10,14 @@ ALL_APPS="
  calendar
  circles
  collectives
- contacts
  dokuwiki
  emlviewer
  files_archive
- files_automatedtagging
  files_lock
  files_pdfviewer
  files_texteditor
  groupfolders
  htmlviewer
- ldap_contacts_backend
  ldap_write_support
  logreader
  mail
@@ -36,10 +33,8 @@ ALL_APPS="
  related_resources
  richdocuments
  serverinfo
- spreed
  suspicious_login
  text
- twofactor_email
  twofactor_gateway
  twofactor_nextcloud_notification
  twofactor_totp
@@ -53,6 +48,7 @@ CORE_BRANCH=stable31
 BUILD=false
 BUILD_MODE=build
 PUSH=false
+RESET=false
 REBASE=false
 STATUS=false
 LIST=false
@@ -60,7 +56,6 @@ APPS="${ALL_APPS}"
 
 declare -A STABLE_BRANCHES
 STABLE_BRANCHES=(
-    [contacts]=stable7.0
     [calendar]=stable5.2
     [emlviewer]=master
     [htmlviewer]=master
@@ -120,9 +115,52 @@ SUBREPO_APPS=(
     [redaxo]=true
 )
 
+# hard reset branches, meant to update the server
+declare -A RESET_BRANCHES
+RESET_BRANCHES=(
+    [activity]=origin/stable31
+    [bav]=origin/stable31
+    [cafevdb]=origin/nextcloud31
+    [cafevdbmembers]=origin/stable31
+    [calendar]=cjh/production/cafevdb/stable5.2
+    [circles]=origin/stable31
+    [collectives]=origin/main
+    [dokuwiki]=origin/master
+    [emlviewer]=cjh/production/stable31
+    [files_archive]=origin/main
+    [files_lock]=cjh/production/cafevdb/stable31
+    [files_pdfviewer]=origin/stable31
+    [files_texteditor]=origin/master
+    [groupfolders]=cjh/production/cafevdb/stable31
+    [htmlviewer]=origin/master
+    [ldap_write_support]=cjh/production/cafevdb/stable31
+    [logreader]=cjh/production/cafevdb/stable31
+    [mail]=cjh/feature/stable5.0/provision-additional-email-addresses
+    [mail_roundcube]=origin/master
+    [maps]=cjh/production/stable31
+    [notifications]=origin/stable31
+    [password_policy]=origin/stable31
+    [pdf_downloader]=origin/main
+    [photos]=origin/stable31
+    [privacy]=origin/stable31
+    [recommendations]=origin/stable31
+    [redaxo]=origin/main
+    [related_resources]=origin/stable31
+    [richdocuments]=cjh/feature/authenticated-requests-31
+    [serverinfo]=origin/stable31
+    [suspicious_login]=origin/stable31
+    [text]=origin/stable31
+    [twofactor_gateway]=cjh/production/stable31/cafevdb
+    [twofactor_nextcloud_notification]=origin/stable31
+    [twofactor_totp]=origin/stable31
+    [user_sql]=cjh/production/cafevdb/stable31
+    [viewer]=origin/stable31
+    [workflow_pdf_converter]=cjh/production/rotdrop/stable31
+)
+
 NCDIR=$(realpath .)
 
-VALID_ARGS=$(getopt -o bldor:s --long build,list,dev,only:,rebase,status,push -- "$@")
+VALID_ARGS=$(getopt -o bldor:s --long build,list,dev,only:,rebase,status,push,reset -- "$@")
 # shellcheck disable=SC2181
 if [[ $? -ne 0 ]]; then
     exit 1;
@@ -157,6 +195,10 @@ while true; do
       ;;
     --push)
       PUSH=true
+      shift
+      ;;
+    --reset)
+      RESET=true
       shift
       ;;
     -s|--status)
@@ -227,6 +269,15 @@ for APP in $APPS; do
             git checkout "$STABLE_BRANCH"
             ;;
     esac
+    if $RESET; then
+        RESET_BRANCH="${RESET_BRANCHES[$APP]}"
+        setTitle "$APP (get reset --hard $RESET_BRANCH)"
+        if [ -z "$RESET_BRANCH" ]; then
+            echo "Reset branch for app $APP is empty" 1>&2
+            exit 1
+        fi
+        git reset --hard "$RESET_BRANCH"
+    fi
     case $BRANCH in
         stable*|master|main)
             setTitle "$APP (git pull from $BRANCH)"
@@ -240,7 +291,7 @@ for APP in $APPS; do
     fi
     if $PUSH; then
       setTitle "$APP (git push)"
-      git push
+      git push --force
     fi
     if $REBASE && [ -n "${REBASE_BRANCHES[$APP]}" ]; then
         setTitle "$APP (git rebase ${REBASE_BRANCHES[$APP]})"
