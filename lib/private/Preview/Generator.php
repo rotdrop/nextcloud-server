@@ -409,7 +409,7 @@ class Generator {
 			}
 		}
 
-		throw new NotFoundException('No provider successfully handled the preview generation');
+		throw new NotFoundException('No provider successfully handled the preview generation for "'. $file->getName() . '".');
 	}
 
 	/**
