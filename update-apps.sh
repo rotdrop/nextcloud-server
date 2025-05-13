@@ -4,6 +4,7 @@ export LC_ALL=C
 
 ALL_APPS="
  activity
+ app_api
  bav
  cafevdb
  cafevdbmembers
