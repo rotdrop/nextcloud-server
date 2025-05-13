@@ -255,6 +255,8 @@ export default defineComponent({
 				return CollectivesIcon
 			case 'shared':
 				return AccountPlusIcon
+			case 'cafevdb-database':
+				return KeyIcon
 			}
 
 			return null
