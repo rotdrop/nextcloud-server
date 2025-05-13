@@ -45,7 +45,7 @@ class LoginFlowV2Service {
 		try {
 			$data = $this->mapper->getByPollToken($this->hashToken($pollToken));
 		} catch (DoesNotExistException $e) {
-			throw new LoginFlowV2NotFoundException('Invalid token');
+			throw new LoginFlowV2NotFoundException('Invalid token', 0, $e);
 		}
 
 		$loginName = $data->getLoginName();
@@ -62,8 +62,8 @@ class LoginFlowV2Service {
 		try {
 			// Decrypt the apptoken
 			$privateKey = $this->crypto->decrypt($data->getPrivateKey(), $pollToken);
-		} catch (\Exception) {
-			throw new LoginFlowV2NotFoundException('Apptoken could not be decrypted');
+		} catch (\Exception $e) {
+			throw new LoginFlowV2NotFoundException('Apptoken could not be decrypted', 0, $e);
 		}
 
 		$appPassword = $this->decryptPassword($data->getAppPassword(), $privateKey);
@@ -83,7 +83,7 @@ class LoginFlowV2Service {
 		try {
 			return $this->mapper->getByLoginToken($loginToken);
 		} catch (DoesNotExistException $e) {
-			throw new LoginFlowV2NotFoundException('Login token invalid');
+			throw new LoginFlowV2NotFoundException('Login token invalid', 0, $e);
 		}
 	}
 
