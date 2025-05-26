@@ -44,7 +44,7 @@ class SanitizeFilenames extends Base {
 		parent::configure();
 
 		$forbiddenCharacter = $this->filenameValidator->getForbiddenCharacters();
-		$charReplacement = array_diff([' ', '_', '-'], $forbiddenCharacter);
+		$charReplacement = array_diff(['_', ' ', '-'], $forbiddenCharacter);
 		$charReplacement = reset($charReplacement) ?: '';
 
 		$this
@@ -67,7 +67,7 @@ class SanitizeFilenames extends Base {
 				description: 'Replacement for invalid character (by default space, underscore or dash is used)',
 				default: $charReplacement,
 			);
-			
+
 	}
 
 	protected function execute(InputInterface $input, OutputInterface $output): int {
