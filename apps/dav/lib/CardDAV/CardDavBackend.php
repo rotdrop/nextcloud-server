@@ -616,7 +616,7 @@ class CardDavBackend implements BackendInterface, SyncSupport {
 	public function createCard($addressBookId, $cardUri, $cardData, bool $checkAlreadyExists = true) {
 		$etag = md5($cardData);
 		$uid = $this->getUID($cardData);
-		return $this->atomic(function () use ($addressBookId, $cardUri, $cardData, $checkAlreadyExists, $etag) {
+		return $this->atomic(function () use ($addressBookId, $cardUri, $cardData, $checkAlreadyExists, $etag, $uid) {
 			if ($checkAlreadyExists) {
 				$q = $this->db->getQueryBuilder();
 				$q->select('uri')
