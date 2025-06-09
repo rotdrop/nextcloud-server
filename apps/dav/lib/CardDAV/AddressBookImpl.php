@@ -130,6 +130,9 @@ class AddressBookImpl implements IAddressBookEnabled {
 					}
 					$vCard->add($property);
 				}
+			} elseif ($key == 'CATEGORIES') {
+				$vCard->$key = $vCard->createProperty($key);
+				$vCard->{$key}->setParts(explode(',', $value));
 			} elseif ($key !== 'URI') {
 				$vCard->$key = $vCard->createProperty($key, $value);
 			}
@@ -328,7 +331,7 @@ class AddressBookImpl implements IAddressBookEnabled {
 			$user = str_replace('principals/users/', '', $this->addressBookInfo['principaluri']);
 			$uri = $this->addressBookInfo['uri'];
 		}
-		
+
 		$path = 'addressbooks/users/' . $user . '/' . $uri;
 		$properties = $this->propertyMapper->findPropertyByPathAndName($user, $path, '{http://owncloud.org/ns}enabled');
 		if (count($properties) > 0) {
