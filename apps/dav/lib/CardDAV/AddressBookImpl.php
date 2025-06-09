@@ -130,6 +130,10 @@ class AddressBookImpl implements IAddressBookEnabled {
 					}
 					$vCard->add($property);
 				}
+			} elseif ($key == 'N' && is_string($value)) {
+				$value = stripslashes($value);
+				$value = explode(';', $value);
+				$vCard->$key = $vCard->createProperty($key, $value);
 			} elseif ($key == 'CATEGORIES') {
 				$vCard->$key = $vCard->createProperty($key);
 				$vCard->{$key}->setParts(explode(',', $value));
