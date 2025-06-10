@@ -11,6 +11,7 @@ ALL_APPS="
  calendar
  circles
  collectives
+ contacts
  dokuwiki
  emlviewer
  files_archive
@@ -58,6 +59,7 @@ APPS="${ALL_APPS}"
 declare -A STABLE_BRANCHES
 STABLE_BRANCHES=(
     [calendar]=stable5.2
+    [contacts]=stable7.1
     [emlviewer]=master
     [htmlviewer]=master
     [mail]=stable5.0
@@ -70,6 +72,7 @@ BUILD_COMMANDS=(
     [cafevdbmembers]="make \$BUILD_MODE"
     [calendar]="run-krankerl.sh"
     [collectives]="make setup-dev node-modules build-js-production composer-install-no-dev"
+    [contacts]="run-krankerl.sh"
     [dokuwiki]="make \$BUILD_MODE"
     [emlviewer]="make"
     [files_archive]="make \$BUILD_MODE"
@@ -93,6 +96,7 @@ BUILD_COMMANDS=(
 declare -A REBASE_BRANCHES
 REBASE_BRANCHES=(
     [calendar]=origin/stable5.2
+    [contacts]=origin/stable7.1
     [files_lock]=origin/$CORE_BRANCH
     [groupfolders]=origin/$CORE_BRANCH
     [ldap_write_support]=origin/$CORE_BRANCH
@@ -127,6 +131,7 @@ RESET_BRANCHES=(
     [calendar]=cjh/production/cafevdb/stable5.2
     [circles]=origin/stable31
     [collectives]=origin/main
+    [contacts]=cjh/production/stable7.1
     [dokuwiki]=origin/master
     [emlviewer]=cjh/production/stable31
     [files_archive]=origin/main
