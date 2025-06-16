@@ -69,6 +69,7 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Using the Mail app</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#managing-your-mail-account">Managing your mail account</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#switch-layout">Switch layout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#message-display-operation-mode">Message Display / Operation Mode</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#add-a-new-mail-account">Add a new mail account</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#change-sort-order">Change sort order</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#scheduled-messages">Scheduled messages</a></li>
@@ -115,6 +116,8 @@
 <li class="toctree-l3"><a class="reference internal" href="#thread-summary">Thread summary</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#filtering-and-autoresponder">Filtering and autoresponder</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#autoresponders">Autoresponders</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#filter">Filter</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-a-filter-from-a-message">Create a filter from a message</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#follow-up-reminders">Follow-up reminders</a></li>
@@ -194,6 +197,22 @@ Please ask your Administrator for it.</p>
 </ol>
 <figure class="align-default">
 <img alt="../../_images/mail_layout.png" src="../../_images/mail_layout.png" />
+</figure>
+</section>
+<section id="message-display-operation-mode">
+<h3>Message Display / Operation Mode<a class="headerlink" href="#message-display-operation-mode" title="Link to this heading"></a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 5.2.</span></p>
+</div>
+<p>Mail has the ability to switch between two different message view and operation modes: <em>Threaded</em> and <em>Singleton</em>.</p>
+<p>In <em>Threaded</em> mode, messages are grouped by conversation. In the mailbox message list, related messages are stacked so only the most recent message is shown, and all relates messages are shown in message display panel after the stacked message is selected. This is useful for following discussions and understanding the context of replies. In this mode, message operation like move and delete apply to the entire thread, meaning that when you move or delete a thread, all messages within that thread are affected.</p>
+<p>In <em>Singleton</em> mode, messages are displayed individually, in both the mailbox message list and message display panel and operation like move and delete apply to only the selected message. This mode is useful when you want to manage messages separately without affecting the entire conversation.</p>
+<ol class="arabic simple">
+<li><p>Visit mail settings</p></li>
+<li><p>Choose between <em>Threaded</em>, <em>Singleton</em></p></li>
+</ol>
+<figure class="align-default">
+<img alt="../../_images/mail_display-mode.png" src="../../_images/mail_display-mode.png" />
 </figure>
 </section>
 <section id="add-a-new-mail-account">
@@ -594,6 +613,64 @@ By doing so the contact will be automatically added as a recipient.</p>
 <p><span class="versionmodified added">Added in version 3.5: </span>Autoresponder can follow system settings.</p>
 </div>
 <p>The autoresponder is off by default. It can be set manually, or follow the system settings. Following system settings means that the long absence message entered on the <a class="reference internal" href="absence.html#groupware-absence"><span class="std std-ref">Absence settings section</span></a> is applied automatically.</p>
+</section>
+<section id="filter">
+<h3>Filter<a class="headerlink" href="#filter" title="Link to this heading"></a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 4.1.</span></p>
+</div>
+<p>Mail 4.1 includes a simple editor to configure filter rules.</p>
+<div class="admonition note">
+<p class="admonition-title">Megjegyzés</p>
+<p>Importing existing filters is not supported. However, all existing filters will remain active and unchanged.  We recommend backing up your current script through the Sieve script editor as a precaution.</p>
+</div>
+<section id="how-to-add-a-new-filter">
+<h4>How to Add a New Filter<a class="headerlink" href="#how-to-add-a-new-filter" title="Link to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p>Open your account settings.</p></li>
+<li><p>Verify that Sieve is enabled for your account (see Sieve server settings).</p></li>
+<li><p>Click on Filters.</p></li>
+<li><p>Select New Filter to create a new rule.</p></li>
+</ol>
+</section>
+<section id="how-to-delete-a-filter">
+<h4>How to Delete a Filter<a class="headerlink" href="#how-to-delete-a-filter" title="Link to this heading"></a></h4>
+<ol class="arabic simple">
+<li><p>Open your account settings.</p></li>
+<li><p>Ensure that Sieve is enabled for your account (see Sieve server settings).</p></li>
+<li><p>Click on Filters.</p></li>
+<li><p>Hover over the filter you wish to delete, then click the trash icon.</p></li>
+</ol>
+</section>
+<section id="conditions">
+<h4>Conditions<a class="headerlink" href="#conditions" title="Link to this heading"></a></h4>
+<p>Conditions are applied to incoming emails on your mail server, targeting fields such as Subject, Sender, and Recipient. You can use the following operators to define conditions for these fields:</p>
+<ul class="simple">
+<li><p><strong>is exactly</strong>: An exact match. The field must be identical to the provided value.</p></li>
+<li><p><strong>contains</strong>: A substring match. The field matches if the provided value is contained within it. For example, „report” would match „port”.</p></li>
+<li><p><strong>matches</strong>: A pattern match using wildcards. The „*” symbol represents any number of characters (including none), while „?” represents exactly one character. For example, „<em>report</em>” would match „Business report 2024”.</p></li>
+</ul>
+</section>
+<section id="actions">
+<h4>Actions<a class="headerlink" href="#actions" title="Link to this heading"></a></h4>
+<p>Actions are triggered when the specified tests are true. The following actions are available:</p>
+<ul class="simple">
+<li><p><strong>fileinto</strong>: Moves the message into a specified folder.</p></li>
+<li><p><strong>addflag</strong>: Adds a flag to the message.</p></li>
+<li><p><strong>stop</strong>: Halts the execution of the filter script. No further filters with will be processed after this action.</p></li>
+</ul>
+</section>
+</section>
+<section id="create-a-filter-from-a-message">
+<h3>Create a filter from a message<a class="headerlink" href="#create-a-filter-from-a-message" title="Link to this heading"></a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 5.2.</span></p>
+</div>
+<p>To create a filter from a given message, open the message and then open the menu by clicking on the three dots. Next, click on „More actions” followed by „Create mail filter.”</p>
+<p>In the dialog, please select the conditions to match incoming messages and continue by clicking on „Create mail filter.”</p>
+<figure class="align-default">
+<img alt="../../_images/mail_create_filter_from_message.png" src="../../_images/mail_create_filter_from_message.png" />
+</figure>
 </section>
 </section>
 <section id="follow-up-reminders">
