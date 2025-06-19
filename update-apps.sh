@@ -58,7 +58,7 @@ APPS="${ALL_APPS}"
 
 declare -A STABLE_BRANCHES
 STABLE_BRANCHES=(
-    [calendar]=stable5.2
+    [calendar]=stable5.3
     [contacts]=stable7.1
     [emlviewer]=master
     [htmlviewer]=master
@@ -95,7 +95,7 @@ BUILD_COMMANDS=(
 
 declare -A REBASE_BRANCHES
 REBASE_BRANCHES=(
-    [calendar]=origin/stable5.2
+    [calendar]=origin/stable5.3
     [contacts]=origin/stable7.1
     [files_lock]=origin/$CORE_BRANCH
     [groupfolders]=origin/$CORE_BRANCH
@@ -128,7 +128,7 @@ RESET_BRANCHES=(
     [bav]=origin/master
     [cafevdb]=origin/nextcloud31
     [cafevdbmembers]=origin/stable31
-    [calendar]=cjh/production/cafevdb/stable5.2
+    [calendar]=cjh/production/cafevdb/stable5.3
     [circles]=origin/stable31
     [collectives]=origin/main
     [contacts]=cjh/production/stable7.1
