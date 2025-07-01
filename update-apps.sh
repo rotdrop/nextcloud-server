@@ -86,7 +86,8 @@ BUILD_COMMANDS=(
     [maps]="make"
     [pdf_downloader]="make \$BUILD_MODE"
     # TODO: remove photos, either use photos or memories, not both
-    [photos]="make dev-setup build-js-production && rm -rf vendor/* && composer install --no-dev"
+    # [photos]="make dev-setup build-js-production && rm -rf vendor/* && composer install --no-dev"
+    [photos]="rm -rf vendor/* && composer install --no-dev"
     [redaxo]="make \$BUILD_MODE"
     [richdocuments]="run-krankerl.sh"
     [twofactor_gateway]="run-krankerl.sh"
