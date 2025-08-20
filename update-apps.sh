@@ -62,7 +62,7 @@ STABLE_BRANCHES=(
     [contacts]=stable7.2
     [emlviewer]=master
     [htmlviewer]=master
-    [mail]=stable5.1
+    [mail]=stable5.4
 )
 
 declare -A BUILD_COMMANDS
@@ -102,7 +102,7 @@ REBASE_BRANCHES=(
     [groupfolders]=origin/$CORE_BRANCH
     [ldap_write_support]=origin/$CORE_BRANCH
     [logreader]=origin/$CORE_BRANCH
-    [mail]=origin/stable5.1
+    [mail]=origin/stable5.4
     [maps]=origin/release
     [richdocuments]=origin/$CORE_BRANCH
     [twofactor_gateway]=origin/master
@@ -143,7 +143,7 @@ RESET_BRANCHES=(
     [htmlviewer]=origin/master
     [ldap_write_support]=cjh/production/cafevdb/stable31
     [logreader]=cjh/production/cafevdb/stable31
-    [mail]=cjh/feature/stable5.1/provision-additional-email-addresses
+    [mail]=cjh/feature/stable5.4/provision-additional-email-addresses
     [mail_roundcube]=origin/master
     [maps]=cjh/production/stable31
     [notifications]=origin/stable31
