@@ -114,6 +114,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#session-lifetime">session_lifetime</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#davstorage-request-timeout">davstorage.request_timeout</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#carddav-sync-request-timeout">carddav_sync_request_timeout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#carddav-sync-request-truncation">carddav_sync_request_truncation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#session-relaxed-expiry">session_relaxed_expiry</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#session-keepalive">session_keepalive</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#auto-logout">auto_logout</a></li>
@@ -124,6 +125,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#auth-bruteforce-protection-testing">auth.bruteforce.protection.testing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#auth-bruteforce-max-attempts">auth.bruteforce.max-attempts</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#ratelimit-protection-enabled">ratelimit.protection.enabled</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#security-ipv6-normalized-subnet-size">security.ipv6_normalized_subnet_size</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#auth-webauthn-enabled">auth.webauthn.enabled</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#auth-storecryptedpassword">auth.storeCryptedPassword</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#hide-login-form">hide_login_form</a></li>
@@ -302,6 +304,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#sqlite-journal-mode">sqlite.journal_mode</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#mysql-utf8mb4">mysql.utf8mb4</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#mysql-collation">mysql.collation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pgsql-ssl">pgsql_ssl</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#supporteddatabases">supportedDatabases</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#tempdirectory">tempdirectory</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#updatedirectory">updatedirectory</a></li>
@@ -311,6 +314,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#forbidden-filename-extensions">forbidden_filename_extensions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#theme">theme</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#enforce-theme">enforce_theme</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#theming-standalone-window-enabled">theming.standalone_window.enabled</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#cipher">cipher</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#encryption-use-legacy-base64-encoding">encryption.use_legacy_base64_encoding</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#minimum-supported-desktop-version">minimum.supported.desktop.version</a></li>
@@ -956,8 +960,9 @@ pages), and <code class="docutils literal notranslate"><span class="pre">false</
 </pre></div>
 </div>
 <p>The directory where the skeleton files are located. These files will be
-copied to the data directory of new users. Leave empty to not copy any
-skeleton files.</p>
+copied to the data directory of new users. Set empty string to not copy any
+skeleton files. If unset and templatedirectory is empty string, shipped
+templates will be used to create a template directory for the user.</p>
 <p><code class="docutils literal notranslate"><span class="pre">{lang}</span></code> can be used as a placeholder for the language of the user.
 If the directory does not exist, it falls back to non dialect (from <code class="docutils literal notranslate"><span class="pre">de_DE</span></code>
 to <code class="docutils literal notranslate"><span class="pre">de</span></code>). If that does not exist either, it falls back to <code class="docutils literal notranslate"><span class="pre">default</span></code></p>
@@ -969,14 +974,13 @@ to <code class="docutils literal notranslate"><span class="pre">de</span></code>
 </pre></div>
 </div>
 <p>The directory where the template files are located. These files will be
-copied to the template directory of new users. Leave empty to not copy any
+copied to the template directory of new users. Set empty string to not copy any
 template files.</p>
 <p><code class="docutils literal notranslate"><span class="pre">{lang}</span></code> can be used as a placeholder for the language of the user.
 If the directory does not exist, it falls back to non dialect (from <code class="docutils literal notranslate"><span class="pre">de_DE</span></code>
 to <code class="docutils literal notranslate"><span class="pre">de</span></code>). If that does not exist either, it falls back to <code class="docutils literal notranslate"><span class="pre">default</span></code></p>
-<p>If this is not set creating a template directory will only happen if no custom
-<code class="docutils literal notranslate"><span class="pre">skeletondirectory</span></code> is defined, otherwise the shipped templates will be used
-to create a template directory for the user.</p>
+<p>To disable creating a template directory, set both skeletondirectory and
+templatedirectory to empty strings.</p>
 </section>
 </section>
 <section id="user-session">
@@ -1014,6 +1018,13 @@ which would overwrite this option if it is less than the value in the config.php
 </div>
 <p>The timeout in seconds for synchronizing address books, e.g. federated system address books (as run by <cite>occ federation:sync-addressbooks</cite>).</p>
 <p>Defaults to <code class="docutils literal notranslate"><span class="pre">30</span></code> seconds</p>
+</section>
+<section id="carddav-sync-request-truncation">
+<h3>carddav_sync_request_truncation<a class="headerlink" href="#carddav-sync-request-truncation" title="Link to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;carddav_sync_request_truncation&#39;</span> <span class="o">=&gt;</span> <span class="mi">2500</span><span class="p">,</span>
+</pre></div>
+</div>
+<p>The limit applied to the synchronization report request, e.g. federated system address books (as run by <cite>occ federation:sync-addressbooks</cite>).</p>
 </section>
 <section id="session-relaxed-expiry">
 <h3>session_relaxed_expiry<a class="headerlink" href="#session-relaxed-expiry" title="Link to this heading"></a></h3>
@@ -1122,6 +1133,16 @@ For security reasons, change it only if you know what you are doing.</p>
 <p>Whether the rate limit protection shipped with Nextcloud should be enabled or not.</p>
 <p>Disabling this is discouraged for security reasons.</p>
 <p>Defaults to <code class="docutils literal notranslate"><span class="pre">true</span></code></p>
+</section>
+<section id="security-ipv6-normalized-subnet-size">
+<h3>security.ipv6_normalized_subnet_size<a class="headerlink" href="#security-ipv6-normalized-subnet-size" title="Link to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;security.ipv6_normalized_subnet_size&#39;</span> <span class="o">=&gt;</span> <span class="mi">56</span><span class="p">,</span>
+</pre></div>
+</div>
+<p>Size of subnet used to normalize IPv6</p>
+<p>For Brute Force Protection and Rate Limiting, IPv6 are truncated using subnet size.
+It defaults to /56 but you can set it between /32 and /64</p>
+<p>Defaults to <code class="docutils literal notranslate"><span class="pre">56</span></code></p>
 </section>
 <section id="auth-webauthn-enabled">
 <h3>auth.webauthn.enabled<a class="headerlink" href="#auth-webauthn-enabled" title="Link to this heading"></a></h3>
@@ -2340,7 +2361,7 @@ For the local cache (you can configure two) take APCu.</p></li>
 </ul>
 <section id="memcache-local">
 <h3>memcache.local<a class="headerlink" href="#memcache-local" title="Link to this heading"></a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;memcache.local&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;\OC\Memcache\APCu&#39;</span><span class="p">,</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;memcache.local&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">OC</span><span class="se">\\</span><span class="s1">Memcache</span><span class="se">\\</span><span class="s1">APCu&#39;</span><span class="p">,</span>
 </pre></div>
 </div>
 <p>Memory caching backend for locally stored data</p>
@@ -2351,7 +2372,7 @@ For the local cache (you can configure two) take APCu.</p></li>
 </section>
 <section id="memcache-distributed">
 <h3>memcache.distributed<a class="headerlink" href="#memcache-distributed" title="Link to this heading"></a></h3>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;memcache.distributed&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;\OC\Memcache\Memcached&#39;</span><span class="p">,</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;memcache.distributed&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;</span><span class="se">\\</span><span class="s1">OC</span><span class="se">\\</span><span class="s1">Memcache</span><span class="se">\\</span><span class="s1">Memcached&#39;</span><span class="p">,</span>
 </pre></div>
 </div>
 <p>Memory caching backend for distributed data</p>
@@ -2835,6 +2856,19 @@ incompatible ones, also depending on the version of the database server.</p>
 always utf8[mb4]_bin is being used. This setting is only taken into
 consideration in SQL queries that utilize LIKE comparison operators.</p>
 </section>
+<section id="pgsql-ssl">
+<h3>pgsql_ssl<a class="headerlink" href="#pgsql-ssl" title="Link to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;pgsql_ssl&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="s1">&#39;mode&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;cert&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;rootcert&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;key&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;crl&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+<span class="p">],</span>
+</pre></div>
+</div>
+<p>PostgreSQL SSL connection</p>
+</section>
 <section id="supporteddatabases">
 <h3>supportedDatabases<a class="headerlink" href="#supporteddatabases" title="Link to this heading"></a></h3>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;supportedDatabases&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
@@ -2951,6 +2985,14 @@ see <a class="reference external" href="https://en.wikipedia.org/wiki/Comparison
 <p>Enforce the user theme. This will disable the user theming settings
 This must be a valid ITheme ID.</p>
 <p>E.g. dark, dark-highcontrast, default, light, light-highcontrast, opendyslexic</p>
+</section>
+<section id="theming-standalone-window-enabled">
+<h3>theming.standalone_window.enabled<a class="headerlink" href="#theming-standalone-window-enabled" title="Link to this heading"></a></h3>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;theming.standalone_window.enabled&#39;</span> <span class="o">=&gt;</span> <span class="n">true</span><span class="p">,</span>
+</pre></div>
+</div>
+<p>This setting allows to disable the PWA functionality that allows browsers to open web applications in dedicated windows.</p>
+<p>Defaults to <code class="docutils literal notranslate"><span class="pre">true</span></code></p>
 </section>
 <section id="cipher">
 <h3>cipher<a class="headerlink" href="#cipher" title="Link to this heading"></a></h3>
@@ -3543,23 +3585,54 @@ normal maintenance change. To disable this specific email the appconfig option
 
   <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
-      <span class="fa fa-book"> Read the Docs</span>
-      v: latest
+      ☁️ latest
       <span class="fa fa-caret-down"></span>
     </span>
     <div class="rst-other-versions">
       <dl>
-        <dt>Versions</dt>
+        <dt>☁️ Versions</dt>
         
-          <dd><a href="https://docs.nextcloud.com/server/28/admin_manual">28</a></dd>
+        <dd style="width: 32%">
+          <a href="https://docs.nextcloud.com/server/latest/admin_manual"
+             
+             style="color: var(--dark-link-color);"
+             
+          >
+            latest
+          </a>
+        </dd>
         
-          <dd><a href="https://docs.nextcloud.com/server/29/admin_manual">29</a></dd>
+        <dd style="width: 32%">
+          <a href="https://docs.nextcloud.com/server/stable/admin_manual"
+             
+          >
+            stable
+          </a>
+        </dd>
         
-          <dd><a href="https://docs.nextcloud.com/server/30/admin_manual">30</a></dd>
+        <dd style="width: 32%">
+          <a href="https://docs.nextcloud.com/server/30/admin_manual"
+             
+          >
+            30
+          </a>
+        </dd>
         
-          <dd><a href="https://docs.nextcloud.com/server/stable/admin_manual">stable</a></dd>
+        <dd style="width: 32%">
+          <a href="https://docs.nextcloud.com/server/29/admin_manual"
+             
+          >
+            29
+          </a>
+        </dd>
         
-          <dd><a href="https://docs.nextcloud.com/server/latest/admin_manual">latest</a></dd>
+        <dd style="width: 32%">
+          <a href="https://docs.nextcloud.com/server/28/admin_manual"
+             
+          >
+            28
+          </a>
+        </dd>
         
       </dl>
     </div>

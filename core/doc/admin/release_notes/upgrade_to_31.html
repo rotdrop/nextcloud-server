@@ -66,6 +66,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#database-configuration">Database configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#php-configuration">PHP configuration</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#nextcloud-configuration">Nextcloud configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#monitoring-counting-of-active-users">Monitoring: Counting of active users</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="upgrade_to_30.html">Upgrade to Nextcloud 30</a></li>
@@ -137,9 +138,10 @@
 <h2>Database configuration<a class="headerlink" href="#database-configuration" title="Link to this heading"></a></h2>
 <p>Other row formats than <code class="docutils literal notranslate"><span class="pre">DYNAMIC</span></code> for MySQL and MariaDB databases will <a class="reference external" href="https://github.com/nextcloud/server/issues/34497">issue a warning since Nextcloud 24</a>,
 as they often cause performance issues.
-With Nextcloud 31 a <a class="reference external" href="https://github.com/nextcloud/server/pull/48547">more prominent new setup warning</a> for this was added.
-To resolve the warning, in most cases running <code class="docutils literal notranslate"><span class="pre">occ</span> <span class="pre">db:convert-mysql-charset</span></code> will resolve the issue.
-If some tables are not covered by the <code class="docutils literal notranslate"><span class="pre">occ</span></code> command, issuing the proper <code class="docutils literal notranslate"><span class="pre">ALTER</span> <span class="pre">TABLE</span></code> DDL commands to change the row format during a maintenance window is needed.
+With Nextcloud 31 a <a class="reference external" href="https://github.com/nextcloud/server/pull/48547">more prominent new setup warning</a> for this was added.</p>
+<p>The row format can be changed via <code class="docutils literal notranslate"><span class="pre">ALTER</span> <span class="pre">TABLE</span></code> DDL commands during a maintenance window.
+Changing the row format from <code class="docutils literal notranslate"><span class="pre">COMPRESSED</span></code> to <code class="docutils literal notranslate"><span class="pre">DYNAMIC</span></code> requires about 2x the disk space and may take a long time depending on the size of the database.
+See the <a class="reference external" href="https://dev.mysql.com/doc/refman/en/innodb-row-format.html">MySQL documentation</a> for more information.
 If you’re not sure how to do this, you can <a class="reference external" href="https://help.nextcloud.com/t/upgrade-to-nextcloud-hub-10-31-0-0-incorrect-row-format-found-in-your-database/218366/">find some tips and tricks from the community</a>.</p>
 </section>
 <section id="php-configuration">
@@ -159,6 +161,10 @@ Previously it was set to 10MiB, it is now increased to 100MiB.</p>
 If you set up a custom value previously the value will be automatically migrated to the system configuration during the update.
 But if you need to set a new custom value you need now to use the system configuration, see also <a class="reference internal" href="../configuration_files/big_file_upload_configuration.html#files-configure-max-chunk-size"><span class="std std-ref">Adjust chunk size on Nextcloud side</span></a>.</p>
 </section>
+</section>
+<section id="monitoring-counting-of-active-users">
+<h2>Monitoring: Counting of active users<a class="headerlink" href="#monitoring-counting-of-active-users" title="Link to this heading"></a></h2>
+<p>Starting with Nextcloud 31.0.6 the monitoring app was adjusted to count the active users in the same way as occ user:report and the support app.</p>
 </section>
 </section>
 
@@ -187,23 +193,54 @@ But if you need to set a new custom value you need now to use the system configu
 
   <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
-      <span class="fa fa-book"> Read the Docs</span>
-      v: latest
+      ☁️ latest
       <span class="fa fa-caret-down"></span>
     </span>
     <div class="rst-other-versions">
       <dl>
-        <dt>Versions</dt>
+        <dt>☁️ Versions</dt>
         
-          <dd><a href="https://docs.nextcloud.com/server/28/admin_manual">28</a></dd>
+        <dd style="width: 32%">
+          <a href="https://docs.nextcloud.com/server/latest/admin_manual"
+             
+             style="color: var(--dark-link-color);"
+             
+          >
+            latest
+          </a>
+        </dd>
         
-          <dd><a href="https://docs.nextcloud.com/server/29/admin_manual">29</a></dd>
+        <dd style="width: 32%">
+          <a href="https://docs.nextcloud.com/server/stable/admin_manual"
+             
+          >
+            stable
+          </a>
+        </dd>
         
-          <dd><a href="https://docs.nextcloud.com/server/30/admin_manual">30</a></dd>
+        <dd style="width: 32%">
+          <a href="https://docs.nextcloud.com/server/30/admin_manual"
+             
+          >
+            30
+          </a>
+        </dd>
         
-          <dd><a href="https://docs.nextcloud.com/server/stable/admin_manual">stable</a></dd>
+        <dd style="width: 32%">
+          <a href="https://docs.nextcloud.com/server/29/admin_manual"
+             
+          >
+            29
+          </a>
+        </dd>
         
-          <dd><a href="https://docs.nextcloud.com/server/latest/admin_manual">latest</a></dd>
+        <dd style="width: 32%">
+          <a href="https://docs.nextcloud.com/server/28/admin_manual"
+             
+          >
+            28
+          </a>
+        </dd>
         
       </dl>
     </div>

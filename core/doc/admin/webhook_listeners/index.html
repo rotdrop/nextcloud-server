@@ -30,7 +30,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Windmill Workflows" href="../windmill_workflows/index.html" />
-    <link rel="prev" title="AI as a Service" href="../ai/ai_as_a_service.html" /> 
+    <link rel="prev" title="Insight and debugging" href="../ai/insight_and_debugging.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -142,7 +142,7 @@
 <p>When registering a webhook listener, you can specify a filter parameter. The value of this parameter must be a JSON object whose properties represent filter conditions. The <code class="docutils literal notranslate"><span class="pre">{}</span></code> is an empty query, meaning no specific criteria, so all events are matched.</p>
 <p>If you would like to match events fired by a specific user, you can pass <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">&quot;user.uid&quot;:</span> <span class="pre">&quot;bob&quot;</span> <span class="pre">}</span></code> to match all events fired in the context of user <code class="docutils literal notranslate"><span class="pre">&quot;bob&quot;</span></code>.</p>
 <p>If you would like to enforce multiple criteria, you can simply pass multiple properties <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">&quot;event.tableId&quot;:</span> <span class="pre">42,</span> <span class="pre">&quot;event.rowId&quot;:</span> <span class="pre">3</span> <span class="pre">}</span></code></p>
-<p>You can also use additional comparison operators (<code class="docutils literal notranslate"><span class="pre">$eq,</span> <span class="pre">$ne,</span> <span class="pre">$gt,</span> <span class="pre">$gte,</span> <span class="pre">$lt,</span> <span class="pre">$lte,</span> <span class="pre">$in,</span> <span class="pre">$nin</span></code>) as well as logical operators (<code class="docutils literal notranslate"><span class="pre">$and,</span> <span class="pre">$or,</span> <span class="pre">$not,</span> <span class="pre">$nor</span></code>). For example use <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">&quot;time&quot;</span> <span class="pre">:</span> <span class="pre">{</span> <span class="pre">&quot;$lt&quot;:</span> <span class="pre">1711971024</span> <span class="pre">}</span> <span class="pre">}</span></code> to accept only events prior to April 1st 2024 and <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">&quot;time&quot;</span> <span class="pre">:</span> <span class="pre">{</span> <span class="pre">&quot;$not&quot;:</span> <span class="pre">{</span> <span class="pre">&quot;$lt&quot;:</span> <span class="pre">1711971024</span> <span class="pre">}</span> <span class="pre">}</span> <span class="pre">}</span></code> to accept events after April 1st 2024.</p>
+<p>You can also use additional comparison operators (<code class="docutils literal notranslate"><span class="pre">$e,</span> <span class="pre">$ne,</span> <span class="pre">$gt,</span> <span class="pre">$gte,</span> <span class="pre">$lt,</span> <span class="pre">$lte,</span> <span class="pre">$in,</span> <span class="pre">$nin</span></code>) as well as logical operators (<code class="docutils literal notranslate"><span class="pre">$and,</span> <span class="pre">$or,</span> <span class="pre">$not,</span> <span class="pre">$nor</span></code>). For example use <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">&quot;time&quot;</span> <span class="pre">:</span> <span class="pre">{</span> <span class="pre">&quot;$lt&quot;:</span> <span class="pre">1711971024</span> <span class="pre">}</span> <span class="pre">}</span></code> to accept only events prior to April 1st 2024 and <code class="docutils literal notranslate"><span class="pre">{</span> <span class="pre">&quot;time&quot;</span> <span class="pre">:</span> <span class="pre">{</span> <span class="pre">&quot;$not&quot;:</span> <span class="pre">{</span> <span class="pre">&quot;$lt&quot;:</span> <span class="pre">1711971024</span> <span class="pre">}</span> <span class="pre">}</span> <span class="pre">}</span></code> to accept events after April 1st 2024.</p>
 </section>
 <section id="speeding-up-webhook-dispatch">
 <h3>Speeding up webhook dispatch<a class="headerlink" href="#speeding-up-webhook-dispatch" title="Link to this heading"></a></h3>
@@ -548,7 +548,7 @@ The logs of the worker can be checked by attaching to the screen or tmux session
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../ai/ai_as_a_service.html" class="btn btn-neutral float-left" title="AI as a Service" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../ai/insight_and_debugging.html" class="btn btn-neutral float-left" title="Insight and debugging" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="../windmill_workflows/index.html" class="btn btn-neutral float-right" title="Windmill Workflows" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
@@ -569,23 +569,54 @@ The logs of the worker can be checked by attaching to the screen or tmux session
 
   <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
-      <span class="fa fa-book"> Read the Docs</span>
-      v: latest
+      ☁️ latest
       <span class="fa fa-caret-down"></span>
     </span>
     <div class="rst-other-versions">
       <dl>
-        <dt>Versions</dt>
+        <dt>☁️ Versions</dt>
         
-          <dd><a href="https://docs.nextcloud.com/server/28/admin_manual">28</a></dd>
+        <dd style="width: 32%">
+          <a href="https://docs.nextcloud.com/server/latest/admin_manual"
+             
+             style="color: var(--dark-link-color);"
+             
+          >
+            latest
+          </a>
+        </dd>
         
-          <dd><a href="https://docs.nextcloud.com/server/29/admin_manual">29</a></dd>
+        <dd style="width: 32%">
+          <a href="https://docs.nextcloud.com/server/stable/admin_manual"
+             
+          >
+            stable
+          </a>
+        </dd>
         
-          <dd><a href="https://docs.nextcloud.com/server/30/admin_manual">30</a></dd>
+        <dd style="width: 32%">
+          <a href="https://docs.nextcloud.com/server/30/admin_manual"
+             
+          >
+            30
+          </a>
+        </dd>
         
-          <dd><a href="https://docs.nextcloud.com/server/stable/admin_manual">stable</a></dd>
+        <dd style="width: 32%">
+          <a href="https://docs.nextcloud.com/server/29/admin_manual"
+             
+          >
+            29
+          </a>
+        </dd>
         
-          <dd><a href="https://docs.nextcloud.com/server/latest/admin_manual">latest</a></dd>
+        <dd style="width: 32%">
+          <a href="https://docs.nextcloud.com/server/28/admin_manual"
+             
+          >
+            28
+          </a>
+        </dd>
         
       </dl>
     </div>

@@ -333,7 +333,7 @@ webroot of your nginx installation. In this example it is
 <span class="w">        </span><span class="kn">fastcgi_pass</span><span class="w"> </span><span class="s">php-handler</span><span class="p">;</span>
 
 <span class="w">        </span><span class="kn">fastcgi_intercept_errors</span><span class="w"> </span><span class="no">on</span><span class="p">;</span>
-<span class="w">        </span><span class="kn">fastcgi_request_buffering</span><span class="w"> </span><span class="no">off</span><span class="p">;</span>
+<span class="w">        </span><span class="kn">fastcgi_request_buffering</span><span class="w"> </span><span class="no">on</span><span class="p">;</span><span class="w">                   </span><span class="c1"># Required as PHP-FPM does not support chunked transfer encoding and requires a valid ContentLength header.</span>
 
 <span class="w">        </span><span class="kn">fastcgi_max_temp_file_size</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="w">    </span><span class="p">}</span>
@@ -548,7 +548,7 @@ The configuration differs from the “Nextcloud in webroot” configuration abov
 <span class="w">            </span><span class="kn">fastcgi_pass</span><span class="w"> </span><span class="s">php-handler</span><span class="p">;</span>
 
 <span class="w">            </span><span class="kn">fastcgi_intercept_errors</span><span class="w"> </span><span class="no">on</span><span class="p">;</span>
-<span class="w">            </span><span class="kn">fastcgi_request_buffering</span><span class="w"> </span><span class="no">off</span><span class="p">;</span>
+<span class="w">            </span><span class="kn">fastcgi_request_buffering</span><span class="w"> </span><span class="no">on</span><span class="p">;</span><span class="w">                   </span><span class="c1"># Required as PHP-FPM does not support chunked transfer encoding and requires a valid ContentLength header.</span>
 
 <span class="w">            </span><span class="kn">fastcgi_max_temp_file_size</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
 <span class="w">        </span><span class="p">}</span>
@@ -689,23 +689,54 @@ chown<span class="w"> </span>root:nginx<span class="w"> </span>/var/lib/php/opca
 
   <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
-      <span class="fa fa-book"> Read the Docs</span>
-      v: latest
+      ☁️ latest
       <span class="fa fa-caret-down"></span>
     </span>
     <div class="rst-other-versions">
       <dl>
-        <dt>Versions</dt>
+        <dt>☁️ Versions</dt>
         
-          <dd><a href="https://docs.nextcloud.com/server/28/admin_manual">28</a></dd>
+        <dd style="width: 32%">
+          <a href="https://docs.nextcloud.com/server/latest/admin_manual"
+             
+             style="color: var(--dark-link-color);"
+             
+          >
+            latest
+          </a>
+        </dd>
         
-          <dd><a href="https://docs.nextcloud.com/server/29/admin_manual">29</a></dd>
+        <dd style="width: 32%">
+          <a href="https://docs.nextcloud.com/server/stable/admin_manual"
+             
+          >
+            stable
+          </a>
+        </dd>
         
-          <dd><a href="https://docs.nextcloud.com/server/30/admin_manual">30</a></dd>
+        <dd style="width: 32%">
+          <a href="https://docs.nextcloud.com/server/30/admin_manual"
+             
+          >
+            30
+          </a>
+        </dd>
         
-          <dd><a href="https://docs.nextcloud.com/server/stable/admin_manual">stable</a></dd>
+        <dd style="width: 32%">
+          <a href="https://docs.nextcloud.com/server/29/admin_manual"
+             
+          >
+            29
+          </a>
+        </dd>
         
-          <dd><a href="https://docs.nextcloud.com/server/latest/admin_manual">latest</a></dd>
+        <dd style="width: 32%">
+          <a href="https://docs.nextcloud.com/server/28/admin_manual"
+             
+          >
+            28
+          </a>
+        </dd>
         
       </dl>
     </div>

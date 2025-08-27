@@ -436,7 +436,7 @@ Depending on your server setup, these are the possible connections:</p>
 </dl>
 </li>
 <li><dl class="simple">
-<dt>github.com, objects.githubusercontent.com</dt><dd><ul>
+<dt>github.com, objects.githubusercontent.com, release-assets.githubusercontent.com</dt><dd><ul>
 <li><p>to download Nextcloud standard apps</p></li>
 </ul>
 </dd>
@@ -477,6 +477,7 @@ Depending on your server setup, these are the possible connections:</p>
 </dl>
 </li>
 <li><p>Any remote Nextcloud server that is connected with federated sharing</p></li>
+<li><p>When downloading apps from the App store other domains might be accessed, based on the choice of the app developers where they host the releases. For all official Nextcloud apps this is not the case though, because they are hosted on Github.</p></li>
 </ul>
 </section>
 <section id="setup-fail2ban">
@@ -583,23 +584,54 @@ using fail2ban’s <code class="docutils literal notranslate"><span class="pre">
 
   <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
-      <span class="fa fa-book"> Read the Docs</span>
-      v: latest
+      ☁️ latest
       <span class="fa fa-caret-down"></span>
     </span>
     <div class="rst-other-versions">
       <dl>
-        <dt>Versions</dt>
+        <dt>☁️ Versions</dt>
         
-          <dd><a href="https://docs.nextcloud.com/server/28/admin_manual">28</a></dd>
+        <dd style="width: 32%">
+          <a href="https://docs.nextcloud.com/server/latest/admin_manual"
+             
+             style="color: var(--dark-link-color);"
+             
+          >
+            latest
+          </a>
+        </dd>
         
-          <dd><a href="https://docs.nextcloud.com/server/29/admin_manual">29</a></dd>
+        <dd style="width: 32%">
+          <a href="https://docs.nextcloud.com/server/stable/admin_manual"
+             
+          >
+            stable
+          </a>
+        </dd>
         
-          <dd><a href="https://docs.nextcloud.com/server/30/admin_manual">30</a></dd>
+        <dd style="width: 32%">
+          <a href="https://docs.nextcloud.com/server/30/admin_manual"
+             
+          >
+            30
+          </a>
+        </dd>
         
-          <dd><a href="https://docs.nextcloud.com/server/stable/admin_manual">stable</a></dd>
+        <dd style="width: 32%">
+          <a href="https://docs.nextcloud.com/server/29/admin_manual"
+             
+          >
+            29
+          </a>
+        </dd>
         
-          <dd><a href="https://docs.nextcloud.com/server/latest/admin_manual">latest</a></dd>
+        <dd style="width: 32%">
+          <a href="https://docs.nextcloud.com/server/28/admin_manual"
+             
+          >
+            28
+          </a>
+        </dd>
         
       </dl>
     </div>
