@@ -21,6 +21,7 @@ abstract class AbstractCalendarObjectEvent extends Event implements IWebhookComp
 	 * @param array $calendarData
 	 * @param array $shares
 	 * @param array $objectData
+	 * @param null|string $etag
 	 * @since 32.0.0
 	 */
 	public function __construct(
@@ -28,6 +29,7 @@ abstract class AbstractCalendarObjectEvent extends Event implements IWebhookComp
 		private array $calendarData,
 		private array $shares,
 		private array $objectData,
+		private ?string $etag = null,
 	) {
 		parent::__construct();
 	}
@@ -65,6 +67,22 @@ abstract class AbstractCalendarObjectEvent extends Event implements IWebhookComp
 	}
 
 	/**
+	 * @return null|string
+     * @since 32.0.0
+     */
+    public function getEtag(): ?string {
+		return $this->etag;
+    }
+
+    /**
+     * @return void
+     * @since 32.0.0
+     */
+    public function clearEtag(): void {
+		$this->etag = null;
+    }
+
+	/**
 	 * @return array
 	 * @since 32.0.0
 	 */
@@ -74,6 +92,7 @@ abstract class AbstractCalendarObjectEvent extends Event implements IWebhookComp
 			'calendarData' => $this->getCalendarData(),
 			'shares' => $this->getShares(),
 			'objectData' => $this->getObjectData(),
+			'etag' => $this->getEtag(),
 		];
 	}
 }
