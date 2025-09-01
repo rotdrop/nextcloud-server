@@ -25,6 +25,7 @@ class CachedCalendarObjectUpdatedEvent extends Event {
 	 * @param array $subscriptionData
 	 * @param array $shares
 	 * @param array $objectData
+	 * @param null|string $etag
 	 * @since 20.0.0
 	 */
 	public function __construct(
@@ -32,6 +33,7 @@ class CachedCalendarObjectUpdatedEvent extends Event {
 		private array $subscriptionData,
 		private array $shares,
 		private array $objectData,
+		private ?string $etag,
 	) {
 		parent::__construct();
 	}
@@ -67,4 +69,20 @@ class CachedCalendarObjectUpdatedEvent extends Event {
 	public function getObjectData(): array {
 		return $this->objectData;
 	}
+
+	/**
+	 * @return null|string
+     * @since 31.0.0
+     */
+    public function getEtag(): ?string {
+		return $this->etag;
+    }
+
+    /**
+     * @return void
+     * @since 31.0.0
+     */
+    public function clearEtag(): void {
+		$this->etag = null;
+    }
 }
