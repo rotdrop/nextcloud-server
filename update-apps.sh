@@ -19,7 +19,6 @@ ALL_APPS="
  files_pdfviewer
  files_texteditor
  groupfolders
- htmlviewer
  ldap_write_support
  logreader
  mail
@@ -61,7 +60,6 @@ STABLE_BRANCHES=(
     [calendar]=stable5.5
     [contacts]=stable7.2
     [emlviewer]=master
-    [htmlviewer]=master
     [mail]=stable5.4
 )
 
@@ -78,8 +76,6 @@ BUILD_COMMANDS=(
     [files_archive]="make \$BUILD_MODE"
     [files_lock]="run-krankerl.sh"
     [groupfolders]="make"
-    # [htmlviewer]="npm install ; npm ci; npm update; make"
-    [htmlviewer]="npm install ; npm ci; make"
     [ldap_write_support]="run-krankerl.sh"
     [logreader]="make"
     [mail]="make install-deps optimize-js"
@@ -141,7 +137,6 @@ RESET_BRANCHES=(
     [files_pdfviewer]=origin/stable31
     [files_texteditor]=origin/master
     [groupfolders]=cjh/production/cafevdb/stable31
-    [htmlviewer]=origin/master
     [ldap_write_support]=cjh/production/cafevdb/stable31
     [logreader]=cjh/production/cafevdb/stable31
     [mail]=cjh/feature/stable5.4/provision-additional-email-addresses
