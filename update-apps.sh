@@ -102,7 +102,7 @@ REBASE_BRANCHES=(
     [mail]=origin/stable5.4
     [maps]=origin/release
     [richdocuments]=origin/$CORE_BRANCH
-    [twofactor_gateway]=origin/master
+    [twofactor_gateway]=origin/stable31
     [workflow_pdf_converter]=origin/$CORE_BRANCH
 )
 
