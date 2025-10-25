@@ -48,6 +48,7 @@ ALL_APPS="
 CORE_BRANCH=stable32
 
 BUILD=false
+CHECKOUT=false
 BUILD_MODE=build
 PUSH=false
 RESET=false
@@ -169,7 +170,7 @@ SUBREPO_APPS=(
 
 NCDIR=$(realpath .)
 
-VALID_ARGS=$(getopt -o bldor:s --long build,list,dev,only:,rebase,status,push,reset -- "$@")
+VALID_ARGS=$(getopt -o bldro:s --long build,list,dev,only:,rebase,status,push,reset,checkout -- "$@")
 # shellcheck disable=SC2181
 if [[ $? -ne 0 ]]; then
     exit 1;
@@ -208,6 +209,10 @@ while true; do
       ;;
     --reset)
       RESET=true
+      shift
+      ;;
+    --checkout)
+      CHECKOUT=true
       shift
       ;;
     -s|--status)
@@ -287,6 +292,18 @@ for APP in $APPS; do
         fi
         echo "*** Hard resetting $APP to $RESET_BRANCH ***"
         git reset --hard "$RESET_BRANCH"
+    fi
+    if $CHECKOUT; then
+        RESET_BRANCH="${RESET_BRANCHES[$APP]}"
+        setTitle "$APP (get checkout $RESET_BRANCH)"
+        if [ -z "$RESET_BRANCH" ]; then
+            echo "Checkout branch for app $APP is empty" 1>&2
+            exit 1
+        fi
+        echo "*** Checking out $RESET_BRANCH for $APP ***"
+	REMOTE=$(echo "$RESET_BRANCH"|cut -d/ -f1)
+	CHECKOUT_BRANCH=$(echo "$RESET_BRANCH"|cut -d/ -f2-)
+        git checkout "$CHECKOUT_BRANCH"
     fi
     case $BRANCH in
         stable*|master|main)
