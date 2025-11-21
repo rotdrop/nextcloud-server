@@ -76,7 +76,7 @@ BUILD_COMMANDS=(
     [logreader]="make"
     [mail]="make install-deps optimize-js"
     [mail_roundcube]="make \$BUILD_MODE"
-    [maps]="make"
+    [maps]="rm -rf node_modules package-lock.json && npm install && make"
     [pdf_downloader]="make \$BUILD_MODE"
     # TODO: remove photos, either use photos or memories, not both
     # [photos]="make dev-setup build-js-production && rm -rf vendor/* && composer install --no-dev"
