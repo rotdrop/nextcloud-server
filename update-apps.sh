@@ -64,7 +64,7 @@ BUILD_COMMANDS=(
     [cafevdb]="make \$BUILD_MODE"
     [cafevdbmembers]="make \$BUILD_MODE"
     [calendar]="rm -rf node_modules && run-krankerl.sh"
-    [collectives]="make setup-dev node-modules build-js-production composer-install-no-dev"
+    [collectives]="npm install && make setup-dev node-modules build-js-production composer-install-no-dev"
     [contacts]="run-krankerl.sh"
     [context_chat]="make \$BUILD_MODE"
     [dokuwiki]="make \$BUILD_MODE"
@@ -91,7 +91,7 @@ BUILD_COMMANDS=(
 
 declare -A STABLE_BRANCHES
 STABLE_BRANCHES=(
-    [calendar]=stable6.0
+    [calendar]=stable6.1
     [contacts]=stable8.0
     [context_chat]=main
     [emlviewer]=master
@@ -101,7 +101,7 @@ STABLE_BRANCHES=(
 
 declare -A REBASE_BRANCHES
 REBASE_BRANCHES=(
-    [calendar]=origin/stable6.0
+    [calendar]=origin/stable6.1
     [contacts]=origin/stable8.0
     [files_lock]=origin/$CORE_BRANCH
     [groupfolders]=origin/$CORE_BRANCH
@@ -123,7 +123,7 @@ RESET_BRANCHES=(
     [bav]=origin/master
     [cafevdb]=origin/nextcloud32
     [cafevdbmembers]=origin/$CORE_BRANCH
-    [calendar]=cjh/production/cafevdb/stable6.0
+    [calendar]=cjh/production/cafevdb/stable6.1
     [circles]=origin/$CORE_BRANCH
     [collectives]=origin/main
     [contacts]=cjh/production/cafevdb/stable8.0
