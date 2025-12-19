@@ -175,7 +175,7 @@ SUBREPO_APPS=(
 
 NCDIR=$(realpath .)
 
-VALID_ARGS=$(getopt -o bldro:s --long build,list,dev,only:,rebase,status,push,reset,checkout -- "$@")
+VALID_ARGS=$(getopt -o bldre:o:s --long build,list,dev,only:,exclude:,rebase,status,push,reset,checkout -- "$@")
 # shellcheck disable=SC2181
 if [[ $? -ne 0 ]]; then
     exit 1;
@@ -206,6 +206,16 @@ while true; do
         ARG="$(echo "${!SUBREPO_APPS[*]}"|xargs -n1|sort|xargs)"
       fi
       APPS="$ARG"
+      shift 2
+      ;;
+    -e|--exclude)
+      ARG=$2
+      if [ "$ARG" = subrepo ]; then
+        ARG="$(echo "${!SUBREPO_APPS[*]}"|xargs -n1|sort|xargs)"
+      fi
+      for APP in $ARG; do
+          APPS=$(echo "$APPS"|grep -Fv "$APP")
+      done
       shift 2
       ;;
     --push)
