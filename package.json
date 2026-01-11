@@ -11,6 +11,7 @@
   "scripts": {
     "build": "webpack --node-env production --progress",
     "postbuild": "build/npm-post-build.sh",
+    "postinstall": "patch-package",
     "dev": "webpack --node-env development --progress",
     "watch": "webpack --node-env development --progress --watch",
     "lint": "eslint $(for appdir in $(ls apps); do if ! $(git check-ignore -q \"apps/$appdir\"); then printf \"apps/$appdir \"; fi; done) core --no-error-on-unmatched-pattern",
@@ -167,6 +168,7 @@
     "mime": "^4.1.0",
     "msw": "^2.14.6",
     "puppeteer": "^24.43.1",
+    "patch-package": "^8.0.0",
     "raw-loader": "^4.0.2",
     "regextras": "^0.8.0",
     "sass": "^1.100.0",
