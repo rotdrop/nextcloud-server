@@ -70,7 +70,7 @@ BUILD_COMMANDS=(
     [dokuwiki]="make \$BUILD_MODE"
     [emlviewer]="make"
     [files_archive]="make \$BUILD_MODE"
-    [files_lock]="rm -rf node_modules package-lock.json && npm install && run-krankerl.sh"
+    [files_lock]="rm -rf node_modules package-lock.json && npm install --legacy-peer-deps && npm ci --legacy-peer-deps && npm run build"
     [groupfolders]="make"
     # [htmlviewer]="npm install ; npm ci; npm update; make"
     [htmlviewer]="npm install ; npm ci; make"
@@ -102,7 +102,7 @@ STABLE_BRANCHES=(
 declare -A REBASE_BRANCHES
 REBASE_BRANCHES=(
     [calendar]=origin/stable6.1
-    [contacts]=origin/stable8.2
+    [contacts]=origin/stable8.3
     [files_lock]=origin/$CORE_BRANCH
     [groupfolders]=origin/$CORE_BRANCH
     [ldap_write_support]=origin/$CORE_BRANCH
