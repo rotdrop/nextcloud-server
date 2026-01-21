@@ -7,6 +7,8 @@
  */
 namespace OC\L10N;
 
+use BackedEnum;
+
 class L10NString implements \JsonSerializable {
 	/** @var L10N */
 	protected $l10n;
@@ -61,7 +63,7 @@ class L10NString implements \JsonSerializable {
 		// $count as %count% as per \Symfony\Contracts\Translation\TranslatorInterface
 		$text = $identityTranslator->trans($identity, $parameters);
 
-		return vsprintf($text, $this->parameters);
+		return vsprintf($text, array_map(fn(mixed $arg) => ($arg instanceof BackedEnum) ? $arg->value : $arg, $this->parameters));
 	}
 
 	public function jsonSerialize(): string {
