@@ -46,7 +46,7 @@ ALL_APPS="
  workflow_pdf_converter
 "
 
-CORE_BRANCH=stable32
+CORE_BRANCH=stable33
 
 BUILD=false
 CHECKOUT=false
