@@ -1,7 +1,7 @@
 <?php
 
 /**
- * SPDX-FileCopyrightText: 2016-2024 Nextcloud GmbH and Nextcloud contributors
+ * SPDX-FileCopyrightText: 2016-2024, 2026 Nextcloud GmbH and Nextcloud contributors
  * SPDX-FileCopyrightText: 2016 ownCloud, Inc.
  * SPDX-License-Identifier: AGPL-3.0-only
  */
@@ -82,7 +82,9 @@ class ContentSecurityPolicy extends EmptyContentSecurityPolicy {
 	];
 
 	/** @var array Domains from which web-workers can be loaded */
-	protected $allowedWorkerSrcDomains = [];
+	protected $allowedWorkerSrcDomains = [
+		'\'self\'',
+	];
 
 	/** @var array Domains which can be used as target for forms */
 	protected $allowedFormActionDomains = [
