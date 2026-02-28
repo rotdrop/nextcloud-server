@@ -134,7 +134,7 @@ class LDAPProvider implements ILDAPProvider, IDeletionFlagSupport {
 	 */
 	public function getLDAPConnection($uid) {
 		if (!$this->userBackend->userExists($uid)) {
-			throw new \Exception('User id not found in LDAP');
+			throw new \Exception('User id "' . $uid . '" not found in LDAP');
 		}
 		return $this->userBackend->getNewLDAPConnection($uid);
 	}
@@ -148,7 +148,7 @@ class LDAPProvider implements ILDAPProvider, IDeletionFlagSupport {
 	 */
 	public function getGroupLDAPConnection($gid) {
 		if (!$this->groupBackend->groupExists($gid)) {
-			throw new \Exception('Group id not found in LDAP');
+			throw new \Exception('Group id "' . $gid . '" not found in LDAP');
 		}
 		return $this->groupBackend->getNewLDAPConnection($gid);
 	}
