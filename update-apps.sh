@@ -103,7 +103,6 @@ declare -A REBASE_BRANCHES
 REBASE_BRANCHES=(
     [calendar]=origin/stable6.3
     [contacts]=origin/stable8.4
-    [files_lock]=origin/$CORE_BRANCH
     [groupfolders]=origin/$CORE_BRANCH
     [ldap_write_support]=origin/$CORE_BRANCH
     [logreader]=origin/$CORE_BRANCH
@@ -131,7 +130,7 @@ RESET_BRANCHES=(
     [dokuwiki]=origin/master
     [emlviewer]=cjh/production/$CORE_BRANCH
     [files_archive]=origin/main
-    [files_lock]=cjh/production/cafevdb/$CORE_BRANCH
+    [files_lock]=origin/$CORE_BRANCH
     [files_pdfviewer]=origin/$CORE_BRANCH
     [files_texteditor]=origin/master
     [groupfolders]=cjh/production/cafevdb/$CORE_BRANCH
