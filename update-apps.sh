@@ -91,7 +91,7 @@ BUILD_COMMANDS=(
 
 declare -A STABLE_BRANCHES
 STABLE_BRANCHES=(
-    [calendar]=stable6.2
+    [calendar]=stable6.3
     [contacts]=stable8.3
     [context_chat]=main
     [emlviewer]=master
@@ -101,7 +101,7 @@ STABLE_BRANCHES=(
 
 declare -A REBASE_BRANCHES
 REBASE_BRANCHES=(
-    [calendar]=origin/stable6.2
+    [calendar]=origin/stable6.3
     [contacts]=origin/stable8.3
     [files_lock]=origin/$CORE_BRANCH
     [groupfolders]=origin/$CORE_BRANCH
@@ -123,7 +123,7 @@ RESET_BRANCHES=(
     [bav]=origin/master
     [cafevdb]=origin/nextcloud32
     [cafevdbmembers]=origin/$CORE_BRANCH
-    [calendar]=cjh/production/cafevdb/stable6.2
+    [calendar]=cjh/production/cafevdb/stable6.3
     [circles]=origin/$CORE_BRANCH
     [collectives]=origin/main
     [contacts]=cjh/production/cafevdb/stable8.3
