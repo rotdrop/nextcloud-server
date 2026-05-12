@@ -58,4 +58,8 @@ class ResultAdapter implements IResult {
 	public function rowCount(): int {
 		return $this->inner->rowCount();
 	}
+
+	public function fetchFirstColumn(): array {
+		return $this->inner->fetchFirstColumn();
+	}
 }
