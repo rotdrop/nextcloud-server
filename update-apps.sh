@@ -92,7 +92,7 @@ BUILD_COMMANDS=(
 declare -A STABLE_BRANCHES
 STABLE_BRANCHES=(
     [calendar]=stable6.4
-    [contacts]=stable8.4
+    [contacts]=stable8.6
     [context_chat]=main
     [emlviewer]=master
     [htmlviewer]=master
@@ -102,7 +102,7 @@ STABLE_BRANCHES=(
 declare -A REBASE_BRANCHES
 REBASE_BRANCHES=(
     [calendar]=origin/stable6.4
-    [contacts]=origin/stable8.4
+    [contacts]=origin/stable8.6
     [groupfolders]=origin/$CORE_BRANCH
     [htmlviewer]=origin/master
     [ldap_write_support]=origin/$CORE_BRANCH
@@ -126,7 +126,7 @@ RESET_BRANCHES=(
     [calendar]=cjh/production/cafevdb/stable6.4
     [circles]=origin/$CORE_BRANCH
     [collectives]=origin/main
-    [contacts]=cjh/production/cafevdb/stable8.4
+    [contacts]=cjh/production/cafevdb/stable8.6
     [context_chat]=origin/main
     [dokuwiki]=origin/master
     [emlviewer]=cjh/production/$CORE_BRANCH
