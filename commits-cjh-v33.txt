@@ -1,0 +1,787 @@
+commit 5aa3b486a576813a97df795e9635989dd2177323
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Wed Jun 3 11:53:29 2026 +0200
+
+    update-apps.sh, bump app contacts to 8.6
+
+commit f3d3de7e9bd9f193692a44e107679d8a7c6d5446
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Wed Jun 3 10:59:21 2026 +0200
+
+    update-apps.sh: bump app calendar to 6.4
+
+commit 21a092d83a05f91d1c5752335cac0390a2ecb5a1
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Wed May 13 10:55:00 2026 +0200
+
+    update-apps.sh, include bugfix branch for htmlviewer
+
+commit ec753048069723c71f53bade670f27172c5b1514
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Tue May 12 16:54:14 2026 +0200
+
+    update-apps.sh, use default files_lock app
+
+commit 25ea1d917af9269a1d294dcd8a6af346c38d4b73
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Tue May 12 16:49:10 2026 +0200
+
+    update-apps.sh, bump calendar version
+
+commit 9a646d62cb38f308ecc12f8b91b4d186172a8d0a
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Wed Mar 4 13:47:32 2026 +0100
+
+    update-apps.sh -- bump all app versions as necessary.
+
+commit d905eb3053c6d6af4c4b2ec5149556a06c0f1708
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Thu Feb 19 19:23:05 2026 +0100
+
+    update-apps.sh, CORE_VERSION -> stable33
+
+commit 9e77d7dfe208259c3e5af01c48b477ce41ce9859
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Thu Feb 19 02:16:05 2026 +0100
+
+    Makefile: do not run "npm audit fix", seemingly the build system is quite fragile.
+
+commit f19fc0217c6e82a025bd9d6b0a474f2854bb4703
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Mon Feb 16 21:01:18 2026 +0100
+
+    WIP cherry-picking
+
+commit 54d793f0269f77bbb69b3efe7ebe32c6024893b9
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Wed Aug 28 13:15:27 2024 +0200
+
+    update-apps.sh -- update all git apps
+
+commit fe216604d7da19cee00863cce40c6b00101cd319
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Tue Jan 27 12:03:27 2026 +0100
+
+    apps/files, useRouteParameters: honour fileid set from query string.
+
+commit 716c5500063112d3e612110d51b0b3629804f244
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Sun Jan 18 01:58:44 2026 +0100
+
+    Silence annoying workflow engine log messages at too high a level
+
+commit 4fe805d3f06fadcee7b3136da80bc33c39c4bbcf
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Wed Jan 21 20:09:49 2026 +0100
+
+    L10NString, convert backed enum parameters to their values.
+
+commit f74b349a1d4c493d8f3830f8d7902ad0423caab3
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Sun Jan 18 01:54:14 2026 +0100
+
+    Silence annoying config lexicon warnings.
+
+commit ea00649fd51774051cbb120fab873565d0635ee6
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Tue Dec 23 00:00:34 2025 +0100
+
+    Route\Router: ignore lock and backup files.
+
+commit cdddd58fd29771f407612042a9288df2ef5574cf
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Mon Dec 22 23:32:10 2025 +0100
+
+    apps/files: fix truncated svg icons for inline file actions.
+
+commit e76894e025ad68ec45e0ed22853a8b0b07323043
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Sun Nov 2 15:00:03 2025 +0100
+
+    Denoise lib/private/BackgroundJob/JobList.php.
+
+commit b8edc7a27a1d6b6078ba4645d38c994347e455a3
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Wed Oct 22 12:38:15 2025 +0200
+
+    console.php, allow group  readable config file.
+
+commit e936ac42c44f456e123a0cb07338f1b31e124df4
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Sat Oct 25 11:01:29 2025 +0200
+
+    Add the user and admin manual to core/doc/.
+    
+    Signed-off-by: Claus-Justus Heine <himself@claus-justus-heine.de>
+
+commit 10aa54b53bfb4cb7fbbf7ff43c5b1ffd6829d439
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Thu Oct 9 16:50:27 2025 +0200
+
+    fix(asset loading) Avoid duplicate loading of core translations.
+
+commit 2b4c9827bfdcee781c985379580cc7f6d9940dc0
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Thu Oct 9 16:48:49 2025 +0200
+
+    fix(l10n) load core translations in public template response.
+
+commit b2992db6cb37dd625e4e1ff2f2176fbb99538105
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Wed Sep 3 00:13:16 2025 +0200
+
+    NC-PR: apps/dav fix json_decode to StdObject and fix resource access restrictions.
+    
+    json_decode in this context must decode to associative array.
+    
+    More important: the group_restrictions column contains JSON data
+    referring to the auto-increment index of the calresources_restricts
+    table. Consequently it does not make sense to compare -- even not after
+    JSON decode in the correct format -- directly to the group-membership of
+    the active user. We first need another query to the
+    calresources_restricts table which translates the AI index values to
+    NC group-ids.
+
+commit 8d8bdf9d2ecc4d672c9d5ddf21137693124112bf
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Mon Jun 30 14:50:31 2025 +0200
+
+    fix: permissions when copying from readonly storage
+    
+    Signed-off-by: Claus-Justus Heine <himself@claus-justus-heine.de>
+
+commit 477126ee8f3e5b9b5b9905a3855531c2a715c924
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Sat Jun 21 23:37:42 2025 +0200
+
+    Be not picky about keys and values of notifications.
+
+commit 32850897eebe82ed450a79350e71efe3ce3c6ce6
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Fri Sep 5 19:55:40 2025 +0200
+
+    Notification, log errors when isValidParsed() fails
+
+commit 4234018c289a65d69fd08b5fa3885aef2dc35ce4
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Fri Jun 13 16:17:16 2025 +0200
+
+    User accounts / app_provisioning: export also the display names of groups
+
+commit 4d72eedae5f5d42387140469528900b520133388
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Mon Sep 1 11:15:32 2025 +0200
+
+    NC-PR: DAV: support voiding the etag in the event handlers.
+
+commit ae677cb9b2c8de8844f4af4cd0d5f270730f9632
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Tue Jun 10 00:20:15 2025 +0200
+
+    NC-PR: AddressBookImpl::createOrUpdate() fix setting the N property (detailed name).
+    
+    Again, a multi-valued property is not handled properly.
+
+commit 95bc0989c59ab7f42a99f6c94a45cd9d17d3ef20
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Mon Jun 9 13:14:18 2025 +0200
+
+    NC-PR: AddressBookImpl.php::createOrUpdate() fix changing categories.
+    
+    createOrUpdate() just installed the categories as plain string
+    'CAT1,CAT2,...' instead of installing them as multi-valued property with
+    setParts(). Note that the address-book search facilities also return the
+    categories as flat string 'CAT1,CAT2,...' so it should now possible to
+    just reinject the search result into createOrUpdate().
+    
+    Without this change the categories would be just equal to this flat
+    string, so there wouzld be one categories with name 'CAT1,CAT2,...'
+    instead of multiple categories with names 'CAT1', 'CAT2', ...
+
+commit 0a54e19f9372a0ab4b4e5fe7b7b1c75e885af5bd
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Mon Jun 9 13:12:03 2025 +0200
+
+    NC-PR: CardDavBacken.php: Fix missing $uid parameter in use() in createCard.
+
+commit 1e41a97968f2ceef72cfce510758d3d056fc086e
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Tue May 20 12:30:15 2025 +0200
+
+    Files\Command\SanitizeFilenames -- also print the path of the renamed file.
+    
+    Rationale: on instances with many files just using the basename is just
+    not handy.
+
+commit f62b04bccb9a6eaf218a767a0ed0fbd71b9c94de
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Tue May 13 12:23:23 2025 +0200
+
+    FileEntryPreview: hack in order to mount cafevdb mount points.
+    
+    In the progress of moving to Vue the files-app lost its ability to
+    display custom folder icons. The indicators are now hard-coded and not
+    stylable. So just hard-code an encryption "key" symbol for our special
+    mount-points.
+
+commit ba4cb0e9b44973b1f1ab10936c9159656b784242
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Mon May 12 19:19:14 2025 +0200
+
+    apps/files, fix verbose error message.
+
+commit 23b21ec38f1d3cb16706bba70b4f901a31274988
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Mon May 12 10:17:02 2025 +0200
+
+    PHP lib/ NotFoundException's -- useless without filename.
+
+commit 8e3ad9e553252e6ab8ac2fe2eb02c17edd6b2783
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Tue May 13 12:28:03 2025 +0200
+
+    core, LoginFlowV2Service: log the original exception also ("... caused by ...")
+
+commit 9c8fbd96df07896d539c3aa5cb946dd08276bf60
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Fri Apr 18 17:02:06 2025 +0200
+
+    LDAP LoginListener.php denoise
+
+commit c8c45517ac602cb067a2d575d80a4b8e1f8bb8db
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Fri Apr 18 17:01:51 2025 +0200
+
+    GenerateBlurhashMetaData.php, fix PHP error
+
+commit e3002b30c765ce75c0e0a3efd6cfbf0f576d3eed
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Thu Apr 17 11:15:11 2025 +0200
+
+    AppFramework...Request: return localhost for remote address if in CLI mode.
+    
+    Why? When authenticating on the command line for special commands the
+    suspicious login listener will otherwise bail out.
+
+commit 6bf20847cd874807438db675fc973f455c37b9b0
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Wed Apr 16 16:50:58 2025 +0200
+
+    Core DB QueryBuilder, disable restriction checks targeting Oracle and PostgresQL.
+
+commit 9c2049699ad0eb7b42ec5091c34204f36b7459cc
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Thu Feb 19 00:36:33 2026 +0100
+
+    Run occ with php8.5
+
+commit 1bbff289522331a85ffd02d9e60487d367ea50d3
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Mon Apr 14 11:02:03 2025 +0200
+
+    Makefile target + tweak in order to generate the current docs from Github.
+
+commit a7ab7bcdac99f600e992ba186abdd2a1ab4dda3b
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Tue Apr 8 20:40:45 2025 +0200
+
+    Makefile, dev: target
+
+commit e9e072eef2e0159124bf6d328b8f8afc7ff95f0d
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Thu Apr 3 11:55:55 2025 +0200
+
+    UpdateGroupsService: do not announce new groups without users in the log.
+    
+    Why? Well, the known groups are queried from the ldap_group_membership
+    tables and there groups without users naturally do not show up. Hence
+    any empty LDAP group will again and again and again trigger a log
+    message on every run of the update service.
+
+commit b39e6cbf995790e877ce24c4d7caddc8b976c6ab
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Thu Apr 3 10:57:40 2025 +0200
+
+    2FA Provider loader: also log the original exception, because ...
+    
+    ... otherwise there is zarro chance to find the error.
+
+commit 5396c7f25d5cafbe3fbbdb529f769039f9035916
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Fri Feb 28 18:48:52 2025 +0100
+
+    Util::addScript() -- do not add null scripts.
+
+commit d2b14dec89b76281f81148464b1d3ceff7ec0995
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Sat Feb 15 20:29:28 2025 +0100
+
+    [CORE] Template\Base.php: catch Throawables, otherwise PHP errors may lead to leaking output.
+    
+    Not catching non-\Exception-s means that parts of the output buffer may
+    be leaked to stdout, thus preventing subsequent exception handling, as
+    any generated error response or page will have that partial -- and thus
+    even likely corrupt -- output prepended.
+
+commit 8fe26aeb1cb8d31c2c61fd5d5b50fc1914bc3b15
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Fri Feb 14 13:47:26 2025 +0100
+
+    Http\Dispatcher: denoise excessive query logging
+
+commit cfe848696b960f464515ceb7df7db1b184ba6275
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Wed Feb 12 00:41:44 2025 +0100
+
+    Log::logException(): no need to format the entire context unless crash reporters are registered.
+
+commit 16958f6b10bac7e90ef2e3c5079fbfcc711dd016
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Tue Feb 11 22:26:07 2025 +0100
+
+    Add the option to enable unsafe-eval "globally", primarily to allow vue devtools
+
+commit 02312fa4b7a6296784b48bfe080329f90f220b51
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Sun Feb 9 23:09:05 2025 +0100
+
+    Mailer: add config options to prevent email sending while developing software.
+    
+    mail_allowed_recipients_regexp -- filter out recipients not matching
+    this regexp.
+    
+    mail_disallowed_recipients_receiver -- email address to direct messages
+    to disallowed recipients.
+
+commit 641cb84fc1ee4560fcae592bdb357ebe815be19c
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Sat Feb 1 23:18:03 2025 +0100
+
+    L10N, updateHtaccess: allow to load other apps l10n data.
+
+commit 988254f7c10f6c2ceff60b67e6c86f64bfa9c168
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Thu Jan 30 09:38:31 2025 +0100
+
+    Core, exception templates: print also the messages from chained exceptions.
+
+commit 6d5ef2c5ddb91ea008c6e9e5f48550f63b4c2669
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Tue Sep 3 01:44:52 2024 +0200
+
+    Changed email address, inform also about the old email address.
+    
+    Occasionally I get excessive notifications about a changed email
+    address, which in fact did not change at all. Add this in order to ease
+    debugging.
+
+commit 4bd67e2479bd7a89f71960642fb498e39d668212
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Fri Aug 30 13:09:16 2024 +0200
+
+    Keep config.php group writable.
+
+commit d716fbd64e923fb32fea8ced667a82c964f97206
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Sat May 25 20:31:41 2024 +0200
+
+    Setup-checks: optionally disable different owner check.
+    
+    Signed-off-by: Claus-Justus Heine <himself@claus-justus-heine.de>
+
+commit a49745dce415d2ff651b1bf913de628d3b223fc8
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Fri Feb 9 12:04:02 2024 +0100
+
+    BackgroundJob\JobList: log exceptions from individual jobs.
+
+commit acc78acc744a6107fcbbfd410df23678acc23d6b
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Tue Feb 6 13:16:57 2024 +0100
+
+    user_ldap: additional switch to forcibly use the group-name even if it already exists.
+    
+    Signed-off-by: Claus-Justus Heine <himself@claus-justus-heine.de>
+
+commit 9456367203fa0a57a08fc589921cf9f86f77c656
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Mon Feb 5 14:03:35 2024 +0100
+
+    UserManager, GroupManager: use a predictable ordering of backends.
+
+commit 0ac4c81470e45ea770fc3a4c315a88b2e7c57151
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Fri Feb 2 21:48:57 2024 +0100
+
+    Disable graceful user adding to groups in order to test event-scheme reimplentation.
+
+commit fa6b7f40ba7600d1a860f84dea7f3a3c7058b6c5
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Thu Feb 1 21:17:46 2024 +0100
+
+    files-app, provide more descriptive error message s.v.p.
+
+commit 5be0c9a03957a0ef257a280b02a3558fc8563416
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Sat Jan 27 21:14:48 2024 +0100
+
+    Try catch around event dispatching.
+
+commit e74d744c389778d91b6bf0477e54f3c3e43b959e
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Wed Jan 10 14:36:48 2024 +0100
+
+    ContactsStore: use EMAIL if FN is unset, and  use !empty() in favour of isset() as FN CAN BE SET but be empty
+
+commit 3e00d7bd6fd666ab296956740ee97d0e09383de2
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Fri Nov 24 10:22:50 2023 +0100
+
+    Add occ commit, upgrade and mimetypes update to Makefile
+
+commit 73576afc84d85e025626cb7e4578605ad387c5c7
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Wed Aug 30 11:44:59 2023 +0200
+
+    Initialize language from locale instead of from the request if in console mode.
+
+commit dc0c6dbec4990074058e53b7d4d32f38efa4bef8
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Fri Aug 25 01:13:08 2023 +0200
+
+    Workflowengine: listen to cache events.
+    
+    The use case are external storages like smb folder used to upload
+    scanner data. Essentially, a cache miss is here just equivalent to a
+    "file created", deleted, updated event. But those events do not fire in
+    this case.
+
+commit 966cf8fd82d10f2fbea5d1cb3906ba5a366dd061
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Thu Aug 24 15:10:04 2023 +0200
+
+    Workflowengine: add a new FilePath check which matches the complete path, including the mountpoint.
+    
+    Signed-off-by: Claus-Justus Heine <himself@claus-justus-heine.de>
+
+commit 52edb1567c1bb9903aff28840b8b7d29e262b098
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Sat Jan 6 17:46:12 2024 +0100
+
+    Makefile: Run audit fix and update browserlist with npm-init:
+    
+    Signed-off-by: Claus-Justus Heine <himself@claus-justus-heine.de>
+
+commit 4431298f8fc6ddf8440f77fc30da96a951c81f76
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Tue Jun 20 11:48:33 2023 +0200
+
+    Protect some code paths when authenticating in console mode.
+    
+    - disable throttler
+    - always check the session for login credentials
+    - do not assume there is a request uri
+
+commit 6cc9e3f55f7448cd75728f84a46762f810d415b4
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Thu Apr 13 15:54:12 2023 +0200
+
+    CalDAV\Activity\Backend: fix array to string conversion.
+
+commit ee39b168fd7e4216f23ed3a9ef0a0537cae34471
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Sun Mar 19 22:48:22 2023 +0100
+
+    Silence noisy workflowengine app.
+
+commit f54f7636134b1d4d2f866bb7080e8f45ad2e4452
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Sun Jan 8 23:32:00 2023 +0100
+
+    Don't flag package-lock.json binary.
+
+commit e9f59ed4ea8100545ac2262bfef95873c1fab555
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Wed Oct 12 13:24:10 2022 +0200
+
+    ControllerMethodReflector -- silence a PHP warning.
+
+commit 63c337d40327b83658a2091446d46a28a75ad00a
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Fri Sep 30 14:53:09 2022 +0200
+
+    Fix "animating" snapper protection, it was broken.
+
+commit 85ac1b88ced55dc62bca812d421e621424ac34a8
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Wed Aug 31 15:32:01 2022 +0200
+
+    Settings, user groups: restrict the display to roughly 10 lines height.
+
+commit 5a9d6eacbde5cb7ce8ba6e69e5aa40cf2c014d99
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Tue Jun 20 12:40:16 2023 +0200
+
+    Files\View::rename() -- emit "rename" hooks already if one of the two files is inside the user storage.
+    
+    This happens prominently when restoring files from the trash-bin: there
+    is no pre-event whatsover in this case, which is at least confusing.
+    Other possibility would be a pre-restore event.
+    
+    Signed-off-by: Claus-Justus Heine <himself@claus-justus-heine.de>
+
+commit 10a78a59ba4cdd1f49279081d4cf4ecd19a3ac31
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Mon Jul 18 08:59:54 2022 +0200
+
+    File-system events: in order to distinguish a mkdir from file creation a separate event is needed.
+    
+    Up to now mkdir emits pre-create and pre-write (with
+    NonExistingFILE!!!!Node) and so does any file creation. In order to
+    catch directory creation in the "pre" events a separate event is needed.
+
+commit b61230e6051238327c8084add4991983ee7d909f
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Fri Jul 15 12:03:44 2022 +0200
+
+    Files\Node\HookConnector: fix node type for non-existing rename and copy sources/targets.
+    
+    Currently, HookConnector::getNodeForPath() just asks
+    Filesystem::is_dir($path) if a FileInfo for $path cannot be found.
+    However, if $path is a non-existing target in the pre-rename or pre-copy
+    events, or the then no-longer existing source in the post-rename event
+    this will fail: Filesystem::is_dir($path) will return false (the $path
+    does not event exist), and the a NonExistingFile node is generated in
+    any case.
+    
+    This is at least surprising: when renaming an existing folder to
+    non-existing target I really would expect a NonExistingFolder node as
+    target in the pre-rename event, and the same for the source in the
+    post-rename event.
+
+commit e73fc64f1bf85a6adb569af52fa0fa05dea91dca
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Mon Feb 7 16:46:22 2022 +0100
+
+    Prepare for adding groups with specified backend.
+
+commit e6572aa9f9661d333624354856b1415b1e931677
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Sun May 22 17:33:41 2022 +0200
+
+    OCSBadRequestException: allow Throwable as "previous" parameter, any reason to only allow \Exception?
+
+commit b0b328e616e8dfdf9ba26aa89e17e4d4beee1dc5
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Fri Feb 18 00:34:53 2022 +0100
+
+    IConfig::getUsersForUserValue() -- interprete null value as request to fetch all users with given key set.
+
+commit 01c227a2c9161396a04ee6a9745dc5e9d6827833
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Mon Feb 7 16:46:44 2022 +0100
+
+    Continue adding a user to a group until any of the group backends succeeds
+
+commit 8ee335f9c0f693a88ac120131e67a6dd3f4f9a4c
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Tue Jan 11 08:48:10 2022 +0100
+
+    Avoid excessive mount cache shootdown for authenticated and non-shareable mounts.
+    
+    This commit adds two new mount-flags 'authenticated' and
+    'enable_sharing' which are used to avoid a mount-cache shoot-down for
+    file-systems which by design cannot be shared of need authentication.
+    
+    This affects the way UserMountCache::registerMounts() cleans up the
+    mount-cache:
+    
+    - non-shareable mounts are left in the cache if the mounts are
+      registered for another user the currently logged on user
+    - authenticated mounts are left in the cache if credentials are not
+      available.
+    
+    The use case are special authenticated and non-shareable virtual
+    file-systems.
+
+commit cffd25a2b5cc8b693e97994619d36eb55d75294e
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Tue Dec 7 14:55:16 2021 +0100
+
+    Address cache efficiency for the case of a large number of mounts.
+    
+    - Files\Cache\Storage: also cache the reverse mapping between numerid_id and string id.
+    - Files\Cache\StorageGlobal::loadForStorageIds() -- adjust the length of the storage Ids.
+    - Files\Cache\ -- StorageGlobal: cache also the fileid of the storages.
+
+commit 917201c5aadb7999cb443a9067a37294d32ae7aa
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Tue Dec 7 14:18:44 2021 +0100
+
+    MountProviderCollection::registerProvider() -- optional priority in order to register first or last.
+    
+    Additional constants IMountProviderCollection::DEFAULT_PRIORITY,
+    SHARES_PRIORITY. Large priorities are mounted later than small
+    priorities. This can be used to make sure that e.g. the share-mounts are
+    already there. The use case is mounting of "virtual" file-systems on
+    mount points where the mount points belong to shared storages
+
+commit 6b60c88ecaaeea733443578e2e204dce0b3cac35
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Tue Jun 20 10:00:07 2023 +0200
+
+    Catch more exceptions during migrations.
+
+commit 2eb74acdefa5311941d5cdabf6aee7de1465c1b6
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Sat Oct 2 22:26:04 2021 +0200
+
+    Add auto-complete php for emacs.
+
+commit 6b73c7061e88af4b7c348c922101de862ba781b3
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Sat Jan 6 15:17:35 2024 +0100
+
+    Undelete an "offline user" if createUser() is called with the same uid.
+
+commit 29c1825a75e973d8264ccefe21f0797c9ce4646e
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Thu Sep 30 18:04:58 2021 +0200
+
+    Fix userExists() to really check if it exists in LDAP.
+    
+    User_LDAP::userExists() just returned true if the users exists at all,
+    which is wrong. It should only return true if the user exists on LDAP (+
+    cache logic of course), but not return true if it exists in any other
+    user backend, as it did before.
+
+commit 501d941ba273d79783becfb66a49b18894a2ac7a
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Mon Dec 12 22:36:07 2022 +0100
+
+    Allow duplicate uid in cards-table.
+    
+    There is also the URI column with is tagged with the user-backend. Now,
+    Backend::getCard($uri) return then null if the user-backend has changed
+    for given user-id. But then Backend::createCard($uri) bails out because
+    of a duplicate uid.
+
+commit 99ab5586bc516c0d83d34c23e1aec23114924575
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Sat Feb 3 12:27:55 2024 +0100
+
+    private/User/Manager.php: make the ordering of backends predictable.
+    
+    The UserManager maintains several backends, but does not maintain a
+    predictable ordering of backends, so it can happen that createUser uses
+    one ordering and then other methods use another ordering (createUser()
+    in particular uses the database-backend last, so at least there is a
+    source of a conflict.
+    
+    The commit also changes createUserFromBackend(BACKEND) to only check if the
+    user exists in that given backend.
+
+commit c3a8e871556448fb96d6c27994f9f4843bff210c
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Wed Sep 29 15:08:01 2021 +0200
+
+    Danger Zone: optionally force the configured LDAP uid even if the user already exists.
+
+commit f07abe9c3614b28f77900841197be896a44aa1af
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Thu Sep 23 11:33:54 2021 +0200
+
+    legacy/OC_Image.php: complete the half-hearted fix for PHP8.
+
+commit 7ced732ce5ff6789e2d6196050d8448a08bd2468
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Mon Aug 30 13:44:31 2021 +0200
+
+    L10N: allow to escape pipe characters by prepdending another pipe.
+
+commit 7218fca12df55c96eb58c48631a45516122bd831
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Sat Aug 17 10:36:37 2024 +0200
+
+    Exception template: separate config for verbose exception (even if non-debug)
+
+commit f66927b0f0ae81dc94d0b1fb1cc254c268fea089
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Wed Aug 25 00:10:43 2021 +0200
+
+    SVG Preview: allow xlink:href for local anchors.
+
+commit ec298eed79b559e867db82f3c98400e250a85857
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Thu Mar 11 10:08:38 2021 +0100
+
+    Increase upload limits and memory size and bump max_input_vars to infty.
+
+commit 45249ad5be56dade94cf2dfded030fab911c2fec
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Tue May 25 23:17:16 2021 +0200
+
+    DateTimeFormatter, L10N allow any \DateTimeInterface class.
+
+commit 2b137ee4a4939d6ded81f7ce5b6726933c66e988
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Sat Aug 17 10:30:26 2024 +0200
+
+    Fix close-callback not called after pressing esc and add CSS class in order to apply fix missing space for close button.
+
+commit 9afe6d3c7c01bb31900586223194ad336579a76a
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Wed Jul 7 14:47:44 2021 +0200
+
+    Re-enable counting of users for LDAP.
+
+commit 058a81d43fa124a81833173c8c2541c2cb29430c
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Sat Feb 14 01:47:11 2026 +0100
+
+    Trace cherry-picking during upgrade.
+
+commit f55ef819769ba7ccb4aeedb30ef3dac99d707a3b
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Sat Aug 17 09:56:47 2024 +0200
+
+    serializeException(): include file and line in top-level message.
+
+commit 8e364bb863536ada198f9f0cf18ad43415cd7e52
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Tue May 18 14:36:12 2021 +0200
+
+    IL10N & implementation: Export plain translations array.
+
+commit 8b31b9edaacb8c92eff19704521d49342b69c154
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Wed Feb 17 11:18:57 2021 +0100
+
+    Controller, JSON-Responder: keep the CSP-policy if set by DataResponse.
+
+commit ed3c4a1d5ab741b59ab6300fea4b299390ec996e
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Thu Jan 7 15:25:12 2021 +0100
+
+    Fix arrow position for x-placement=top, just like for bottom tooltips.
+
+commit 61d7a5e531b22019959ac4f053e7347bd7fb4ebb
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Fri Nov 13 00:58:22 2020 +0100
+
+    URLGenerator::imagePath() -- use the full path when doing png/svg alterations.
+
+commit 3004d1971b394001c0ad1b19bf3a95b177318aff
+Author: Claus-Justus Heine <Claus-Justus.Heine@IANS.Uni-Stuttgart.DE>
+Date:   Sun Oct 18 13:11:17 2020 +0200
+
+    SimpleContainer: Include the original ReflectionException.
+    
+    This is to ease debugging as otherwise there is no notion in the logs
+    about what could not be resolved.
+
+commit 0ee3e737235209357bba3c5789160d3873a181f7
+Author: Claus-Justus Heine <himself@claus-justus-heine.de>
+Date:   Tue Oct 13 18:56:50 2020 +0200
+
+    Allow groupOfMembers as well.
