@@ -30,7 +30,10 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Configuring External Storage (GUI)" href="external_storage_configuration_gui.html" />
-    <link rel="prev" title="Providing default files" href="default_files_configuration.html" /> 
+    <link rel="prev" title="Providing default files" href="default_files_configuration.html" />
+   
+  <meta name="robots" content="noindex, follow" />
+
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -85,6 +88,7 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#multibucket-object-store">Multibucket Object Store</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#multibucket-object-store-with-per-bucket-configuration-overrides">Multibucket Object Store with per Bucket configuration overrides</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#s3-sse-c-encryption-support">S3 SSE-C encryption support</a></li>
 </ul>
 </li>
@@ -112,6 +116,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../maintenance/index.html">Maintenance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../issues/index.html">Issues and troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gdpr/index.html">GDPR-compliance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../declarations/index.html">Declarations</a></li>
 </ul>
 
         </div>
@@ -164,7 +169,7 @@ as Primary Storage distinct from using an object store via External Storage.</p>
 <section id="data-backup-and-recovery-implications">
 <h3>Data Backup and Recovery Implications<a class="headerlink" href="#data-backup-and-recovery-implications" title="Link to this heading"></a></h3>
 <p>One impact of using an object store as Primary Storage is that your data backup strategy
-needs to incorporate this. <strong>Your data is longer stored on your Nextcloud server, but your
+needs to incorporate this. <strong>Your data is no longer stored on your Nextcloud server, but your
 files are also no longer accessible by simply bypassing your Nextcloud server and accessing
 your object store directly.</strong></p>
 </section>
@@ -376,6 +381,32 @@ users will be mapped to the updated range of buckets.</p>
 <p>You can find out more information about upscaling with object storage and Nextcloud in the
 <a class="reference external" href="https://portal.nextcloud.com/article/object-store-as-primary-storage-16.html">Nextcloud customer portal</a>.</p>
 </section>
+<section id="multibucket-object-store-with-per-bucket-configuration-overrides">
+<h2>Multibucket Object Store with per Bucket configuration overrides<a class="headerlink" href="#multibucket-object-store-with-per-bucket-configuration-overrides" title="Link to this heading"></a></h2>
+<p>When using an Object Store with <code class="code docutils literal notranslate"><span class="pre">'multibucket</span> <span class="pre">=&gt;</span> <span class="pre">true'</span></code> it is possible to configure overrides for all config options per bucket:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;objectstore&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+        <span class="s1">&#39;class&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;Object</span><span class="se">\\</span><span class="s1">Storage</span><span class="se">\\</span><span class="s1">Backend</span><span class="se">\\</span><span class="s1">Class&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;arguments&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                <span class="s1">&#39;multibucket&#39;</span> <span class="o">=&gt;</span> <span class="n">true</span><span class="p">,</span>
+                <span class="s1">&#39;bucket&#39;</span> <span class="o">=&gt;</span> <span class="s1">&#39;nextcloud_&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;perBucket&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                        <span class="s1">&#39;nextcloud_1&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+                                <span class="s1">&#39;port&#39;</span> <span class="o">=&gt;</span> <span class="mi">9999</span><span class="p">,</span>
+                        <span class="p">],</span>
+                <span class="p">],</span>
+        <span class="p">],</span>
+<span class="p">],</span>
+</pre></div>
+</div>
+<p>This can be useful for example if you want to configure credentials per bucket that is used by a Team folder.
+A script for provisioning new Team folders this way could look like this (first make sure the bucket exists with those credentials):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">occ</span> <span class="n">config</span><span class="p">:</span><span class="n">system</span><span class="p">:</span><span class="nb">set</span> <span class="o">--</span><span class="nb">type</span><span class="o">=</span><span class="n">string</span> <span class="o">--</span><span class="n">value</span><span class="o">=</span><span class="n">KEYVALUE</span> <span class="n">objectstore</span> <span class="n">arguments</span> <span class="n">perBucket</span> <span class="n">BUCKETNAME</span> <span class="n">key</span>
+<span class="n">occ</span> <span class="n">config</span><span class="p">:</span><span class="n">system</span><span class="p">:</span><span class="nb">set</span> <span class="o">--</span><span class="nb">type</span><span class="o">=</span><span class="n">string</span> <span class="o">--</span><span class="n">value</span><span class="o">=</span><span class="n">SECRETVALUE</span> <span class="n">objectstore</span> <span class="n">arguments</span> <span class="n">perBucket</span> <span class="n">BUCKETNAME</span> <span class="n">secret</span>
+<span class="n">occ</span> <span class="n">groupfolders</span><span class="p">:</span><span class="n">create</span> <span class="o">--</span><span class="n">bucket</span> <span class="n">BUCKETNAME</span> <span class="n">TEAMFOLDERNAME</span>
+</pre></div>
+</div>
+<p>The credentials must be set before the new Team folder is created.</p>
+</section>
 <section id="s3-sse-c-encryption-support">
 <h2>S3 SSE-C encryption support<a class="headerlink" href="#s3-sse-c-encryption-support" title="Link to this heading"></a></h2>
 <p>Nextcloud supports server side encryption, also known as <a class="reference external" href="http://docs.aws.amazon.com/AmazonS3/latest/dev/ServerSideEncryptionCustomerKeys.html">SSE-C</a>, with compatible S3 bucket provider. The encryption and decryption happens on the S3 bucket side with a key provided by the Nextcloud server.</p>
@@ -418,7 +449,7 @@ users will be mapped to the updated range of buckets.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025 Nextcloud GmbH.</p>
+    <p>&#169; Copyright 2026 Nextcloud GmbH.</p>
   </div>
 
    
@@ -432,7 +463,7 @@ users will be mapped to the updated range of buckets.</p>
 
   <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
-      ☁️ latest
+      ☁️ 31
       <span class="fa fa-caret-down"></span>
     </span>
     <div class="rst-other-versions">
@@ -442,10 +473,8 @@ users will be mapped to the updated range of buckets.</p>
         <dd style="width: 32%">
           <a href="https://docs.nextcloud.com/server/latest/admin_manual"
              
-             style="color: var(--dark-link-color);"
-             
           >
-            latest
+            35 (latest)
           </a>
         </dd>
         
@@ -453,31 +482,33 @@ users will be mapped to the updated range of buckets.</p>
           <a href="https://docs.nextcloud.com/server/stable/admin_manual"
              
           >
-            stable
+            34 (stable)
           </a>
         </dd>
         
         <dd style="width: 32%">
-          <a href="https://docs.nextcloud.com/server/30/admin_manual"
+          <a href="https://docs.nextcloud.com/server/33/admin_manual"
              
           >
-            30
+            33
           </a>
         </dd>
         
         <dd style="width: 32%">
-          <a href="https://docs.nextcloud.com/server/29/admin_manual"
+          <a href="https://docs.nextcloud.com/server/32/admin_manual"
              
           >
-            29
+            32
           </a>
         </dd>
         
         <dd style="width: 32%">
-          <a href="https://docs.nextcloud.com/server/28/admin_manual"
+          <a href="https://docs.nextcloud.com/server/31/admin_manual"
+             
+             style="color: var(--dark-link-color);"
              
           >
-            28
+            31 (unsupported)
           </a>
         </dd>
         
