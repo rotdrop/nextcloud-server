@@ -30,7 +30,10 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Theming" href="theming.html" />
-    <link rel="prev" title="Reverse proxy" href="reverse_proxy_configuration.html" /> 
+    <link rel="prev" title="Reverse proxy" href="reverse_proxy_configuration.html" />
+   
+  <meta name="robots" content="noindex, follow" />
+
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -85,6 +88,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#default-file-extension">Default file extension</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#disable-rich-text-editing">Disable rich text editing</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#file-encodings">File encodings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#websocket-support-with-notify-push">Websocket support with notify_push</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="theming.html">Theming</a></li>
@@ -107,6 +111,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../maintenance/index.html">Maintenance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../issues/index.html">Issues and troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gdpr/index.html">GDPR-compliance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../declarations/index.html">Declarations</a></li>
 </ul>
 
         </div>
@@ -164,6 +169,14 @@
 </pre></div>
 </div>
 </section>
+<section id="websocket-support-with-notify-push">
+<h2>Websocket support with notify_push<a class="headerlink" href="#websocket-support-with-notify-push" title="Link to this heading"></a></h2>
+<p>Text can use the notify_push app to get real-time updates when a file is changed by another user. To enable this, make sure that the notify_push app is installed and enabled.</p>
+<p>You can then enable the integration with the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">occ</span> <span class="n">config</span><span class="p">:</span><span class="n">app</span><span class="p">:</span><span class="nb">set</span> <span class="n">text</span> <span class="n">notify_push</span> <span class="o">--</span><span class="nb">type</span><span class="o">=</span><span class="n">boolean</span> <span class="o">--</span><span class="n">value</span><span class="o">=</span><span class="n">true</span>
+</pre></div>
+</div>
+</section>
 </section>
 
 
@@ -177,7 +190,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025 Nextcloud GmbH.</p>
+    <p>&#169; Copyright 2026 Nextcloud GmbH.</p>
   </div>
 
    
@@ -191,7 +204,7 @@
 
   <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
-      ☁️ latest
+      ☁️ 31
       <span class="fa fa-caret-down"></span>
     </span>
     <div class="rst-other-versions">
@@ -201,10 +214,8 @@
         <dd style="width: 32%">
           <a href="https://docs.nextcloud.com/server/latest/admin_manual"
              
-             style="color: var(--dark-link-color);"
-             
           >
-            latest
+            35 (latest)
           </a>
         </dd>
         
@@ -212,31 +223,33 @@
           <a href="https://docs.nextcloud.com/server/stable/admin_manual"
              
           >
-            stable
+            34 (stable)
           </a>
         </dd>
         
         <dd style="width: 32%">
-          <a href="https://docs.nextcloud.com/server/30/admin_manual"
+          <a href="https://docs.nextcloud.com/server/33/admin_manual"
              
           >
-            30
+            33
           </a>
         </dd>
         
         <dd style="width: 32%">
-          <a href="https://docs.nextcloud.com/server/29/admin_manual"
+          <a href="https://docs.nextcloud.com/server/32/admin_manual"
              
           >
-            29
+            32
           </a>
         </dd>
         
         <dd style="width: 32%">
-          <a href="https://docs.nextcloud.com/server/28/admin_manual"
+          <a href="https://docs.nextcloud.com/server/31/admin_manual"
+             
+             style="color: var(--dark-link-color);"
              
           >
-            28
+            31 (unsupported)
           </a>
         </dd>
         
