@@ -30,7 +30,10 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Hardening and security guidance" href="harden_server.html" />
-    <link rel="prev" title="SELinux configuration" href="selinux_configuration.html" /> 
+    <link rel="prev" title="SELinux configuration" href="selinux_configuration.html" />
+   
+  <meta name="robots" content="noindex, follow" />
+
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -108,6 +111,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../maintenance/index.html">Maintenance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../issues/index.html">Issues and troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gdpr/index.html">GDPR-compliance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../declarations/index.html">Declarations</a></li>
 </ul>
 
         </div>
@@ -339,7 +343,7 @@ webroot of your nginx installation. In this example it is
 <span class="w">    </span><span class="p">}</span>
 
 <span class="w">    </span><span class="c1"># Serve static files</span>
-<span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="p">~</span><span class="w"> </span><span class="sr">\.(?:css|js|mjs|svg|gif|ico|jpg|png|webp|wasm|tflite|map|ogg|flac)$</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="p">~</span><span class="w"> </span><span class="sr">\.(?:css|js|mjs|svg|gif|ico|jpg|png|webp|wasm|tflite|map|ogg|flac|mp4|webm)$</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="kn">try_files</span><span class="w"> </span><span class="nv">$uri</span><span class="w"> </span><span class="s">/index.php</span><span class="nv">$request_uri</span><span class="p">;</span>
 <span class="w">        </span><span class="c1"># HTTP response headers borrowed from Nextcloud `.htaccess`</span>
 <span class="w">        </span><span class="kn">add_header</span><span class="w"> </span><span class="s">Cache-Control</span><span class="w">                     </span><span class="s">&quot;public,</span><span class="w"> </span><span class="s">max-age=15778463</span><span class="nv">$asset_immutable&quot;</span><span class="p">;</span>
@@ -554,7 +558,7 @@ The configuration differs from the “Nextcloud in webroot” configuration abov
 <span class="w">        </span><span class="p">}</span>
 
 <span class="w">        </span><span class="c1"># Serve static files</span>
-<span class="w">        </span><span class="kn">location</span><span class="w"> </span><span class="p">~</span><span class="w"> </span><span class="sr">\.(?:css|js|mjs|svg|gif|ico|jpg|png|webp|wasm|tflite|map|ogg|flac)$</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kn">location</span><span class="w"> </span><span class="p">~</span><span class="w"> </span><span class="sr">\.(?:css|js|mjs|svg|gif|ico|jpg|png|webp|wasm|tflite|map|ogg|flac|mp4|webm)$</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="kn">try_files</span><span class="w"> </span><span class="nv">$uri</span><span class="w"> </span><span class="s">/nextcloud/index.php</span><span class="nv">$request_uri</span><span class="p">;</span>
 <span class="w">            </span><span class="c1"># HTTP response headers borrowed from Nextcloud `.htaccess`</span>
 <span class="w">            </span><span class="kn">add_header</span><span class="w"> </span><span class="s">Cache-Control</span><span class="w">                     </span><span class="s">&quot;public,</span><span class="w"> </span><span class="s">max-age=15778463</span><span class="nv">$asset_immutable&quot;</span><span class="p">;</span>
@@ -675,7 +679,7 @@ chown<span class="w"> </span>root:nginx<span class="w"> </span>/var/lib/php/opca
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025 Nextcloud GmbH.</p>
+    <p>&#169; Copyright 2026 Nextcloud GmbH.</p>
   </div>
 
    
@@ -689,7 +693,7 @@ chown<span class="w"> </span>root:nginx<span class="w"> </span>/var/lib/php/opca
 
   <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
-      ☁️ latest
+      ☁️ 31
       <span class="fa fa-caret-down"></span>
     </span>
     <div class="rst-other-versions">
@@ -699,10 +703,8 @@ chown<span class="w"> </span>root:nginx<span class="w"> </span>/var/lib/php/opca
         <dd style="width: 32%">
           <a href="https://docs.nextcloud.com/server/latest/admin_manual"
              
-             style="color: var(--dark-link-color);"
-             
           >
-            latest
+            35 (latest)
           </a>
         </dd>
         
@@ -710,31 +712,33 @@ chown<span class="w"> </span>root:nginx<span class="w"> </span>/var/lib/php/opca
           <a href="https://docs.nextcloud.com/server/stable/admin_manual"
              
           >
-            stable
+            34 (stable)
           </a>
         </dd>
         
         <dd style="width: 32%">
-          <a href="https://docs.nextcloud.com/server/30/admin_manual"
+          <a href="https://docs.nextcloud.com/server/33/admin_manual"
              
           >
-            30
+            33
           </a>
         </dd>
         
         <dd style="width: 32%">
-          <a href="https://docs.nextcloud.com/server/29/admin_manual"
+          <a href="https://docs.nextcloud.com/server/32/admin_manual"
              
           >
-            29
+            32
           </a>
         </dd>
         
         <dd style="width: 32%">
-          <a href="https://docs.nextcloud.com/server/28/admin_manual"
+          <a href="https://docs.nextcloud.com/server/31/admin_manual"
+             
+             style="color: var(--dark-link-color);"
              
           >
-            28
+            31 (unsupported)
           </a>
         </dd>
         

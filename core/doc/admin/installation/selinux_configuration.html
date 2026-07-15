@@ -30,7 +30,10 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="NGINX configuration" href="nginx.html" />
-    <link rel="prev" title="Installing from command line" href="command_line_installation.html" /> 
+    <link rel="prev" title="Installing from command line" href="command_line_installation.html" />
+   
+  <meta name="robots" content="noindex, follow" />
+
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -109,6 +112,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../maintenance/index.html">Maintenance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../issues/index.html">Issues and troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gdpr/index.html">GDPR-compliance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../declarations/index.html">Declarations</a></li>
 </ul>
 
         </div>
@@ -141,6 +145,11 @@
 <p>When you have SELinux enabled on your Linux distribution, you may run into
 permissions problems after a new Nextcloud installation, and see <code class="docutils literal notranslate"><span class="pre">permission</span>
 <span class="pre">denied</span></code> errors in your Nextcloud logs.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Permission problems may be caused by SELinux <em>even if the denial is not indicated in the audit logs.</em> This is
+because SELinux does not log all system calls used for verifying access. See <a class="reference external" href="https://docs.redhat.com/en/documentation/red_hat_enterprise_linux/7/html/selinux_users_and_administrators_guide/sect-security-enhanced_linux-troubleshooting-fixing_problems#sect-Security-Enhanced_Linux-Fixing_Problems-Possible_Causes_of_Silent_Denials">Possible Causes of Silent Denials</a> to solve.</p>
+</div>
 <p>The following settings should work for most SELinux systems that use the
 default distro profiles. Run these commands as root, and remember to adjust the filepaths
 in these examples for your installation:</p>
@@ -281,7 +290,7 @@ systems.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025 Nextcloud GmbH.</p>
+    <p>&#169; Copyright 2026 Nextcloud GmbH.</p>
   </div>
 
    
@@ -295,7 +304,7 @@ systems.</p>
 
   <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
-      ☁️ latest
+      ☁️ 31
       <span class="fa fa-caret-down"></span>
     </span>
     <div class="rst-other-versions">
@@ -305,10 +314,8 @@ systems.</p>
         <dd style="width: 32%">
           <a href="https://docs.nextcloud.com/server/latest/admin_manual"
              
-             style="color: var(--dark-link-color);"
-             
           >
-            latest
+            35 (latest)
           </a>
         </dd>
         
@@ -316,31 +323,33 @@ systems.</p>
           <a href="https://docs.nextcloud.com/server/stable/admin_manual"
              
           >
-            stable
+            34 (stable)
           </a>
         </dd>
         
         <dd style="width: 32%">
-          <a href="https://docs.nextcloud.com/server/30/admin_manual"
+          <a href="https://docs.nextcloud.com/server/33/admin_manual"
              
           >
-            30
+            33
           </a>
         </dd>
         
         <dd style="width: 32%">
-          <a href="https://docs.nextcloud.com/server/29/admin_manual"
+          <a href="https://docs.nextcloud.com/server/32/admin_manual"
              
           >
-            29
+            32
           </a>
         </dd>
         
         <dd style="width: 32%">
-          <a href="https://docs.nextcloud.com/server/28/admin_manual"
+          <a href="https://docs.nextcloud.com/server/31/admin_manual"
+             
+             style="color: var(--dark-link-color);"
              
           >
-            28
+            31 (unsupported)
           </a>
         </dd>
         

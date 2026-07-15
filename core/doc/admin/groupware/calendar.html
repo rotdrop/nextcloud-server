@@ -30,7 +30,10 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Contacts / CardDAV" href="contacts.html" />
-    <link rel="prev" title="Groupware" href="index.html" /> 
+    <link rel="prev" title="Groupware" href="index.html" />
+   
+  <meta name="robots" content="noindex, follow" />
+
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -114,6 +117,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../maintenance/index.html">Maintenance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../issues/index.html">Issues and troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../gdpr/index.html">GDPR-compliance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../declarations/index.html">Declarations</a></li>
 </ul>
 
         </div>
@@ -178,6 +182,11 @@ Install and enable an appropriate app to show the section again, e.g.
 Be sure to have configured the email server first so that the invitations go through.
 See <a class="reference internal" href="../configuration_server/email_configuration.html"><span class="doc">Email</span></a>.</p>
 <p>You must also make sure the “Send invitations to attendees” setting is activated in the admin setting groupware section for the emails to be sent.</p>
+<p>Administrators can disable the sending of invitations to external participants with the following command:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="o">-</span><span class="n">E</span> <span class="o">-</span><span class="n">u</span> <span class="n">www</span><span class="o">-</span><span class="n">data</span> <span class="n">php</span> <span class="n">occ</span> <span class="n">config</span><span class="p">:</span><span class="n">app</span><span class="p">:</span><span class="nb">set</span> <span class="n">dav</span> <span class="n">caldav_external_attendees_disabled</span> <span class="o">--</span><span class="n">value</span> <span class="n">yes</span>
+</pre></div>
+</div>
+<p>This prevents invitations from being sent to attendees outside the instance and hides external contacts from the invitee search.</p>
 </section>
 <section id="birthday-calendar">
 <h2>Birthday calendar<a class="headerlink" href="#birthday-calendar" title="Link to this heading"></a></h2>
@@ -322,7 +331,7 @@ If you need to allow this, change the following parameter to:</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2025 Nextcloud GmbH.</p>
+    <p>&#169; Copyright 2026 Nextcloud GmbH.</p>
   </div>
 
    
@@ -336,7 +345,7 @@ If you need to allow this, change the following parameter to:</p>
 
   <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
-      ☁️ latest
+      ☁️ 31
       <span class="fa fa-caret-down"></span>
     </span>
     <div class="rst-other-versions">
@@ -346,10 +355,8 @@ If you need to allow this, change the following parameter to:</p>
         <dd style="width: 32%">
           <a href="https://docs.nextcloud.com/server/latest/admin_manual"
              
-             style="color: var(--dark-link-color);"
-             
           >
-            latest
+            35 (latest)
           </a>
         </dd>
         
@@ -357,31 +364,33 @@ If you need to allow this, change the following parameter to:</p>
           <a href="https://docs.nextcloud.com/server/stable/admin_manual"
              
           >
-            stable
+            34 (stable)
           </a>
         </dd>
         
         <dd style="width: 32%">
-          <a href="https://docs.nextcloud.com/server/30/admin_manual"
+          <a href="https://docs.nextcloud.com/server/33/admin_manual"
              
           >
-            30
+            33
           </a>
         </dd>
         
         <dd style="width: 32%">
-          <a href="https://docs.nextcloud.com/server/29/admin_manual"
+          <a href="https://docs.nextcloud.com/server/32/admin_manual"
              
           >
-            29
+            32
           </a>
         </dd>
         
         <dd style="width: 32%">
-          <a href="https://docs.nextcloud.com/server/28/admin_manual"
+          <a href="https://docs.nextcloud.com/server/31/admin_manual"
+             
+             style="color: var(--dark-link-color);"
              
           >
-            28
+            31 (unsupported)
           </a>
         </dd>
         
