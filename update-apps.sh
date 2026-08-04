@@ -78,7 +78,7 @@ BUILD_COMMANDS=(
     [logreader]="make"
     [mail]="make install-deps optimize-js"
     [mail_roundcube]="make \$BUILD_MODE"
-    [maps]="rm -rf node_modules package-lock.json && npm install && make"
+    [maps]="rm -rf node_modules package-lock.json && npm install && run-krankerl.sh"
     [pdf_downloader]="make \$BUILD_MODE"
     # TODO: remove photos, either use photos or memories, not both
     # [photos]="make dev-setup build-js-production && rm -rf vendor/* && composer install --no-dev"
@@ -91,23 +91,23 @@ BUILD_COMMANDS=(
 
 declare -A STABLE_BRANCHES
 STABLE_BRANCHES=(
-    [calendar]=stable6.4
-    [contacts]=stable8.6
+    [calendar]=stable6.5
+    [contacts]=stable8.7
     [context_chat]=main
     [emlviewer]=master
     [htmlviewer]=master
-    [mail]=stable5.7
+    [mail]=stable5.10
 )
 
 declare -A REBASE_BRANCHES
 REBASE_BRANCHES=(
-    [calendar]=origin/stable6.4
-    [contacts]=origin/stable8.6
+    [calendar]=origin/stable6.5
+    [contacts]=origin/stable8.7
     [groupfolders]=origin/$CORE_BRANCH
     [htmlviewer]=origin/master
     [ldap_write_support]=origin/$CORE_BRANCH
     [logreader]=origin/$CORE_BRANCH
-    [mail]=origin/stable5.7
+    [mail]=origin/stable5.10
     [maps]=origin/master
     [related_resources]=origin/$CORE_BRANCH
     [richdocuments]=origin/$CORE_BRANCH
@@ -123,10 +123,10 @@ RESET_BRANCHES=(
     [bav]=origin/master
     [cafevdb]=origin/nextcloud33
     [cafevdbmembers]=origin/$CORE_BRANCH
-    [calendar]=cjh/production/cafevdb/stable6.4
+    [calendar]=cjh/production/cafevdb/stable6.5
     [circles]=origin/$CORE_BRANCH
     [collectives]=origin/main
-    [contacts]=cjh/production/cafevdb/stable8.6
+    [contacts]=cjh/production/cafevdb/stable8.7
     [context_chat]=origin/main
     [dokuwiki]=origin/master
     [emlviewer]=cjh/production/$CORE_BRANCH
@@ -138,7 +138,7 @@ RESET_BRANCHES=(
     [htmlviewer]=cjh/bugfix/mimetype-element-need-not-be-there
     [ldap_write_support]=cjh/production/cafevdb/$CORE_BRANCH
     [logreader]=cjh/production/cafevdb/$CORE_BRANCH
-    [mail]=cjh/feature/stable5.7/provision-additional-email-addresses
+    [mail]=cjh/feature/stable5.10/provision-additional-email-addresses
     [mail_roundcube]=origin/master
     [maps]=cjh/production/cafevdb/master
     [notifications]=origin/$CORE_BRANCH
