@@ -46,7 +46,7 @@ ALL_APPS="
  workflow_pdf_converter
 "
 
-CORE_BRANCH=stable33
+CORE_BRANCH=stable34
 
 BUILD=false
 CHECKOUT=false
@@ -91,8 +91,8 @@ BUILD_COMMANDS=(
 
 declare -A STABLE_BRANCHES
 STABLE_BRANCHES=(
-    [calendar]=stable6.4
-    [contacts]=stable8.6
+    [calendar]=stable6.5
+    [contacts]=stable8.7
     [context_chat]=main
     [emlviewer]=master
     [htmlviewer]=master
@@ -121,7 +121,7 @@ RESET_BRANCHES=(
     [activity]=origin/$CORE_BRANCH
     [app_api]=origin/$CORE_BRANCH
     [bav]=origin/master
-    [cafevdb]=origin/nextcloud33
+    [cafevdb]=origin/nextcloud34
     [cafevdbmembers]=origin/$CORE_BRANCH
     [calendar]=cjh/production/cafevdb/stable6.4
     [circles]=origin/$CORE_BRANCH
@@ -149,7 +149,7 @@ RESET_BRANCHES=(
     [recommendations]=origin/$CORE_BRANCH
     [redaxo]=origin/main
     [related_resources]=origin/$CORE_BRANCH
-    [richdocuments]=cjh/feature/authenticated-requests-33
+    [richdocuments]=cjh/feature/authenticated-requests-34
     [serverinfo]=origin/$CORE_BRANCH
     [suspicious_login]=origin/$CORE_BRANCH
     [text]=origin/$CORE_BRANCH
