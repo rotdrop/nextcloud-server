@@ -20,7 +20,6 @@ ALL_APPS="
  files_pdfviewer
  files_texteditor
  groupfolders
- htmlviewer
  ldap_write_support
  logreader
  mail
@@ -37,6 +36,7 @@ ALL_APPS="
  richdocuments
  serverinfo
  suspicious_login
+ terms_of_service
  text
  twofactor_gateway
  twofactor_nextcloud_notification
@@ -72,8 +72,6 @@ BUILD_COMMANDS=(
     [files_archive]="make \$BUILD_MODE"
     [files_lock]="rm -rf node_modules package-lock.json && npm install --legacy-peer-deps && npm ci --legacy-peer-deps && npm run build"
     [groupfolders]="make"
-    # [htmlviewer]="npm install ; npm ci; npm update; make"
-    [htmlviewer]="npm install ; npm ci; make"
     [ldap_write_support]="run-krankerl.sh"
     [logreader]="make"
     [mail]="make install-deps optimize-js"
@@ -85,6 +83,7 @@ BUILD_COMMANDS=(
     [photos]="rm -rf vendor/* && composer install --no-dev"
     [redaxo]="make \$BUILD_MODE"
     [richdocuments]="run-krankerl.sh"
+    [terms_of_service]=make
     [twofactor_gateway]="run-krankerl.sh"
     [workflow_pdf_converter]="run-krankerl.sh"
 )
@@ -92,25 +91,24 @@ BUILD_COMMANDS=(
 declare -A STABLE_BRANCHES
 STABLE_BRANCHES=(
     [calendar]=stable6.5
-    [contacts]=stable8.7
+    [contacts]=stable8.8
     [context_chat]=main
     [emlviewer]=master
-    [htmlviewer]=master
     [mail]=stable5.10
 )
 
 declare -A REBASE_BRANCHES
 REBASE_BRANCHES=(
     [calendar]=origin/stable6.5
-    [contacts]=origin/stable8.7
+    [contacts]=origin/stable8.8
     [groupfolders]=origin/$CORE_BRANCH
-    [htmlviewer]=origin/master
     [ldap_write_support]=origin/$CORE_BRANCH
     [logreader]=origin/$CORE_BRANCH
     [mail]=origin/stable5.10
     [maps]=origin/master
     [related_resources]=origin/$CORE_BRANCH
     [richdocuments]=origin/$CORE_BRANCH
+    [terms_of_service]=origin/stable4.7
     [twofactor_gateway]=origin/$CORE_BRANCH
     [workflow_pdf_converter]=origin/$CORE_BRANCH
 )
@@ -126,7 +124,7 @@ RESET_BRANCHES=(
     [calendar]=cjh/production/cafevdb/stable6.5
     [circles]=origin/$CORE_BRANCH
     [collectives]=origin/main
-    [contacts]=cjh/production/cafevdb/stable8.7
+    [contacts]=cjh/production/cafevdb/stable8.8
     [context_chat]=origin/main
     [dokuwiki]=origin/master
     [emlviewer]=cjh/production/$CORE_BRANCH
@@ -135,7 +133,6 @@ RESET_BRANCHES=(
     [files_pdfviewer]=origin/$CORE_BRANCH
     [files_texteditor]=origin/master
     [groupfolders]=cjh/production/cafevdb/$CORE_BRANCH
-    [htmlviewer]=cjh/bugfix/mimetype-element-need-not-be-there
     [ldap_write_support]=cjh/production/cafevdb/$CORE_BRANCH
     [logreader]=cjh/production/cafevdb/$CORE_BRANCH
     [mail]=cjh/feature/stable5.10/provision-additional-email-addresses
@@ -152,6 +149,7 @@ RESET_BRANCHES=(
     [richdocuments]=cjh/feature/authenticated-requests-33
     [serverinfo]=origin/$CORE_BRANCH
     [suspicious_login]=origin/$CORE_BRANCH
+    [terms_of_service]=origin/stable4.7
     [text]=origin/$CORE_BRANCH
     [twofactor_gateway]=origin/$CORE_BRANCH
     [twofactor_nextcloud_notification]=origin/$CORE_BRANCH
