@@ -94,7 +94,7 @@ STABLE_BRANCHES=(
     [contacts]=stable8.8
     [context_chat]=main
     [emlviewer]=master
-    [mail]=stable5.10
+    [mail]=stable5.11
 )
 
 declare -A REBASE_BRANCHES
@@ -104,7 +104,7 @@ REBASE_BRANCHES=(
     [groupfolders]=origin/$CORE_BRANCH
     [ldap_write_support]=origin/$CORE_BRANCH
     [logreader]=origin/$CORE_BRANCH
-    [mail]=origin/stable5.10
+    [mail]=origin/stable5.11
     [maps]=origin/master
     [related_resources]=origin/$CORE_BRANCH
     [richdocuments]=origin/$CORE_BRANCH
@@ -135,7 +135,7 @@ RESET_BRANCHES=(
     [groupfolders]=cjh/production/cafevdb/$CORE_BRANCH
     [ldap_write_support]=cjh/production/cafevdb/$CORE_BRANCH
     [logreader]=cjh/production/cafevdb/$CORE_BRANCH
-    [mail]=cjh/feature/stable5.10/provision-additional-email-addresses
+    [mail]=cjh/feature/stable5.11/provision-additional-email-addresses
     [mail_roundcube]=origin/master
     [maps]=cjh/production/cafevdb/master
     [notifications]=origin/$CORE_BRANCH
