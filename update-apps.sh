@@ -91,20 +91,20 @@ BUILD_COMMANDS=(
 declare -A STABLE_BRANCHES
 STABLE_BRANCHES=(
     [calendar]=stable6.6
-    [contacts]=stable8.8
+    [contacts]=stable8.9
     [context_chat]=main
     [emlviewer]=master
-    [mail]=stable5.11
+    [mail]=stable5.12
 )
 
 declare -A REBASE_BRANCHES
 REBASE_BRANCHES=(
     [calendar]=origin/stable6.6
-    [contacts]=origin/stable8.8
+    [contacts]=origin/stable8.9
     [groupfolders]=origin/$CORE_BRANCH
     [ldap_write_support]=origin/$CORE_BRANCH
     [logreader]=origin/$CORE_BRANCH
-    [mail]=origin/stable5.11
+    [mail]=origin/stable5.12
     [maps]=origin/master
     [related_resources]=origin/$CORE_BRANCH
     [richdocuments]=origin/$CORE_BRANCH
@@ -124,7 +124,7 @@ RESET_BRANCHES=(
     [calendar]=cjh/production/cafevdb/stable6.6
     [circles]=origin/$CORE_BRANCH
     [collectives]=origin/main
-    [contacts]=cjh/production/cafevdb/stable8.8
+    [contacts]=cjh/production/cafevdb/stable8.9
     [context_chat]=origin/main
     [dokuwiki]=origin/master
     [emlviewer]=cjh/production/$CORE_BRANCH
@@ -135,7 +135,7 @@ RESET_BRANCHES=(
     [groupfolders]=cjh/production/cafevdb/$CORE_BRANCH
     [ldap_write_support]=cjh/production/cafevdb/$CORE_BRANCH
     [logreader]=cjh/production/cafevdb/$CORE_BRANCH
-    [mail]=cjh/feature/stable5.11/provision-additional-email-addresses
+    [mail]=cjh/feature/stable5.12/provision-additional-email-addresses
     [mail_roundcube]=origin/master
     [maps]=cjh/production/cafevdb/master
     [notifications]=origin/$CORE_BRANCH
