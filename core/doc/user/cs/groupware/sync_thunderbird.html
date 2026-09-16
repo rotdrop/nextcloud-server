@@ -7,15 +7,16 @@
   <meta name="readthedocs-addons-api-version" content="1"><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Synchronizace s aplikací Thunderbird &mdash; Dokumentace pro Nextcloud latest User Manual latest</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+  <title>Synchronizace s aplikací Thunderbird &mdash; Nextcloud 35 User Manual</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=bad88653" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=8ff6e0db" />
       <link rel="stylesheet" type="text/css" href="../../_static/dark_mode_css/general.css?v=c0a7eb24" />
       <link rel="stylesheet" type="text/css" href="../../_static/dark_mode_css/dark.css?v=70edf1c7" />
 
   
+    <link rel="canonical" href="https://docs.nextcloud.com/server/stable/user_manual/groupware/sync_thunderbird.html" />
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../../_static/documentation_options.js?v=672a239f"></script>
@@ -62,35 +63,34 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Úvod do uživatelské příručky k Nextcloud verze latest</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../whats_new.html">Novinky pro uživatele v Nextcloud verze latest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Úvod do uživatelské příručky k Nextcloud verze 35</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../webinterface.html">Webové rozhraní Nextcloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../files/index.html">Soubory a synchronizace</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Software pro podporu spolupráce</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="contacts.html">Používání aplikace Kontakty</a></li>
 <li class="toctree-l2"><a class="reference internal" href="calendar.html">Používání aplikace Kalendář</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mail.html">Používání aplikace E-mail</a></li>
-<li class="toctree-l2"><a class="reference internal" href="absence.html">Setting out-of-office messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="absence.html">Nastavování zpráv „Jsem mimo kancelář“</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sync_android.html">Synchronizace se systémem Android</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sync_ios.html">Synchronizace se systémem iOS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sync_osx.html">Synchronizace se systémem macOS</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Synchronizace s aplikací Thunderbird</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#recommended-method">Doporučená metoda</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#contacts">Contacts</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#calendars">Calendars</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#contacts">Kontakty</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#calendars">Kalendáře</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#alternative-using-the-tbsync-addon">Alternativa: Použití doplňku TbSync</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#alternative-using-the-cardbook-add-on-contacts-only">Alternativa: Použití doplňku CardBook (pouze kontakty)</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="sync_kde.html">Synchronizace s aplikací KDE Kontact</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sync_gnome.html">Synchronizace s GNOME desktopem</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sync_windows10.html">Synchronizace se systémem Windows 10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_migration.html">Migrate data between instances</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../talk/index.html">Talk</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../desktop/index.html">Desktop Clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../desktop/index.html">Klienti pro desktop</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../userpreferences.html">Nastavení vašich předvoleb</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../universal_access.html">Zpřístupnění pro všechny</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_2fa.html">Používání dvoufázového ověřování se</a></li>
@@ -104,7 +104,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../contents.html">Nextcloud latest User Manual</a>
+          <a href="../contents.html">Nextcloud 35 User Manual</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -128,53 +128,38 @@
 <p><a class="reference external" href="https://www.thunderbird.net">Thunderbird</a> je funkcemi nabitý a vyspělý e-mailový klient, který je možné proměnit v plnohodnotného správce osobních informací (PIM). Od své verze 102, podporuje synchronizaci adresářů kontaktů prostřednictvím CardDAV a automatické objevování kalendářů a adresářů kontaktů, které jsou k dispozici na serveru.</p>
 <section id="recommended-method">
 <h2>Doporučená metoda<a class="headerlink" href="#recommended-method" title="Link to this heading"></a></h2>
-<p>Since Thunderbird 102, the CardDAV &amp; CalDAV protocols are natively supported.</p>
+<p>Od Thunderbird verze 102 jsou protokoly CardDAV a CalDAV podporovány nativně.</p>
 <section id="contacts">
-<h3>Contacts<a class="headerlink" href="#contacts" title="Link to this heading"></a></h3>
+<h3>Kontakty<a class="headerlink" href="#contacts" title="Link to this heading"></a></h3>
 <ol class="arabic simple">
-<li><p>On the address book view, click the down arrow near <strong>New Address Book</strong> and choose <strong>Add CardDAV Address Book</strong>.</p></li>
-<li><p>In the next window, type your <strong>Username</strong> and <strong>Location</strong> (Server URL).</p></li>
+<li><p>V zobrazení adresáře kontaktů klikněte na šipku dolů poblíž <strong>Nový adresář kontaktů</strong> a zvolte <strong>Přidat CardDAV adresář kontaktů</strong>.</p></li>
+<li><p>V následujícím okně zadejte své <strong>Uživatelské jméno</strong> a <strong>Umístění</strong> (URL serveru).</p></li>
 <li><p>V přístím okně budete dotázáni na své uživatelské jméno a heslo pro tento účet.</p></li>
 <li><p>Předchozí okno bude načteno znovu a budete dotázáni, které adresáře kontaktů si přejete synchronizovat.</p></li>
 <li><p>Zvolte a pak klikněte na <strong>Pokračovat</strong>.</p></li>
 </ol>
 <p>Pokud později budete chtít přidat nový adresář kontaktů, je možné znovu zopakovat tyto kroky, přičemž nabídnuty budou pouze ty adresáře, které ještě nejsou synchronizovány.</p>
+<div class="admonition note">
+<p class="admonition-title">Poznámka</p>
+<p>Pokud váš účet používá dvoufázové ověřován, potřebujete pro přihlášení <a class="reference internal" href="../session_management.html#managing-devices"><span class="std std-ref">vyhrazené heslo pro aplikaci</span></a> a nikoli heslo ke svému účtu.</p>
+</div>
 </section>
 <section id="calendars">
-<h3>Calendars<a class="headerlink" href="#calendars" title="Link to this heading"></a></h3>
+<h3>Kalendáře<a class="headerlink" href="#calendars" title="Link to this heading"></a></h3>
 <ol class="arabic">
-<li><p>Go to the calendar view in Thunderbird and select the <strong>New Calendar…</strong> button at the bottom of the left side panel.</p></li>
-<li><p>Choose <strong>On the network</strong>:</p>
+<li><p>Přejděte do zobrazení kalendáře v Thunderbird a vyberte tlačítko <strong>Nový kalendář…</strong> dole na levém postranním panelu.</p></li>
+<li><p>Zvolte <strong>Na síti</strong>:</p>
 <img alt="../../_images/new_calendar.png" src="../../_images/new_calendar.png" />
 </li>
-<li><p>Type your <strong>Username</strong> and <strong>Location</strong> (Server URL), then click on <strong>Find Calendars</strong>.</p></li>
-<li><p>Choose which calendars you want to add and click <strong>Subscribe</strong></p></li>
+<li><p>Zadejte své „<strong>Uživatelské jméno</strong>“ a „<strong>Umístění</strong>“ (URL serveru), pak klikněte na „<strong>Najít kalendáře</strong>“.</p></li>
+<li><p>Zvolte které kalendáře chcete přidat a klikněte na <strong>Přihlásit k odběru</strong></p></li>
 </ol>
 <p>To stejné zde – pokud později budete chtít přidat další kalendáře, stačí jen postup zopakovat.</p>
 </section>
 </section>
-<section id="alternative-using-the-tbsync-addon">
-<h2>Alternativa: Použití doplňku TbSync<a class="headerlink" href="#alternative-using-the-tbsync-addon" title="Link to this heading"></a></h2>
-<p>Pro tuto metodu je třeba mít nainstalované dva doplňky:</p>
-<ol class="arabic simple">
-<li><p><a class="reference external" href="https://addons.thunderbird.net/en/thunderbird/addon/tbsync/">TbSync</a>.</p></li>
-<li><p><a class="reference external" href="https://addons.thunderbird.net/en/thunderbird/addon/dav-4-tbsync/">Poskytovatel TbSync pro CalDAV a CardDAV</a>.</p></li>
-</ol>
-<p>When they are installed, go to <strong>Extras</strong>/<strong>Synchronization settings (TbSync)</strong> if you are on Windows, or <strong>Edit/Synchronization settings (TbSync)</strong> if on Linux, then:</p>
-<ol class="arabic simple">
-<li><p>In the account manager choose <strong>Add new account</strong> &gt; <strong>CalDAV &amp; CardDAV</strong></p></li>
-<li><p>In the next window, go with the default called <strong>Automatic Configuration</strong> and click <strong>Next</strong></p></li>
-<li><p>Enter an <strong>Account name</strong> (which you can freely choose), a <strong>User name</strong>, a <strong>Password</strong>, the <strong>Server URL</strong>, and click <strong>Next</strong></p></li>
-<li><p>V následujícím okně by TbSync mělo automaticky objevit CalDAV a CardDAV adresy. Pokud ano, klikněte na <strong>Dokončit</strong></p></li>
-<li><p>Zaškrtněte <strong>Zapnout a synchronizovat tento účet</strong>. TbSync nyní objeví veškeré adresáře kontaktů a kalendáře, ke kterým má váš účet přístup na serveru</p></li>
-<li><p>Zaškrtněte kolonku vedle každého z kalendářů, které chcete synchronizovat. Dále nastavte, jak často chcete, aby byly synchronizovány a klikněte na <strong>synchronizovat nyní</strong></p></li>
-<li><p>Po dokončení první úspěšné synchronizace je možné okno zavřít.</p></li>
-</ol>
-<p>Od tohoto okamžiku bude TbSync pracovat za vás. Jste hotovi se základním nastavením a pokud nepotřebujete pokročilejší adresáře kontaktů, můžete další přeskočit.</p>
-</section>
 <section id="alternative-using-the-cardbook-add-on-contacts-only">
 <h2>Alternativa: Použití doplňku CardBook (pouze kontakty)<a class="headerlink" href="#alternative-using-the-cardbook-add-on-contacts-only" title="Link to this heading"></a></h2>
-<p><a class="reference external" href="https://addons.thunderbird.net/en/thunderbird/addon/cardbook/">CardBook</a> je pokročilá alternativa k adresáři kontaktů v Thunderbirdu, která podporuje CardDAV. TbSync a CardBook je možné mít nainstalované vedle sebe.</p>
+<p><a class="reference external" href="https://addons.thunderbird.net/en/thunderbird/addon/cardbook/">CardBook</a> je pokročilou alternativou k adresáři kontaktů v Thunderbirdu, která podporuje CardDAV.</p>
 <ol class="arabic">
 <li><p>Klikněte na ikonu CardBook v pravém horním rohu okna s Thunderbird:</p>
 <img alt="../../_images/cardbook_icon.png" src="../../_images/cardbook_icon.png" />
@@ -189,7 +174,7 @@
 <li><p>Klikněte na „Ověřit“, klikněte na Další, pak zvolte název adresáře kontaktů a znovu klikněte na Další:</p>
 <img alt="../../_images/addressbook_name.png" src="../../_images/addressbook_name.png" />
 </li>
-<li><p>When you are finished, CardBook synchronizes your address books. You can always trigger a synchronization manually by clicking „Synchronize“ in the top left corner of CardBook:</p>
+<li><p>Po dokončení, CardBook synchronizuje vaše adresáře kontaktů. Synchronizaci je možné také spustit ručně kliknutím na „Synchronizovat“ v levém horním rohu v CardBook:</p>
 <img alt="../../_images/synchronize_cardbook.png" src="../../_images/synchronize_cardbook.png" />
 </li>
 </ol>
@@ -207,7 +192,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2026 Nextcloud GmbH.</p>
+    <p>&#169; Copyright 2016-2026 Nextcloud GmbH and Nextcloud contributors.</p>
   </div>
 
    
@@ -218,544 +203,420 @@
     </section>
   </div>
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- Here go the languages -->
   
+  <!-- Here go the languages -->
+
+  
+  
+
+  
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+
   <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
-      🌐
-      
-      
-      Czech
-      
+      🌐 Czech
       <span class="fa fa-caret-down"></span>
-
-       ☁️ 31
+       ☁️ latest
       <span class="fa fa-caret-down"></span>
     </span>
     <div class="rst-other-versions">
       <dl>
-        <dt>🌐 Languages</dt>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/af/"
-                 
-              >
-                
-                Afrikaans
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ar/"
-                 
-              >
-                
-                Arabic
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/br/"
-                 
-              >
-                
-                Breton
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ca/"
-                 
-              >
-                
-                Catalan
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/cs/"
-                 
-                 style="color: var(--dark-link-color);"
-                 
-              >
-                
-                Czech
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/da/"
-                 
-              >
-                
-                Danish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/de/"
-                 
-              >
-                
-                German
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/el/"
-                 
-              >
-                
-                Greek
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/el_GR/"
-                 
-              >
-                
-                el_GR
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/en/"
-                 
-              >
-                
-                English
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/eo/"
-                 
-              >
-                
-                Esperanto
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/es/"
-                 
-              >
-                
-                Spanish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/eu/"
-                 
-              >
-                
-                eu
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/fi_FI/"
-                 
-              >
-                
-                Finnish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/fr/"
-                 
-              >
-                
-                French
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ga/"
-                 
-              >
-                
-                Irish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/gl/"
-                 
-              >
-                
-                Glacian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/hr/"
-                 
-              >
-                
-                Croatian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/hu/"
-                 
-              >
-                
-                hu
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/hu_HU/"
-                 
-              >
-                
-                Hungarian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/id/"
-                 
-              >
-                
-                Indonesian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/it/"
-                 
-              >
-                
-                Italian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ja_JP/"
-                 
-              >
-                
-                Japanese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ko/"
-                 
-              >
-                
-                Korean
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/mn/"
-                 
-              >
-                
-                Mongolian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/nb_NO/"
-                 
-              >
-                
-                Norwegian (NB)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/nl/"
-                 
-              >
-                
-                Dutch
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/nn/"
-                 
-              >
-                
-                Norwegian (NN)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/pl/"
-                 
-              >
-                
-                Polish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/pt_BR/"
-                 
-              >
-                
-                Portuguese (BR)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/pt_PT/"
-                 
-              >
-                
-                Portuguese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ro/"
-                 
-              >
-                
-                Romanian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ru/"
-                 
-              >
-                
-                Russian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/si/"
-                 
-              >
-                
-                Sinhala
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sk_SK/"
-                 
-              >
-                
-                Slovakian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sq/"
-                 
-              >
-                
-                Albanian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sr/"
-                 
-              >
-                
-                Slovenian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sv/"
-                 
-              >
-                
-                Swedish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ta/"
-                 
-              >
-                
-                Tamil
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/th/"
-                 
-              >
-                
-                th
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/tr/"
-                 
-              >
-                
-                Turkish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/uk/"
-                 
-              >
-                
-                Ukrainian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/uz/"
-                 
-              >
-                
-                Uzbek
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/vi/"
-                 
-              >
-                
-                Vietnamese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/zh_CN/"
-                 
-              >
-                
-                Chinese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/zh_HK/"
-                 
-              >
-                
-                Chinese (HK)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/zh_TW/"
-                 
-              >
-                
-                Chinese (TW)
-                
-              </a>
-            </dd>
-          
+        <dt>🌐 Jazyky</dt>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ar/"
+               
+            >
+              Arabic
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/br/"
+               
+            >
+              Breton
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ca/"
+               
+            >
+              Catalan
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/zh_CN/"
+               
+            >
+              Chinese
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/zh_HK/"
+               
+            >
+              Chinese (HK)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/zh_TW/"
+               
+            >
+              Chinese (TW)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/cs/"
+               
+               style="color: var(--dark-link-color);"
+               
+            >
+              Czech
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/da/"
+               
+            >
+              Danish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/nl/"
+               
+            >
+              Dutch
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/en/"
+               
+            >
+              English
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/fi_FI/"
+               
+            >
+              Finnish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/fr/"
+               
+            >
+              French
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/gl/"
+               
+            >
+              Galician
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/de/"
+               
+            >
+              German
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/el/"
+               
+            >
+              Greek
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/hu_HU/"
+               
+            >
+              Hungarian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/id/"
+               
+            >
+              Indonesian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ga/"
+               
+            >
+              Irish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/it/"
+               
+            >
+              Italian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ja_JP/"
+               
+            >
+              Japanese
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ko/"
+               
+            >
+              Korean
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/mn/"
+               
+            >
+              Mongolian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/nb_NO/"
+               
+            >
+              Norwegian (NB)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/nn/"
+               
+            >
+              Norwegian (NN)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/pl/"
+               
+            >
+              Polish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/pt_PT/"
+               
+            >
+              Portuguese
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/pt_BR/"
+               
+            >
+              Portuguese (BR)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ro/"
+               
+            >
+              Romanian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ru/"
+               
+            >
+              Russian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/si/"
+               
+            >
+              Sinhala
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/sk_SK/"
+               
+            >
+              Slovakian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/sr/"
+               
+            >
+              Slovenian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/es/"
+               
+            >
+              Spanish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/sv/"
+               
+            >
+              Swedish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ta/"
+               
+            >
+              Tamil
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/tr/"
+               
+            >
+              Turkish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/uk_UA/"
+               
+            >
+              Ukrainian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/uz/"
+               
+            >
+              Uzbek
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/vi/"
+               
+            >
+              Vietnamese
+            </a>
+          </dd>
+        
       </dl>
     </div>
     <div class="rst-other-versions">
@@ -764,6 +625,8 @@
         
           <dd style="width: 32%">
             <a href="https://docs.nextcloud.com/server/latest/user_manual"
+               
+               style="color: var(--dark-link-color);"
                
             >
               35 (latest)
@@ -794,30 +657,6 @@
             </a>
           </dd>
         
-          <dd style="width: 32%">
-            <a href="https://docs.nextcloud.com/server/31/user_manual"
-               
-               style="color: var(--dark-link-color);"
-               
-            >
-              31 (unsupported)
-            </a>
-          </dd>
-        
-      </dl>
-      <dl>
-        <dt>Stahování</dt>
-        
-      </dl>
-      <dl>
-        
-        <dt>Na službě Read the Docs</dt>
-          <dd>
-            <a href="///projects//?fromdocs=">Domovská stránka projektu</a>
-          </dd>
-          <dd>
-            <a href="///builds//?fromdocs=">Sestavení</a>
-          </dd>
       </dl>
     </div>
   </div>

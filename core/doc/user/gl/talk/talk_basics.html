@@ -7,15 +7,16 @@
   <meta name="readthedocs-addons-api-version" content="1"><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Conceptos básicos de Talk de Nextcloud &mdash; Documentación Nextcloud latest User Manual latest</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+  <title>Conceptos básicos de Parladoiro de Nextcloud &mdash; Nextcloud 35 User Manual</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=bad88653" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=8ff6e0db" />
       <link rel="stylesheet" type="text/css" href="../../_static/dark_mode_css/general.css?v=c0a7eb24" />
       <link rel="stylesheet" type="text/css" href="../../_static/dark_mode_css/dark.css?v=70edf1c7" />
 
   
+    <link rel="canonical" href="https://docs.nextcloud.com/server/stable/user_manual/talk/talk_basics.html" />
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../../_static/documentation_options.js?v=9298fed3"></script>
@@ -30,8 +31,8 @@
     <script src="../../_static/js/versions.js"></script>
     <link rel="index" title="Índice" href="../genindex.html" />
     <link rel="search" title="Busca" href="../search.html" />
-    <link rel="next" title="Funcións avanzadas de Talk" href="advanced_features.html" />
-    <link rel="prev" title="Talk" href="index.html" />
+    <link rel="next" title="Funcións avanzadas de Parladoiro" href="advanced_features.html" />
+    <link rel="prev" title="Parladoiro" href="index.html" />
    
   <meta name="robots" content="noindex, follow" />
 
@@ -62,13 +63,12 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Introdución ao manual de usuario de Nextcloud «latest»</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../whats_new.html">Que hai de novo para os usuarios de Nextcloud «latest»</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Introdución ao manual de usuario de Nextcloud «35»</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../webinterface.html">A interface web de Nextcloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../files/index.html">Ficheiros e sincronización</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../groupware/index.html">Software de traballo en grupo</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Talk</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Conceptos básicos de Talk de Nextcloud</a><ul>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Parladoiro</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Conceptos básicos de Parladoiro de Nextcloud</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#getting-started">Getting started</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#private-one-to-one-conversations">1. Private (one-to-one) conversations</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#group-conversations">2. Group conversations</a></li>
@@ -84,31 +84,38 @@
 <li class="toctree-l3"><a class="reference internal" href="#sharing-files-in-a-chat">Compartir ficheiros nunha parola</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#inserting-emoji">Inserir un «emoji»</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#smart-picker">Smart Picker</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#editing-messages">Editing messages</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#using-markdown">Using Markdown</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#editing-messages">Editar mensaxes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#using-markdown">Empregar Markdown</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#polls-in-chat">Polls in chat</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#setting-reminder-on-messages">Setting reminder on messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#setting-reminder-on-messages">Definir o lembrete nas mensaxes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#replying-to-messages-and-more">Responder mensaxes e moito máis</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#silent-messages">Silent messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#silent-messages">Mensaxes silandeiras</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#scheduling-messages">Scheduling messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pinning-messages">Pinning messages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#managing-a-conversation">Xestionar unha conversa</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#ban-participants">Ban participants</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#messages-expiration">Messages expiration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#messages-expiration">Caducidade das mensaxes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#starting-a-call">Iniciar unha chamada</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#starting-a-screen-share">Iniciar unha compartición de pantalla</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#changing-view-in-a-call">Cambiar a vista nunha chamada</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#download-call-participants-list">Download call participants list</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#compact-view-of-conversations-list">Compact view of conversations list</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#messages-search-in-a-conversation">Messages search in a conversation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#appearance">Appearance</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#compact-view-of-conversations-list">Compact view of conversations list</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#chat-messages">Chat messages</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="advanced_features.html">Funcións avanzadas de Talk</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#messages-search-in-a-conversation">Messages search in a conversation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#threaded-messages">Threaded messages</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="advanced_features.html">Funcións avanzadas de Parladoiro</a></li>
 <li class="toctree-l2"><a class="reference internal" href="join_a_call_or_chat_as_guest.html">Unirse a unha chamada ou parola como convidado</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../desktop/index.html">Desktop Clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../desktop/index.html">Clientes de escritorio</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../userpreferences.html">Axustar as súas preferencias</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../universal_access.html">Acceso universal</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_2fa.html">Usar a autenticación de dous factores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_2fa.html">Usar o segundo factor de autenticación</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../session_management.html">Xestionar os navegadores conectados e os dispositivos</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../external_storage/index.html">Almacenamento externo</a></li>
 </ul>
@@ -119,7 +126,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../contents.html">Nextcloud latest User Manual</a>
+          <a href="../contents.html">Nextcloud 35 User Manual</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -127,8 +134,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../contents.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="index.html">Talk</a></li>
-      <li class="breadcrumb-item active">Conceptos básicos de Talk de Nextcloud</li>
+          <li class="breadcrumb-item"><a href="index.html">Parladoiro</a></li>
+      <li class="breadcrumb-item active">Conceptos básicos de Parladoiro de Nextcloud</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/nextcloud/documentation/edit/master/user_manual/talk/talk_basics.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
@@ -139,8 +146,8 @@
            <div itemprop="articleBody">
              
   <section id="basics-of-nextcloud-talk">
-<h1>Conceptos básicos de Talk de Nextcloud<a class="headerlink" href="#basics-of-nextcloud-talk" title="Ligazón a este título"></a></h1>
-<p>Nextcloud Talk permítelle parolar e facer videochamadas no seu propio servidor.</p>
+<h1>Conceptos básicos de Parladoiro de Nextcloud<a class="headerlink" href="#basics-of-nextcloud-talk" title="Ligazón a este título"></a></h1>
+<p>Parladoiro de Nextcloud permítelle parolar e facer videochamadas no seu propio servidor.</p>
 <section id="getting-started">
 <h2>Getting started<a class="headerlink" href="#getting-started" title="Ligazón a este título"></a></h2>
 <p>Chats and calls take place in conversations. You can create any number of conversations. There are different types of conversations:</p>
@@ -152,7 +159,7 @@
 </a>
 <p>Nobody except you and the other person can see this conversation or join a call in it.
 You can extend an ongoing call to a new group conversation by adding more people. Call will be continued there without interruption.</p>
-<a class="reference internal image-reference" href="../../_images/one-to-one-extend.png"><img alt="../../_images/one-to-one-extend.png" src="../../_images/one-to-one-extend.png" style="width: 400px;" />
+<a class="reference internal image-reference" href="../../_images/one-to-one-extend.png"><img alt="../../_images/one-to-one-extend.png" src="../../_images/one-to-one-extend.png" style="width: 300px;" />
 </a>
 <p>If a user becomes unavailable and set an <strong>out-of-office</strong> status in <code class="docutils literal notranslate"><span class="pre">Personal</span> <span class="pre">settings</span> <span class="pre">&gt;</span> <span class="pre">Availability</span></code>, you will find additional information in this conversation, such as provided description, absence date, or their replacement person.</p>
 <a class="reference internal image-reference" href="../../_images/one-to-one-out-of-office.png"><img alt="../../_images/one-to-one-out-of-office.png" src="../../_images/one-to-one-out-of-office.png" style="width: 500px;" />
@@ -208,7 +215,7 @@ It can also be opened to registered users (or users from “Guests” app), so t
 <p>You can create a private (one-to-one) chat by searching for the name of a user, a group or a team and clicking it. For a single user, a conversation is immediately created and you can start your chat. For a group or circle you get to pick a name and settings before you create the conversation and add the participants.</p>
 <a class="reference internal image-reference" href="../../_images/chat-with-one-user.png"><img alt="../../_images/chat-with-one-user.png" src="../../_images/chat-with-one-user.png" style="width: 400px;" />
 </a>
-<p>If you want to create a custom group conversation, click the button next to the search field and filters button and then on <code class="docutils literal notranslate"><span class="pre">Create</span> <span class="pre">a</span> <span class="pre">new</span> <span class="pre">conversation</span></code>.</p>
+<p>Se quere crear unha conversa de grupo personalizada, prema no botón que está a rente do campo de busca e do botón de filtros e após prema en <code class="docutils literal notranslate"><span class="pre">Crear</span> <span class="pre">unha</span> <span class="pre">nova</span> <span class="pre">conversa</span></code>.</p>
 <a class="reference internal image-reference" href="../../_images/create-new-conversation.png"><img alt="../../_images/create-new-conversation.png" src="../../_images/create-new-conversation.png" style="width: 400px;" />
 </a>
 <p>A seguir, pode escoller un nome para a conversa, poñerlle unha descrición e definir un avatar para ela (cunha foto ou un «emoji» enviado) e seleccionar se a conversa debe estar aberta a usuarios externos e se outros usuarios do servidor poden ver a conversa e unirse a ela.</p>
@@ -217,13 +224,13 @@ It can also be opened to registered users (or users from “Guests” app), so t
 <p>No segundo paso, pode engadir participantes e rematar a creación da conversa.</p>
 <a class="reference internal image-reference" href="../../_images/add-participants.png"><img alt="../../_images/add-participants.png" src="../../_images/add-participants.png" style="width: 500px;" />
 </a>
-<p>After confirmation you will be redirected to the new conversation and can start communicating right away.</p>
+<p>Após a confirmación, será redirixido á nova conversa e pode comezar a comunicarse de inmediato.</p>
 <a class="reference internal image-reference" href="../../_images/new-room.png"><img alt="../../_images/new-room.png" src="../../_images/new-room.png" style="width: 700px;" />
 </a>
 </section>
 <section id="view-all-open-conversations">
 <h2>Ver todas as conversas abertas<a class="headerlink" href="#view-all-open-conversations" title="Ligazón a este título"></a></h2>
-<p>You can view all the conversations that you can join by clicking the button next to the search field and filters button and then on <code class="docutils literal notranslate"><span class="pre">Join</span> <span class="pre">open</span> <span class="pre">conversations.</span></code></p>
+<p>You can view all the conversations that you can join by clicking the button next to the search field, then clicking <code class="docutils literal notranslate"><span class="pre">Join</span> <span class="pre">open</span> <span class="pre">conversations</span></code>.</p>
 <a class="reference internal image-reference" href="../../_images/join-open-conversations.png"><img alt="../../_images/join-open-conversations.png" src="../../_images/join-open-conversations.png" style="width: 400px;" />
 </a>
 </section>
@@ -235,7 +242,7 @@ It can also be opened to registered users (or users from “Guests” app), so t
 2. <strong>Event conversations</strong>: view all conversations, created for upcoming or past events.</p>
 <a class="reference internal image-reference" href="../../_images/filters-menu.png"><img alt="../../_images/filters-menu.png" src="../../_images/filters-menu.png" style="width: 400px;" />
 </a>
-<p>Após pode borrar o filtro dende o menú de filtros.</p>
+<p>Após pode borrar o filtro desde o menú de filtros.</p>
 <a class="reference internal image-reference" href="../../_images/clear-filter.png"><img alt="../../_images/clear-filter.png" src="../../_images/clear-filter.png" style="width: 400px;" />
 </a>
 </section>
@@ -260,10 +267,10 @@ An archived conversation will not appear in your main conversation list, but it 
 </a>
 <a class="reference internal image-reference" href="../../_images/share-files-in-chat-selection.png"><img alt="../../_images/share-files-in-chat-selection.png" src="../../_images/share-files-in-chat-selection.png" style="width: 600px;" />
 </a>
-<p>You can add more files until you are done and decide to share the files. You can also add a text caption to your shared files, providing a brief description or context.</p>
+<p>Pode engadir máis ficheiros ata que remate e decida compartir os ficheiros. Tamén pode engadir un título de texto aos seus ficheiros compartidos, fornecendo unha breve descrición ou contexto.</p>
 <a class="reference internal image-reference" href="../../_images/talk-upload-files.png"><img alt="../../_images/talk-upload-files.png" src="../../_images/talk-upload-files.png" style="width: 500px;" />
 </a>
-<p>Todos os usuarios poderán premer nos ficheiros para velos, editalos ou descargalos, independentemente de que teñan unha conta de usuario. A os usuarios con conta compartiráselle o ficheiro automaticamente, mentres que aos usuarios convidados externos compartiráselle como ligazón pública.</p>
+<p>All users will be able to click the files to view, edit or download them, regardless of whether they have a Nextcloud account. Users with an account will have the file automatically shared with them while external guest users will get them shared as a public link.</p>
 <a class="reference internal image-reference" href="../../_images/editing-document-in-chat-room.png"><img alt="../../_images/editing-document-in-chat-room.png" src="../../_images/editing-document-in-chat-room.png" style="width: 600px;" />
 </a>
 </section>
@@ -282,15 +289,15 @@ You can also type <cite>/</cite> in the chat input to open the selector.</p>
 </a>
 </section>
 <section id="editing-messages">
-<h2>Editing messages<a class="headerlink" href="#editing-messages" title="Ligazón a este título"></a></h2>
-<p>You can edit messages and captions to file shares up to 6 hours after sending.</p>
+<h2>Editar mensaxes<a class="headerlink" href="#editing-messages" title="Ligazón a este título"></a></h2>
+<p>Pode editar mensaxes e lendas en ficheiros compartidos ata 6 horas após do envío.</p>
 <a class="reference internal image-reference" href="../../_images/message-editing.png"><img alt="../../_images/message-editing.png" src="../../_images/message-editing.png" style="width: 600px;" />
 </a>
 </section>
 <section id="using-markdown">
-<h2>Using Markdown<a class="headerlink" href="#using-markdown" title="Ligazón a este título"></a></h2>
-<p>You can enhance your messages with a markdown syntax support. See list for usage:</p>
-<p><strong>Headings and dividers</strong></p>
+<h2>Empregar Markdown<a class="headerlink" href="#using-markdown" title="Ligazón a este título"></a></h2>
+<p>Pode mellorar as súas mensaxes coa axuda da sintaxe de Markdown. Vexa a lista para o seu emprego:</p>
+<p><strong>Títulos e divisores</strong></p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span># Heading 1
 ## Heading 2
 ### Heading 3
@@ -305,7 +312,7 @@ Normal text
 Normal text
 </pre></div>
 </div>
-<p><strong>Inline decorations</strong></p>
+<p><strong>Decoracións na liña</strong></p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>**bold text** __bold text__
 *italicized text* _italicized text_
 `inline code` ``inline code``
@@ -316,7 +323,7 @@ Normal text
 ```
 </pre></div>
 </div>
-<p><strong>Lists</strong></p>
+<p><strong>Listas</strong></p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>1. Ordered list
 2. Ordered list
 
@@ -325,17 +332,17 @@ Normal text
 + Unordered list
 </pre></div>
 </div>
-<p><strong>Quotes</strong></p>
+<p><strong>Citas</strong></p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt; blockquote
 second line of blockquote
 </pre></div>
 </div>
-<p><strong>Task lists</strong></p>
+<p><strong>Listas de tarefas</strong></p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>- [ ] task to be done
 - [x] completed task
 </pre></div>
 </div>
-<p><strong>Tables</strong></p>
+<p><strong>Táboas</strong></p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Column A | Column B
 -- | --
 Data A | Data B
@@ -366,11 +373,11 @@ Data A | Data B
 </a>
 </section>
 <section id="setting-reminder-on-messages">
-<h2>Setting reminder on messages<a class="headerlink" href="#setting-reminder-on-messages" title="Ligazón a este título"></a></h2>
-<p>You can set reminders on specific messages. If there’s an important message you want to be notified about later, simply hover over it and click on the reminder icon.</p>
+<h2>Definir o lembrete nas mensaxes<a class="headerlink" href="#setting-reminder-on-messages" title="Ligazón a este título"></a></h2>
+<p>Pode definir lembretes en mensaxes específicas. Se hai unha mensaxe importante que quere que se lle notifique máis adiante, simplemente pase por riba del co rato e prema na icona do lembrete.</p>
 <a class="reference internal image-reference" href="../../_images/set-message-reminder.png"><img alt="../../_images/set-message-reminder.png" src="../../_images/set-message-reminder.png" style="width: 400px;" />
 </a>
-<p>In the submenu, you can select an appropriate time to receive a notification later.</p>
+<p>No submenú, pode seleccionar un momento axeitado para recibir unha notificación posterior.</p>
 <a class="reference internal image-reference" href="../../_images/configure-message-reminder.png"><img alt="../../_images/configure-message-reminder.png" src="../../_images/configure-message-reminder.png" style="width: 400px;" />
 </a>
 </section>
@@ -385,20 +392,37 @@ Data A | Data B
 <p>Aquí tamén pode crear unha ligazón directa á mensaxe ou marcala como non lida para que se desprace ata ela a próxima vez que entre na parola. Cando se trate dun ficheiro, pode velo en Ficheiros.</p>
 </section>
 <section id="silent-messages">
-<h2>Silent messages<a class="headerlink" href="#silent-messages" title="Ligazón a este título"></a></h2>
-<p>If you don’t want to disturb anyone in the middle of the night, there is a silent mode for chatting.
-While it is enabled, other participants will not receive notifications from your messages.</p>
+<h2>Mensaxes silandeiras<a class="headerlink" href="#silent-messages" title="Ligazón a este título"></a></h2>
+<p>Se non quere molestar a ninguén no medio da noite, hai un modo silandeiro para parolar. Mentres estea activado, os outros participantes recibirán notificacións das súas mensaxes.</p>
 <a class="reference internal image-reference" href="../../_images/message-silent.png"><img alt="../../_images/message-silent.png" src="../../_images/message-silent.png" style="width: 600px;" />
+</a>
+</section>
+<section id="scheduling-messages">
+<h2>Scheduling messages<a class="headerlink" href="#scheduling-messages" title="Ligazón a este título"></a></h2>
+<p>If you want to send a message not right now, but at a specific time, you can schedule it. Just select the desired date and time in the quick actions next to the input field.</p>
+<a class="reference internal image-reference" href="../../_images/message-schedule-action.png"><img alt="../../_images/message-schedule-action.png" src="../../_images/message-schedule-action.png" style="width: 600px;" />
+</a>
+<p>You can find all your scheduled messages by clicking on the clock icon next to the input field. There you can edit, reschedule or delete currently prepared messages.</p>
+<a class="reference internal image-reference" href="../../_images/message-schedule-toggle.png"><img alt="../../_images/message-schedule-toggle.png" src="../../_images/message-schedule-toggle.png" style="width: 400px;" />
+</a>
+</section>
+<section id="pinning-messages">
+<h2>Pinning messages<a class="headerlink" href="#pinning-messages" title="Ligazón a este título"></a></h2>
+<p>A moderator can pin important messages in a conversation, for certain period of time or until it’s no longer relevant.</p>
+<a class="reference internal image-reference" href="../../_images/message-pin-action.png"><img alt="../../_images/message-pin-action.png" src="../../_images/message-pin-action.png" style="width: 400px;" />
+</a>
+<p>Pinned messages are highlighted and accessible above the chat or in the <code class="docutils literal notranslate"><span class="pre">Shared</span> <span class="pre">items</span></code> tab of the content sidebar. If you no longer need a pinned message, you can unpin it for everyone or only yourself from quick actions.</p>
+<a class="reference internal image-reference" href="../../_images/message-pin-in-chat.png"><img alt="../../_images/message-pin-in-chat.png" src="../../_images/message-pin-in-chat.png" style="width: 700px;" />
 </a>
 </section>
 <section id="managing-a-conversation">
 <h2>Xestionar unha conversa<a class="headerlink" href="#managing-a-conversation" title="Ligazón a este título"></a></h2>
-<p>Vde. sempre é moderador na súa nova conversa. Na lista de participantes pode promover a outros participantes a moderadores usando o menú <code class="docutils literal notranslate"><span class="pre">…</span></code> á dereita do seu nome de usuario, asignarlles permisos personalizados ou eliminalos da conversa.</p>
+<p>Vde. sempre é moderador na súa nova conversa. Na lista de participantes pode promover a outros participantes a moderadores usando o menú <code class="docutils literal notranslate"><span class="pre">…</span></code> á dereita do seu nome de usuario, asignarlles permisos personalizados ou retiralos da conversa.</p>
 <p>Cambiar os permisos dun usuario que se uniu a unha conversa pública tamén o engadirá permanentemente á conversa.</p>
 <a class="reference internal image-reference" href="../../_images/participant-menu.png"><img alt="../../_images/participant-menu.png" src="../../_images/participant-menu.png" style="width: 400px;" />
 </a>
 <p>Os moderadores poden configurar a conversa. Seleccione <code class="docutils literal notranslate"><span class="pre">Axustes</span> <span class="pre">da</span> <span class="pre">conversa</span></code> no menú <code class="docutils literal notranslate"><span class="pre">...</span></code> da conversa na parte superior para acceder aos axustes.</p>
-<a class="reference internal image-reference" href="../../_images/open-settings.png"><img alt="../../_images/open-settings.png" src="../../_images/open-settings.png" style="width: 400px;" />
+<a class="reference internal image-reference" href="../../_images/open-settings.png"><img alt="../../_images/open-settings.png" src="../../_images/open-settings.png" style="width: 500px;" />
 </a>
 <p>Aquí pode configurar a descrición, o acceso de convidado, se a conversa é visíbel para os demais no servidor e máis.</p>
 <a class="reference internal image-reference" href="../../_images/conversation-settings-dialog.png"><img alt="../../_images/conversation-settings-dialog.png" src="../../_images/conversation-settings-dialog.png" style="width: 600px;" />
@@ -420,43 +444,47 @@ Here, you can see the reason for the ban and revert it if needed.</p>
 </a>
 </section>
 <section id="messages-expiration">
-<h2>Messages expiration<a class="headerlink" href="#messages-expiration" title="Ligazón a este título"></a></h2>
-<p>A moderator can configure message expiration under the <code class="docutils literal notranslate"><span class="pre">Conversation</span> <span class="pre">settings</span></code> within the <code class="docutils literal notranslate"><span class="pre">Moderation</span></code> section. Once a message reaches its expiration time, it is automatically removed from the conversation.
-The available expiration durations are 1 hour, 8 hours, 1 day, 1 week, 4 weeks, or never (which is the default setting).</p>
+<h2>Caducidade das mensaxes<a class="headerlink" href="#messages-expiration" title="Ligazón a este título"></a></h2>
+<p>Un moderador pode configurar a caducidade da mensaxe en <code class="docutils literal notranslate"><span class="pre">Axustes</span> <span class="pre">da</span> <span class="pre">conversa</span></code> dentro da sección de <code class="docutils literal notranslate"><span class="pre">Moderación</span></code>. Unha vez que unha mensaxe acada o seu tempo de caducidade, retirase automaticamente da conversa. As duracións de caducidade dispoñíbeis son 1 hora, 8 horas, 1 día, 1 semana, 4 semanas ou nunca (que é o axuste predeterminado).</p>
 <a class="reference internal image-reference" href="../../_images/messages-expiration.png"><img alt="../../_images/messages-expiration.png" src="../../_images/messages-expiration.png" style="width: 500px;" />
 </a>
 </section>
 <section id="starting-a-call">
 <h2>Iniciar unha chamada<a class="headerlink" href="#starting-a-call" title="Ligazón a este título"></a></h2>
 <p>Cando está nunha conversa, pode iniciar unha chamada en calquera momento co botón <code class="docutils literal notranslate"><span class="pre">Iniciar</span> <span class="pre">chamada</span></code>. Outros participantes recibirán unha notificación e poderán unirse á chamada.</p>
-<a class="reference internal image-reference" href="../../_images/device-settings-before-call.png"><img alt="../../_images/device-settings-before-call.png" src="../../_images/device-settings-before-call.png" style="width: 400px;" />
+<a class="reference internal image-reference" href="../../_images/device-settings-before-call.png"><img alt="../../_images/device-settings-before-call.png" src="../../_images/device-settings-before-call.png" style="width: 600px;" />
 </a>
 <p>Se alguén xa iniciou unha chamada, o botón converterase nun botón verde <code class="docutils literal notranslate"><span class="pre">Unirse</span> <span class="pre">á</span> <span class="pre">chamada</span></code>.</p>
 <a class="reference internal image-reference" href="../../_images/join-call.png"><img alt="../../_images/join-call.png" src="../../_images/join-call.png" style="width: 600px;" />
 </a>
-<p>Durante unha chamada, pode silenciar o micrófono e desactivar o seu vídeo cos botóns da parte dereita da barra superior, ou usando os atallos <code class="docutils literal notranslate"><span class="pre">M</span></code> para silenciar o son e <code class="docutils literal notranslate"><span class="pre">V</span></code> para desactivar o vídeo. Tamén pode usar a <code class="docutils literal notranslate"><span class="pre">barra</span> <span class="pre">de</span> <span class="pre">espazo</span></code> para desactivar o silencio. Cando estea silenciado, premendo a barra de espazo activarao para que poida falar ata que solte a barra de espazo. Se está desactivado o silencio, ao premer espazo silenciarao ata que o solte.</p>
+<p>During a call, you can mute your microphone and disable your video with the buttons on the right side of the top bar, or using the shortcuts <code class="docutils literal notranslate"><span class="pre">M</span></code> to mute audio and <code class="docutils literal notranslate"><span class="pre">V</span></code> to disable video. You can also use the space bar for push-to-talk: holding space temporarily unmutes you while muted, or temporarily mutes you while unmuted.</p>
 <p>Podes agochar o seu vídeo (útil durante unha compartición de pantalla) coa pequena frecha situada enriba do fluxo de vídeo. Volva amosalo coa pequena frecha.</p>
 <p>Pode acceder aos seus axustes e escoller unha cámara web, un micrófono e outros axustes no menú <code class="docutils literal notranslate"><span class="pre">…</span></code> da barra superior.</p>
 <a class="reference internal image-reference" href="../../_images/media-settings.png"><img alt="../../_images/media-settings.png" src="../../_images/media-settings.png" style="width: 300px;" />
 </a>
-<p>From media settings dialog, you can also change the background of your video.</p>
-<a class="reference internal image-reference" href="../../_images/background-settings-in-call.png"><img alt="../../_images/background-settings-in-call.png" src="../../_images/background-settings-in-call.png" style="width: 400px;" />
+<p>Desde o diálogo de axustes de multimedia, tamén pode cambiar o fondo do seu vídeo.</p>
+<a class="reference internal image-reference" href="../../_images/background-settings-in-call.png"><img alt="../../_images/background-settings-in-call.png" src="../../_images/background-settings-in-call.png" style="width: 500px;" />
 </a>
-<p>Pode cambiar outras opcións no diálogo <code class="docutils literal notranslate"><span class="pre">Axustes</span> <span class="pre">de</span> <span class="pre">Talk</span></code>.</p>
+<p>All these settings are also available as direct actions in the bottom bar.</p>
+<a class="reference internal image-reference" href="../../_images/call-bottom-bar.png"><img alt="../../_images/call-bottom-bar.png" src="../../_images/call-bottom-bar.png" style="width: 300px;" />
+</a>
+<p>Pode cambiar outras opcións no diálogo <code class="docutils literal notranslate"><span class="pre">Axustes</span> <span class="pre">de</span> <span class="pre">Parladoiro</span></code>.</p>
 <a class="reference internal image-reference" href="../../_images/talk-settings.png"><img alt="../../_images/talk-settings.png" src="../../_images/talk-settings.png" style="width: 600px;" />
 </a>
 </section>
 <section id="starting-a-screen-share">
 <h2>Iniciar unha compartición de pantalla<a class="headerlink" href="#starting-a-screen-share" title="Ligazón a este título"></a></h2>
-<p>You can click the monitor icon on your video stream to share your screen. Depending on your browser, you will get the option to share a monitor, an application window or a single browser tab.
-If video from your camera is also available, other participants will see it in a small presenter view next to the screen share.</p>
+<p>Pode premer na icona do monitor do seu fluxo de vídeo para compartir a súa pantalla. Dependendo do seu navegador, terá a opción de compartir un monitor, unha xanela de aplicación ou unha única lapela do navegador. Se tamén está dispoñíbel o vídeo da súa cámara, os outros participantes poderán velo nunha pequena vista de presentador xunto á compartición da pantalla.</p>
 <a class="reference internal image-reference" href="../../_images/share-screen-with-camera.png"><img alt="../../_images/share-screen-with-camera.png" src="../../_images/share-screen-with-camera.png" style="width: 700px;" />
 </a>
 <p>You can zoom in and out of the shared screen with mouse wheel, double click or touchpad gestures.</p>
 </section>
 <section id="changing-view-in-a-call">
 <h2>Cambiar a vista nunha chamada<a class="headerlink" href="#changing-view-in-a-call" title="Ligazón a este título"></a></h2>
-<p>Pode cambiar a vista nunha chamada coa pequena icona de catro bloques no canto superior dereito entre a vista promovida e a vista en grade. A vista en grade amosará a todos igual de grandes e, se as persoas non caben na pantalla, aparecerán botóns á esquerda e á dereita que lle permitirán desprazarse.</p>
+<p>You can switch the view in a call in the bottom bar between promoted view and grid view.</p>
+<a class="reference internal image-reference" href="../../_images/call-view-toggle-button.png"><img alt="../../_images/call-view-toggle-button.png" src="../../_images/call-view-toggle-button.png" style="width: 300px;" />
+</a>
+<p>The grid view will show as many people as the screen can fit, allowing navigation with buttons on the left and right.</p>
 <a class="reference internal image-reference" href="../../_images/talk-grid-view.png"><img alt="../../_images/talk-grid-view.png" src="../../_images/talk-grid-view.png" style="width: 700px;" />
 </a>
 <p>A vista promovida amosa o falante en grande e aos demais nunha fila abaixo. Se as persoas non caben na pantalla, aparecerán botóns á esquerda e á dereita que lle permitirán desprazarse.</p>
@@ -476,12 +504,22 @@ If video from your camera is also available, other participants will see it in a
 <li><p><strong>Identifier</strong>: Unique identifier for the participant.</p></li>
 </ul>
 </section>
+<section id="appearance">
+<h2>Appearance<a class="headerlink" href="#appearance" title="Ligazón a este título"></a></h2>
 <section id="compact-view-of-conversations-list">
-<h2>Compact view of conversations list<a class="headerlink" href="#compact-view-of-conversations-list" title="Ligazón a este título"></a></h2>
-<p>Compact view allows to hide last message preview in the conversation list, providing a more focused interface.
-You can enable it from the <code class="docutils literal notranslate"><span class="pre">Talk</span> <span class="pre">settings</span></code> dialog  in <code class="docutils literal notranslate"><span class="pre">Appearance</span></code> section.</p>
+<h3>Compact view of conversations list<a class="headerlink" href="#compact-view-of-conversations-list" title="Ligazón a este título"></a></h3>
+<p>Compact view allows to hide last message preview in the conversation list, providing a more focused interface.</p>
 <a class="reference internal image-reference" href="../../_images/talk-compact-view.png"><img alt="../../_images/talk-compact-view.png" src="../../_images/talk-compact-view.png" style="width: 200px;" />
 </a>
+</section>
+<section id="chat-messages">
+<h3>Chat messages<a class="headerlink" href="#chat-messages" title="Ligazón a este título"></a></h3>
+<p>Chat appearance settings allow you to customize the look of your conversation chats.
+You can choose between classic list or message bubbles, with your own messages on the side.</p>
+<p>You can change both settings from the <code class="docutils literal notranslate"><span class="pre">Talk</span> <span class="pre">settings</span></code> dialog  in <code class="docutils literal notranslate"><span class="pre">Appearance</span></code> section.</p>
+<a class="reference internal image-reference" href="../../_images/talk-appearance-settings.png"><img alt="../../_images/talk-appearance-settings.png" src="../../_images/talk-appearance-settings.png" style="width: 600px;" />
+</a>
+</section>
 </section>
 <section id="messages-search-in-a-conversation">
 <h2>Messages search in a conversation<a class="headerlink" href="#messages-search-in-a-conversation" title="Ligazón a este título"></a></h2>
@@ -492,20 +530,41 @@ You can enable it from the <code class="docutils literal notranslate"><span clas
 <a class="reference internal image-reference" href="../../_images/chat-search-messages-tab.png"><img alt="../../_images/chat-search-messages-tab.png" src="../../_images/chat-search-messages-tab.png" style="width: 500px;" />
 </a>
 </section>
+<section id="threaded-messages">
+<h2>Threaded messages<a class="headerlink" href="#threaded-messages" title="Ligazón a este título"></a></h2>
+<p>You can create threads in conversations to keep discussions organized. The thread creation option is available in the new message additional actions.</p>
+<a class="reference internal image-reference" href="../../_images/thread-create-action.png"><img alt="../../_images/thread-create-action.png" src="../../_images/thread-create-action.png" style="width: 400px;" />
+</a>
+<p>Then, you can add a title and description for the thread and start the discussion.</p>
+<a class="reference internal image-reference" href="../../_images/thread-example.png"><img alt="../../_images/thread-example.png" src="../../_images/thread-example.png" style="width: 600px;" />
+</a>
+<p>You can view all replies in a thread either from the replies button on the message or from <code class="docutils literal notranslate"><span class="pre">Shared</span> <span class="pre">items</span></code> tab in the content sidebar.</p>
+<a class="reference internal image-reference" href="../../_images/threads-list-shared-items.png"><img alt="../../_images/threads-list-shared-items.png" src="../../_images/threads-list-shared-items.png" style="width: 500px;" />
+</a>
+<p>You can subscribe to a thread to receive notifications about new replies. It is possible to subscribe from the thread itself or from the sidebar.</p>
+<a class="reference internal image-reference" href="../../_images/thread-notifications.png"><img alt="../../_images/thread-notifications.png" src="../../_images/thread-notifications.png" style="width: 500px;" />
+</a>
+<p>Subscribed threads are easily accessible from the navigation bar in <code class="docutils literal notranslate"><span class="pre">Threads</span></code> navigation.</p>
+<a class="reference internal image-reference" href="../../_images/threads-followed.png"><img alt="../../_images/threads-followed.png" src="../../_images/threads-followed.png" style="width: 500px;" />
+</a>
+<p>Editing thread title is possible from the thread itself or from the sidebars.</p>
+<a class="reference internal image-reference" href="../../_images/thread-edit-title.png"><img alt="../../_images/thread-edit-title.png" src="../../_images/thread-edit-title.png" style="width: 500px;" />
+</a>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="Talk" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="advanced_features.html" class="btn btn-neutral float-right" title="Funcións avanzadas de Talk" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="Parladoiro" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="advanced_features.html" class="btn btn-neutral float-right" title="Funcións avanzadas de Parladoiro" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2026 Nextcloud GmbH.</p>
+    <p>&#169; Copyright 2016-2026 Nextcloud GmbH and Nextcloud contributors.</p>
   </div>
 
    
@@ -516,544 +575,420 @@ You can enable it from the <code class="docutils literal notranslate"><span clas
     </section>
   </div>
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- Here go the languages -->
   
+  <!-- Here go the languages -->
+
+  
+  
+
+  
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+
   <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
-      🌐
-      
-      
-      gl
-      
+      🌐 Galician
       <span class="fa fa-caret-down"></span>
-
-       ☁️ 31
+       ☁️ latest
       <span class="fa fa-caret-down"></span>
     </span>
     <div class="rst-other-versions">
       <dl>
-        <dt>🌐 Languages</dt>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/af/"
-                 
-              >
-                
-                Afrikaans
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ar/"
-                 
-              >
-                
-                Arabic
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/br/"
-                 
-              >
-                
-                Breton
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ca/"
-                 
-              >
-                
-                Catalan
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/cs/"
-                 
-              >
-                
-                Czech
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/da/"
-                 
-              >
-                
-                Danish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/de/"
-                 
-              >
-                
-                German
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/el/"
-                 
-              >
-                
-                Greek
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/el_GR/"
-                 
-              >
-                
-                el_GR
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/en/"
-                 
-              >
-                
-                English
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/eo/"
-                 
-              >
-                
-                Esperanto
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/es/"
-                 
-              >
-                
-                Spanish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/eu/"
-                 
-              >
-                
-                eu
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/fi_FI/"
-                 
-              >
-                
-                Finnish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/fr/"
-                 
-              >
-                
-                French
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ga/"
-                 
-              >
-                
-                Irish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/gl/"
-                 
-                 style="color: var(--dark-link-color);"
-                 
-              >
-                
-                Glacian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/hr/"
-                 
-              >
-                
-                Croatian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/hu/"
-                 
-              >
-                
-                hu
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/hu_HU/"
-                 
-              >
-                
-                Hungarian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/id/"
-                 
-              >
-                
-                Indonesian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/it/"
-                 
-              >
-                
-                Italian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ja_JP/"
-                 
-              >
-                
-                Japanese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ko/"
-                 
-              >
-                
-                Korean
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/mn/"
-                 
-              >
-                
-                Mongolian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/nb_NO/"
-                 
-              >
-                
-                Norwegian (NB)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/nl/"
-                 
-              >
-                
-                Dutch
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/nn/"
-                 
-              >
-                
-                Norwegian (NN)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/pl/"
-                 
-              >
-                
-                Polish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/pt_BR/"
-                 
-              >
-                
-                Portuguese (BR)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/pt_PT/"
-                 
-              >
-                
-                Portuguese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ro/"
-                 
-              >
-                
-                Romanian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ru/"
-                 
-              >
-                
-                Russian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/si/"
-                 
-              >
-                
-                Sinhala
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sk_SK/"
-                 
-              >
-                
-                Slovakian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sq/"
-                 
-              >
-                
-                Albanian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sr/"
-                 
-              >
-                
-                Slovenian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sv/"
-                 
-              >
-                
-                Swedish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ta/"
-                 
-              >
-                
-                Tamil
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/th/"
-                 
-              >
-                
-                th
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/tr/"
-                 
-              >
-                
-                Turkish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/uk/"
-                 
-              >
-                
-                Ukrainian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/uz/"
-                 
-              >
-                
-                Uzbek
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/vi/"
-                 
-              >
-                
-                Vietnamese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/zh_CN/"
-                 
-              >
-                
-                Chinese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/zh_HK/"
-                 
-              >
-                
-                Chinese (HK)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/zh_TW/"
-                 
-              >
-                
-                Chinese (TW)
-                
-              </a>
-            </dd>
-          
+        <dt>🌐 Idiomas</dt>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ar/"
+               
+            >
+              Arabic
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/br/"
+               
+            >
+              Breton
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ca/"
+               
+            >
+              Catalan
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/zh_CN/"
+               
+            >
+              Chinese
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/zh_HK/"
+               
+            >
+              Chinese (HK)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/zh_TW/"
+               
+            >
+              Chinese (TW)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/cs/"
+               
+            >
+              Czech
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/da/"
+               
+            >
+              Danish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/nl/"
+               
+            >
+              Dutch
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/en/"
+               
+            >
+              English
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/fi_FI/"
+               
+            >
+              Finnish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/fr/"
+               
+            >
+              French
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/gl/"
+               
+               style="color: var(--dark-link-color);"
+               
+            >
+              Galician
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/de/"
+               
+            >
+              German
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/el/"
+               
+            >
+              Greek
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/hu_HU/"
+               
+            >
+              Hungarian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/id/"
+               
+            >
+              Indonesian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ga/"
+               
+            >
+              Irish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/it/"
+               
+            >
+              Italian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ja_JP/"
+               
+            >
+              Japanese
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ko/"
+               
+            >
+              Korean
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/mn/"
+               
+            >
+              Mongolian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/nb_NO/"
+               
+            >
+              Norwegian (NB)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/nn/"
+               
+            >
+              Norwegian (NN)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/pl/"
+               
+            >
+              Polish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/pt_PT/"
+               
+            >
+              Portuguese
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/pt_BR/"
+               
+            >
+              Portuguese (BR)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ro/"
+               
+            >
+              Romanian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ru/"
+               
+            >
+              Russian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/si/"
+               
+            >
+              Sinhala
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/sk_SK/"
+               
+            >
+              Slovakian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/sr/"
+               
+            >
+              Slovenian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/es/"
+               
+            >
+              Spanish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/sv/"
+               
+            >
+              Swedish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ta/"
+               
+            >
+              Tamil
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/tr/"
+               
+            >
+              Turkish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/uk_UA/"
+               
+            >
+              Ukrainian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/uz/"
+               
+            >
+              Uzbek
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/vi/"
+               
+            >
+              Vietnamese
+            </a>
+          </dd>
+        
       </dl>
     </div>
     <div class="rst-other-versions">
@@ -1062,6 +997,8 @@ You can enable it from the <code class="docutils literal notranslate"><span clas
         
           <dd style="width: 32%">
             <a href="https://docs.nextcloud.com/server/latest/user_manual"
+               
+               style="color: var(--dark-link-color);"
                
             >
               35 (latest)
@@ -1092,30 +1029,6 @@ You can enable it from the <code class="docutils literal notranslate"><span clas
             </a>
           </dd>
         
-          <dd style="width: 32%">
-            <a href="https://docs.nextcloud.com/server/31/user_manual"
-               
-               style="color: var(--dark-link-color);"
-               
-            >
-              31 (unsupported)
-            </a>
-          </dd>
-        
-      </dl>
-      <dl>
-        <dt>Descargas</dt>
-        
-      </dl>
-      <dl>
-        
-        <dt>En «Lea os documentos»</dt>
-          <dd>
-            <a href="///projects//?fromdocs=">Inicio do proxecto</a>
-          </dd>
-          <dd>
-            <a href="///builds//?fromdocs=">Compilacións</a>
-          </dd>
       </dl>
     </div>
   </div>

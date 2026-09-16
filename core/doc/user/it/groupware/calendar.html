@@ -7,15 +7,16 @@
   <meta name="readthedocs-addons-api-version" content="1"><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Usare l’applicazione Calendario &mdash; Documentazione Nextcloud latest User Manual latest </title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+  <title>Usare l’applicazione Calendario &mdash; Nextcloud 35 User Manual</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=bad88653" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=8ff6e0db" />
       <link rel="stylesheet" type="text/css" href="../../_static/dark_mode_css/general.css?v=c0a7eb24" />
       <link rel="stylesheet" type="text/css" href="../../_static/dark_mode_css/dark.css?v=70edf1c7" />
 
   
+    <link rel="canonical" href="https://docs.nextcloud.com/server/stable/user_manual/groupware/calendar.html" />
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../../_static/documentation_options.js?v=c2638327"></script>
@@ -31,7 +32,7 @@
     <link rel="index" title="Indice" href="../genindex.html" />
     <link rel="search" title="Cerca" href="../search.html" />
     <link rel="next" title="Utilizzo dell’app Mail" href="mail.html" />
-    <link rel="prev" title="Usare l’app Contatti" href="contacts.html" />
+    <link rel="prev" title="Using the Contacts app" href="contacts.html" />
    
   <meta name="robots" content="noindex, follow" />
 
@@ -62,38 +63,40 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Menu di navigazione">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Introduzione al manuale d’uso di Nextcloud latest</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../whats_new.html">Cosa c’è di nuovo per gli utenti di Nextcloud latest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Introduzione al manuale d’uso di Nextcloud 35</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../webinterface.html">L’interfaccia web di Nextcloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../files/index.html">File e sincronizzazione</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Groupware</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="contacts.html">Usare l’app Contatti</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contacts.html">Using the Contacts app</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Usare l’applicazione Calendario</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#managing-your-calendars">Gestire i propri calendari</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#create-a-new-calendar">Creare un nuovo calendario</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#import-a-calendar">Importare un calendario</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#import-an-event-add-ics-event">Importa un evento/Aggiungi un evento .ics</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#edit-export-or-delete-a-calendar">Modifica, esporta o elimina un calendario</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#calendar-transparency">Calendar Transparency</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#calendar-transparency">Trasparenza del calendario</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#sharing-calendars">Condividere i calendari</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#calendar-delegation">Calendar delegation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#federated-calendar-sharing">Federated calendar sharing</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#publishing-a-calendar">Pubblicare un calendario</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#calendar-widget">Calendar Widget</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#calendar-widget">Widget del Calendario</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#subscribe-to-a-calendar">Sottoscrivi un calendario</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#subscribe-to-a-holiday-calendar">Iscriviti al calendario delle festività</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#managing-events">Gestire eventi</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#create-a-new-event">Creare un nuovo evento</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#add-talk-conversation">Add Talk conversation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#add-talk-conversation">Aggiungi conversazione Talk</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#edit-duplicate-or-delete-an-event">Modifica, duplica o elimina un evento</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#invite-attendees-to-an-event">Invita partecipanti a un evento</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#checking-attendees-busy-times">Checking attendees” busy times</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#checking-attendees-busy-times">Controllo degli orari di punta dei partecipanti</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#assign-rooms-and-resources-to-an-event">Assegna stanze e risorse a un evento</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#room-availability">Room availability</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#room-availability">Disponibilità della stanza</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#add-attachments-to-events">Aggiungere allegati agli eventi</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#set-up-reminders">Impostare i promemoria</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#add-recurring-options">Aggiungi opzioni ricorrenti</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#trash-bin">Cestino</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#automated-user-status">Automated User Status</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#automated-user-status">Stato utente automatizzato</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#responding-to-invitations">Rispondere agli inviti</a></li>
@@ -106,10 +109,19 @@
 <li class="toctree-l4"><a class="reference internal" href="#create-talk-room-for-booked-appointments">Crea una sala di discussione per gli appuntamenti prenotati</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#proposals">Proposals</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#managing-proposals">Managing proposals</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#creating-a-proposal">Creating a proposal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#editing-a-proposal">Editing a proposal</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#viewing-a-proposal-progress">Viewing a proposal progress</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#notifications-for-a-proposed-meeting">Notifications for a proposed meeting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#responding-to-a-proposed-meeting">Responding to a proposed meeting</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="mail.html">Utilizzo dell’app Mail</a></li>
-<li class="toctree-l2"><a class="reference internal" href="absence.html">Setting out-of-office messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="absence.html">Impostazione dei messaggi di assenza dall’ufficio</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sync_android.html">Sincronizzazione con Android</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sync_ios.html">Sincronizzazione con iOS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sync_osx.html">Sincronizzazione con macOS</a></li>
@@ -117,6 +129,7 @@
 <li class="toctree-l2"><a class="reference internal" href="sync_kde.html">Sincronizzazione con KDE Kontact</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sync_gnome.html">Sincronizzazione con il desktop GNOME</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sync_windows10.html">Sincronizzazione con Windows 10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_migration.html">Migrate data between instances</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../talk/index.html">Talk</a></li>
@@ -134,7 +147,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Menu navigazione dispositivi mobili" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../contents.html">Nextcloud latest User Manual</a>
+          <a href="../contents.html">Nextcloud 35 User Manual</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -170,7 +183,7 @@
 <h3>Creare un nuovo calendario<a class="headerlink" href="#create-a-new-calendar" title="Link to this heading"></a></h3>
 <p>Se pianifichi di impostare un nuovo calendario senza trasferire nessuna vecchia informazione dal tuo calendario precedente, la creazione di un nuovo calendario è il modo in cui dovresti procedere.</p>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/calendar_create_1.png"><img alt="../../_images/calendar_create_1.png" src="../../_images/calendar_create_1.png" style="width: 348.0px; height: 403.20000000000005px;" />
+<a class="reference internal image-reference" href="../../_images/calendar_create_1.png"><img alt="../../_images/calendar_create_1.png" src="../../_images/calendar_create_1.png" style="width: 604.0px; height: 480.8px;" />
 </a>
 </figure>
 <ol class="arabic simple">
@@ -179,7 +192,7 @@
 <li><p>Dopo aver fatto clic sulla spunta, il tuo nuovo calendario viene creato e può essere sincronizzato tra i tuoi dispositivi, riempito con nuovi eventi e condiviso con i tuoi amici e colleghi.</p></li>
 </ol>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/calendar_create_2.png"><img alt="../../_images/calendar_create_2.png" src="../../_images/calendar_create_2.png" style="width: 362.40000000000003px; height: 393.6px;" />
+<a class="reference internal image-reference" href="../../_images/calendar_create_2.png"><img alt="../../_images/calendar_create_2.png" src="../../_images/calendar_create_2.png" style="width: 603.2px; height: 478.40000000000003px;" />
 </a>
 </figure>
 </section>
@@ -187,14 +200,30 @@
 <h3>Importare un calendario<a class="headerlink" href="#import-a-calendar" title="Link to this heading"></a></h3>
 <p>Se vuoi trasferire il tuo calendario e i rispettivi eventi nella tua istanza Nextcloud, l’importazione è il modo migliore per farlo.</p>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/calendar_settings_sidebar.png"><img alt="../../_images/calendar_settings_sidebar.png" src="../../_images/calendar_settings_sidebar.png" style="width: 246.4px; height: 284.0px;" />
+<a class="reference internal image-reference" href="../../_images/calendar_importing.png"><img alt="../../_images/calendar_importing.png" src="../../_images/calendar_importing.png" style="width: 697.5px; height: 225.0px;" />
 </a>
 </figure>
 <ol class="arabic simple">
-<li><p>Fai clic sull’icona delle impostazioni etichettata «Impostazioni e importazione» in basso a sinistra.</p></li>
-<li><p>Dopo aver fatto clic su <code class="docutils literal notranslate"><span class="pre">+</span> <span class="pre">Importa</span> <span class="pre">Calendario</span></code> puoi selezionare uno o più file calendario dal tuo dispositivo locale da caricare.</p></li>
-<li><p>Il caricamento può richiedere del tempo e dipende dalla dimensione del calendario che importi.</p></li>
-<li><p>A blue progress bar will appear below «Calendar Settings».</p></li>
+<li><p>Fare clic sull’icona delle impostazioni denominata <code class="docutils literal notranslate"><span class="pre">Impostazioni</span> <span class="pre">calendario</span></code> in basso a sinistra.</p></li>
+<li><p>After clicking on <code class="docutils literal notranslate"><span class="pre">Import</span> <span class="pre">Calendar</span></code>, found in the <code class="docutils literal notranslate"><span class="pre">General</span></code> section, you can select one or more calendar files
+from your local device to upload.</p></li>
+<li><p>Seleziona un <code class="docutils literal notranslate"><span class="pre">Calendario</span> <span class="pre">in</span> <span class="pre">cui</span> <span class="pre">importare</span></code>.</p></li>
+<li><p>Il caricamento può richiedere del tempo e dipende dalle dimensioni del calendario importato. Una barra di avanzamento blu apparirà sotto «Impostazioni calendario».</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Nota</p>
+<p>L’applicazione Calendario di Nextcloud supporta solo file <code class="docutils literal notranslate"><span class="pre">.ics</span></code> compatibili con iCalendar, definiti nella RFC 5545.</p>
+</div>
+</section>
+<section id="import-an-event-add-ics-event">
+<h3>Importa un evento/Aggiungi un evento .ics<a class="headerlink" href="#import-an-event-add-ics-event" title="Link to this heading"></a></h3>
+<p>Individual events are often distributed as <code class="docutils literal notranslate"><span class="pre">.ics</span></code> files (sometimes via a button labelled «iCal», «Apple Calendar» or «Outlook»). You can import them into Nextcloud Calendar using the same import flow as a full calendar.</p>
+<ol class="arabic simple">
+<li><p>Fare clic sull’icona delle impostazioni denominata <code class="docutils literal notranslate"><span class="pre">Impostazioni</span> <span class="pre">calendario</span></code> in basso a sinistra.</p></li>
+<li><p>After clicking on <code class="docutils literal notranslate"><span class="pre">Import</span> <span class="pre">calendar</span></code> you can select one or more <code class="docutils literal notranslate"><span class="pre">.ics</span></code> files
+from your local device to upload. Single-event files are added to the calendar you select.</p></li>
+<li><p>Seleziona un <code class="docutils literal notranslate"><span class="pre">Calendario</span> <span class="pre">in</span> <span class="pre">cui</span> <span class="pre">importare</span></code>.</p></li>
+<li><p>Il caricamento può richiedere del tempo e dipende dalle dimensioni del calendario/evento importato. Una barra di avanzamento blu apparirà sotto «Impostazioni calendario».</p></li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
@@ -206,48 +235,67 @@
 <p>A volte potresti voler cambiare il colore o l’intero nome di un calendario che hai precedentemente importato o creato. Potresti anche volerlo esportare nel tuo disco fisso locale o eliminarlo per sempre.</p>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
-<p>Tieni presente che eliminare un calendario è un’azione irreversibile. Dopo l’eliminazione, non c’è modo di ripristinare il calendario a meno che tu non abbia un backup locale.</p>
+<p>Please keep in mind that deleting a calendar is an irreversible action.
+After deletion, there is no way of restoring the calendar unless you
+have a local backup.</p>
 </div>
 <figure class="align-default">
 <img alt="../../_images/calendar_dropdown.png" src="../../_images/calendar_dropdown.png" />
 </figure>
-<p>Click on the «pen» icon of the respective calendar. You will see a new popup that will allow you to change
-the calendar name and color, and buttons to delete or export the calendar.</p>
+<p>Clicca sull’icona «penna» del calendario corrispondente. Apparirà un nuovo popup che ti permetterà di cambiare il nome e il colore del calendario, e i pulsanti per eliminarlo o esportarlo.</p>
 <figure class="align-default">
 <img alt="../../_images/calendar_settings.png" src="../../_images/calendar_settings.png" />
 </figure>
 </section>
 <section id="calendar-transparency">
-<h3>Calendar Transparency<a class="headerlink" href="#calendar-transparency" title="Link to this heading"></a></h3>
-<p>You can toggle the checkbox «Never show me as busy (set calendar to transparent)» to influence if this calendars” events
-are taken into account in Free/Busy calculations. If checked, no events in this calendar will be taken into account, your schedule will
-always be free, regardless of an events” settings.</p>
+<h3>Trasparenza del calendario<a class="headerlink" href="#calendar-transparency" title="Link to this heading"></a></h3>
+<p>Puoi attivare o disattivare la casella di controllo «Non mostrarmi mai come occupato (imposta il calendario su trasparente)» per decidere se gli eventi di questo calendario verranno presi in considerazione nei calcoli della disponibilità. Se selezionata, nessun evento in questo calendario verrà preso in considerazione e la tua agenda sarà sempre libera, indipendentemente dalle impostazioni degli eventi.</p>
 <figure class="align-default">
 <img alt="../../_images/calendar_transparency.png" src="../../_images/calendar_transparency.png" />
 </figure>
 </section>
 <section id="sharing-calendars">
 <h3>Condividere i calendari<a class="headerlink" href="#sharing-calendars" title="Link to this heading"></a></h3>
-<p>You may share your calendar with other users or groups.</p>
+<p>You may share your calendar with local users, groups or with remote users on federated servers.</p>
 <figure class="align-default">
 <img alt="../../_images/calendar_sharing_1.png" src="../../_images/calendar_sharing_1.png" />
 </figure>
-<p>Calendars may be shared with write access or read-only. When sharing a calendar with write access, users with whom the calendar is shared will be able to create new events into the calendar as well as edit and delete existing ones.</p>
+<p>I calendari possono essere condivisi con accesso in scrittura o in sola lettura. Quando si condivide un calendario con accesso in scrittura, gli utenti con cui è condiviso potranno creare nuovi eventi nel calendario, nonché modificare ed eliminare quelli esistenti.</p>
 <figure class="align-default">
 <img alt="../../_images/calendar_sharing_2.png" src="../../_images/calendar_sharing_2.png" />
 </figure>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
-<p>Calendar shares currently cannot be accepted or rejected. If you want to stop having a calendar that someone shared with you, you can click on the 3-dot menu next to the calendar in the calendar list and click on «Unshare from me». To restore a share, the calendar can be reshared again, either for the whole group, resetting all unshares, or for a single user.</p>
+<p>Al momento, le condivisioni del calendario non possono essere accettate o rifiutate. Se desideri interrompere la condivisione di un calendario con te, puoi cliccare sul menu a tre puntini accanto al calendario nell’elenco e cliccare su «Annulla condivisione con me». Per ripristinare una condivisione, il calendario può essere nuovamente condiviso, per l’intero gruppo (reimpostando tutte le condivisioni annullate) o per un singolo utente.</p>
 </div>
+</section>
+<section id="calendar-delegation">
+<h3>Calendar delegation<a class="headerlink" href="#calendar-delegation" title="Link to this heading"></a></h3>
+<p>In the app settings, you can delegate your calendars to other users so they can manage them for you.
+You can grant read access if they should only view the calendar, or write access if they should create,
+edit and delete events.</p>
+<p>Calendar delegation also works with other clients that support calendar delegation.</p>
+</section>
+<section id="federated-calendar-sharing">
+<h3>Federated calendar sharing<a class="headerlink" href="#federated-calendar-sharing" title="Link to this heading"></a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 32.0.0.</span></p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Cambiato nella versione 33.0.0: </span>Federated calendar shares support read/write access.</p>
+</div>
+<p>Sharing a calendar with a user on another Nextcloud instance works just like sharing with a local user.
+The difference is that you need to use the federated user identifier as the recipient, which has the format
+<code class="docutils literal notranslate"><span class="pre">&lt;username&gt;&#64;&lt;instance&gt;</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">alice&#64;cloud.example.com</span></code>).</p>
+<p>Starting with Nextcloud 33, federated shares support full read/write access, allowing remote users to
+create, edit, and delete events in the shared calendar. In Nextcloud 32, federated shares were read-only.</p>
 </section>
 <section id="publishing-a-calendar">
 <h3>Pubblicare un calendario<a class="headerlink" href="#publishing-a-calendar" title="Link to this heading"></a></h3>
 <p>I calendari possono essere pubblicati tramite un collegamento pubblico per renderli visibili (sola-lettura) agli utenti esterni. Puoi creare un collegamento pubblico aprendo il menu di condivisione per un calendario e facendo clic su « + » affianco a « Collegamento di condivisione ». Una volta creato puoi copiare il collegamento pubblico nei tuoi appunti o inviarlo tramite email.</p>
 <p>C’è anche un « codice di incorporamento  » che fornisce un iframe HTML per incorporare il tuo calendario nelle pagine pubbliche.</p>
 <p>È possibile condividere più calendari insieme aggiungendo i loro token univoci alla fine di un collegamento di incorporamento. I singoli token possono essere trovati alla fine del collegamento pubblico di ogni calendario. L’indirizzo completo sarà simile a <code class="docutils literal notranslate"><span class="pre">https://cloud.example.com/index.php/apps/calendar/embed/&lt;token1&gt;-&lt;token2&gt;-&lt;token3&gt;</span></code></p>
-<p>To change the default view or date of an embedded calendar, you need to provide a URL that looks like <code class="docutils literal notranslate"><span class="pre">https://cloud.example.com/index.php/apps/calendar/embed/&lt;token&gt;/&lt;view&gt;/&lt;date&gt;</span></code>.
-In this url you need to replace the following variables:</p>
+<p>Per modificare la visualizzazione predefinita o la data di un calendario incorporato, è necessario fornire un URL simile a``https://cloud.example.com/index.php/apps/calendar/embed/&lt;token&gt;/&lt;view&gt;/&lt;date&gt;``. In questo URL è necessario sostituire le seguenti variabili:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">&lt;token&gt;</span></code> con il token del calendario,</p></li>
 <li><p><cite>&lt;view&gt;`</cite> con uno di <code class="docutils literal notranslate"><span class="pre">griglia</span> <span class="pre">giorno</span> <span class="pre">mese</span></code>, <code class="docutils literal notranslate"><span class="pre">griglia</span> <span class="pre">temporale</span> <span class="pre">settimana</span></code>, <code class="docutils literal notranslate"><span class="pre">griglia</span> <span class="pre">temporale</span> <span class="pre">giorno</span></code>, <code class="docutils literal notranslate"><span class="pre">elenco</span> <span class="pre">mese</span></code>, <code class="docutils literal notranslate"><span class="pre">elenco</span> <span class="pre">settimana</span></code>, <code class="docutils literal notranslate"><span class="pre">elenco</span> <span class="pre">giorno</span></code>. La vista predefinita è <code class="docutils literal notranslate"><span class="pre">griglia</span> <span class="pre">giorno</span> <span class="pre">mese</span></code> e l’elenco normalmente utilizzato è <code class="docutils literal notranslate"><span class="pre">elenco</span> <span class="pre">mese</span></code>,</p></li>
@@ -256,10 +304,8 @@ In this url you need to replace the following variables:</p>
 <p>Nella pagina pubblica, gli utenti possono ottenere il link di iscrizione al calendario ed esportare direttamente l’intero calendario.</p>
 </section>
 <section id="calendar-widget">
-<h3>Calendar Widget<a class="headerlink" href="#calendar-widget" title="Link to this heading"></a></h3>
-<p>You can embed your calendars into supported apps like <code class="docutils literal notranslate"><span class="pre">Talk</span></code>, <code class="docutils literal notranslate"><span class="pre">Notes</span></code>, etc…
-by either sharing the public link to make the embed viewable (read-only) to all users
-or by using the internal link to make it private.</p>
+<h3>Widget del Calendario<a class="headerlink" href="#calendar-widget" title="Link to this heading"></a></h3>
+<p>Puoi incorporare i tuoi calendari in app supportate come <code class="docutils literal notranslate"><span class="pre">Talk</span></code>, <code class="docutils literal notranslate"><span class="pre">Notes</span></code>, ecc. condividendo il collegamento pubblico per rendere l’incorporamento visibile (in sola lettura) a tutti gli utenti oppure utilizzando il collegamento interno per renderlo privato.</p>
 </section>
 <section id="subscribe-to-a-calendar">
 <h3>Sottoscrivi un calendario<a class="headerlink" href="#subscribe-to-a-calendar" title="Link to this heading"></a></h3>
@@ -278,7 +324,7 @@ or by using the internal link to make it private.</p>
 <section id="subscribe-to-a-holiday-calendar">
 <h3>Iscriviti al calendario delle festività<a class="headerlink" href="#subscribe-to-a-holiday-calendar" title="Link to this heading"></a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 4.4.</span></p>
+<p><span class="versionmodified added">Added in version 4.4: </span>Nextcloud 25 or newer</p>
 </div>
 <p>È possibile iscriversi al calendario delle festività di sola lettura fornito da <a class="reference external" href="https://www.thunderbird.net/calendar/holidays/">Thunderbird</a>.</p>
 <ol class="arabic simple">
@@ -293,7 +339,7 @@ or by using the internal link to make it private.</p>
 <section id="create-a-new-event">
 <h3>Creare un nuovo evento<a class="headerlink" href="#create-a-new-event" title="Link to this heading"></a></h3>
 <p>Gli eventi possono essere creati facendo clic nell’area in cui l’evento è previsto. Nella vista giornaliera e settimanale del calendario è sufficiente fare clic, trascinare e lasciare il tuo cursore nell’area in cui l’evento si terrà.</p>
-<p>Clicking on the globe button brings up the timezone selector. You are able to choose different timezones for the start and end of your event. This is useful when travelling.</p>
+<p>Cliccando sul pulsante a forma di globo si apre il selettore del fuso orario. È possibile scegliere fusi orari diversi per l’inizio e la fine dell’evento. Questa funzione è utile quando si viaggia.</p>
 <figure class="align-default">
 <img alt="../../_images/calendar_new-event_week.png" src="../../_images/calendar_new-event_week.png" />
 </figure>
@@ -301,34 +347,27 @@ or by using the internal link to make it private.</p>
 <figure class="align-default">
 <img alt="../../_images/calendar_new-event_month.png" src="../../_images/calendar_new-event_month.png" />
 </figure>
-<p>After that, you can type in the event’s name (e.g. <strong>Meeting with Linus</strong>), choose
-the calendar in which you want to save the event to (e.g. <strong>Personal</strong>, <strong>Community Events</strong>),
-check and concretize the time span or set the event as an all-day event. Optionally
-you can specify a location and a description.</p>
-<p>If you want to edit advanced details such as the <strong>Attendees</strong> or <strong>Reminders</strong>, or if you
-want to set the event as a repeating event, click on the <code class="docutils literal notranslate"><span class="pre">More</span></code> button to open the advanced editor.</p>
+<p>Dopodiché, puoi digitare il nome dell’evento (ad esempio <strong>Incontro con Linus</strong>), scegliere il calendario in cui salvare l’evento (ad esempio <strong>Personale</strong>, <strong>Eventi della comunità</strong>), selezionare e specificare l’intervallo di tempo o impostare l’evento come evento di un’intera giornata. Facoltativamente, puoi specificare una posizione e una descrizione.</p>
+<p>Se vuoi modificare dettagli avanzati come <strong>Partecipanti</strong> o <strong>Promemoria</strong>, oppure se vuoi impostare l’evento come evento ricorrente, clicca sul pulsante <code class="docutils literal notranslate"><span class="pre">Altro</span></code> per aprire l’editor avanzato.</p>
 </section>
 <section id="add-talk-conversation">
-<h3>Add Talk conversation<a class="headerlink" href="#add-talk-conversation" title="Link to this heading"></a></h3>
-<p>You can include an existing Talk conversation in your event by clicking «Add Talk conversation». To view the list of existing Talk conversations, ensure the Talk app is enabled. If you’d like to create a new Talk conversation, you can do so directly from the same modal.</p>
+<h3>Aggiungi conversazione Talk<a class="headerlink" href="#add-talk-conversation" title="Link to this heading"></a></h3>
+<p>Puoi includere una conversazione Talk esistente nel tuo evento cliccando su «Aggiungi conversazione Talk». Per visualizzare l’elenco delle conversazioni Talk esistenti, assicurati che l’app Talk sia abilitata. Se desideri creare una nuova conversazione Talk, puoi farlo direttamente dalla stessa finestra modale.</p>
 <figure class="align-default">
 <img alt="../../_images/add-talk-room.png" src="../../_images/add-talk-room.png" />
 </figure>
 <div class="admonition note">
 <p class="admonition-title">Nota</p>
-<p>If you always want to open the advanced editor instead of the
-simple event editor popup, you uncheck the option
-<code class="docutils literal notranslate"><span class="pre">Enable</span> <span class="pre">simplified</span> <span class="pre">editor</span></code> in the <code class="docutils literal notranslate"><span class="pre">Settings</span></code> section of the app.</p>
+<p>Se vuoi sempre aprire l’editor avanzato anziché il semplice popup dell’editor degli eventi, deseleziona l’opzione <code class="docutils literal notranslate"><span class="pre">Abilita</span> <span class="pre">editor</span> <span class="pre">semplificato</span></code> nella sezione <code class="docutils literal notranslate"><span class="pre">Impostazioni</span></code> dell’app.</p>
 </div>
 <p>Il clic sul pulsante blu <code class="docutils literal notranslate"><span class="pre">Crea</span></code> creerà alla fine l’evento.</p>
 </section>
 <section id="edit-duplicate-or-delete-an-event">
 <h3>Modifica, duplica o elimina un evento<a class="headerlink" href="#edit-duplicate-or-delete-an-event" title="Link to this heading"></a></h3>
 <p>Se vuoi modificare, duplicare o eliminare un evento specifico, devi prima cliccare sull’evento.</p>
-<p>After that you will be able to re-set all event details and open the
-advanced editor by clicking on <code class="docutils literal notranslate"><span class="pre">More</span></code>.</p>
-<p>Clicking on the <code class="docutils literal notranslate"><span class="pre">Update</span></code> button will update the event. To cancel your changes, click on the close icon on top right of the popup or advanced editor.</p>
-<p>If you open the advanced view and click the three dot menu next to the event name, you have an option to export the event as an <code class="docutils literal notranslate"><span class="pre">.ics</span></code> file or remove the event from your calendar.</p>
+<p>Dopodiché potrai reimpostare tutti i dettagli dell’evento e aprire l’editor avanzato cliccando su <code class="docutils literal notranslate"><span class="pre">Altro</span></code>.</p>
+<p>Cliccando sul pulsante <code class="docutils literal notranslate"><span class="pre">Aggiorna</span></code> l’evento verrà aggiornato. Per annullare le modifiche, clicca sull’icona di chiusura in alto a destra del popup o dell’editor avanzato.</p>
+<p>Se apri la visualizzazione avanzata e fai clic sul menu con tre punti accanto al nome dell’evento, hai la possibilità di esportare l’evento come file <code class="docutils literal notranslate"><span class="pre">.ics</span></code> o di rimuoverlo dal tuo calendario.</p>
 <figure class="align-default">
 <img alt="../../_images/calendar_event_menu.png" src="../../_images/calendar_event_menu.png" />
 </figure>
@@ -349,7 +388,7 @@ advanced editor by clicking on <code class="docutils literal notranslate"><span 
 </a>
 </figure>
 <div class="versionchanged">
-<p><span class="versionmodified changed">Cambiato nella versione 25: </span>I link di risposta alle e-mail dei partecipanti non offrono più input per aggiungere un commento o invitare altri ospiti all’evento.</p>
+<p><span class="versionmodified changed">Cambiato nella versione 25.0.0: </span>I link di risposta alle e-mail dei partecipanti non offrono più input per aggiungere un commento o invitare altri ospiti all’evento.</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Suggerimento</p>
@@ -359,16 +398,24 @@ advanced editor by clicking on <code class="docutils literal notranslate"><span 
 <p class="admonition-title">Attenzione</p>
 <p>L’amministrazione del server deve configurare il server di posta elettronica nella scheda <code class="docutils literal notranslate"><span class="pre">Impostazioni</span> <span class="pre">di</span> <span class="pre">base</span></code>, poiché questa posta verrà utilizzata per inviare gli inviti.</p>
 </div>
+<p>Legenda dello stato dell’invito (come partecipante):</p>
+<ul class="simple">
+<li><p><strong>Evento compilato</strong>: Hai accettato</p></li>
+<li><p><strong>Barrato</strong>: Hai rifiutato</p></li>
+<li><p><strong>Strisce</strong>: Provvisorio</p></li>
+<li><p><strong>Evento vuoto</strong>: Non hai ancora risposto</p></li>
+</ul>
+<p>Se sei l’organizzatore e tutti i partecipanti hanno rifiutato, l’evento sarà vuoto e verrà visualizzato un simbolo di avviso.</p>
 </section>
 <section id="checking-attendees-busy-times">
-<h3>Checking attendees” busy times<a class="headerlink" href="#checking-attendees-busy-times" title="Link to this heading"></a></h3>
-<p>After adding attendees to an event you can click on <code class="docutils literal notranslate"><span class="pre">Find</span> <span class="pre">a</span> <span class="pre">time</span></code> to bring up the «Free / Busy» modal. It allows you to see when each attendee has other events, and can help you decide on a time when everyone is free.</p>
+<h3>Controllo degli orari di punta dei partecipanti<a class="headerlink" href="#checking-attendees-busy-times" title="Link to this heading"></a></h3>
+<p>Dopo aver aggiunto i partecipanti a un evento, puoi cliccare su <code class="docutils literal notranslate"><span class="pre">Trova</span> <span class="pre">un</span> <span class="pre">orario</span></code> per visualizzare la finestra modale <a href="#id1"><span class="problematic" id="id2">``</span></a>Libero/Occupato””. Questa finestra ti permette di vedere quando ogni partecipante ha altri eventi e può aiutarti a decidere un orario in cui tutti sono liberi.</p>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/calendar_free_busy_modal.png"><img alt="../../_images/calendar_free_busy_modal.png" src="../../_images/calendar_free_busy_modal.png" style="width: 987.2px; height: 800.8000000000001px;" />
+<a class="reference internal image-reference" href="../../_images/calendar_free_busy_modal.png"><img alt="../../_images/calendar_free_busy_modal.png" src="../../_images/calendar_free_busy_modal.png" style="width: 942.0px; height: 752.4px;" />
 </a>
 </figure>
-<p>Your own busy blocks will be shown in the same color as your personal calendar, your out of office times will be shown in gray, and other attendees” busy times will have the same color as their avatar shown in the advanced editor.</p>
-<p>You can select a time slot for the event directly on the calendar.</p>
+<p>I tuoi blocchi di impegni saranno visualizzati nello stesso colore del tuo calendario personale, i tuoi orari di assenza saranno visualizzati in grigio e gli orari di impegni degli altri partecipanti avranno lo stesso colore del loro avatar visualizzato nell’editor avanzato.</p>
+<p>È possibile selezionare una fascia oraria per l’evento direttamente sul calendario.</p>
 </section>
 <section id="assign-rooms-and-resources-to-an-event">
 <h3>Assegna stanze e risorse a un evento<a class="headerlink" href="#assign-rooms-and-resources-to-an-event" title="Link to this heading"></a></h3>
@@ -379,11 +426,11 @@ advanced editor by clicking on <code class="docutils literal notranslate"><span 
 </div>
 </section>
 <section id="room-availability">
-<h3>Room availability<a class="headerlink" href="#room-availability" title="Link to this heading"></a></h3>
+<h3>Disponibilità della stanza<a class="headerlink" href="#room-availability" title="Link to this heading"></a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 5.0.</span></p>
+<p><span class="versionmodified added">Added in version 5.0: </span>Nextcloud 30 or newer</p>
 </div>
-<p>If the «Calendar Rooms and Resources» app is installed on your instance, you can now find <code class="docutils literal notranslate"><span class="pre">Room</span> <span class="pre">availability</span></code>  the <code class="docutils literal notranslate"><span class="pre">Resources</span></code> section. It lists all the existing rooms. You can check the availability of each room in a manner similar to checking the free/busy status of event attendees.</p>
+<p>Se l’app «Calendar Rooms and Resources» è installata sulla tua istanza, ora puoi trovare la voce <code class="docutils literal notranslate"><span class="pre">Disponibilità</span> <span class="pre">sale</span></code> nella sezione <code class="docutils literal notranslate"><span class="pre">Risorse</span></code>. Qui sono elencate tutte le sale esistenti. Puoi controllare la disponibilità di ogni sala in modo simile a come controlli lo stato libero/occupato dei partecipanti a un evento.</p>
 <figure class="align-default">
 <img alt="../../_images/room_availability.png" src="../../_images/room_availability.png" />
 </figure>
@@ -401,7 +448,7 @@ advanced editor by clicking on <code class="docutils literal notranslate"><span 
 </div>
 <p>È possibile modificare la cartella degli allegati andando su <code class="docutils literal notranslate"><span class="pre">Impostazioni</span> <span class="pre">calendario</span></code> nell’angolo in basso a sinistra e modificando <code class="docutils literal notranslate"><span class="pre">Posizione</span> <span class="pre">predefinita</span> <span class="pre">degli</span> <span class="pre">allegati</span></code>.</p>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/calendar_attachments_location.png"><img alt="../../_images/calendar_attachments_location.png" src="../../_images/calendar_attachments_location.png" style="width: 184.2px; height: 208.79999999999998px;" />
+<a class="reference internal image-reference" href="../../_images/calendar_attachments_location.png"><img alt="../../_images/calendar_attachments_location.png" src="../../_images/calendar_attachments_location.png" style="width: 389.4px; height: 357.0px;" />
 </a>
 </figure>
 </section>
@@ -448,20 +495,18 @@ advanced editor by clicking on <code class="docutils literal notranslate"><span 
 </div>
 </section>
 <section id="automated-user-status">
-<span id="calendar-working-hours"></span><h3>Automated User Status<a class="headerlink" href="#automated-user-status" title="Link to this heading"></a></h3>
-<p>When you have a calendar event scheduled that has a «BUSY» status, your user status will be automatically set to «In a meeting» unless you have set yourself to «Do Not Disturb» or «Invisible».
-You can overwrite the status with a custom message any time, or set your calendar events to «FREE».
-Calendars that are transparent will be ignored.</p>
+<span id="calendar-working-hours"></span><h3>Stato utente automatizzato<a class="headerlink" href="#automated-user-status" title="Link to this heading"></a></h3>
+<p>Quando hai un evento di calendario programmato con stato «OCCUPATO», il tuo stato utente verrà automaticamente impostato su «In riunione», a meno che tu non abbia impostato «Non disturbare» o «Invisibile». Puoi sovrascrivere lo stato con un messaggio personalizzato in qualsiasi momento o impostare gli eventi del calendario su «LIBERO». I calendari trasparenti verranno ignorati.</p>
 </section>
 </section>
 <section id="responding-to-invitations">
 <h2>Rispondere agli inviti<a class="headerlink" href="#responding-to-invitations" title="Link to this heading"></a></h2>
 <p>Puoi rispondere direttamente agli inviti all’interno dell’app. Fai clic sull’evento e seleziona il tuo stato di partecipazione. Puoi rispondere a un invito accettando, rifiutando o accettando provvisoriamente.</p>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/calendar_accept_simple_editor.png"><img alt="../../_images/calendar_accept_simple_editor.png" src="../../_images/calendar_accept_simple_editor.png" style="width: 595.2px; height: 309.6px;" />
+<a class="reference internal image-reference" href="../../_images/calendar_accept_simple_editor.png"><img alt="../../_images/calendar_accept_simple_editor.png" src="../../_images/calendar_accept_simple_editor.png" style="width: 663.2px; height: 477.6px;" />
 </a>
 </figure>
-<p>You can respond to an invitation from the advanced editor too.</p>
+<p>Puoi rispondere a un invito anche dall’editor avanzato.</p>
 <figure class="align-default">
 <a class="reference internal image-reference" href="../../_images/calendar_accept_advanced_editor.png"><img alt="../../_images/calendar_accept_advanced_editor.png" src="../../_images/calendar_accept_advanced_editor.png" style="width: 800.0px; height: 160.8px;" />
 </a>
@@ -473,7 +518,7 @@ Calendars that are transparent will be ignored.</p>
 <figure class="align-default">
 <img alt="../../_images/caldav_availability.png" src="../../_images/caldav_availability.png" />
 </figure>
-<p>You can configure one-time absences on top of your regular availability in the <a class="reference internal" href="absence.html#groupware-absence"><span class="std std-ref">Absence settings section</span></a>.</p>
+<p>Puoi configurare assenze una tantum oltre alla tua disponibilità regolare nella sezione <a class="reference internal" href="absence.html#groupware-absence"><span class="std std-ref">Impostazioni assenze</span></a>.</p>
 </section>
 <section id="birthday-calendar">
 <h2>Calendario dei compleanni<a class="headerlink" href="#birthday-calendar" title="Link to this heading"></a></h2>
@@ -522,12 +567,12 @@ Calendars that are transparent will be ignored.</p>
 <h3>Prenota un appuntamento<a class="headerlink" href="#booking-an-appointment" title="Link to this heading"></a></h3>
 <p>La pagina di prenotazione mostra a un partecipante il titolo, la posizione, la descrizione e la durata di un appuntamento. Per un giorno selezionato ci sarà un elenco con tutti i possibili slot di tempo. Nei giorni senza slot disponibili, troppi conflitti o un limite massimo giornaliero raggiunto di appuntamenti già prenotati, l’elenco potrebbe essere vuoto.</p>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/appointment_booking_1.png"><img alt="../../_images/appointment_booking_1.png" src="../../_images/appointment_booking_1.png" style="width: 673.6px; height: 450.40000000000003px;" />
+<a class="reference internal image-reference" href="../../_images/appointment_booking_1.png"><img alt="../../_images/appointment_booking_1.png" src="../../_images/appointment_booking_1.png" style="width: 926.4000000000001px; height: 592.0px;" />
 </a>
 </figure>
 <p>Per la prenotazione, i partecipanti devono inserire un nome e un indirizzo email. Facoltativamente, possono anche aggiungere un commento.</p>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/appointment_booking_2.png"><img alt="../../_images/appointment_booking_2.png" src="../../_images/appointment_booking_2.png" style="width: 588.0px; height: 358.40000000000003px;" />
+<a class="reference internal image-reference" href="../../_images/appointment_booking_2.png"><img alt="../../_images/appointment_booking_2.png" src="../../_images/appointment_booking_2.png" style="width: 745.6px; height: 463.20000000000005px;" />
 </a>
 </figure>
 <p>Se la prenotazione è andata a buon fine, al partecipante verrà mostrata una finestra di dialogo di conferma.</p>
@@ -569,20 +614,81 @@ Calendars that are transparent will be ignored.</p>
 <p>Puoi creare una stanza di Talk direttamente dall’app calendario per un appuntamento prenotato. L’opzione può essere trovata nella modalità “Crea appuntamento”. Un link univoco verrà generato per ogni appuntamento prenotato e inviato tramite l’email di conferma quando selezioni questa opzione.</p>
 </section>
 </section>
+<section id="proposals">
+<h2>Proposals<a class="headerlink" href="#proposals" title="Link to this heading"></a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 6.0: </span>Nextcloud 32 or newer</p>
+</div>
+<p>Finding a meeting time for a group of participants can be challenging. As of Calendar v6, a new feature was introduced that allows users to create proposals for meeting times.
+This means that instead of just booking a time, or searching for a available time in the free busy view, participants can vote on a set of proposed times for a meeting.
+The organizer can then review the participants” preferences and choose the most suitable time for the meeting.</p>
+<section id="managing-proposals">
+<h3>Managing proposals<a class="headerlink" href="#managing-proposals" title="Link to this heading"></a></h3>
+<figure class="align-default">
+<img alt="../../_images/calendar_proposal_list.png" src="../../_images/calendar_proposal_list.png" />
+</figure>
+<p>The proposal list in the left sidebar shows all the proposals that the user has created. The list shows the title of the proposal, the number of responded participants and a status of whether all participants have responded.</p>
+<p>The user can click on the three dot menu next to a proposal item to edit, delete or view an existing proposal.</p>
+</section>
+<section id="creating-a-proposal">
+<h3>Creating a proposal<a class="headerlink" href="#creating-a-proposal" title="Link to this heading"></a></h3>
+<p>To create a new proposal a user can click on the plus icon next to the «Meeting Proposals» header at the top of the proposal list. This will open a modal where the user can enter all the relevant details for the proposed meeting.</p>
+<figure class="align-default">
+<img alt="../../_images/calendar_proposal_create.png" src="../../_images/calendar_proposal_create.png" />
+</figure>
+<p>The proposal editor has some basic fields that are similar to the event editor, such as title, description, location, duration and participants selection, that the user can fill out. These details are then used to inform the participants about the proposed meeting and times.</p>
+<p>The key difference is the «Proposed times» selection, where the user can select multiple time slots for a meeting. The user can add as many time slots as they want, and each time slot can be edited or removed as needed.</p>
+<p>Once the user has filled out all the required details, title, duration, participants and selected the proposed times, they can click the «Create» button to create the proposal. This will save the proposal and send notifications to all the selected participants.</p>
+</section>
+<section id="editing-a-proposal">
+<h3>Editing a proposal<a class="headerlink" href="#editing-a-proposal" title="Link to this heading"></a></h3>
+<p>A user can edit an existing proposal by clicking on the three dot menu next to a proposal item in the proposal list and selecting «Edit». This will open the same modal as when creating a new proposal, but with all the existing details filled out.</p>
+<p>After making any necessary changes, the user can click the «Update» button to save the changes. This will also send notifications to all the participants about the updated proposal.</p>
+</section>
+<section id="viewing-a-proposal-progress">
+<h3>Viewing a proposal progress<a class="headerlink" href="#viewing-a-proposal-progress" title="Link to this heading"></a></h3>
+<p>Users can view the progress of a proposal by clicking on the proposal item in the proposal list or clicking «View» in the three dot menu. This will open a detailed view of the proposal, with all details and a times and participants matrix, showing all the proposed times and participants” responses.</p>
+<figure class="align-default">
+<img alt="../../_images/calendar_proposal_view.png" src="../../_images/calendar_proposal_view.png" />
+</figure>
+<p>In this view, the user can see which participants have responded to the proposal and their preferences for each proposed time. The user can also see the total number of votes for each proposed time, which can help them decide on the best time for the meeting.</p>
+<p>Once the user has reviewed the participants” responses, they can select the most popular time for the meeting by clicking on the «Create» button at the end of the date/participant matrix. This will create a new event in the user’s calendar and send notifications to all participants about the confirmed meeting time.</p>
+</section>
+<section id="notifications-for-a-proposed-meeting">
+<h3>Notifications for a proposed meeting<a class="headerlink" href="#notifications-for-a-proposed-meeting" title="Link to this heading"></a></h3>
+<p>Users will receive email notifications for various events related to a proposed meeting, including:</p>
+<ul class="simple">
+<li><p>When a new proposal is created</p></li>
+<li><p>When a proposal is updated</p></li>
+<li><p>When a proposal is deleted</p></li>
+<li><p>When the final meeting time is confirmed</p></li>
+</ul>
+<p>These notifications help all participants stay informed and engaged throughout the proposal process.</p>
+<p>The notification emails contain the basic details for the proposed meeting, like title, description, location, duration, and proposed times. They also include a link to the response page, where participants can see all the details and respond to the proposed times.</p>
+</section>
+<section id="responding-to-a-proposed-meeting">
+<h3>Responding to a proposed meeting<a class="headerlink" href="#responding-to-a-proposed-meeting" title="Link to this heading"></a></h3>
+<p>Participants can respond to a proposed meeting by clicking on the link in the notification email. This will open the detailed view of the proposed meeting, where they can see all the proposed times, other participants” and their responses, and select their availability/preferences for each proposed time.</p>
+<figure class="align-default">
+<img alt="../../_images/calendar_proposal_respond.png" src="../../_images/calendar_proposal_respond.png" />
+</figure>
+<p>Participants can select their availability for each proposed time by selecting their preference on the corresponding line in the times and participants matrix. They can choose from three options: «Yes», «No», or «Maybe». Once they have made their selections, they can click the «Submit» button to save their responses.</p>
+</section>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Piè di pagina">
-        <a href="contacts.html" class="btn btn-neutral float-left" title="Usare l’app Contatti" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Precedente</a>
+        <a href="contacts.html" class="btn btn-neutral float-left" title="Using the Contacts app" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Precedente</a>
         <a href="mail.html" class="btn btn-neutral float-right" title="Utilizzo dell’app Mail" accesskey="n" rel="next">Prossimo <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2026 Nextcloud GmbH.</p>
+    <p>&#169; Copyright 2016-2026 Nextcloud GmbH and Nextcloud contributors.</p>
   </div>
 
    
@@ -593,544 +699,420 @@ Calendars that are transparent will be ignored.</p>
     </section>
   </div>
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- Here go the languages -->
   
+  <!-- Here go the languages -->
+
+  
+  
+
+  
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+
   <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
-      🌐
-      
-      
-      Italian
-      
+      🌐 Italian
       <span class="fa fa-caret-down"></span>
-
-       ☁️ 31
+       ☁️ latest
       <span class="fa fa-caret-down"></span>
     </span>
     <div class="rst-other-versions">
       <dl>
-        <dt>🌐 Languages</dt>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/af/"
-                 
-              >
-                
-                Afrikaans
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ar/"
-                 
-              >
-                
-                Arabic
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/br/"
-                 
-              >
-                
-                Breton
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ca/"
-                 
-              >
-                
-                Catalan
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/cs/"
-                 
-              >
-                
-                Czech
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/da/"
-                 
-              >
-                
-                Danish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/de/"
-                 
-              >
-                
-                German
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/el/"
-                 
-              >
-                
-                Greek
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/el_GR/"
-                 
-              >
-                
-                el_GR
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/en/"
-                 
-              >
-                
-                English
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/eo/"
-                 
-              >
-                
-                Esperanto
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/es/"
-                 
-              >
-                
-                Spanish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/eu/"
-                 
-              >
-                
-                eu
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/fi_FI/"
-                 
-              >
-                
-                Finnish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/fr/"
-                 
-              >
-                
-                French
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ga/"
-                 
-              >
-                
-                Irish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/gl/"
-                 
-              >
-                
-                Glacian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/hr/"
-                 
-              >
-                
-                Croatian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/hu/"
-                 
-              >
-                
-                hu
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/hu_HU/"
-                 
-              >
-                
-                Hungarian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/id/"
-                 
-              >
-                
-                Indonesian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/it/"
-                 
-                 style="color: var(--dark-link-color);"
-                 
-              >
-                
-                Italian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ja_JP/"
-                 
-              >
-                
-                Japanese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ko/"
-                 
-              >
-                
-                Korean
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/mn/"
-                 
-              >
-                
-                Mongolian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/nb_NO/"
-                 
-              >
-                
-                Norwegian (NB)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/nl/"
-                 
-              >
-                
-                Dutch
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/nn/"
-                 
-              >
-                
-                Norwegian (NN)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/pl/"
-                 
-              >
-                
-                Polish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/pt_BR/"
-                 
-              >
-                
-                Portuguese (BR)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/pt_PT/"
-                 
-              >
-                
-                Portuguese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ro/"
-                 
-              >
-                
-                Romanian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ru/"
-                 
-              >
-                
-                Russian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/si/"
-                 
-              >
-                
-                Sinhala
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sk_SK/"
-                 
-              >
-                
-                Slovakian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sq/"
-                 
-              >
-                
-                Albanian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sr/"
-                 
-              >
-                
-                Slovenian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sv/"
-                 
-              >
-                
-                Swedish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ta/"
-                 
-              >
-                
-                Tamil
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/th/"
-                 
-              >
-                
-                th
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/tr/"
-                 
-              >
-                
-                Turkish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/uk/"
-                 
-              >
-                
-                Ukrainian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/uz/"
-                 
-              >
-                
-                Uzbek
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/vi/"
-                 
-              >
-                
-                Vietnamese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/zh_CN/"
-                 
-              >
-                
-                Chinese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/zh_HK/"
-                 
-              >
-                
-                Chinese (HK)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/zh_TW/"
-                 
-              >
-                
-                Chinese (TW)
-                
-              </a>
-            </dd>
-          
+        <dt>🌐 Lingue</dt>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ar/"
+               
+            >
+              Arabic
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/br/"
+               
+            >
+              Breton
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ca/"
+               
+            >
+              Catalan
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/zh_CN/"
+               
+            >
+              Chinese
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/zh_HK/"
+               
+            >
+              Chinese (HK)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/zh_TW/"
+               
+            >
+              Chinese (TW)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/cs/"
+               
+            >
+              Czech
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/da/"
+               
+            >
+              Danish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/nl/"
+               
+            >
+              Dutch
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/en/"
+               
+            >
+              English
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/fi_FI/"
+               
+            >
+              Finnish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/fr/"
+               
+            >
+              French
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/gl/"
+               
+            >
+              Galician
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/de/"
+               
+            >
+              German
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/el/"
+               
+            >
+              Greek
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/hu_HU/"
+               
+            >
+              Hungarian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/id/"
+               
+            >
+              Indonesian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ga/"
+               
+            >
+              Irish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/it/"
+               
+               style="color: var(--dark-link-color);"
+               
+            >
+              Italian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ja_JP/"
+               
+            >
+              Japanese
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ko/"
+               
+            >
+              Korean
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/mn/"
+               
+            >
+              Mongolian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/nb_NO/"
+               
+            >
+              Norwegian (NB)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/nn/"
+               
+            >
+              Norwegian (NN)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/pl/"
+               
+            >
+              Polish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/pt_PT/"
+               
+            >
+              Portuguese
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/pt_BR/"
+               
+            >
+              Portuguese (BR)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ro/"
+               
+            >
+              Romanian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ru/"
+               
+            >
+              Russian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/si/"
+               
+            >
+              Sinhala
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/sk_SK/"
+               
+            >
+              Slovakian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/sr/"
+               
+            >
+              Slovenian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/es/"
+               
+            >
+              Spanish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/sv/"
+               
+            >
+              Swedish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ta/"
+               
+            >
+              Tamil
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/tr/"
+               
+            >
+              Turkish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/uk_UA/"
+               
+            >
+              Ukrainian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/uz/"
+               
+            >
+              Uzbek
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/vi/"
+               
+            >
+              Vietnamese
+            </a>
+          </dd>
+        
       </dl>
     </div>
     <div class="rst-other-versions">
@@ -1139,6 +1121,8 @@ Calendars that are transparent will be ignored.</p>
         
           <dd style="width: 32%">
             <a href="https://docs.nextcloud.com/server/latest/user_manual"
+               
+               style="color: var(--dark-link-color);"
                
             >
               35 (latest)
@@ -1169,30 +1153,6 @@ Calendars that are transparent will be ignored.</p>
             </a>
           </dd>
         
-          <dd style="width: 32%">
-            <a href="https://docs.nextcloud.com/server/31/user_manual"
-               
-               style="color: var(--dark-link-color);"
-               
-            >
-              31 (unsupported)
-            </a>
-          </dd>
-        
-      </dl>
-      <dl>
-        <dt>Scaricamenti</dt>
-        
-      </dl>
-      <dl>
-        
-        <dt>Su Read the Docs</dt>
-          <dd>
-            <a href="///projects//?fromdocs=">Pagina del progetto</a>
-          </dd>
-          <dd>
-            <a href="///builds//?fromdocs=">Rilasci</a>
-          </dd>
       </dl>
     </div>
   </div>

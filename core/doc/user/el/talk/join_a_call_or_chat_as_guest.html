@@ -7,15 +7,16 @@
   <meta name="readthedocs-addons-api-version" content="1"><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Join a call or chat as guest &mdash; Τεκμηρίωση του Nextcloud latest User Manual - latest</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+  <title>Συμμετοχή σε κλήση ή συνομιλία ως επισκέπτης &mdash; Nextcloud 35 User Manual</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=bad88653" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=8ff6e0db" />
       <link rel="stylesheet" type="text/css" href="../../_static/dark_mode_css/general.css?v=c0a7eb24" />
       <link rel="stylesheet" type="text/css" href="../../_static/dark_mode_css/dark.css?v=70edf1c7" />
 
   
+    <link rel="canonical" href="https://docs.nextcloud.com/server/stable/user_manual/talk/join_a_call_or_chat_as_guest.html" />
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../../_static/documentation_options.js?v=ba845f4f"></script>
@@ -30,8 +31,8 @@
     <script src="../../_static/js/versions.js"></script>
     <link rel="index" title="Ευρετήριο" href="../genindex.html" />
     <link rel="search" title="Αναζήτηση" href="../search.html" />
-    <link rel="next" title="Desktop Clients" href="../desktop/index.html" />
-    <link rel="prev" title="Advanced Talk features" href="advanced_features.html" />
+    <link rel="next" title="Πελάτες Επιφάνειας Εργασίας" href="../desktop/index.html" />
+    <link rel="prev" title="Προχωρημένες λειτουργίες του Talk" href="advanced_features.html" />
    
   <meta name="robots" content="noindex, follow" />
 
@@ -62,25 +63,24 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Nextcloud | έκδοση | εγχειρίδιο χρήστη εισαγωγή</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../whats_new.html">Τι νέο υπάρχει για τους χρήστες στο Nextcloud | έκδοση |</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../webinterface.html">Η διεπαφή Nextcloud Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Εισαγωγή εγχειριδίου χρήστη Nextcloud |έκδοση|</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../webinterface.html">Η Διεπαφή Web του Nextcloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../files/index.html">Αρχεία και συγχρονισμός</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../groupware/index.html">Groupware</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Talk</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="talk_basics.html">Basics of Nextcloud Talk</a></li>
-<li class="toctree-l2"><a class="reference internal" href="advanced_features.html">Advanced Talk features</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Join a call or chat as guest</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#joining-a-chat">Joining a chat</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#joining-a-call">Joining a call</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#starting-a-screen-share">Starting a screen share</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#more-settings">More settings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="talk_basics.html">Βασικά στοιχεία του Nextcloud Talk</a></li>
+<li class="toctree-l2"><a class="reference internal" href="advanced_features.html">Προχωρημένες λειτουργίες του Talk</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Συμμετοχή σε κλήση ή συνομιλία ως επισκέπτης</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#joining-a-chat">Συμμετοχή σε συνομιλία</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#joining-a-call">Συμμετοχή σε κλήση</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#starting-a-screen-share">Έναρξη κοινής χρήσης οθόνης</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#more-settings">Περισσότερες ρυθμίσεις</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#joining-as-an-email-guest">Joining as an email guest</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../desktop/index.html">Desktop Clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../desktop/index.html">Πελάτες Επιφάνειας Εργασίας</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../userpreferences.html">Ορισμός των προτιμήσεών σας</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../universal_access.html">Καθολική Πρόσβαση</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_2fa.html">Χρήση ελέγχου ταυτότητας δύο παραγόντων</a></li>
@@ -94,7 +94,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../contents.html">Nextcloud latest User Manual</a>
+          <a href="../contents.html">Nextcloud 35 User Manual</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -103,7 +103,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../contents.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="index.html">Talk</a></li>
-      <li class="breadcrumb-item active">Join a call or chat as guest</li>
+      <li class="breadcrumb-item active">Συμμετοχή σε κλήση ή συνομιλία ως επισκέπτης</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/nextcloud/documentation/edit/master/user_manual/talk/join_a_call_or_chat_as_guest.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
@@ -114,43 +114,42 @@
            <div itemprop="articleBody">
              
   <section id="join-a-call-or-chat-as-guest">
-<h1>Join a call or chat as guest<a class="headerlink" href="#join-a-call-or-chat-as-guest" title="Link to this heading"></a></h1>
-<p>Nextcloud Talk offers audio/video call and text chat integrated in Nextcloud. It offers
-a web interface as well as mobile apps.</p>
-<p>You can find out more about Nextcloud Talk <a class="reference external" href="https://nextcloud.com/talk/">on our website</a>.</p>
+<h1>Συμμετοχή σε κλήση ή συνομιλία ως επισκέπτης<a class="headerlink" href="#join-a-call-or-chat-as-guest" title="Link to this heading"></a></h1>
+<p>Το Nextcloud Talk προσφέρει οπτικοακουστική κλήση και κειμενική συνομιλία ενσωματωμένα στο Nextcloud. Προσφέρει διεπαφή web καθώς και εφαρμογές για κινητές συσκευές.</p>
+<p>Μπορείτε να μάθετε περισσότερα για το Nextcloud Talk <a class="reference external" href="https://nextcloud.com/talk/">στην ιστοσελίδα μας</a>.</p>
 <section id="joining-a-chat">
-<h2>Joining a chat<a class="headerlink" href="#joining-a-chat" title="Link to this heading"></a></h2>
-<p>If you received a link to a chat conversation, you can open it in your browser to join the chat. Here, you will be prompted to enter your name before joining.</p>
+<h2>Συμμετοχή σε συνομιλία<a class="headerlink" href="#joining-a-chat" title="Link to this heading"></a></h2>
+<p>Εάν λάβατε έναν σύνδεσμο για μια συνομιλία, μπορείτε να τον ανοίξετε στον περιηγητή σας για να συμμετάσχετε. Εδώ, θα σας ζητηθεί να εισάγετε το όνομά σας πριν από τη συμμετοχή.</p>
 <a class="reference internal image-reference" href="../../_images/guest-view.png"><img alt="../../_images/guest-view.png" src="../../_images/guest-view.png" style="width: 400px;" />
 </a>
-<p>You can also change your name later by clicking the <code class="docutils literal notranslate"><span class="pre">Edit</span></code> button, located top-right.</p>
+<p>Μπορείτε επίσης να αλλάξετε το όνομά σας αργότερα κάνοντας κλικ στο κουμπί <code class="docutils literal notranslate"><span class="pre">Επεξεργασία</span></code>, που βρίσκεται επάνω δεξιά.</p>
 <a class="reference internal image-reference" href="../../_images/change-name.png"><img alt="../../_images/change-name.png" src="../../_images/change-name.png" style="width: 400px;" />
 </a>
-<p>Your camera and microphone settings can be found in the <code class="docutils literal notranslate"><span class="pre">Settings</span></code> menu. There you can also find a list of shortcuts you can use.</p>
+<p>Οι ρυθμίσεις της κάμερας και του μικροφώνου σας βρίσκονται στο μενού <code class="docutils literal notranslate"><span class="pre">Ρυθμίσεις</span></code>. Εκεί μπορείτε επίσης να βρείτε μια λίστα με τις συντμήσεις που μπορείτε να χρησιμοποιήσετε.</p>
 <a class="reference internal image-reference" href="../../_images/guest-settings.png"><img alt="../../_images/guest-settings.png" src="../../_images/guest-settings.png" style="width: 600px;" />
 </a>
 </section>
 <section id="joining-a-call">
-<h2>Joining a call<a class="headerlink" href="#joining-a-call" title="Link to this heading"></a></h2>
-<p>You can start a call any time with the <code class="docutils literal notranslate"><span class="pre">Start</span> <span class="pre">call</span></code> button. Other participants will get notified and can join the call. If somebody else has started a call already, the button will change in a green <code class="docutils literal notranslate"><span class="pre">Join</span> <span class="pre">call</span></code> button.</p>
+<h2>Συμμετοχή σε κλήση<a class="headerlink" href="#joining-a-call" title="Link to this heading"></a></h2>
+<p>Μπορείτε να ξεκινήσετε μια κλήση ανά πάσα στιγμή με το κουμπί <code class="docutils literal notranslate"><span class="pre">Έναρξη</span> <span class="pre">κλήσης</span></code>. Άλλοι συμμετέχοντες θα ειδοποιηθούν και μπορούν να συμμετέχουν στην κλήση. Εάν κάποιος άλλος έχει ήδη ξεκινήσει μια κλήση, το κουμπί θα αλλάξει σε ένα πράσινο κουμπί <code class="docutils literal notranslate"><span class="pre">Συμμετοχή</span> <span class="pre">στην</span> <span class="pre">κλήση</span></code>.</p>
 <a class="reference internal image-reference" href="../../_images/join-call.png"><img alt="../../_images/join-call.png" src="../../_images/join-call.png" style="width: 600px;" />
 </a>
-<p>Before actually joining the call you will see a device check, where you can pick the right camera and microphone, enable background blur or even join with any devices.</p>
+<p>Πριν από την πραγματική συμμετοχή στην κλήση, θα δείτε έναν έλεγχο συσκευών, όπου μπορείτε να επιλέξετε τη σωστή κάμερα και μικρόφωνο, να ενεργοποιήσετε το θόλωμα του φόντου ή ακόμη και να συμμετέχετε χωρίς συσκευές.</p>
 <a class="reference internal image-reference" href="../../_images/device-settings-before-call.png"><img alt="../../_images/device-settings-before-call.png" src="../../_images/device-settings-before-call.png" style="width: 400px;" />
 </a>
-<p>During a call, you can find the Camera and Microphone settings in the <code class="docutils literal notranslate"><span class="pre">...</span></code> menu in the top bar.</p>
+<p>Κατά τη διάρκεια μιας κλήσης, μπορείτε να βρείτε τις ρυθμίσεις Κάμερας και Μικροφώνου στο μενού <code class="docutils literal notranslate"><span class="pre">...</span></code> στην επάνω μπάρα.</p>
 <a class="reference internal image-reference" href="../../_images/guest-call-menu.png"><img alt="../../_images/guest-call-menu.png" src="../../_images/guest-call-menu.png" style="width: 300px;" />
 </a>
-<p>During a call, you can mute your microphone and disable your video with the buttons in the top-right, or using the shortcuts <code class="docutils literal notranslate"><span class="pre">M</span></code> to mute audio and <code class="docutils literal notranslate"><span class="pre">V</span></code> to disable video. You can also use the <code class="docutils literal notranslate"><span class="pre">space</span> <span class="pre">bar</span></code> to toggle mute. When you are muted, pressing space will unmute you so you can speak until you let go of the space bar. If you are unmuted, pressing space will mute you until you let go.</p>
-<p>You can hide your video (useful during a screen share) with the little arrow just above the video stream. Bring it back with the little arrow again.</p>
+<p>Κατά τη διάρκεια μιας κλήσης, μπορείτε να σιγήσετε το μικρόφωνό σας και να απενεργοποιήσετε το βίντεό σας με τα κουμπιά επάνω δεξιά ή χρησιμοποιώντας τις συντμήσεις <code class="docutils literal notranslate"><span class="pre">M</span></code> για σίγαση ήχου και <code class="docutils literal notranslate"><span class="pre">V</span></code> για απενεργοποίηση βίντεο. Μπορείτε επίσης να χρησιμοποιήσετε το <code class="docutils literal notranslate"><span class="pre">πλήκτρο</span> <span class="pre">διαστήματος</span></code> για εναλλαγή σίγασης. Όταν είστε σε σίγαση, το πάτημα του πλήκτρου διαστήματος θα σας βγάλει από σίγαση ώστε να μπορείτε να μιλήσετε μέχρι να αφήσετε το πλήκτρο διαστήματος. Εάν δεν είστε σε σίγαση, το πάτημα του πλήκτρου διαστήματος θα σας βάλει σε σίγαση μέχρι να το αφήσετε.</p>
+<p>Μπορείτε να αποκρύψετε το βίντεό σας (χρήσιμο κατά τη διάρκεια κοινής χρήσης οθόνης) με το μικρό βέλος ακριβώς πάνω από τη ροή βίντεο. Μπορείτε να το επαναφέρετε ξανά με το ίδιο μικρό βέλος.</p>
 </section>
 <section id="starting-a-screen-share">
-<h2>Starting a screen share<a class="headerlink" href="#starting-a-screen-share" title="Link to this heading"></a></h2>
-<p>You can click the monitor icon on your video stream to share your screen. Depending on your browser, you will get the option to share a monitor, an application window or a single browser tab.</p>
+<h2>Έναρξη κοινής χρήσης οθόνης<a class="headerlink" href="#starting-a-screen-share" title="Link to this heading"></a></h2>
+<p>Μπορείτε να κάνετε κλικ στο εικονίδιο της οθόνης στη ροή βίντεό σας για να μοιραστείτε την οθόνη σας. Ανάλογα με τον περιηγητή σας, θα έχετε την επιλογή να μοιραστείτε μια οθόνη, ένα παράθυρο εφαρμογής ή μια μεμονωμένη καρτέλα περιηγητή.</p>
 </section>
 <section id="more-settings">
-<h2>More settings<a class="headerlink" href="#more-settings" title="Link to this heading"></a></h2>
-<p>In the conversation menu you can choose to go full-screen. You can also do this by using the <code class="docutils literal notranslate"><span class="pre">F</span></code> key on your keyboard. In the conversation settings, you can find notification options and the full conversation description.</p>
+<h2>Περισσότερες ρυθμίσεις<a class="headerlink" href="#more-settings" title="Link to this heading"></a></h2>
+<p>Στο μενού συνομιλίας μπορείτε να επιλέξετε πλήρη οθόνη. Μπορείτε επίσης να το κάνετε αυτό χρησιμοποιώντας το πλήκτρο <code class="docutils literal notranslate"><span class="pre">F</span></code> στο πληκτρολόγιό σας. Στις ρυθμίσεις συνομιλίας, μπορείτε να βρείτε επιλογές ειδοποιήσεων και την πλήρη περιγραφή της συνομιλίας.</p>
 <a class="reference internal image-reference" href="../../_images/guest-room-menu.png"><img alt="../../_images/guest-room-menu.png" src="../../_images/guest-room-menu.png" style="width: 500px;" />
 </a>
 </section>
@@ -173,14 +172,14 @@ If the guest clicks the link, they will be redirected to the conversation with a
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="advanced_features.html" class="btn btn-neutral float-left" title="Advanced Talk features" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../desktop/index.html" class="btn btn-neutral float-right" title="Desktop Clients" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="advanced_features.html" class="btn btn-neutral float-left" title="Προχωρημένες λειτουργίες του Talk" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../desktop/index.html" class="btn btn-neutral float-right" title="Πελάτες Επιφάνειας Εργασίας" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2026 Nextcloud GmbH.</p>
+    <p>&#169; Copyright 2016-2026 Nextcloud GmbH and Nextcloud contributors.</p>
   </div>
 
    
@@ -191,544 +190,420 @@ If the guest clicks the link, they will be redirected to the conversation with a
     </section>
   </div>
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- Here go the languages -->
   
+  <!-- Here go the languages -->
+
+  
+  
+
+  
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+
   <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
-      🌐
-      
-      
-      Greek
-      
+      🌐 Greek
       <span class="fa fa-caret-down"></span>
-
-       ☁️ 31
+       ☁️ latest
       <span class="fa fa-caret-down"></span>
     </span>
     <div class="rst-other-versions">
       <dl>
-        <dt>🌐 Languages</dt>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/af/"
-                 
-              >
-                
-                Afrikaans
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ar/"
-                 
-              >
-                
-                Arabic
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/br/"
-                 
-              >
-                
-                Breton
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ca/"
-                 
-              >
-                
-                Catalan
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/cs/"
-                 
-              >
-                
-                Czech
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/da/"
-                 
-              >
-                
-                Danish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/de/"
-                 
-              >
-                
-                German
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/el/"
-                 
-                 style="color: var(--dark-link-color);"
-                 
-              >
-                
-                Greek
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/el_GR/"
-                 
-              >
-                
-                el_GR
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/en/"
-                 
-              >
-                
-                English
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/eo/"
-                 
-              >
-                
-                Esperanto
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/es/"
-                 
-              >
-                
-                Spanish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/eu/"
-                 
-              >
-                
-                eu
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/fi_FI/"
-                 
-              >
-                
-                Finnish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/fr/"
-                 
-              >
-                
-                French
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ga/"
-                 
-              >
-                
-                Irish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/gl/"
-                 
-              >
-                
-                Glacian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/hr/"
-                 
-              >
-                
-                Croatian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/hu/"
-                 
-              >
-                
-                hu
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/hu_HU/"
-                 
-              >
-                
-                Hungarian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/id/"
-                 
-              >
-                
-                Indonesian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/it/"
-                 
-              >
-                
-                Italian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ja_JP/"
-                 
-              >
-                
-                Japanese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ko/"
-                 
-              >
-                
-                Korean
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/mn/"
-                 
-              >
-                
-                Mongolian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/nb_NO/"
-                 
-              >
-                
-                Norwegian (NB)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/nl/"
-                 
-              >
-                
-                Dutch
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/nn/"
-                 
-              >
-                
-                Norwegian (NN)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/pl/"
-                 
-              >
-                
-                Polish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/pt_BR/"
-                 
-              >
-                
-                Portuguese (BR)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/pt_PT/"
-                 
-              >
-                
-                Portuguese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ro/"
-                 
-              >
-                
-                Romanian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ru/"
-                 
-              >
-                
-                Russian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/si/"
-                 
-              >
-                
-                Sinhala
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sk_SK/"
-                 
-              >
-                
-                Slovakian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sq/"
-                 
-              >
-                
-                Albanian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sr/"
-                 
-              >
-                
-                Slovenian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sv/"
-                 
-              >
-                
-                Swedish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ta/"
-                 
-              >
-                
-                Tamil
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/th/"
-                 
-              >
-                
-                th
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/tr/"
-                 
-              >
-                
-                Turkish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/uk/"
-                 
-              >
-                
-                Ukrainian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/uz/"
-                 
-              >
-                
-                Uzbek
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/vi/"
-                 
-              >
-                
-                Vietnamese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/zh_CN/"
-                 
-              >
-                
-                Chinese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/zh_HK/"
-                 
-              >
-                
-                Chinese (HK)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/zh_TW/"
-                 
-              >
-                
-                Chinese (TW)
-                
-              </a>
-            </dd>
-          
+        <dt>🌐 Γλώσσες</dt>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ar/"
+               
+            >
+              Arabic
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/br/"
+               
+            >
+              Breton
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ca/"
+               
+            >
+              Catalan
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/zh_CN/"
+               
+            >
+              Chinese
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/zh_HK/"
+               
+            >
+              Chinese (HK)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/zh_TW/"
+               
+            >
+              Chinese (TW)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/cs/"
+               
+            >
+              Czech
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/da/"
+               
+            >
+              Danish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/nl/"
+               
+            >
+              Dutch
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/en/"
+               
+            >
+              English
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/fi_FI/"
+               
+            >
+              Finnish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/fr/"
+               
+            >
+              French
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/gl/"
+               
+            >
+              Galician
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/de/"
+               
+            >
+              German
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/el/"
+               
+               style="color: var(--dark-link-color);"
+               
+            >
+              Greek
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/hu_HU/"
+               
+            >
+              Hungarian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/id/"
+               
+            >
+              Indonesian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ga/"
+               
+            >
+              Irish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/it/"
+               
+            >
+              Italian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ja_JP/"
+               
+            >
+              Japanese
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ko/"
+               
+            >
+              Korean
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/mn/"
+               
+            >
+              Mongolian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/nb_NO/"
+               
+            >
+              Norwegian (NB)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/nn/"
+               
+            >
+              Norwegian (NN)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/pl/"
+               
+            >
+              Polish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/pt_PT/"
+               
+            >
+              Portuguese
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/pt_BR/"
+               
+            >
+              Portuguese (BR)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ro/"
+               
+            >
+              Romanian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ru/"
+               
+            >
+              Russian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/si/"
+               
+            >
+              Sinhala
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/sk_SK/"
+               
+            >
+              Slovakian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/sr/"
+               
+            >
+              Slovenian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/es/"
+               
+            >
+              Spanish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/sv/"
+               
+            >
+              Swedish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ta/"
+               
+            >
+              Tamil
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/tr/"
+               
+            >
+              Turkish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/uk_UA/"
+               
+            >
+              Ukrainian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/uz/"
+               
+            >
+              Uzbek
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/vi/"
+               
+            >
+              Vietnamese
+            </a>
+          </dd>
+        
       </dl>
     </div>
     <div class="rst-other-versions">
@@ -737,6 +612,8 @@ If the guest clicks the link, they will be redirected to the conversation with a
         
           <dd style="width: 32%">
             <a href="https://docs.nextcloud.com/server/latest/user_manual"
+               
+               style="color: var(--dark-link-color);"
                
             >
               35 (latest)
@@ -767,30 +644,6 @@ If the guest clicks the link, they will be redirected to the conversation with a
             </a>
           </dd>
         
-          <dd style="width: 32%">
-            <a href="https://docs.nextcloud.com/server/31/user_manual"
-               
-               style="color: var(--dark-link-color);"
-               
-            >
-              31 (unsupported)
-            </a>
-          </dd>
-        
-      </dl>
-      <dl>
-        <dt>Λήψεις</dt>
-        
-      </dl>
-      <dl>
-        
-        <dt>On Διαβάστε τα Έγγραφα</dt>
-          <dd>
-            <a href="///projects//?fromdocs=">Έργο του σπιτιού</a>
-          </dd>
-          <dd>
-            <a href="///builds//?fromdocs=">Κατασκευάζει</a>
-          </dd>
       </dl>
     </div>
   </div>

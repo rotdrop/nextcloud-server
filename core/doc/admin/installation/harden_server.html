@@ -7,18 +7,19 @@
   <meta name="readthedocs-addons-api-version" content="1"><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hardening and security guidance &mdash; Nextcloud latest Administration Manual latest documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+  <title>Hardening and security guidance &mdash; Nextcloud 35 Administration Manual</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=bad88653" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=8ff6e0db" />
       <link rel="stylesheet" type="text/css" href="../_static/dark_mode_css/general.css?v=c0a7eb24" />
       <link rel="stylesheet" type="text/css" href="../_static/dark_mode_css/dark.css?v=70edf1c7" />
 
   
+    <link rel="canonical" href="https://docs.nextcloud.com/server/stable/admin_manual/installation/harden_server.html" />
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=f4332903"></script>
+      <script src="../_static/documentation_options.js?v=a49d5d77"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -60,14 +61,23 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul class="current">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../release_notes/index.html">Release notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../release_schedule.html">Maintenance and release schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gdpr/index.html">GDPR-compliance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../declarations/index.html">Declarations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Release notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release_notes/index.html">Critical changes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Installation and server configuration</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="system_requirements.html">System requirements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="deployment_recommendations.html">Deployment recommendations</a></li>
-<li class="toctree-l2"><a class="reference internal" href="php_configuration.html">PHP Modules &amp; Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="php_configuration.html">Preparing PHP</a></li>
 <li class="toctree-l2"><a class="reference internal" href="source_installation.html">Installation on Linux</a></li>
 <li class="toctree-l2"><a class="reference internal" href="installation_wizard.html">Installation wizard</a></li>
 <li class="toctree-l2"><a class="reference internal" href="command_line_installation.html">Installing from command line</a></li>
@@ -86,6 +96,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#deployment">Deployment</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#place-data-directory-outside-of-the-web-root">Place data directory outside of the web root</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#place-config-directory-outside-of-the-web-root">Place config directory outside of the web root</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#disable-preview-image-generation">Disable preview image generation</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#disable-debug-mode">Disable Debug Mode</a></li>
 </ul>
@@ -116,25 +127,60 @@
 <li class="toctree-l2"><a class="reference internal" href="uninstallation.html">Uninstallation</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration_database/index.html">Database configuration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../configuration_server/index.html">Nextcloud configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../occ_command.html">Using the occ command</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../apps_management.html">Apps management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../exapps_management/index.html">ExApps management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../configuration_user/index.html">User management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../configuration_files/index.html">File sharing and management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../file_workflows/index.html">Flow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../groupware/index.html">Groupware</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../office/index.html">Office</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ai/index.html">Artificial Intelligence</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../webhook_listeners/index.html">Webhook Listeners</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../windmill_workflows/index.html">Windmill Workflows</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../configuration_database/index.html">Database configuration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Files</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configuration_files/index.html">File sharing and management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../file_workflows/index.html">Flow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration_mimetypes/index.html">Mimetypes management</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Apps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../apps_management.html">Apps management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exapps_management/index.html">ExApps management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ai/index.html">Artificial Intelligence</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Users</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configuration_user/index.html">User management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../desktop/index.html">Desktop Clients</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Groupware</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../groupware/index.html">Groupware</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Office</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../office/index.html">Office</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Maintenance</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configuration_monitoring/index.html">Monitoring</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../maintenance/index.html">Maintenance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../issues/index.html">Issues and troubleshooting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../gdpr/index.html">GDPR-compliance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../declarations/index.html">Declarations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://help.nextcloud.com/">Community Help Forum</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.nextcloud.com/">User Manuals</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.nextcloud.com/">Developer Manuals</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://nextcloud.com/install/">Download</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apps.nextcloud.com">App Store</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://help.nextcloud.com/t/translation-knowledge-valid-for-the-entire-nextcloud-project-wiki/51550">Translations</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/nextcloud/">GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/nextcloud/server/wiki/Maintenance-and-Release-Schedule">Supported versions</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://nextcloud.com/enterprise/">Nextcloud Enterprise</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/nextcloud/server/blob/master/COPYING-README">License</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://nextcloud.com/">Nextcloud GmbH</a></li>
 </ul>
 
         </div>
@@ -143,7 +189,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../contents.html">Nextcloud latest Administration Manual</a>
+          <a href="../contents.html">Nextcloud 35 Administration Manual</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -166,7 +212,7 @@
 <h1>Hardening and security guidance<a class="headerlink" href="#hardening-and-security-guidance" title="Link to this heading"></a></h1>
 <p>Nextcloud aims to ship with secure defaults that do not need to get modified by
 administrators. However, in some cases some additional security hardening can be
-applied in scenarios were the administrator has complete control over
+applied in scenarios where the administrator has complete control over
 the Nextcloud instance. This page assumes that you run Nextcloud Server on Apache2
 in a Linux environment.</p>
 <div class="admonition note">
@@ -226,6 +272,36 @@ SELinux.</p>
 <p>It is highly recommended to place your data directory outside of the Web root
 (i.e. outside of <code class="docutils literal notranslate"><span class="pre">/var/www</span></code>). It is easiest to do this on a new
 installation.</p>
+</section>
+<section id="place-config-directory-outside-of-the-web-root">
+<span id="harden-config-dir"></span><h3>Place config directory outside of the web root<a class="headerlink" href="#place-config-directory-outside-of-the-web-root" title="Link to this heading"></a></h3>
+<p>You can move the <code class="docutils literal notranslate"><span class="pre">config/</span></code> directory outside the web root using the <code class="docutils literal notranslate"><span class="pre">NEXTCLOUD_CONFIG_DIR</span></code>
+environment variable. This ensures <code class="docutils literal notranslate"><span class="pre">config.php</span></code> — which contains database credentials,
+secret keys, and other sensitive values — is not accessible via HTTP even in the event of a
+web server misconfiguration.</p>
+<p>Set the variable in your web server virtual host configuration:</p>
+<div class="highlight-apache notranslate"><div class="highlight"><pre><span></span><span class="c"># Apache</span>
+<span class="nb">SetEnv</span><span class="w"> </span>NEXTCLOUD_CONFIG_DIR<span class="w"> </span><span class="sx">/etc/nextcloud</span>
+</pre></div>
+</div>
+<div class="highlight-nginx notranslate"><div class="highlight"><pre><span></span><span class="c1"># nginx — set via fastcgi_param or the PHP-FPM pool&#39;s env[] setting</span>
+<span class="k">fastcgi_param</span><span class="w"> </span><span class="s">NEXTCLOUD_CONFIG_DIR</span><span class="w"> </span><span class="s">/etc/nextcloud</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>Also set it for CLI work (<code class="docutils literal notranslate"><span class="pre">occ</span></code>, cron):</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">NEXTCLOUD_CONFIG_DIR</span><span class="o">=</span>/etc/nextcloud
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The variable must be set for <strong>both</strong> the web server process and CLI invocations.
+Verify with <code class="docutils literal notranslate"><span class="pre">occ</span> <span class="pre">config:list</span> <span class="pre">system</span></code> after changing it.</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="../configuration_server/config_sample_php_parameters.html"><span class="doc">Configuration Parameters</span></a> for full details on
+<code class="docutils literal notranslate"><span class="pre">NEXTCLOUD_CONFIG_DIR</span></code> and other configuration loading behaviour.</p>
+</div>
 </section>
 <section id="disable-preview-image-generation">
 <h3>Disable preview image generation<a class="headerlink" href="#disable-preview-image-generation" title="Link to this heading"></a></h3>
@@ -359,13 +435,6 @@ These include:</p>
 </dl>
 </li>
 <li><dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">X-XSS-Protection:</span> <span class="pre">1;</span> <span class="pre">mode=block</span></code></dt><dd><ul>
-<li><p>Instructs browsers to enable their browser side Cross-Site-Scripting filter.</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">X-Robots-Tag:</span> <span class="pre">noindex,</span> <span class="pre">nofollow</span></code></dt><dd><ul>
 <li><p>Instructs search machines to not index these pages and not follow any links there.</p></li>
 </ul>
@@ -404,12 +473,12 @@ security headers are shipped.</p>
 <section id="connections-to-remote-servers">
 <span id="id1"></span><h2>Connections to remote servers<a class="headerlink" href="#connections-to-remote-servers" title="Link to this heading"></a></h2>
 <p>Some functionalities require the Nextcloud server to be able to connect remote systems via https/443.
-This pragraph also includes the data which is being transmitted to the Nextcloud GmbH.
+This paragraph also includes the data which is being transmitted to the Nextcloud GmbH.
 Depending on your server setup, these are the possible connections:</p>
 <ul class="simple">
 <li><dl class="simple">
-<dt>nextcloud.com, startpage.com, eff.org, edri.org</dt><dd><ul>
-<li><p><a class="reference external" href="https://docs.nextcloud.com/server/31/admin_manual/configuration_server/config_sample_php_parameters.html#has-internet-connection">optional (config)</a></p></li>
+<dt>connectivity.nextcloud.com, www.eff.org, edri.org</dt><dd><ul>
+<li><p><a class="reference external" href="https://docs.nextcloud.com/server/33/admin_manual/configuration_server/config_sample_php_parameters.html#has-internet-connection">optional (config)</a></p></li>
 <li><p>for checking the internet connection</p></li>
 </ul>
 </dd>
@@ -443,6 +512,7 @@ Depending on your server setup, these are the possible connections:</p>
 <li><dl class="simple">
 <dt>github.com, objects.githubusercontent.com, release-assets.githubusercontent.com</dt><dd><ul>
 <li><p>to download Nextcloud standard apps</p></li>
+<li><p>to download Nextcloud server releases</p></li>
 </ul>
 </dd>
 </dl>
@@ -513,7 +583,7 @@ Depending on your server setup, these are the possible connections:</p>
 </ul>
 </section>
 <section id="setup-fail2ban">
-<h2>Setup fail2ban<a class="headerlink" href="#setup-fail2ban" title="Link to this heading"></a></h2>
+<span id="id2"></span><h2>Setup fail2ban<a class="headerlink" href="#setup-fail2ban" title="Link to this heading"></a></h2>
 <p>Exposing your server to the internet will inevitably lead to the exposure of the
 services running on the internet-exposed ports to brute force login attempts.</p>
 <p>This guide will enable blocking of the originating IP addresses at an operating
@@ -584,7 +654,7 @@ you may do so by issuing:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fail2ban</span><span class="o">-</span><span class="n">client</span> <span class="n">unban</span> <span class="mf">1.2.3.4</span>
 </pre></div>
 </div>
-<p>There may be scenarios where you want to more permantently ban certain IP
+<p>There may be scenarios where you want to more permanently ban certain IP
 addresses that repeatedly generate bad login attempts (or other attacks) by
 using fail2ban’s <code class="docutils literal notranslate"><span class="pre">recidive</span></code> feature.</p>
 </section>
@@ -602,7 +672,7 @@ using fail2ban’s <code class="docutils literal notranslate"><span class="pre">
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2026 Nextcloud GmbH.</p>
+    <p>&#169; Copyright 2016-2026 Nextcloud GmbH and Nextcloud contributors.</p>
   </div>
 
    
@@ -616,7 +686,7 @@ using fail2ban’s <code class="docutils literal notranslate"><span class="pre">
 
   <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
-      ☁️ 31
+      ☁️ latest
       <span class="fa fa-caret-down"></span>
     </span>
     <div class="rst-other-versions">
@@ -625,6 +695,8 @@ using fail2ban’s <code class="docutils literal notranslate"><span class="pre">
         
         <dd style="width: 32%">
           <a href="https://docs.nextcloud.com/server/latest/admin_manual"
+             
+             style="color: var(--dark-link-color);"
              
           >
             35 (latest)
@@ -652,16 +724,6 @@ using fail2ban’s <code class="docutils literal notranslate"><span class="pre">
              
           >
             32
-          </a>
-        </dd>
-        
-        <dd style="width: 32%">
-          <a href="https://docs.nextcloud.com/server/31/admin_manual"
-             
-             style="color: var(--dark-link-color);"
-             
-          >
-            31 (unsupported)
           </a>
         </dd>
         
