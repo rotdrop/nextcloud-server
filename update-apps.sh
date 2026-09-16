@@ -20,7 +20,6 @@ ALL_APPS="
  files_pdfviewer
  files_texteditor
  groupfolders
- htmlviewer
  ldap_write_support
  logreader
  mail
@@ -37,6 +36,7 @@ ALL_APPS="
  richdocuments
  serverinfo
  suspicious_login
+ terms_of_service
  text
  twofactor_gateway
  twofactor_nextcloud_notification
@@ -68,49 +68,47 @@ BUILD_COMMANDS=(
     [contacts]="run-krankerl.sh"
     [context_chat]="make \$BUILD_MODE"
     [dokuwiki]="make \$BUILD_MODE"
-    [emlviewer]="make"
+    [emlviewer]="npm install && make"
     [files_archive]="make \$BUILD_MODE"
     [files_lock]="rm -rf node_modules package-lock.json && npm install --legacy-peer-deps && npm ci --legacy-peer-deps && npm run build"
     [groupfolders]="make"
-    # [htmlviewer]="npm install ; npm ci; npm update; make"
-    [htmlviewer]="npm install ; npm ci; make"
     [ldap_write_support]="run-krankerl.sh"
     [logreader]="make"
     [mail]="make install-deps optimize-js"
     [mail_roundcube]="make \$BUILD_MODE"
-    [maps]="rm -rf node_modules package-lock.json && npm install && make"
+    [maps]="rm -rf node_modules package-lock.json && npm install && run-krankerl.sh"
     [pdf_downloader]="make \$BUILD_MODE"
     # TODO: remove photos, either use photos or memories, not both
     # [photos]="make dev-setup build-js-production && rm -rf vendor/* && composer install --no-dev"
     [photos]="rm -rf vendor/* && composer install --no-dev"
     [redaxo]="make \$BUILD_MODE"
     [richdocuments]="run-krankerl.sh"
+    [terms_of_service]=make
     [twofactor_gateway]="run-krankerl.sh"
     [workflow_pdf_converter]="run-krankerl.sh"
 )
 
 declare -A STABLE_BRANCHES
 STABLE_BRANCHES=(
-    [calendar]=stable6.5
-    [contacts]=stable8.7
+    [calendar]=stable6.6
+    [contacts]=stable8.8
     [context_chat]=main
     [emlviewer]=master
-    [htmlviewer]=master
-    [mail]=stable5.7
+    [mail]=stable5.11
 )
 
 declare -A REBASE_BRANCHES
 REBASE_BRANCHES=(
-    [calendar]=origin/stable6.4
-    [contacts]=origin/stable8.6
+    [calendar]=origin/stable6.6
+    [contacts]=origin/stable8.8
     [groupfolders]=origin/$CORE_BRANCH
-    [htmlviewer]=origin/master
     [ldap_write_support]=origin/$CORE_BRANCH
     [logreader]=origin/$CORE_BRANCH
-    [mail]=origin/stable5.7
+    [mail]=origin/stable5.11
     [maps]=origin/master
     [related_resources]=origin/$CORE_BRANCH
     [richdocuments]=origin/$CORE_BRANCH
+    [terms_of_service]=origin/stable4.7
     [twofactor_gateway]=origin/$CORE_BRANCH
     [workflow_pdf_converter]=origin/$CORE_BRANCH
 )
@@ -123,10 +121,10 @@ RESET_BRANCHES=(
     [bav]=origin/master
     [cafevdb]=origin/nextcloud34
     [cafevdbmembers]=origin/$CORE_BRANCH
-    [calendar]=cjh/production/cafevdb/stable6.4
+    [calendar]=cjh/production/cafevdb/stable6.6
     [circles]=origin/$CORE_BRANCH
     [collectives]=origin/main
-    [contacts]=cjh/production/cafevdb/stable8.6
+    [contacts]=cjh/production/cafevdb/stable8.8
     [context_chat]=origin/main
     [dokuwiki]=origin/master
     [emlviewer]=cjh/production/$CORE_BRANCH
@@ -135,10 +133,9 @@ RESET_BRANCHES=(
     [files_pdfviewer]=origin/$CORE_BRANCH
     [files_texteditor]=origin/master
     [groupfolders]=cjh/production/cafevdb/$CORE_BRANCH
-    [htmlviewer]=cjh/bugfix/mimetype-element-need-not-be-there
     [ldap_write_support]=cjh/production/cafevdb/$CORE_BRANCH
     [logreader]=cjh/production/cafevdb/$CORE_BRANCH
-    [mail]=cjh/feature/stable5.7/provision-additional-email-addresses
+    [mail]=cjh/feature/stable5.11/provision-additional-email-addresses
     [mail_roundcube]=origin/master
     [maps]=cjh/production/cafevdb/master
     [notifications]=origin/$CORE_BRANCH
@@ -152,6 +149,7 @@ RESET_BRANCHES=(
     [richdocuments]=cjh/feature/authenticated-requests-34
     [serverinfo]=origin/$CORE_BRANCH
     [suspicious_login]=origin/$CORE_BRANCH
+    [terms_of_service]=origin/stable4.7
     [text]=origin/$CORE_BRANCH
     [twofactor_gateway]=origin/$CORE_BRANCH
     [twofactor_nextcloud_notification]=origin/$CORE_BRANCH
