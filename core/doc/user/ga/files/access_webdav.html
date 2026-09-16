@@ -7,15 +7,16 @@
   <meta name="readthedocs-addons-api-version" content="1"><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Rochtain ar chomhaid Nextcloud a fháil ag baint úsáide as WebDAV &mdash; Nextcloud latest User Manual latest documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+  <title>Rochtain ar chomhaid Nextcloud a fháil ag baint úsáide as WebDAV &mdash; Nextcloud 35 User Manual</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=bad88653" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=8ff6e0db" />
       <link rel="stylesheet" type="text/css" href="../../_static/dark_mode_css/general.css?v=c0a7eb24" />
       <link rel="stylesheet" type="text/css" href="../../_static/dark_mode_css/dark.css?v=70edf1c7" />
 
   
+    <link rel="canonical" href="https://docs.nextcloud.com/server/stable/user_manual/files/access_webdav.html" />
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../../_static/documentation_options.js?v=d9c2735f"></script>
@@ -61,8 +62,7 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Nextcloud | leagan| réamhrá lámhleabhar úsáideora</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../whats_new.html">Cad atá nua d'úsáideoirí in Nextcloud |leagan|</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Nextcloud 35 réamhrá lámhleabhar úsáideora</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../webinterface.html">Comhéadan Gréasáin Nextcloud</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Comhaid &amp; sioncronú</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="access_webgui.html">Teacht ar do chuid comhad ag baint úsáide as comhéadan Gréasáin Nextcloud</a></li>
@@ -71,7 +71,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#third-party-webdav-clients">Cliaint WebDAV tríú páirtí</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#accessing-files-using-linux">Comhaid a rochtain ag baint úsáide as Linux</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#nautilus-file-manager">Nautilus bainisteoir comhad</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#accessing-files-with-kde-and-dolphin-file-manager">Comhaid a rochtain le bainisteoir comhad KDE agus Dolphin</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#accessing-files-with-kde-and-dolphin">Accessing files with KDE and Dolphin</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#creating-webdav-mounts-on-the-linux-command-line">Gléasanna WebDAV a chruthú ar an líne ordaithe Linux</a></li>
@@ -111,6 +111,7 @@
 <li class="toctree-l2"><a class="reference internal" href="deleted_file_management.html">Comhaid scriosta a bhainistiú</a></li>
 <li class="toctree-l2"><a class="reference internal" href="desktop_mobile_sync.html">Sioncronú deisce agus soghluaiste</a></li>
 <li class="toctree-l2"><a class="reference internal" href="encrypting_files.html">Ag criptiú do chuid comhad Nextcloud ar an bhfreastalaí</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_e2ee.html">Using end-to-end encryption</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sharing.html">Comhroinnt</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sharing.html#federated-shares">Scaireanna Cónaidhme</a></li>
 <li class="toctree-l2"><a class="reference internal" href="file_drop.html">Uaslódálacha gan ainm a dhéanamh</a></li>
@@ -124,7 +125,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../groupware/index.html">Earraí grúpa</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../talk/index.html">Caint</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../desktop/index.html">Desktop Clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../desktop/index.html">Cliaint Deisce</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../userpreferences.html">Ag socrú do shainroghanna</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../universal_access.html">Rochtain uilíoch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_2fa.html">Ag baint úsáide as fíordheimhniú dhá-fhachtóir</a></li>
@@ -138,7 +139,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../contents.html">Nextcloud latest User Manual</a>
+          <a href="../contents.html">Nextcloud 35 User Manual</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -159,20 +160,22 @@
              
   <section id="accessing-nextcloud-files-using-webdav">
 <h1>Rochtain ar chomhaid Nextcloud a fháil ag baint úsáide as WebDAV<a class="headerlink" href="#accessing-nextcloud-files-using-webdav" title="Link to this heading"></a></h1>
-<p>Tacaíonn Nextcloud go hiomlán le prótacal WebDAV, agus is féidir leat ceangal agus sioncrónú le Comhaid Nextcloud thar WebDAV. Sa chaibidil seo, foghlaimeoidh tú conas Linux, macOS, Windows, agus gléasanna soghluaiste a nascadh le do fhreastalaí Nextcloud.</p>
-<p>WebDAV stands for Distributed Authoring and Versioning. It is an HTTP extension
-that makes it easy to create, read, and edit files hosted on remote Web servers. With
-a WebDAV client, you can access your Nextcloud Files (including shares) on Linux,
-macOS and Windows in a similar way as any remote network share, and stay synchronized.</p>
-<p>Sula ndéanaimid WebDAV a chumrú, féachaimis go tapa ar an mbealach molta chun feistí cliant a nascadh le Nextcloud</p>
+<p>Nextcloud fully supports the WebDAV protocol, and you can connect to and synchronize
+with Nextcloud Files over WebDAV. This chapter explains how to connect Linux, macOS,
+Windows, and mobile devices to your Nextcloud server.</p>
+<p>Seasann WebDAV d’Údarú Dáilte agus Leaganacha. Is síneadh HTTP é a fhágann go bhfuil sé éasca comhaid a óstáiltear ar fhreastalaithe Gréasáin cianda a chruthú, a léamh agus a chur in eagar. Le cliant WebDAV, is féidir leat rochtain a fháil ar do chuid Comhaid Nextcloud (lena n-áirítear scaireanna) ar Linux, macOS agus Windows ar bhealach cosúil le haon sciar líonra cianda, agus fanacht sioncronaithe.</p>
+<p>Before you configure WebDAV, review the recommended way to connect client devices to
+Nextcloud.</p>
 <section id="official-nextcloud-desktop-and-mobile-clients">
 <h2>Cliaint oifigiúla deisce agus soghluaiste Nextcloud<a class="headerlink" href="#official-nextcloud-desktop-and-mobile-clients" title="Link to this heading"></a></h2>
 <p>Is é an bealach a mholtar chun ríomhaire a shioncronú le freastalaí Nextcloud ná úsáid a bhaint as <a class="reference external" href="https://nextcloud.com/install/#install-clients">cliaint sioncronaithe Nextcloud oifigiúil</a>. Is féidir leat an cliant a chumrú chun comhaid a shábháil in aon eolaire áitiúil agus is féidir leat na heolairí a roghnú ar fhreastalaí Nextcloud chun sioncronú leo. Taispeánann an cliant an stádas ceangail reatha agus logálann sé gach gníomhaíocht, ionas go mbeidh a fhios agat i gcónaí cé na comhaid iargúlta a íoslódáladh chuig do ríomhaire agus is féidir leat a fhíorú go bhfuil comhaid cruthaithe agus nuashonraithe ar do ríomhaire áitiúil sioncronaithe i gceart leis an bhfreastalaí.</p>
 <p>Is é an bealach molta chun gléasanna Android agus Apple iOS a shioncronú ná úsáid a bhaint as <a class="reference external" href="https://nextcloud.com/install/">aipeanna soghluaiste oifigiúla Nextcloud</a>.</p>
 <p>Chun na haipeanna oifigiúla Nextcloud a nascadh le freastalaí Nextcloud bain úsáid as an URL céanna a úsáideann tú chun Nextcloud a rochtain ó do bhrabhsálaí gréasáin - m.sh.:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">cloud</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span>
-
-<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">nextcloud</span> <span class="p">(</span><span class="k">if</span> <span class="n">Nextcloud</span> <span class="ow">is</span> <span class="n">installed</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">subdirectory</span> <span class="n">called</span> <span class="s2">&quot;nextcloud&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Má tá Nextcloud suiteáilte i bhfo-eolaire ar a dtugtar &quot;nextcloud&quot;:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">nextcloud</span>
 </pre></div>
 </div>
 </section>
@@ -188,25 +191,27 @@ macOS and Windows in a similar way as any remote network share, and stay synchro
 </ul>
 <p>Tá an URL le húsáid agus aipeanna tríú páirtí á chumrú chun nascadh le Nextcloud beagán níos faide ná an URL do chliaint oifigiúla:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">cloud</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">remote</span><span class="o">.</span><span class="n">php</span><span class="o">/</span><span class="n">dav</span><span class="o">/</span><span class="n">files</span><span class="o">/</span><span class="n">USERNAME</span><span class="o">/</span>
-
-<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">nextcloud</span><span class="o">/</span><span class="n">remote</span><span class="o">.</span><span class="n">php</span><span class="o">/</span><span class="n">dav</span><span class="o">/</span><span class="n">files</span><span class="o">/</span><span class="n">USERNAME</span><span class="o">/</span> <span class="p">(</span><span class="k">if</span> <span class="n">Nextcloud</span> <span class="ow">is</span> <span class="n">installed</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">subdirectory</span> <span class="n">called</span> <span class="s2">&quot;nextcloud&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Má tá Nextcloud suiteáilte i bhfo-eolaire ar a dtugtar &quot;nextcloud&quot;:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">nextcloud</span><span class="o">/</span><span class="n">remote</span><span class="o">.</span><span class="n">php</span><span class="o">/</span><span class="n">dav</span><span class="o">/</span><span class="n">files</span><span class="o">/</span><span class="n">USERNAME</span><span class="o">/</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>When using a third-party WebDAV client (including your operating system's
 built-in client), you should use an application password for login rather than your
-regular password. In addition improved security, this <a class="reference external" href="https://github.com/nextcloud/server/issues/32729#issuecomment-1556667151">increases performance significantly</a>. To
-configure an application password, log into the Nextcloud Web interface, click on the avatar
-in the top right and choose <em>Personal settings</em>. Then choose <em>Security</em> in the left
+regular password. In addition to improved security, this <a class="reference external" href="https://github.com/nextcloud/server/issues/32729#issuecomment-1556667151">increases performance significantly</a>. To
+configure an application password, log in to the Nextcloud Web interface, click your avatar,
+and choose <em>Personal settings</em>. Then choose <em>Security</em> in the left
 sidebar and scroll to the very bottom. There you can create an app password (which can
 also be revoked in the future without changing your main user password).</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Sna samplaí seo a leanas, ba cheart duit URL do fhreastalaí Nextcloud a chur in ionad <strong>example.com/nextcloud</strong> (fág amach an chuid eolaire má tá an tsuiteáil i bhfréamh d'fhearainn), agus <strong>USERNAME</strong> leis an ainm úsáideora an úsáideora nasctha.</p>
-<p>See the WebDAV URL, to be found in Files Settings -&gt; WebDAV in the Files on your Nextcloud account.</p>
-<img alt="Screenshot of the Files settings showing the personal WebDAV link" src="../../_images/webdav_link.png" />
+<p>You can find the WebDAV URL in <strong>Files settings</strong> under <strong>WebDAV</strong> in your Nextcloud account.</p>
+<img alt="Nextcloud Files settings panel showing the personal WebDAV URL" src="../../_images/webdav_link.png" />
 </div>
 </section>
 <section id="accessing-files-using-linux">
@@ -214,7 +219,8 @@ also be revoked in the future without changing your main user password).</p>
 <p>Is féidir leat comhaid a rochtain i gcórais oibriúcháin Linux ag baint úsáide as na modhanna seo a leanas.</p>
 <section id="nautilus-file-manager">
 <h3>Nautilus bainisteoir comhad<a class="headerlink" href="#nautilus-file-manager" title="Link to this heading"></a></h3>
-<p><a href="#id1"><span class="problematic" id="id2">**</span></a>Nuair a chumraíonn tú do chuntas Nextcloud sa ** <a class="reference external" href="../groupware/sync_gnome.html">Lárionad Rialaithe GNOME</a>, <a href="#id3"><span class="problematic" id="id4">**</span></a>beidh Nautilus gléasta ar do chomhaid go huathoibríoch mar chomhroinnt WebDAV, ach amháin má dhíroghnaíonn tú rochtain comhaid* <a href="#id5"><span class="problematic" id="id6">*</span></a>.</p>
+<p><strong>When you configure your Nextcloud account in the</strong> <a class="reference internal" href="../groupware/sync_gnome.html"><span class="doc">GNOME Control Center</span></a>, <strong>your files will automatically be mounted
+by Nautilus as a WebDAV share, unless you deselect file access</strong>.</p>
 <p>Is féidir leat do chomhaid Nextcloud a shuiteáil de láimh freisin. Úsáid an prótacal `` davs://`` chun an bainisteoir comhad Nautilus a nascadh le do sciar Nextcloud:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">davs</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">nextcloud</span><span class="o">/</span><span class="n">remote</span><span class="o">.</span><span class="n">php</span><span class="o">/</span><span class="n">dav</span><span class="o">/</span><span class="n">files</span><span class="o">/</span><span class="n">USERNAME</span><span class="o">/</span>
 </pre></div>
@@ -229,29 +235,18 @@ also be revoked in the future without changing your main user password).</p>
 <p>Oibríonn an modh céanna do bhainisteoirí comhad eile a úsáideann GVFS, mar shampla MATE's Caja agus Cinnamon's Nemo.</p>
 </div>
 </section>
-<section id="accessing-files-with-kde-and-dolphin-file-manager">
-<h3>Comhaid a rochtain le bainisteoir comhad KDE agus Dolphin<a class="headerlink" href="#accessing-files-with-kde-and-dolphin-file-manager" title="Link to this heading"></a></h3>
-<p>Chun rochtain a fháil ar do chomhaid Nextcloud ag baint úsáid as an mbainisteoir comhad Dolphin in KDE, úsáid an prótacal <code class="docutils literal notranslate"><span class="pre">webdav://</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">webdav</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">nextcloud</span><span class="o">/</span><span class="n">remote</span><span class="o">.</span><span class="n">php</span><span class="o">/</span><span class="n">dav</span><span class="o">/</span><span class="n">files</span><span class="o">/</span><span class="n">USERNAME</span><span class="o">/</span>
-</pre></div>
-</div>
-<img alt="Gabháil scáileáin de chumrú bainisteoir comhad Dolphin chun WebDAV a úsáid" src="../../_images/webdav_dolphin.png" />
-<p>Is féidir leat nasc buan a chruthú le do fhreastalaí Nextcloud:</p>
+<section id="accessing-files-with-kde-and-dolphin">
+<h3>Accessing files with KDE and Dolphin<a class="headerlink" href="#accessing-files-with-kde-and-dolphin" title="Link to this heading"></a></h3>
 <ol class="arabic simple">
-<li><p>Oscail Deilf agus cliceáil &quot;Líonra&quot; sa cholún &quot;Áiteanna&quot; ar thaobh na láimhe clé.</p></li>
-<li><p>Cliceáil ar an deilbhín lipéadaithe <strong>Cuir Fillteán Líonra Leis</strong>. Ba cheart go mbeadh an dialóg mar thoradh air le feiceáil le WebDAV roghnaithe cheana féin.</p></li>
-<li><p>Mura bhfuil WebDAV roghnaithe, roghnaigh é.</p></li>
-<li><p>Cliceáil <strong>Ar Aghaidh</strong>.</p></li>
-<li><p>Cuir isteach na socruithe seo a leanas:</p>
-<ul class="simple">
-<li><p>Ainm: an t-ainm is mian leat a fheiceáil sa leabharmharc <strong>Áiteanna</strong>, mar shampla, Nextcloud.</p></li>
-<li><p>Úsáideoir: an t-ainm úsáideora Nextcloud a d'úsáid tú chun logáil isteach, mar shampla, admin.</p></li>
-<li><p>Freastalaí: an t-ainm fearainn Nextcloud, mar shampla, <strong>example.com</strong> (gan ** <a class="reference external" href="http://**">http://**</a> roimhe seo nó eolairí ina dhiaidh).</p></li>
-<li><p>Fillteán -- Cuir isteach an cosán <code class="docutils literal notranslate"><span class="pre">nextcloud/remote.php/dav/files/USERNAME/</span></code>.</p></li>
-</ul>
-</li>
-<li><p>(Roghnach) Seiceáil an ticbhosca &quot;Cruthaigh deilbhín&quot; le go mbeidh leabharmharc le feiceáil sa cholún Áiteanna.</p></li>
-<li><p>(Roghnach) Cuir aon socruithe speisialta nó teastas SSL ar fáil sa ticbhosca &quot;Port &amp; Criptithe&quot;.</p></li>
+<li><p>Téigh chuig Socruithe Córais -&gt; Líonrú -&gt; Cuntais Ar Líne</p></li>
+<li><p>Cliceáil &quot;Cuir Cuntas Leis...&quot;</p></li>
+<li><p>Cliceáil Nextcloud</p></li>
+<li><p>Cuir isteach seoladh do fhreastalaí</p></li>
+<li><p>Lean na treoracha ar an scáileán chun logáil isteach</p></li>
+<li><p>Tar éis logáil isteach, déan cinnte go gcumasaíonn tú &quot;Stóráil&quot; sa rannán &quot;Úsáid an Cuntas seo Le haghaidh&quot;.</p></li>
+<li><p>Is féidir leat rochtain a fháil ar do chuid comhad i nDolphin anois faoi &quot;Líonra&quot; sa bharra taoibh</p></li>
+<li><p>(Optional) To add this location as a shortcut in the sidebar, right-click &quot;Nextcloud Storage&quot;, then click &quot;Add to Places&quot;</p></li>
+<li><p>(Optional) To customize the shortcut, right-click it in the sidebar, then click &quot;Edit...&quot; and customize the icon and label</p></li>
 </ol>
 </section>
 </section>
@@ -347,7 +342,7 @@ for example
 <h2>Comhaid a rochtain ag baint úsáide as macOS<a class="headerlink" href="#accessing-files-using-macos" title="Link to this heading"></a></h2>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The macOS Finder suffers from a <a class="reference external" href="http://sabre.io/dav/clients/finder/">series of implementation problems</a> and should only be used if the Nextcloud server runs on <strong>Apache</strong> and <strong>mod_php</strong>, or <strong>Nginx 1.3.8+</strong>. Alternative macOS-compatible clients capable of accessing WebDAV shares include open source apps like <a class="reference external" href="https://cyberduck.io/">Cyberduck</a> (see instructions <a class="reference external" href="https://docs.nextcloud.com/server/31/user_manual/files/access_webdav.html#accessing-files-using-cyberduck">here</a>) and <a class="reference external" href="https://filezilla-project.org">Filezilla</a>. Commercial clients include <a class="reference external" href="https://mountainduck.io/">Mountain Duck</a>, <a class="reference external" href="https://binarynights.com/">Forklift</a>, <a class="reference external" href="https://panic.com/">Transmit</a>, and <a class="reference external" href="https://mac.eltima.com/">Commander One</a>.</p>
+<p>The macOS Finder suffers from a <a class="reference external" href="http://sabre.io/dav/clients/finder/">series of implementation problems</a> and should only be used if the Nextcloud server runs on <strong>Apache</strong> and <strong>mod_php</strong>, or <strong>Nginx 1.3.8+</strong>. Alternative macOS-compatible clients capable of accessing WebDAV shares include open source apps like <a class="reference external" href="https://cyberduck.io/">Cyberduck</a> (see instructions <a class="reference external" href="#accessing-files-using-cyberduck">here</a>) and <a class="reference external" href="https://filezilla-project.org">Filezilla</a>. Commercial clients include <a class="reference external" href="https://mountainduck.io/">Mountain Duck</a>, <a class="reference external" href="https://binarynights.com/">Forklift</a>, <a class="reference external" href="https://panic.com/">Transmit</a>, and <a class="reference external" href="https://mac.eltima.com/">Commander One</a>.</p>
 </div>
 <p>Chun comhaid a rochtain tríd an Aimsitheoir macOS:</p>
 <ol class="arabic">
@@ -369,7 +364,7 @@ for example
 <p>Teastaíonn nascacht líonra chun an ghné seo a úsáid. Más mian leat do chuid comhad a stóráil as líne, bain úsáid as an gCliant Deisce chun gach comhad ar do Nextcloud a shioncronú le heolaire amháin nó níos mó de do thiomáint crua áitiúil.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Windows 10 réamhshocraithe anois chun Fíordheimhniú Bunúsach a cheadú má tá HTTPS cumasaithe roimh do thiomáint a mhapáil.</p>
+<p>In Windows 10, Basic Authentication is allowed by default when HTTPS is enabled before mapping your drive.</p>
 <p>Ar leaganacha níos sine de Windows, ní mór duit cead a thabhairt do Bhunfhíordheimhniú a úsáid i gClárlann Windows:</p>
 <ul class="simple">
 <li><p>seol `` regedit`` agus déan nascleanúint chuig `` HKEY_LOCAL_MACHINE SYSTEM CurrentControlSet Services WebClient Parameters``.</p></li>
@@ -395,10 +390,7 @@ for example
 </ol>
 <div class="admonition error">
 <p class="admonition-title">Error</p>
-<p>If you get the following error
-<code class="docutils literal notranslate"><span class="pre">System</span> <span class="pre">error</span> <span class="pre">67</span> <span class="pre">has</span> <span class="pre">occurred.</span> <span class="pre">The</span> <span class="pre">network</span> <span class="pre">name</span> <span class="pre">cannot</span> <span class="pre">be</span> <span class="pre">found.</span></code>,
-or frequent disconnections, open the <strong>Services</strong> app and make sure
-that the <code class="docutils literal notranslate"><span class="pre">WebClient</span></code> service is running and started automatically at startup.</p>
+<p>Má fhaigheann tú an earráid seo a leanas <code class="docutils literal notranslate"><span class="pre">Tharla</span> <span class="pre">earráid</span> <span class="pre">chórais</span> <span class="pre">67.</span> <span class="pre">Ní</span> <span class="pre">féidir</span> <span class="pre">ainm</span> <span class="pre">an</span> <span class="pre">líonra</span> <span class="pre">a</span> <span class="pre">aimsiú.</span></code>, nó dícheangail go minic, oscail an aip <strong>Seirbhísí</strong> agus cinntigh go bhfuil an tseirbhís <code class="docutils literal notranslate"><span class="pre">WebClient</span></code> ag rith agus tosaithe go huathoibríoch ag an am tosaithe.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -430,12 +422,10 @@ that the <code class="docutils literal notranslate"><span class="pre">WebClient<
 <p>Maidir le freastalaithe atá cosanta ag SSL, seiceáil <strong>Athcheangail ag síniú isteach</strong> lena chinntiú go bhfuil an mhapáil leanúnach ar atosaithe ina dhiaidh sin. Más mian leat ceangal leis an bhfreastalaí Nextcloud mar úsáideoir eile, seiceáil <strong>Ceangail ag baint úsáide as dintiúir éagsúla</strong>.</p>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/explorer_webdav.png"><img alt="Gabháil scáileáin de léarscáiliú WebDAV ar Windows Explorer" src="../../_images/explorer_webdav.png" style="width: 487.20000000000005px; height: 358.40000000000003px;" />
+<a class="reference internal image-reference" href="../../_images/explorer_webdav.png"><img alt="Windows Explorer Map Network Drive wizard with a Nextcloud WebDAV URL entered" src="../../_images/explorer_webdav.png" style="width: 487.20000000000005px; height: 358.40000000000003px;" />
 </a>
 </figure>
 </li>
-</ol>
-<ol class="arabic simple" start="5">
 <li><p>Cliceáil ar an gcnaipe <code class="docutils literal notranslate"><span class="pre">Críochnaigh</span></code>.</p></li>
 </ol>
 <p>Léarscáileanna Windows Explorer an tiomántán líonra, ag cur do shampla Nextcloud ar fáil.</p>
@@ -473,7 +463,7 @@ that the <code class="docutils literal notranslate"><span class="pre">WebClient<
 <h2>Teacht ar scaireanna poiblí ar WebDAV<a class="headerlink" href="#accessing-public-shares-over-webdav" title="Link to this heading"></a></h2>
 <p>Soláthraíonn Nextcloud an deis rochtain a fháil ar scaireanna poiblí gan ainm thar WebDAV.</p>
 <p>Chun an sciar poiblí a rochtain, oscail:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">nextcloud</span><span class="o">/</span><span class="n">public</span><span class="o">.</span><span class="n">php</span><span class="o">/</span><span class="n">webdav</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">nextcloud</span><span class="o">/</span><span class="n">public</span><span class="o">.</span><span class="n">php</span><span class="o">/</span><span class="n">dav</span><span class="o">/</span><span class="n">files</span><span class="o">/</span><span class="n">USERNAME</span>
 </pre></div>
 </div>
 <p>i gcliant WebDAV, bain úsáid as an comhartha scaire mar ainm úsáideora agus an pasfhocal comhroinnte (roghnach) mar an focal faire. Mar shampla, le nasc scaire <a class="reference external" href="https://example.com/s/kFy9Lek5sm928xP">https://example.com/s/kFy9Lek5sm928xP</a>, is é <code class="docutils literal notranslate"><span class="pre">kFy9Lek5sm928xP</span></code> an t-ainm úsáideora.</p>
@@ -502,16 +492,20 @@ that the <code class="docutils literal notranslate"><span class="pre">WebClient<
 </section>
 <section id="id6">
 <h3>Réiteach<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
-<p>Cuireann Windows teorainn leis an uasmhéid a fhéadfaidh comhad a aistriú ó nó chuig sciar WebDAV. Is féidir leat an luach <strong>FileSizeLimitInBytes</strong> a mhéadú i <strong>HKEY_LOCAL_MACHINESYSTEM\ CurrentControlSetServicesWebClientParameters</strong> trí chliceáil ar <strong>Athraigh</strong>.</p>
-<p>Chun an teorainn go dtí an t-uasluach 4GB a mhéadú, roghnaigh <strong>Deachúil</strong>, cuir isteach luach <strong>4294967295</strong>, agus atosaigh Windows nó atosaigh an tseirbhís <strong>WebClient</strong>.</p>
+<p>Cuireann Windows teorainn leis an uasmhéid a fhéadfaidh comhad a aistriú ó nó chuig sciar WebDAV. Is féidir leat an luach <code class="docutils literal notranslate"><span class="pre">FileSizeLimitInBytes</span></code> a mhéadú i <code class="docutils literal notranslate"><span class="pre">HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\WebClient\\Parameters</span></code> trí chliceáil ar <a href="#id1"><span class="problematic" id="id2">**</span></a>Athraigh <a href="#id3"><span class="problematic" id="id4">**</span></a>.</p>
+<p>Chun an teorainn go dtí an t-uasluach 4GB a mhéadú, roghnaigh <strong>Deachúil</strong>, cuir isteach luach <code class="docutils literal notranslate"><span class="pre">4294967295</span></code>, agus atosaigh Windows nó atosaigh an tseirbhís <strong>WebClient</strong>.</p>
 </section>
 <section id="id7">
 <h3>Fadhb<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
-<p>Má chuirtear tiomántán WebDAV ar Windows leis na céimeanna thuasluaite, ní thaispeánfar an méid ceart spáis atá ar fáil sa Nextcloud agus ina ionad sin taispeánann sé méid an tiomántáin C: leis an spás atá ar fáil dó.</p>
+<p>Adding a WebDAV drive on Windows with the steps above does not display the correct
+available Nextcloud space and instead shows the size and free space of the C: drive.</p>
 </section>
 <section id="answer">
 <h3>Freagra<a class="headerlink" href="#answer" title="Link to this heading"></a></h3>
-<p>Ar an drochuair, is teorannú é seo ar WebDAV féin, toisc nach dtugann sé bealach don chliant an spás saor in aisce atá ar fáil a fháil ón bhfreastalaí. Titeann Windows ar ais go huathoibríoch chun méid an tiomántáin C: a thaispeáint leis an spás atá ar fáil ina ionad. Mar sin, ar an drochuair, níl aon réiteach fíor ar an bhfadhb seo.</p>
+<p>Unfortunately, this is a limitation of WebDAV itself, because it does not provide a
+way for the client to retrieve available free space from the server. Windows automatically
+falls back to the size and free space of the C: drive. There is no direct solution
+for this limitation.</p>
 </section>
 <section id="id8">
 <h3>Fadhb<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
@@ -528,22 +522,18 @@ that the <code class="docutils literal notranslate"><span class="pre">WebClient<
 <section id="id11">
 <h3>Réiteach<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
 <ol class="arabic simple">
-<li><p>Rochtain ar do shampla Nextcloud tríd an mbrabhsálaí Gréasáin is fearr leat.</p></li>
+<li><p>Access your Nextcloud instance in your preferred Web browser.</p></li>
 <li><p>Cliceáil ar aghaidh go dtí go bhfaighidh tú an earráid deimhnithe i líne stádais an bhrabhsálaí.</p></li>
-<li><p>View the certificate, then from the Details tab, select 'Copy to File'.</p></li>
+<li><p>Féach ar an deimhniú, ansin ón gcluaisín Sonraí, roghnaigh 'Cóipeáil go Comhad'.</p></li>
 <li><p>Sábháil an comhad ar do dheasc le hainm treallach, mar shampla <code class="docutils literal notranslate"><span class="pre">myNextcloud.pem</span></code>.</p></li>
-<li><p>Go to Start menu &gt; Run, type MMC, and click 'OK' to open Microsoft Management
-Console.</p></li>
+<li><p>Téigh go roghchlár Tosaigh &gt; Rith, clóscríobh MMC, agus cliceáil 'OK' chun Microsoft Management Console a oscailt.</p></li>
 <li><p>Téigh go Comhad &gt; Cuir leis/Bain Snap-In.</p></li>
-<li><p>Select Certificates, Click 'Add', choose 'My User Account', then 'Finish', and
-finally 'OK'.</p></li>
+<li><p>Roghnaigh Deimhnithe, Cliceáil 'Add', roghnaigh 'Mo Chuntas Úsáideora', ansin 'Críochnaigh', agus ar deireadh 'OK'.</p></li>
 <li><p>Dig síos go Trust Root Certification Údaráis, Deimhnithe.</p></li>
 <li><p>Deaschliceáil Teastas, Roghnaigh Gach Tasc, agus Iompórtáil.</p></li>
 <li><p>Roghnaigh an teastas sábháilte ón Deasc.</p></li>
 <li><p>Roghnaigh Cuir gach Deimhniú sa Stór seo a leanas, agus cliceáil Brabhsáil.</p></li>
-<li><p>Check the Box that says Show Physical Stores, expand out Trusted Root
-Certification Authorities, select Local Computer there, click 'OK', and
-Complete the Import.</p></li>
+<li><p>Seiceáil an Bosca a deir Show Physical Stores, leathnaigh amach Údaráis Deimhnithe Root Iontaofa, roghnaigh Ríomhaire Áitiúil ann, cliceáil 'OK', agus Comhlánaigh an Iompórtáil.</p></li>
 <li><p>Seiceáil an liosta chun a chinntiú go dtaispeánfar an teastas. Is dócha go mbeidh ort Athnuachan a dhéanamh sula bhfeiceann tú é.</p></li>
 <li><p>Scoir MMC.</p></li>
 </ol>
@@ -583,8 +573,8 @@ Complete the Import.</p></li>
 </pre></div>
 </div>
 <p>Chun airíonna comhaid sa bhfréamhfhillteán a fháil:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w">    </span>$<span class="w"> </span>curl<span class="w"> </span>-X<span class="w"> </span>PROPFIND<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Depth: 1&quot;</span><span class="w"> </span>-u<span class="w"> </span>user:pass<span class="w"> </span>https://example.com/nextcloud/remote.php/dav/files/USERNAME/<span class="w"> </span><span class="p">|</span><span class="w"> </span>xml_pp
-<span class="w">    </span>&lt;?xml<span class="w"> </span><span class="nv">version</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span><span class="w"> </span><span class="nv">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span>?&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>curl<span class="w"> </span>-X<span class="w"> </span>PROPFIND<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Depth: 1&quot;</span><span class="w"> </span>-u<span class="w"> </span>user:pass<span class="w"> </span>https://example.com/nextcloud/remote.php/dav/files/USERNAME/<span class="w"> </span><span class="p">|</span><span class="w"> </span>xml_pp
+&lt;?xml<span class="w"> </span><span class="nv">version</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span><span class="w"> </span><span class="nv">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span>?&gt;
 &lt;d:multistatus<span class="w"> </span>xmlns:d<span class="o">=</span><span class="s2">&quot;DAV:&quot;</span><span class="w"> </span>xmlns:oc<span class="o">=</span><span class="s2">&quot;http://nextcloud.org/ns&quot;</span><span class="w"> </span>xmlns:s<span class="o">=</span><span class="s2">&quot;http://sabredav.org/ns&quot;</span>&gt;
 <span class="w">  </span>&lt;d:response&gt;
 <span class="w">    </span>&lt;d:href&gt;/nextcloud/remote.php/dav/files/USERNAME/&lt;/d:href&gt;
@@ -620,9 +610,13 @@ Complete the Import.</p></li>
 </section>
 <section id="accessing-files-using-winscp">
 <h2>Comhaid a rochtain ag baint úsáide as WinSCP<a class="headerlink" href="#accessing-files-using-winscp" title="Link to this heading"></a></h2>
-<p>Is cliant foinse oscailte saor in aisce SFTP, FTP, WebDAV, S3 agus SCP do Windows é <a href="#id1"><span class="problematic" id="id2">`</span></a>WinSCP &lt;<a class="reference external" href="https://winscp.net/eng/docs/introduction/">https://winscp.net/eng/docs/introduction/</a>&gt;. Is í an phríomhfheidhm atá aige ná comhad a aistriú idir ríomhaire áitiúil agus ríomhaire iargúlta. Thairis sin, cuireann WinSCP feidhmiúlacht scriptithe agus bainistíochta comhad bunúsach ar fáil.</p>
+<p><a class="reference external" href="https://winscp.net/eng/docs/introduction/">WinSCP</a> is a free, open-source SFTP,
+FTP, WebDAV, S3, and SCP client for Windows. Its main function is file transfer
+between a local and a remote computer. WinSCP also offers scripting and basic file
+management functionality.</p>
 <p>Is féidir <a class="reference external" href="https://winscp.net/eng/downloads.php/">a íoslódáil</a> an leagan iniompartha de WinSCP agus é a rith ar Linux tríd <a class="reference external" href="https://wiki.winehq.org/Main_Page/">Wine</a>.</p>
-<p>Chun WinSCP a rith ar Linux, íoslódáil fíon trí bhainisteoir pacáiste do dháileadh, ansin é a rith leis an ordú: `` fíon WinSCP.exe``.</p>
+<p>To run WinSCP on Linux, install Wine through your distribution's package manager,
+then run: <code class="docutils literal notranslate"><span class="pre">wine</span> <span class="pre">WinSCP.exe</span></code>.</p>
 <p>Chun nascadh le Nextcloud:</p>
 <ul class="simple">
 <li><p>Tosaigh WinSCP</p></li>
@@ -643,7 +637,8 @@ Complete the Import.</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>It is recommended to use an app password for the password if you use TOTP as WinSCP does not understand TOTP with Nextcloud at the time of writing (2022-11-07).</p>
+<p>If you use TOTP, use an app password. At the time of writing (2022-11-07),
+WinSCP does not support TOTP with Nextcloud.</p>
 </div>
 </section>
 </section>
@@ -659,7 +654,7 @@ Complete the Import.</p></li>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2026 Nextcloud GmbH.</p>
+    <p>&#169; Copyright 2016-2026 Nextcloud GmbH and Nextcloud contributors.</p>
   </div>
 
    
@@ -670,544 +665,420 @@ Complete the Import.</p></li>
     </section>
   </div>
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- Here go the languages -->
   
+  <!-- Here go the languages -->
+
+  
+  
+
+  
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+
   <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
-      🌐
-      
-      
-      ga
-      
+      🌐 Irish
       <span class="fa fa-caret-down"></span>
-
-       ☁️ 31
+       ☁️ latest
       <span class="fa fa-caret-down"></span>
     </span>
     <div class="rst-other-versions">
       <dl>
-        <dt>🌐 Languages</dt>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/af/"
-                 
-              >
-                
-                Afrikaans
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ar/"
-                 
-              >
-                
-                Arabic
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/br/"
-                 
-              >
-                
-                Breton
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ca/"
-                 
-              >
-                
-                Catalan
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/cs/"
-                 
-              >
-                
-                Czech
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/da/"
-                 
-              >
-                
-                Danish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/de/"
-                 
-              >
-                
-                German
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/el/"
-                 
-              >
-                
-                Greek
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/el_GR/"
-                 
-              >
-                
-                el_GR
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/en/"
-                 
-              >
-                
-                English
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/eo/"
-                 
-              >
-                
-                Esperanto
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/es/"
-                 
-              >
-                
-                Spanish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/eu/"
-                 
-              >
-                
-                eu
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/fi_FI/"
-                 
-              >
-                
-                Finnish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/fr/"
-                 
-              >
-                
-                French
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ga/"
-                 
-                 style="color: var(--dark-link-color);"
-                 
-              >
-                
-                Irish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/gl/"
-                 
-              >
-                
-                Glacian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/hr/"
-                 
-              >
-                
-                Croatian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/hu/"
-                 
-              >
-                
-                hu
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/hu_HU/"
-                 
-              >
-                
-                Hungarian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/id/"
-                 
-              >
-                
-                Indonesian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/it/"
-                 
-              >
-                
-                Italian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ja_JP/"
-                 
-              >
-                
-                Japanese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ko/"
-                 
-              >
-                
-                Korean
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/mn/"
-                 
-              >
-                
-                Mongolian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/nb_NO/"
-                 
-              >
-                
-                Norwegian (NB)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/nl/"
-                 
-              >
-                
-                Dutch
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/nn/"
-                 
-              >
-                
-                Norwegian (NN)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/pl/"
-                 
-              >
-                
-                Polish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/pt_BR/"
-                 
-              >
-                
-                Portuguese (BR)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/pt_PT/"
-                 
-              >
-                
-                Portuguese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ro/"
-                 
-              >
-                
-                Romanian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ru/"
-                 
-              >
-                
-                Russian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/si/"
-                 
-              >
-                
-                Sinhala
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sk_SK/"
-                 
-              >
-                
-                Slovakian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sq/"
-                 
-              >
-                
-                Albanian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sr/"
-                 
-              >
-                
-                Slovenian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sv/"
-                 
-              >
-                
-                Swedish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ta/"
-                 
-              >
-                
-                Tamil
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/th/"
-                 
-              >
-                
-                th
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/tr/"
-                 
-              >
-                
-                Turkish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/uk/"
-                 
-              >
-                
-                Ukrainian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/uz/"
-                 
-              >
-                
-                Uzbek
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/vi/"
-                 
-              >
-                
-                Vietnamese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/zh_CN/"
-                 
-              >
-                
-                Chinese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/zh_HK/"
-                 
-              >
-                
-                Chinese (HK)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/zh_TW/"
-                 
-              >
-                
-                Chinese (TW)
-                
-              </a>
-            </dd>
-          
+        <dt>🌐 Teangacha</dt>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ar/"
+               
+            >
+              Arabic
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/br/"
+               
+            >
+              Breton
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ca/"
+               
+            >
+              Catalan
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/zh_CN/"
+               
+            >
+              Chinese
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/zh_HK/"
+               
+            >
+              Chinese (HK)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/zh_TW/"
+               
+            >
+              Chinese (TW)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/cs/"
+               
+            >
+              Czech
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/da/"
+               
+            >
+              Danish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/nl/"
+               
+            >
+              Dutch
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/en/"
+               
+            >
+              English
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/fi_FI/"
+               
+            >
+              Finnish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/fr/"
+               
+            >
+              French
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/gl/"
+               
+            >
+              Galician
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/de/"
+               
+            >
+              German
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/el/"
+               
+            >
+              Greek
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/hu_HU/"
+               
+            >
+              Hungarian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/id/"
+               
+            >
+              Indonesian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ga/"
+               
+               style="color: var(--dark-link-color);"
+               
+            >
+              Irish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/it/"
+               
+            >
+              Italian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ja_JP/"
+               
+            >
+              Japanese
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ko/"
+               
+            >
+              Korean
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/mn/"
+               
+            >
+              Mongolian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/nb_NO/"
+               
+            >
+              Norwegian (NB)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/nn/"
+               
+            >
+              Norwegian (NN)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/pl/"
+               
+            >
+              Polish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/pt_PT/"
+               
+            >
+              Portuguese
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/pt_BR/"
+               
+            >
+              Portuguese (BR)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ro/"
+               
+            >
+              Romanian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ru/"
+               
+            >
+              Russian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/si/"
+               
+            >
+              Sinhala
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/sk_SK/"
+               
+            >
+              Slovakian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/sr/"
+               
+            >
+              Slovenian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/es/"
+               
+            >
+              Spanish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/sv/"
+               
+            >
+              Swedish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ta/"
+               
+            >
+              Tamil
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/tr/"
+               
+            >
+              Turkish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/uk_UA/"
+               
+            >
+              Ukrainian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/uz/"
+               
+            >
+              Uzbek
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/vi/"
+               
+            >
+              Vietnamese
+            </a>
+          </dd>
+        
       </dl>
     </div>
     <div class="rst-other-versions">
@@ -1216,6 +1087,8 @@ Complete the Import.</p></li>
         
           <dd style="width: 32%">
             <a href="https://docs.nextcloud.com/server/latest/user_manual"
+               
+               style="color: var(--dark-link-color);"
                
             >
               35 (latest)
@@ -1246,30 +1119,6 @@ Complete the Import.</p></li>
             </a>
           </dd>
         
-          <dd style="width: 32%">
-            <a href="https://docs.nextcloud.com/server/31/user_manual"
-               
-               style="color: var(--dark-link-color);"
-               
-            >
-              31 (unsupported)
-            </a>
-          </dd>
-        
-      </dl>
-      <dl>
-        <dt>Íoslódálacha</dt>
-        
-      </dl>
-      <dl>
-        
-        <dt>Ar Léigh na Docs</dt>
-          <dd>
-            <a href="///projects//?fromdocs=">Tionscadal Baile</a>
-          </dd>
-          <dd>
-            <a href="///builds//?fromdocs=">Tógann</a>
-          </dd>
       </dl>
     </div>
   </div>

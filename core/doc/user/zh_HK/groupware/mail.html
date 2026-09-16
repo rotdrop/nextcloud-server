@@ -7,15 +7,16 @@
   <meta name="readthedocs-addons-api-version" content="1"><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Using the Mail app &mdash; Nextcloud latest User Manual latest documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+  <title>使用郵件應用程式 &mdash; Nextcloud 35 User Manual</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=bad88653" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=8ff6e0db" />
       <link rel="stylesheet" type="text/css" href="../../_static/dark_mode_css/general.css?v=c0a7eb24" />
       <link rel="stylesheet" type="text/css" href="../../_static/dark_mode_css/dark.css?v=70edf1c7" />
 
   
+    <link rel="canonical" href="https://docs.nextcloud.com/server/stable/user_manual/groupware/mail.html" />
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../../_static/documentation_options.js?v=05269ba6"></script>
@@ -30,8 +31,8 @@
     <script src="../../_static/js/versions.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Setting out-of-office messages" href="absence.html" />
-    <link rel="prev" title="Using the Calendar app" href="calendar.html" />
+    <link rel="next" title="設置離開辦公室的消息" href="absence.html" />
+    <link rel="prev" title="使用日曆應用程式" href="calendar.html" />
    
   <meta name="robots" content="noindex, follow" />
 
@@ -62,93 +63,103 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Nextcloud latest user manual introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../whats_new.html">What's new for users in Nextcloud latest</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../webinterface.html">Nextcloud Web 界面</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../files/index.html">文件與同步</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Nextcloud 35 用戶手冊介紹</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../webinterface.html">Nextcloud Web 介面</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../files/index.html">檔案與同步</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Groupware</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="contacts.html">Using the Contacts app</a></li>
-<li class="toctree-l2"><a class="reference internal" href="calendar.html">Using the Calendar app</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Using the Mail app</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#managing-your-mail-account">Managing your mail account</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#switch-layout">Switch layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contacts.html">使用聯絡人應用程式</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calendar.html">使用日曆應用程式</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">使用郵件應用程式</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#managing-your-mail-account">管理您的郵件帳戶</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#switch-layout">切換佈局</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#message-display-operation-mode">Message Display / Operation Mode</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#add-a-new-mail-account">Add a new mail account</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#change-sort-order">Change sort order</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#scheduled-messages">Scheduled messages</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#priority-inbox">Priority inbox</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#all-inboxes">All inboxes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#account-settings">Account settings</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#move-messages-to-junk-folder">Move messages to Junk folder</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#search-in-mailbox">Search in mailbox</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#advance-search-in-mailbox">Advance search in mailbox</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#enable-mail-body-search">Enable mail body search</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#account-delegation">Account delegation</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#automatic-trash-deletion">Automatic trash deletion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#add-a-new-mail-account">添加新郵件帳戶</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#change-sort-order">更改排序順序</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sort-favorites-up">Sort favorites up</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#scheduled-messages">預定消息</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#priority-inbox">優先收件箱</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#all-inboxes">所有收件箱</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#account-settings">帳戶設置</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#move-messages-to-junk-folder">將消息移動到垃圾郵件資料夾</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#refresh-mailbox">Refresh mailbox</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unified-search">Unified search</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#search-in-mailbox">在郵箱中搜索</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#advanced-search-in-mailbox">在郵箱中進行高級搜索</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enable-mail-body-search">啟用郵件內容搜索</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#account-delegation">帳戶委派</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#automatic-trash-deletion">自動垃圾清除</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#compose-messages">Compose messages</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#recipient-info-on-composer">Recipient info on composer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mention-contacts">Mention contacts</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#minimize-the-composer-modal">Minimize the composer modal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#compose-messages">撰寫消息</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#minimize-the-composer-modal">最小化編輯器模態窗口</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#outbox">Outbox</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mailbox-actions">Mailbox actions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#add-a-mailbox">Add a mailbox</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#add-a-submailbox">Add a submailbox</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#shared-mailbox">Shared mailbox</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#recipient-info-on-composer">撰寫器中的收件人資訊</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mention-contacts">提及聯絡人</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#text-blocks">Text blocks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#outbox">發件箱</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mailbox-actions">郵箱操作</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#add-a-mailbox">添加郵箱</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#add-a-submailbox">添加子郵箱</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shared-mailbox">共享郵箱</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#envelope-actions">Envelope actions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#create-an-event">Create an event</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#create-a-task">Create a task</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#edit-tags">Edit tags</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#change-color-for-tags">Change color for tags</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#delete-tags">Delete tags</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ai-summary">AI summary</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#envelope-actions">信封操作</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#create-an-event">創建事件</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-a-task">創建任務</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#edit-tags">編輯標籤</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#change-color-for-tags">更改標籤顏色</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#delete-tags">刪除標籤</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ai-summary">AI 摘要</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#quick-actions">Quick actions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#message-actions">Message actions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#unsubscribe-from-a-mailing-list">Unsubscribe from a mailing list</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#snooze">Snooze</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#smart-replies">Smart replies</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#mail-translation">Mail translation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#message-actions">消息操作</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#unsubscribe-from-a-mailing-list">取消訂閱郵件列表</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#snooze">稍後再處理</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#smart-replies">智能回覆</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mail-translation">郵件翻譯</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#thread-summary">Thread summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#filtering-and-autoresponder">Filtering and autoresponder</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#autoresponders">Autoresponders</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#filter">Filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#thread-summary">主題摘要</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filtering-and-autoresponder">過濾器和自動回覆</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#autoresponders">自動回覆</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#filter">過濾器</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#create-a-filter-from-a-message">Create a filter from a message</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#follow-up-reminders">Follow-up reminders</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#security">Security</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#phishing-detection">Phishing detection</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#internal-addresses">Internal addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#follow-up-reminders">跟進提醒</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#security">安全性</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#phishing-detection">釣魚檢測</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#internal-addresses">內部地址</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#dashboard-integration">Dashboard integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#calendar-integration">Calendar integration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#meeting-invitations">Meeting invitations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#meeting-invitation-automation">Meeting invitation automation</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="absence.html">Setting out-of-office messages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sync_android.html">Synchronizing with Android</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sync_ios.html">Synchronizing with iOS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sync_osx.html">Synchronizing with macOS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sync_thunderbird.html">Synchronizing with Thunderbird</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sync_kde.html">Synchronizing with KDE Kontact</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sync_gnome.html">Synchronizing with the GNOME desktop</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sync_windows10.html">Synchronizing with Windows 10</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#keyboard-shortcuts">Keyboard shortcuts</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="absence.html">設置離開辦公室的消息</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sync_android.html">與 Android 同步</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sync_ios.html">與 iOS 同步</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sync_osx.html">與 macOS 同步</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sync_thunderbird.html">與 Thunderbird 同步</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sync_kde.html">與 KDE Kontact 同步</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sync_gnome.html">與 GNOME 桌面同步</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sync_windows10.html">與 Windows 10 同步</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_migration.html">Migrate data between instances</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../talk/index.html">Talk</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../desktop/index.html">Desktop Clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../desktop/index.html">桌面客戶端</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../userpreferences.html">設置您的偏好</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../universal_access.html">Universal access</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_2fa.html">Using two-factor authentication</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../session_management.html">Manage connected browsers and devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../universal_access.html">普遍存取</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_2fa.html">使用雙重身份驗證</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session_management.html">管理已連接的瀏覽器和裝置</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../external_storage/index.html">外置儲存</a></li>
 </ul>
 
@@ -158,7 +169,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../contents.html">Nextcloud latest User Manual</a>
+          <a href="../contents.html">Nextcloud 35 User Manual</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -167,7 +178,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../contents.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="index.html">Groupware</a></li>
-      <li class="breadcrumb-item active">Using the Mail app</li>
+      <li class="breadcrumb-item active">使用郵件應用程式</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/nextcloud/documentation/edit/master/user_manual/groupware/mail.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
@@ -178,27 +189,24 @@
            <div itemprop="articleBody">
              
   <section id="using-the-mail-app">
-<h1>Using the Mail app<a class="headerlink" href="#using-the-mail-app" title="Link to this heading"></a></h1>
+<h1>使用郵件應用程式<a class="headerlink" href="#using-the-mail-app" title="Link to this heading"></a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The Mail app comes installed with Nextcloud Hub by default, but can be disabled.
-Please ask your Administrator for it.</p>
+<p>郵件應用程式預設與 Nextcloud Hub 一起安裝，但可以禁用。請向您的管理員詢問。</p>
 </div>
 <figure class="align-default">
 <img alt="../../_images/mail.png" src="../../_images/mail.png" />
 </figure>
 <section id="managing-your-mail-account">
-<h2>Managing your mail account<a class="headerlink" href="#managing-your-mail-account" title="Link to this heading"></a></h2>
+<h2>管理您的郵件帳戶<a class="headerlink" href="#managing-your-mail-account" title="Link to this heading"></a></h2>
 <section id="switch-layout">
-<h3>Switch layout<a class="headerlink" href="#switch-layout" title="Link to this heading"></a></h3>
-<blockquote>
-<div><div class="versionadded">
-<p><span class="versionmodified added">Added in version 3.6.</span></p>
+<h3>切換佈局<a class="headerlink" href="#switch-layout" title="Link to this heading"></a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.6: </span>Nextcloud 26 or newer</p>
 </div>
-</div></blockquote>
 <ol class="arabic simple">
-<li><p>Visit mail settings</p></li>
-<li><p>Choose between <em>List</em>, <em>Vertical split</em> and <em>Horizontal split</em></p></li>
+<li><p>訪問郵件設置</p></li>
+<li><p>選擇 <em>列表</em>、<em>垂直分割</em> 或 <em>水平分割</em></p></li>
 </ol>
 <figure class="align-default">
 <img alt="../../_images/mail_layout.png" src="../../_images/mail_layout.png" />
@@ -207,13 +215,13 @@ Please ask your Administrator for it.</p>
 <section id="message-display-operation-mode">
 <h3>Message Display / Operation Mode<a class="headerlink" href="#message-display-operation-mode" title="Link to this heading"></a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 5.2.</span></p>
+<p><span class="versionmodified added">Added in version 5.2: </span>Nextcloud 30 or newer</p>
 </div>
 <p>Mail has the ability to switch between two different message view and operation modes: <em>Threaded</em> and <em>Singleton</em>.</p>
 <p>In <em>Threaded</em> mode, messages are grouped by conversation. In the mailbox message list, related messages are stacked so only the most recent message is shown, and all relates messages are shown in message display panel after the stacked message is selected. This is useful for following discussions and understanding the context of replies. In this mode, message operation like move and delete apply to the entire thread, meaning that when you move or delete a thread, all messages within that thread are affected.</p>
 <p>In <em>Singleton</em> mode, messages are displayed individually, in both the mailbox message list and message display panel and operation like move and delete apply to only the selected message. This mode is useful when you want to manage messages separately without affecting the entire conversation.</p>
 <ol class="arabic simple">
-<li><p>Visit mail settings</p></li>
+<li><p>訪問郵件設置</p></li>
 <li><p>Choose between <em>Threaded</em>, <em>Singleton</em></p></li>
 </ol>
 <figure class="align-default">
@@ -221,152 +229,169 @@ Please ask your Administrator for it.</p>
 </figure>
 </section>
 <section id="add-a-new-mail-account">
-<h3>Add a new mail account<a class="headerlink" href="#add-a-new-mail-account" title="Link to this heading"></a></h3>
+<h3>添加新郵件帳戶<a class="headerlink" href="#add-a-new-mail-account" title="Link to this heading"></a></h3>
 <ol class="arabic simple">
-<li><p>Enable mail app from the apps</p></li>
-<li><p>Click the mail icon on the header</p></li>
-<li><p>Fill up the login form (auto or manual)</p></li>
+<li><p>從應用中啟用郵件應用程式</p></li>
+<li><p>點擊標頭上的郵件圖標</p></li>
+<li><p>填寫登錄表單（自動或手動）</p></li>
 </ol>
 <figure class="align-default">
 <img alt="../../_images/new-mail-account.png" src="../../_images/new-mail-account.png" />
 </figure>
 </section>
 <section id="change-sort-order">
-<h3>Change sort order<a class="headerlink" href="#change-sort-order" title="Link to this heading"></a></h3>
-<blockquote>
-<div><div class="versionadded">
-<p><span class="versionmodified added">Added in version 3.5.</span></p>
+<h3>更改排序順序<a class="headerlink" href="#change-sort-order" title="Link to this heading"></a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.5: </span>Nextcloud 26 or newer</p>
 </div>
-</div></blockquote>
 <ol class="arabic simple">
-<li><p>Visit mail settings</p></li>
-<li><p>Go to <em>Sorting</em></p></li>
-<li><p>You can choose <em>Oldest</em> or <em>Newest</em> mail first</p></li>
+<li><p>訪問郵件設置</p></li>
+<li><p>轉到 <em>排序</em></p></li>
+<li><p>您可以選擇優先顯示 <em>最舊</em> 或 <em>最新</em> 郵件</p></li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This change will apply across all your accounts and mailboxes</p>
+<p>此更改將適用於您所有的帳戶和郵箱</p>
 </div>
 </section>
-<section id="scheduled-messages">
-<span id="mail-scheduled-messages"></span><h3>Scheduled messages<a class="headerlink" href="#scheduled-messages" title="Link to this heading"></a></h3>
+<section id="sort-favorites-up">
+<h3>Sort favorites up<a class="headerlink" href="#sort-favorites-up" title="Link to this heading"></a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 5.7: </span>Nextcloud 31 or newer</p>
+</div>
+<p>This setting allows you to show messages set as favorite in a separate section on top of the message list.</p>
 <ol class="arabic simple">
-<li><p>Click new message button on top left of your screen</p></li>
-<li><p>Click the (...) action menu on the modal composer</p></li>
-<li><p>Click <em>send later</em></p></li>
+<li><p>訪問郵件設置</p></li>
+<li><p>Go to <em>Appearance</em></p></li>
+<li><p>Enable sorting favorites up</p></li>
+</ol>
+</section>
+<section id="scheduled-messages">
+<span id="mail-scheduled-messages"></span><h3>預定消息<a class="headerlink" href="#scheduled-messages" title="Link to this heading"></a></h3>
+<ol class="arabic simple">
+<li><p>點擊屏幕左上角的新消息按鈕</p></li>
+<li><p>點擊模態編輯器上的（...）操作選項單</p></li>
+<li><p>點擊 <em>稍後發送</em></p></li>
 </ol>
 <figure class="align-default">
 <img alt="../../_images/scheduled-msg.png" src="../../_images/scheduled-msg.png" />
 </figure>
 </section>
 <section id="priority-inbox">
-<h3>Priority inbox<a class="headerlink" href="#priority-inbox" title="Link to this heading"></a></h3>
-<p>Priority inbox has 2 section <em>Important</em> and <em>Others</em>.
-Messages will automatically be marked as important based on which messages you interacted with or marked as important. In the beginning you might have to manually change the importance to teach the system, but it will improve over time.</p>
+<h3>優先收件箱<a class="headerlink" href="#priority-inbox" title="Link to this heading"></a></h3>
+<p>優先收件箱有 2 個部分，<em>重要</em> 和 <em>其他</em>。根據您互動或標記為重要的消息，消息將自動標記為重要。一開始，您可能需要手動更改重要性以教導系統，但隨著時間的推移，它將會改善。</p>
+<p>The automatic classification is optional. You can opt-out when setting up an account. The classification can also be turned on and off in the account settings at any time.</p>
 <figure class="align-default">
 <img alt="../../_images/priority-inbox.png" src="../../_images/priority-inbox.png" />
 </figure>
 </section>
 <section id="all-inboxes">
-<h3>All inboxes<a class="headerlink" href="#all-inboxes" title="Link to this heading"></a></h3>
-<p>All messages from all the accounts you have logged in, will be shown here chronologically.</p>
+<h3>所有收件箱<a class="headerlink" href="#all-inboxes" title="Link to this heading"></a></h3>
+<p>您登錄的所有帳戶的所有消息將按時間順序顯示在這裡。</p>
 </section>
 <section id="account-settings">
-<span id="mail-account-settings"></span><h3>Account settings<a class="headerlink" href="#account-settings" title="Link to this heading"></a></h3>
-<p>Your account settings such as:</p>
+<span id="mail-account-settings"></span><h3>帳戶設置<a class="headerlink" href="#account-settings" title="Link to this heading"></a></h3>
+<p>您的帳戶設置包括：</p>
 <ol class="arabic simple">
-<li><p>Aliases</p></li>
-<li><p>Signature</p></li>
-<li><p>Default Folders</p></li>
-<li><p>Autoresponder</p></li>
-<li><p>Trusted senders</p></li>
-<li><p>..and more</p></li>
+<li><p>別名</p></li>
+<li><p>簽名</p></li>
+<li><p>默認資料夾</p></li>
+<li><p>自動回覆</p></li>
+<li><p>受信任的發件人</p></li>
+<li><p>..以及更多</p></li>
 </ol>
-<p>Can be found in the action menu of a mail account. There you can edit, add or remove settings depending on your need.</p>
+<p>可以在郵件帳戶的操作選項單中找到。在那裡，您可以根據需要編輯、添加或刪除設置。</p>
 </section>
 <section id="move-messages-to-junk-folder">
-<h3>Move messages to Junk folder<a class="headerlink" href="#move-messages-to-junk-folder" title="Link to this heading"></a></h3>
-<blockquote>
-<div><div class="versionadded">
-<p><span class="versionmodified added">Added in version 3.4.</span></p>
+<h3>將消息移動到垃圾郵件資料夾<a class="headerlink" href="#move-messages-to-junk-folder" title="Link to this heading"></a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.4: </span>Nextcloud 26 or newer</p>
 </div>
-</div></blockquote>
-<p>Mail can move a message to a different folder when it is marked as junk.</p>
-<ol class="arabic">
-<li><p>Visit Account settings</p></li>
-<li><p>Go to Default folders</p></li>
-<li><p>Check that a folder is selected for the junk messages</p></li>
-<li><p>Go to Junk settings</p></li>
-<li><p>Click Move messages to Junk folder</p>
+<p>郵件可以在消息被標記為垃圾時將其移動到不同的資料夾。</p>
+<ol class="arabic simple">
+<li><p>存取帳戶設置</p></li>
+<li><p>轉到默認資料夾</p></li>
+<li><p>檢查是否已選擇一個資料夾用於垃圾郵件</p></li>
+<li><p>轉到垃圾郵件設置</p></li>
+<li><p>點擊將消息移動到垃圾郵件資料夾</p></li>
+</ol>
 <figure class="align-default">
 <img alt="../../_images/mail_move-message-to-junk-folder.png" src="../../_images/mail_move-message-to-junk-folder.png" />
 </figure>
-</li>
-</ol>
+</section>
+<section id="refresh-mailbox">
+<h3>Refresh mailbox<a class="headerlink" href="#refresh-mailbox" title="Link to this heading"></a></h3>
+<p>You can manually trigger a sync of your mailbox by clicking the refresh button located at the top of the mailbox list.
+Starting from <code class="docutils literal notranslate"><span class="pre">version</span> <span class="pre">5.7</span></code> triggering the sync will also refresh the list of folders for the selected account.</p>
+</section>
+<section id="unified-search">
+<h3>Unified search<a class="headerlink" href="#unified-search" title="Link to this heading"></a></h3>
+<p>The Mail app integrates with Nextcloud's <a class="reference internal" href="../webinterface.html#id1"><span class="std std-ref">unified search</span></a>
+feature (see <a class="reference internal" href="../webinterface.html"><span class="doc">Nextcloud Web 介面</span></a> for details). You can search for emails across
+all your accounts using the search bar in the Nextcloud header.</p>
+<p>Mail searches email subjects and sender/recipient fields. To search email bodies,
+use the mailbox search feature in the app.</p>
 </section>
 <section id="search-in-mailbox">
-<h3>Search in mailbox<a class="headerlink" href="#search-in-mailbox" title="Link to this heading"></a></h3>
+<h3>在郵箱中搜索<a class="headerlink" href="#search-in-mailbox" title="Link to this heading"></a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 2.1.</span></p>
+<p><span class="versionmodified added">Added in version 2.1: </span>Nextcloud 25 or newer</p>
 </div>
-<p>At the top of the envelope list in any mail layout, there is a search field shortcut for searching email subjects. Starting from <code class="docutils literal notranslate"><span class="pre">version</span> <span class="pre">3.7</span></code>, this shortcut allows you to search by subject, recipient (to), or sender (from) by default.</p>
+<p>在任何郵件佈局的信封列表頂部，有一個搜索字段快捷鍵，用於搜索郵件主題。從 <code class="docutils literal notranslate"><span class="pre">版本</span> <span class="pre">3.7</span></code> 開始，此快捷鍵默認允許您按主題、收件人（發送到）或發件人（來自）進行搜索。</p>
 </section>
-<section id="advance-search-in-mailbox">
-<h3>Advance search in mailbox<a class="headerlink" href="#advance-search-in-mailbox" title="Link to this heading"></a></h3>
+<section id="advanced-search-in-mailbox">
+<h3>在郵箱中進行高級搜索<a class="headerlink" href="#advanced-search-in-mailbox" title="Link to this heading"></a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 3.4.</span></p>
+<p><span class="versionmodified added">Added in version 3.4: </span>Nextcloud 26 or newer</p>
 </div>
-<p>You can access our advanced search feature through a modal located at the end of the search shortcut.</p>
+<p>您可以通過位於搜索快捷鍵末尾的模態訪問我們的高級搜索功能。</p>
 </section>
 <section id="enable-mail-body-search">
-<h3>Enable mail body search<a class="headerlink" href="#enable-mail-body-search" title="Link to this heading"></a></h3>
-<blockquote>
-<div><div class="versionadded">
-<p><span class="versionmodified added">Added in version 3.5.</span></p>
+<h3>啟用郵件內容搜索<a class="headerlink" href="#enable-mail-body-search" title="Link to this heading"></a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.5: </span>Nextcloud 26 or newer</p>
 </div>
-</div></blockquote>
-<p>Mail bodies can now be searched, this feature is opt-in because of potential performance issues.</p>
-<p>To enable it:</p>
+<p>現在可以搜索郵件內容，此功能是選擇性啟用的，因為可能會有性能問題。</p>
+<p>啟用方法：</p>
 <ol class="arabic simple">
-<li><p>Visit Account settings</p></li>
-<li><p>Go to Mailbox search</p></li>
-<li><p>Enable mail body search</p></li>
+<li><p>存取帳戶設置</p></li>
+<li><p>轉到郵箱搜索</p></li>
+<li><p>啟用郵件內容搜索</p></li>
 </ol>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>If you want to also enable it for unified mailboxes you have to do so in Mail settings</p>
+<p>如果您還想為統一郵箱啟用此功能，必須在郵件設置中進行。</p>
 </div>
-<p>By enabling it the main search box will now search in both subjects and mail bodies, and a separate <em>Body</em> option
-will appear in advanced search.</p>
+<p>啟用後，主搜索框將同時搜索主題和郵件內容，並且高級搜索中將出現單獨的 <em>內容</em> 選項。</p>
 </section>
 <section id="account-delegation">
-<h3>Account delegation<a class="headerlink" href="#account-delegation" title="Link to this heading"></a></h3>
-<p>The app allows account delegation so that one user can send emails from the address of another.</p>
+<h3>帳戶委派<a class="headerlink" href="#account-delegation" title="Link to this heading"></a></h3>
+<p>該應用程式允許帳戶委派，這樣一個用戶可以從另一個用戶的地址發送電子郵件。</p>
 <ol class="arabic simple">
-<li><p>The delegation has to be configured on the mail server by an admin</p></li>
-<li><p>Add the other email address as an alias for your own email account</p></li>
-<li><p>When sending an email, select the alias as sender</p></li>
+<li><p>委派必須由管理員在郵件伺服器上配置</p></li>
+<li><p>將另一個電子郵件地址添加為您自己電子郵件帳戶的別名</p></li>
+<li><p>發送電子郵件時，選擇別名作為發件人</p></li>
 </ol>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The sent email might not be visible to the original account if it's stored in your personal <em>Sent</em> mailbox.</p>
+<p>如果發送的電子郵件存儲在您的個人 <em>已發送</em> 郵箱中，則原始帳戶可能無法看到該電子郵件。</p>
 </div>
 </section>
 <section id="automatic-trash-deletion">
-<h3>Automatic trash deletion<a class="headerlink" href="#automatic-trash-deletion" title="Link to this heading"></a></h3>
+<h3>自動垃圾清除<a class="headerlink" href="#automatic-trash-deletion" title="Link to this heading"></a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 3.4.</span></p>
+<p><span class="versionmodified added">Added in version 3.4: </span>Nextcloud 26 or newer</p>
 </div>
-<p>The Mail app can automatically delete messages in the trash folder after a certain number of days.</p>
+<p>郵件應用程式可以在一定天數後自動刪除垃圾資料夾中的消息。</p>
 <ol class="arabic simple">
-<li><p>Visit Account settings</p></li>
-<li><p>Go to Automatic trash deletion</p></li>
-<li><p>Enter the number of days after which messages should be deleted</p></li>
+<li><p>存取帳戶設置</p></li>
+<li><p>轉到自動垃圾清除</p></li>
+<li><p>輸入消息應刪除的天數</p></li>
 </ol>
-<p>Disable trash retention by leaving the field empty or setting it to 0.</p>
+<p>通過將字段留空或設置為 0 來禁用垃圾保留。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Only mails deleted after enabling trash retention will be processed.</p>
+<p>只有在啟用垃圾保留後刪除的郵件將被處理。</p>
 </div>
 <figure class="align-default">
 <img alt="../../_images/mail_trash_retention_settings.png" src="../../_images/mail_trash_retention_settings.png" />
@@ -374,182 +399,181 @@ will appear in advanced search.</p>
 </section>
 </section>
 <section id="compose-messages">
-<h2>Compose messages<a class="headerlink" href="#compose-messages" title="Link to this heading"></a></h2>
+<h2>撰寫消息<a class="headerlink" href="#compose-messages" title="Link to this heading"></a></h2>
 <ol class="arabic simple">
-<li><p>Click new message on the top left of your screen</p></li>
-<li><p>Start writing your message</p></li>
+<li><p>點擊您屏幕左上角的新消息</p></li>
+<li><p>開始撰寫您的消息</p></li>
 </ol>
-</section>
-<section id="recipient-info-on-composer">
-<h2>Recipient info on composer<a class="headerlink" href="#recipient-info-on-composer" title="Link to this heading"></a></h2>
-<div class="versionadded">
-<p><span class="versionmodified added">Added in version 4.2.</span></p>
-</div>
-<p>When you add your first recipient or contact in the &quot;To&quot; field, a right pane will appear displaying the saved profile details of that contact.
-Adding a second contact will collapse the list, allowing you to select and expand any contact you added to view their details.
-If you prefer to focus solely on writing in the composer, you can hide the right pane by clicking the expand icon in the top-right corner.
-To show the right pane again, simply click the minimize icon in the same location.</p>
-</section>
-<section id="mention-contacts">
-<h2>Mention contacts<a class="headerlink" href="#mention-contacts" title="Link to this heading"></a></h2>
-<div class="versionadded">
-<p><span class="versionmodified added">Added in version 4.2.</span></p>
-</div>
-<p>You can mention contacts in your message by typing <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> and then selecting the contact from the list.
-By doing so the contact will be automatically added as a recipient.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Only contacts with a valid email address will be suggested.</p>
-</div>
 <section id="minimize-the-composer-modal">
-<h3>Minimize the composer modal<a class="headerlink" href="#minimize-the-composer-modal" title="Link to this heading"></a></h3>
-<blockquote>
-<div><div class="versionadded">
-<p><span class="versionmodified added">Added in version 3.2.</span></p>
+<h3>最小化編輯器模態窗口<a class="headerlink" href="#minimize-the-composer-modal" title="Link to this heading"></a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.2: </span>Nextcloud 26 or newer</p>
 </div>
-</div></blockquote>
-<p>The composer modal can be minimized while writing a new message, editing an existing draft or editing a message from the outbox. Simply click the minimize button on the top right of the modal or click anywhere outside the modal.</p>
-<blockquote>
-<div><figure class="align-default">
+<p>The composer modal can be minimized while writing a new message, editing an existing draft or a message from the outbox. Simply click the minimize button on the top right of the modal or click anywhere outside the modal.</p>
+<figure class="align-default">
 <img alt="../../_images/mail-minimize-composer.png" src="../../_images/mail-minimize-composer.png" />
 </figure>
-</div></blockquote>
-<p>You can resume your minimized message by clicking anywhere on the indicator on the bottom right of your screen.</p>
-<blockquote>
-<div><figure class="align-default">
+<p>您可以通過單擊屏幕右下角指示器的任何地方來恢復最小化的消息。</p>
+<figure class="align-default">
 <img alt="../../_images/mail-composer-indicator.png" src="../../_images/mail-composer-indicator.png" />
 </figure>
-</div></blockquote>
-<p>Press the close button on the modal or the indicator in the bottom right corner to stop editing a message. A draft will be saved automatically into your draft mailbox.</p>
+<p>Press close button on the modal or the indicator in the bottom right corner to stop editing a message. A draft will be saved automatically into your draft mailbox.</p>
 </section>
 </section>
-<section id="outbox">
-<h2>Outbox<a class="headerlink" href="#outbox" title="Link to this heading"></a></h2>
-<p>When a message has been composed and the &quot;Send&quot; button was clicked, the message is added to the outbox which can be found in the bottom left corner of the left sidebar.</p>
-<p>You can also set the date and time for the send operation to a point in the future (see <a class="reference internal" href="#mail-scheduled-messages"><span class="std std-ref">Scheduled messages</span></a>)- the message will be kept in the outbox until your chosen date and time arrives, then it will be sent automatically.</p>
-<p>The outbox is only visible when there is a message waiting to be handled by the outbox.</p>
-<p>You can re- open the composer for a message in the outbox any time before the &quot;send&quot;- operation is triggered.</p>
+<section id="recipient-info-on-composer">
+<h2>撰寫器中的收件人資訊<a class="headerlink" href="#recipient-info-on-composer" title="Link to this heading"></a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 4.2: </span>Nextcloud 30 or newer</p>
+</div>
+<p>當您在「收件人」字段中添加第一個收件人或聯絡人時，將出現右側面板，顯示該聯絡人的保存配置詳細信息。添加第二個聯絡人會將列表折疊，您可以選擇並展開任何您添加的聯絡人以查看其詳細信息。如果您希望專注於撰寫郵件，可以通過點擊右上角的展開圖標來隱藏右側面板。要再次顯示右側面板，只需點擊同一位置的最小化圖標。</p>
+</section>
+<section id="mention-contacts">
+<h2>提及聯絡人<a class="headerlink" href="#mention-contacts" title="Link to this heading"></a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 4.2: </span>Nextcloud 30 or newer</p>
+</div>
+<p>您可以通過輸入 <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> 來提及消息中的聯絡人，然後從列表中選擇該聯絡人。這樣，該聯絡人將自動添加為收件人。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>When an error occurs during sending, three error messages are possible:</p>
+<p>僅會建議具有有效電子郵件地址的聯絡人。</p>
+</div>
+</section>
+<section id="text-blocks">
+<h2>Text blocks<a class="headerlink" href="#text-blocks" title="Link to this heading"></a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 5.2: </span>Nextcloud 30 or newer</p>
+</div>
+<p>Text blocks are predefined snippets of text that can be inserted into your email. They can be created and managed in the mail settings.
+They can be inserted into the composer by typing <code class="docutils literal notranslate"><span class="pre">!</span></code> and then selecting the block from the list or from the composer actions.
+Text blocks can be shared with users and user groups.</p>
+</section>
+<section id="outbox">
+<h2>發件箱<a class="headerlink" href="#outbox" title="Link to this heading"></a></h2>
+<p>當消息已撰寫並且點擊了「發送」按鈕後，該消息會被添加到發件箱中，您可以在左側邊欄的左下角找到它。</p>
+<p>您還可以將發送操作的日期和時間設置為未來的某個時間點（請參見 <a class="reference internal" href="#mail-scheduled-messages"><span class="std std-ref">排定的消息</span></a>）—該消息將保留在發件箱中，直到選定的日期和時間到達，然後自動發送。</p>
+<p>當發件箱中有待處理的消息時，發件箱才會顯示。</p>
+<p>You can reopen the composer for a message in the outbox any time before the send operation is triggered.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>當發送過程中發生錯誤時，可能會出現三條錯誤消息：</p>
 <dl class="simple">
-<dt>Could not copy to &quot;Sent&quot; mailbox</dt><dd><p>The mail was sent but couldn't be copied to the &quot;Sent&quot; mailbox. This error will be handled by the outbox and the copy operation will be tried again.</p>
+<dt>無法複製到「已發送」郵箱</dt><dd><p>郵件已發送，但無法複製到「已發送」郵箱。此錯誤將由發件箱處理，並將再次嘗試複製操作。</p>
 </dd>
-<dt>Mail server error</dt><dd><p>Sending was unsuccessful with a state than can be retried (ex: the SMTP server couldn't be reached). The outbox will retry sending the message.</p>
+<dt>郵件伺服器錯誤</dt><dd><p>Sending was unsuccessful with a state that can be retried (ex: the SMTP server couldn't be reached). The outbox will retry sending the message.</p>
 </dd>
-<dt>Message could not be sent</dt><dd><p>Sending might or might not have failed. The mail server can't tell us the state of the message. Since the Mail app has no way to determine the state of the message (sent or unsent) the message will stay in the outbox and the account user has to decide how to proceed.</p>
+<dt>消息無法發送</dt><dd><p>發送可能成功也可能失敗。郵件伺服器無法告訴我們消息的狀態。由於郵件應用無法確定消息的狀態（已發送或未發送），該消息將保留在發件箱中，帳戶用戶必須決定如何繼續。</p>
 </dd>
 </dl>
 </div>
 </section>
 <section id="mailbox-actions">
-<h2>Mailbox actions<a class="headerlink" href="#mailbox-actions" title="Link to this heading"></a></h2>
+<h2>郵箱操作<a class="headerlink" href="#mailbox-actions" title="Link to this heading"></a></h2>
 <section id="add-a-mailbox">
-<h3>Add a mailbox<a class="headerlink" href="#add-a-mailbox" title="Link to this heading"></a></h3>
+<h3>添加郵箱<a class="headerlink" href="#add-a-mailbox" title="Link to this heading"></a></h3>
 <ol class="arabic simple">
-<li><p>Open the action menu of an account</p></li>
-<li><p>Click add mailbox</p></li>
+<li><p>打開帳戶的操作選項單</p></li>
+<li><p>點擊添加郵箱</p></li>
 </ol>
 </section>
 <section id="add-a-submailbox">
-<h3>Add a submailbox<a class="headerlink" href="#add-a-submailbox" title="Link to this heading"></a></h3>
+<h3>添加子郵箱<a class="headerlink" href="#add-a-submailbox" title="Link to this heading"></a></h3>
 <ol class="arabic simple">
-<li><p>Open the action menu of a mailbox</p></li>
-<li><p>Click add submailbox</p></li>
+<li><p>打開郵箱的操作選項單</p></li>
+<li><p>點擊添加子郵箱</p></li>
 </ol>
 </section>
 <section id="shared-mailbox">
-<h3>Shared mailbox<a class="headerlink" href="#shared-mailbox" title="Link to this heading"></a></h3>
-<p>If a mailbox was shared with you with some specific rights, that mailbox will show as a new mailbox with a shared icon as below:</p>
+<h3>共享郵箱<a class="headerlink" href="#shared-mailbox" title="Link to this heading"></a></h3>
+<p>如果有郵箱與您共享並具有某些特定權限，該郵箱將顯示為帶有共享圖標的新郵箱，如下所示：</p>
 <figure class="align-default">
 <img alt="../../_images/shared-mailbox-icon.png" src="../../_images/shared-mailbox-icon.png" />
 </figure>
 </section>
 </section>
 <section id="envelope-actions">
-<h2>Envelope actions<a class="headerlink" href="#envelope-actions" title="Link to this heading"></a></h2>
+<h2>信封操作<a class="headerlink" href="#envelope-actions" title="Link to this heading"></a></h2>
 <section id="create-an-event">
-<h3>Create an event<a class="headerlink" href="#create-an-event" title="Link to this heading"></a></h3>
-<p>Create an event for a certain message/thread directly via mail app</p>
+<h3>創建事件<a class="headerlink" href="#create-an-event" title="Link to this heading"></a></h3>
+<p>通過郵件應用程序直接為某條消息/主題創建事件</p>
 <ol class="arabic simple">
-<li><p>Open action menu of an envelope</p></li>
-<li><p>Click <em>More actions</em></p></li>
-<li><p>Click <em>Create event</em></p></li>
+<li><p>打開信封的操作選項單</p></li>
+<li><p>點擊 <em>更多操作</em></p></li>
+<li><p>點擊 <em>創建事件</em></p></li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Event title and an agenda is created for you if the administrator has enabled it.</p>
+<p>An event title and agenda are created for you if the administrator has enabled it.</p>
 </div>
 </section>
 <section id="create-a-task">
-<h3>Create a task<a class="headerlink" href="#create-a-task" title="Link to this heading"></a></h3>
+<h3>創建任務<a class="headerlink" href="#create-a-task" title="Link to this heading"></a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 3.2.</span></p>
+<p><span class="versionmodified added">Added in version 3.2: </span>Nextcloud 26 or newer</p>
 </div>
-<p>Create an task for a certain message/thread directly via mail app</p>
+<p>通過郵件應用程序直接為某條消息/主題創建任務</p>
 <ol class="arabic simple">
-<li><p>Open action menu of an envelope</p></li>
-<li><p>Click <em>more actions</em></p></li>
-<li><p>Click <em>create task</em></p></li>
+<li><p>打開信封的操作選項單</p></li>
+<li><p>點擊 <em>更多操作</em></p></li>
+<li><p>點擊 <em>創建任務</em></p></li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Tasks are stored in supported calendars. If there is no compatible calendar you can create a new one with the <a class="reference internal" href="calendar.html#calendar-app"><span class="std std-ref">calendar app</span></a>.</p>
+<p>任務存儲在支持的日曆中。如果沒有兼容的日曆，您可以使用 <a class="reference internal" href="calendar.html#calendar-app"><span class="std std-ref">日曆應用</span></a> 創建一個新日曆。</p>
 </div>
 </section>
 <section id="edit-tags">
-<h3>Edit tags<a class="headerlink" href="#edit-tags" title="Link to this heading"></a></h3>
+<h3>編輯標籤<a class="headerlink" href="#edit-tags" title="Link to this heading"></a></h3>
 <ol class="arabic simple">
-<li><p>Open action menu of an envelope</p></li>
-<li><p>Click <em>Edit tags</em></p></li>
-<li><p>On the tags modal, set/unset tags</p></li>
+<li><p>打開信封的操作選項單</p></li>
+<li><p>點擊 <em>編輯標籤</em></p></li>
+<li><p>在標籤模態窗口中，設置/取消標籤</p></li>
 </ol>
 </section>
 <section id="change-color-for-tags">
-<h3>Change color for tags<a class="headerlink" href="#change-color-for-tags" title="Link to this heading"></a></h3>
+<h3>更改標籤顏色<a class="headerlink" href="#change-color-for-tags" title="Link to this heading"></a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 3.5.</span></p>
+<p><span class="versionmodified added">Added in version 3.5: </span>Nextcloud 26 or newer</p>
 </div>
 <figure class="align-default">
 <img alt="../../_images/change-tag-color.png" src="../../_images/change-tag-color.png" />
 </figure>
-<p>Upon creating a tag, a randomly assigned color is automatically chosen. Once the tag is saved, you have the flexibility to customize its color according to your preferences. This feature can be found on the Tag modal action menu.</p>
+<p>創建標籤時，會自動選擇隨機分配的顏色。一旦標籤保存，您可以根據您的喜好自定義其顏色。此功能可以在標籤模態操作菜單中找到。</p>
 </section>
 <section id="delete-tags">
-<h3>Delete tags<a class="headerlink" href="#delete-tags" title="Link to this heading"></a></h3>
+<h3>刪除標籤<a class="headerlink" href="#delete-tags" title="Link to this heading"></a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 3.5.</span></p>
+<p><span class="versionmodified added">Added in version 3.5: </span>Nextcloud 26 or newer</p>
 </div>
 <figure class="align-default">
 <img alt="../../_images/delete-tag.png" src="../../_images/delete-tag.png" />
 </figure>
-<p>You now have the ability to delete tags that you have previously created. To access this feature:</p>
+<p>您現在可以刪除之前創建的標籤。要訪問此功能：</p>
 <ol class="arabic simple">
-<li><p>Open the action menu of an envelope/thread.</p></li>
-<li><p>Select Edit tags.</p></li>
-<li><p>Within the tags modal, open the action menu for the specific tag you wish to delete.</p></li>
+<li><p>打開信封/主題的操作菜單。</p></li>
+<li><p>選擇編輯標籤。</p></li>
+<li><p>在標籤模態中，打開您希望刪除的具體標籤的操作菜單。</p></li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Please note that default tags such as Work, To do, Personal, and Later cannot be deleted, they can only be renamed.</p>
+<p>請注意，默認標籤如工作、待辦、個人和稍後無法刪除，僅能重命名。</p>
 </div>
 </section>
 <section id="ai-summary">
-<h3>AI summary<a class="headerlink" href="#ai-summary" title="Link to this heading"></a></h3>
+<h3>AI 摘要<a class="headerlink" href="#ai-summary" title="Link to this heading"></a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 4.2.</span></p>
+<p><span class="versionmodified added">Added in version 4.2: </span>Nextcloud 30 or newer</p>
 </div>
-<p>When looking through your mailbox you will see a short AI generated summary of your emails as a preview.</p>
+<p>在查看郵箱時，您將看到一個短的 AI 生成的郵件摘要作為預覽。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Please note that the feature has to be enabled by the administrator</p>
+<p>請注意，此功能必須由管理員啟用。</p>
 </div>
 </section>
 </section>
 <section id="quick-actions">
 <h2>Quick actions<a class="headerlink" href="#quick-actions" title="Link to this heading"></a></h2>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 5.5: </span>(Nextcloud 30)</p>
+<p><span class="versionmodified added">Added in version 5.5: </span>Nextcloud 30 or newer</p>
 </div>
 <p>Allows you to group action steps that you would normally perform on envelopes such as tagging, moving, marking as read ... into quick actions that can be executed with a single click.
 Quick actions are scoped to one mail account and can be created and managed in the mail settings under &quot;Quick actions&quot; or directly from the envelope action menu.</p>
@@ -563,104 +587,108 @@ Quick actions are scoped to one mail account and can be created and managed in t
 </div>
 </section>
 <section id="message-actions">
-<h2>Message actions<a class="headerlink" href="#message-actions" title="Link to this heading"></a></h2>
+<h2>消息操作<a class="headerlink" href="#message-actions" title="Link to this heading"></a></h2>
 <section id="unsubscribe-from-a-mailing-list">
-<h3>Unsubscribe from a mailing list<a class="headerlink" href="#unsubscribe-from-a-mailing-list" title="Link to this heading"></a></h3>
+<h3>取消訂閱郵件列表<a class="headerlink" href="#unsubscribe-from-a-mailing-list" title="Link to this heading"></a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 3.1.</span></p>
+<p><span class="versionmodified added">Added in version 3.1: </span>Nextcloud 26 or newer</p>
 </div>
-<p>Some mailing lists and newsletters allow to be unsubscribed easily. If the Mail app detects messages from such a sender, it will show an <em>Unsubscribe</em> button next to the sender information. Click and confirm to unsubscribe from the list.</p>
+<p>某些郵件列表和新聞通訊允許輕鬆取消訂閱。如果郵件應用檢測到來自此類發件人的消息，則會在發件人信息旁顯示 <em>取消訂閱</em> 按鈕。點擊並確認以取消訂閱。</p>
 </section>
 <section id="snooze">
-<h3>Snooze<a class="headerlink" href="#snooze" title="Link to this heading"></a></h3>
+<h3>稍後再處理<a class="headerlink" href="#snooze" title="Link to this heading"></a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 3.4.</span></p>
+<p><span class="versionmodified added">Added in version 3.4: </span>Nextcloud 26 or newer</p>
 </div>
-<p>Snoozing a message or thread moves it into a dedicated mailbox until the selected snooze date is reached and the message or thread is moved back to the original mailbox.</p>
+<p>稍後再處理消息或線程會將其移動到專用的郵箱中，直到選定的稍後再處理日期到達，然後消息或線程將移回原始郵箱。</p>
 <ol class="arabic simple">
-<li><p>Open action menu of an envelope or thread</p></li>
-<li><p>Click <em>Snooze</em></p></li>
-<li><p>Select how long the message or thread should be snoozed</p></li>
+<li><p>打開信封或線程的操作選項單</p></li>
+<li><p>點擊 <em>稍後再處理</em></p></li>
+<li><p>選擇消息或線程應稍後再處理的時間長度</p></li>
 </ol>
 </section>
 <section id="smart-replies">
-<h3>Smart replies<a class="headerlink" href="#smart-replies" title="Link to this heading"></a></h3>
+<h3>智能回覆<a class="headerlink" href="#smart-replies" title="Link to this heading"></a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 3.6.</span></p>
+<p><span class="versionmodified added">Added in version 3.6: </span>Nextcloud 26 or newer</p>
 </div>
-<p>When you open a message in the Mail app, it proposes AI-generated replies. By simply clicking on a suggested reply, the composer opens with the response pre-filled.</p>
+<p>當您在郵件應用中打開一條消息時，它會提供 AI 生成的回覆。只需點擊建議的回覆，撰寫器將自動填充該回覆。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Please note that the feature has to be enabled by the administrator</p>
+<p>請注意，此功能必須由管理員啟用。</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Supported languages depend on the used large language model</p>
+<p>支持的語言取決於所使用的大型語言模型</p>
 </div>
 </section>
 <section id="mail-translation">
-<h3>Mail translation<a class="headerlink" href="#mail-translation" title="Link to this heading"></a></h3>
+<h3>郵件翻譯<a class="headerlink" href="#mail-translation" title="Link to this heading"></a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 4.2.</span></p>
+<p><span class="versionmodified added">Added in version 4.2: </span>Nextcloud 30 or newer</p>
 </div>
-<p>You are able to translate messages to your configured languages similarly to Talk.</p>
+<p>您可以將消息翻譯成您配置的語言，方式類似於 Talk。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Please note that translation features have to be enabled on the server</p>
+<p>請注意，翻譯功能必須在伺服器上啟用。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Since version 5.3, if LLM is enabled by admin, translations will be suggested</p>
 </div>
 </section>
 </section>
 <section id="thread-summary">
-<h2>Thread summary<a class="headerlink" href="#thread-summary" title="Link to this heading"></a></h2>
-<p>The mail app supports summarizing message threads that contain 3 or more messages.</p>
+<h2>主題摘要<a class="headerlink" href="#thread-summary" title="Link to this heading"></a></h2>
+<p>郵件應用支持總結包含 3 條或更多消息的主題。</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 3.4.</span></p>
+<p><span class="versionmodified added">Added in version 3.4: </span>Nextcloud 26 or newer</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Please note that the feature has to be enabled by the administrator</p>
+<p>請注意，此功能必須由管理員啟用。</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Please note that this feature only works well with integration_openai. Local LLMs take too long to respond and the summary request is likely to time out and still create significant system load.</p>
+<p>請注意，這一功能僅在 integration_openai 下運行良好。本地 LLM 的響應時間過長，摘要請求可能會超時並造成顯著的系統負載。</p>
 </div>
 </section>
 <section id="filtering-and-autoresponder">
-<h2>Filtering and autoresponder<a class="headerlink" href="#filtering-and-autoresponder" title="Link to this heading"></a></h2>
-<p>The Mail app has a simple editor for Sieve scripts and an interface to configure autoresponders. Sieve has to be enabled in the <a class="reference internal" href="#mail-account-settings"><span class="std std-ref">account settings</span></a>.</p>
+<h2>過濾器和自動回覆<a class="headerlink" href="#filtering-and-autoresponder" title="Link to this heading"></a></h2>
+<p>郵件應用擁有 Sieve 腳本的編輯器，以及配置自動回覆和過濾器的界面。必須在 <a class="reference internal" href="#mail-account-settings"><span class="std std-ref">帳戶設置</span></a> 中啟用 Sieve。</p>
 <section id="autoresponders">
-<h3>Autoresponders<a class="headerlink" href="#autoresponders" title="Link to this heading"></a></h3>
+<h3>自動回覆<a class="headerlink" href="#autoresponders" title="Link to this heading"></a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 3.5: </span>Autoresponder can follow system settings.</p>
+<p><span class="versionmodified added">Added in version 3.5: </span>Nextcloud 26 or newer</p>
 </div>
-<p>The autoresponder is off by default. It can be set manually, or follow the system settings. Following system settings means that the long absence message entered on the <a class="reference internal" href="absence.html#groupware-absence"><span class="std std-ref">Absence settings section</span></a> is applied automatically.</p>
+<p>自動回覆默認為關閉狀態。可以手動設置，也可以遵循系統設置。遵循系統設置意味著在 <a class="reference internal" href="absence.html#groupware-absence"><span class="std std-ref">缺席設置部分</span></a> 中輸入的長期缺席消息將自動應用。</p>
 </section>
 <section id="filter">
-<h3>Filter<a class="headerlink" href="#filter" title="Link to this heading"></a></h3>
+<h3>過濾器<a class="headerlink" href="#filter" title="Link to this heading"></a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 4.1.</span></p>
+<p><span class="versionmodified added">Added in version 4.1: </span>Nextcloud 30 or newer</p>
 </div>
-<p>Mail 4.1 includes a simple editor to configure filter rules.</p>
+<p>郵件 4.1 包含一個簡單的編輯器來配置過濾器規則。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Importing existing filters is not supported. However, all existing filters will remain active and unchanged.  We recommend backing up your current script through the Sieve script editor as a precaution.</p>
+<p>不支持導入現有過濾器。但是，所有現有過濾器將保持活動且不變。我們建議通過 Sieve 腳本編輯器備份您當前的腳本，以防萬一。</p>
 </div>
 <section id="how-to-add-a-new-filter">
-<h4>How to Add a New Filter<a class="headerlink" href="#how-to-add-a-new-filter" title="Link to this heading"></a></h4>
+<h4>如何添加新過濾器<a class="headerlink" href="#how-to-add-a-new-filter" title="Link to this heading"></a></h4>
 <ol class="arabic simple">
-<li><p>Open your account settings.</p></li>
-<li><p>Verify that Sieve is enabled for your account (see Sieve server settings).</p></li>
-<li><p>Click on Filters.</p></li>
-<li><p>Select New Filter to create a new rule.</p></li>
+<li><p>打開您的帳戶設置。</p></li>
+<li><p>檢查您的帳戶是否啟用了 Sieve（請參見 Sieve 伺服器設置）。</p></li>
+<li><p>點擊過濾器。</p></li>
+<li><p>選擇「新建過濾器」來創建新規則。</p></li>
 </ol>
 </section>
 <section id="how-to-delete-a-filter">
-<h4>How to Delete a Filter<a class="headerlink" href="#how-to-delete-a-filter" title="Link to this heading"></a></h4>
+<h4>如何刪除過濾器<a class="headerlink" href="#how-to-delete-a-filter" title="Link to this heading"></a></h4>
 <ol class="arabic simple">
-<li><p>Open your account settings.</p></li>
-<li><p>Ensure that Sieve is enabled for your account (see Sieve server settings).</p></li>
-<li><p>Click on Filters.</p></li>
-<li><p>Hover over the filter you wish to delete, then click the trash icon.</p></li>
+<li><p>打開您的帳戶設置。</p></li>
+<li><p>確保您的帳戶已啟用 Sieve（請參見 Sieve 伺服器設置）。</p></li>
+<li><p>點擊過濾器。</p></li>
+<li><p>將鼠標懸停在您希望刪除的過濾器上，然後點擊垃圾桶圖標。</p></li>
 </ol>
 </section>
 <section id="conditions">
@@ -668,24 +696,24 @@ Quick actions are scoped to one mail account and can be created and managed in t
 <p>Conditions are applied to incoming emails on your mail server, targeting fields such as Subject, Sender, and Recipient. You can use the following operators to define conditions for these fields:</p>
 <ul class="simple">
 <li><p><strong>is exactly</strong>: An exact match. The field must be identical to the provided value.</p></li>
-<li><p><strong>contains</strong>: A substring match. The field matches if the provided value is contained within it. For example, &quot;report&quot; would match &quot;port&quot;.</p></li>
-<li><p><strong>matches</strong>: A pattern match using wildcards. The &quot;*&quot; symbol represents any number of characters (including none), while &quot;?&quot; represents exactly one character. For example, &quot;<em>report</em>&quot; would match &quot;Business report 2024&quot;.</p></li>
+<li><p><strong>包含</strong>：子字符串匹配。如果提供的值包含在該字段中，則該字段匹配。例如，「report」將匹配「port」。</p></li>
+<li><p><strong>匹配</strong>：使用通配符進行模式匹配。「*」符號表示任意數量的字符（包括零），而「?」表示恰好一個字符。例如，「<em>report</em>」將匹配「Business report 2024」。</p></li>
 </ul>
 </section>
 <section id="actions">
-<h4>Actions<a class="headerlink" href="#actions" title="Link to this heading"></a></h4>
-<p>Actions are triggered when the specified tests are true. The following actions are available:</p>
+<h4>操作<a class="headerlink" href="#actions" title="Link to this heading"></a></h4>
+<p>當指定的測試為真時，將觸發操作。可用的操作如下：</p>
 <ul class="simple">
-<li><p><strong>fileinto</strong>: Moves the message into a specified folder.</p></li>
-<li><p><strong>addflag</strong>: Adds a flag to the message.</p></li>
-<li><p><strong>stop</strong>: Halts the execution of the filter script. No further filters with will be processed after this action.</p></li>
+<li><p><strong>fileinto</strong>：將消息移動到指定文件夾。</p></li>
+<li><p><strong>addflag</strong>：向消息添加標誌。</p></li>
+<li><p><strong>stop</strong>：停止過濾器腳本的執行。此操作後不會處理任何其他過濾器。</p></li>
 </ul>
 </section>
 </section>
 <section id="create-a-filter-from-a-message">
 <h3>Create a filter from a message<a class="headerlink" href="#create-a-filter-from-a-message" title="Link to this heading"></a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 5.2.</span></p>
+<p><span class="versionmodified added">Added in version 5.2: </span>Nextcloud 30 or newer</p>
 </div>
 <p>To create a filter from a given message, open the message and then open the menu by clicking on the three dots. Next, click on &quot;More actions&quot; followed by &quot;Create mail filter.&quot;</p>
 <p>In the dialog, please select the conditions to match incoming messages and continue by clicking on &quot;Create mail filter.&quot;</p>
@@ -695,61 +723,58 @@ Quick actions are scoped to one mail account and can be created and managed in t
 </section>
 </section>
 <section id="follow-up-reminders">
-<h2>Follow-up reminders<a class="headerlink" href="#follow-up-reminders" title="Link to this heading"></a></h2>
+<h2>跟進提醒<a class="headerlink" href="#follow-up-reminders" title="Link to this heading"></a></h2>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 4.0.</span></p>
+<p><span class="versionmodified added">Added in version 4.0: </span>Nextcloud 30 or newer</p>
 </div>
-<p>The Mail app will automatically remind you when an outgoing email did not receive a response.
-Each sent email will be analyzed by an AI to check whether a reply is expected.
-After four days all relevant emails will be shown in your priority inbox.</p>
-<p>When clicking on such an email a button will be shown to quickly follow up with all recipients.
-It is also possible to disable follow-up reminders for a sent email.</p>
+<p>郵件應用將在發出的電子郵件未收到回覆時自動提醒您。每封已發送的電子郵件將由 AI 進行分析，以檢查是否預期會有回覆。四天後，所有相關電子郵件將顯示在您的優先收件箱中。</p>
+<p>點擊此類電子郵件時，將顯示一個按鈕以快速跟進所有收件人。對於已發送的電子郵件，也可以禁用跟進提醒。</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Please note that the feature has to be enabled by the administrator.</p>
+<p>請注意，此功能必須由管理員啟用。</p>
 </div>
 </section>
 <section id="security">
-<h2>Security<a class="headerlink" href="#security" title="Link to this heading"></a></h2>
+<h2>安全性<a class="headerlink" href="#security" title="Link to this heading"></a></h2>
 <section id="phishing-detection">
-<h3>Phishing detection<a class="headerlink" href="#phishing-detection" title="Link to this heading"></a></h3>
+<h3>釣魚檢測<a class="headerlink" href="#phishing-detection" title="Link to this heading"></a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 4.0.</span></p>
+<p><span class="versionmodified added">Added in version 4.0: </span>Nextcloud 30 or newer</p>
 </div>
-<p>The Mail app will check for potential phishing attempts and will display a warning to the user.</p>
-<p>The checks are the following:</p>
+<p>郵件應用將檢查潛在的釣魚嘗試，並向用戶顯示警告。</p>
+<p>檢查項目如下：</p>
 <ul class="simple">
-<li><p>The sender address saved in the addressbook is not the same as the one in the mail account</p></li>
-<li><p>The sender is using a custom email address that doesn't match the from address</p></li>
-<li><p>The sent date is set in the future</p></li>
-<li><p>Links in the message body are not pointing to the displayed text</p></li>
-<li><p>The reply-to address is not the same as the sender address</p></li>
+<li><p>地址簿中保存的發件人地址與郵件帳戶中的地址不相同</p></li>
+<li><p>發件人使用的自定義電子郵件地址與發件人地址不匹配</p></li>
+<li><p>發送日期設置在未來</p></li>
+<li><p>消息正文中的鏈接未指向顯示的文本</p></li>
+<li><p>回覆地址與發件人地址不相同</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Please note that the warning does not mean that the message is a phishing attempt. It only means that the Mail app detected a potential phishing attempt.</p>
+<p>請注意，該警告並不意味著消息是釣魚嘗試。它僅表示郵件應用檢測到潛在的釣魚嘗試。</p>
 </div>
 </section>
 <section id="internal-addresses">
-<h3>Internal addresses<a class="headerlink" href="#internal-addresses" title="Link to this heading"></a></h3>
+<h3>內部地址<a class="headerlink" href="#internal-addresses" title="Link to this heading"></a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 4.0.</span></p>
+<p><span class="versionmodified added">Added in version 4.0: </span>Nextcloud 30 or newer</p>
 </div>
-<p>The Mail app allows adding internal addresses and domains, and will warn the user if the address is not in the list, when sending and upon receiving a message.</p>
-<p>To add an internal address:</p>
+<p>郵件應用允許添加內部地址和域，並在發送和接收消息時警告用戶，如果地址不在列表中。</p>
+<p>要添加內部地址：</p>
 <ol class="arabic simple">
-<li><p>Open the mail settings</p></li>
-<li><p>Navigate to Privacy and security section</p></li>
-<li><p>Enable the internal addresses by ckicjin on the checkbox</p></li>
-<li><p>Click the Add internal address button</p></li>
-<li><p>Enter the address or domain and click Add</p></li>
+<li><p>打開郵件設置</p></li>
+<li><p>導航到隱私和安全部分</p></li>
+<li><p>通過勾選復選框啟用內部地址</p></li>
+<li><p>點擊添加內部地址按鈕</p></li>
+<li><p>輸入地址或域名，然後單擊添加</p></li>
 </ol>
 </section>
 </section>
 <section id="dashboard-integration">
 <h2>Dashboard integration<a class="headerlink" href="#dashboard-integration" title="Link to this heading"></a></h2>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 1.8.</span></p>
+<p><span class="versionmodified added">Added in version 1.8: </span>Nextcloud 20 or newer</p>
 </div>
 <p>The mail app offers two widgets designed for integration with Nextcloud's dashboard:</p>
 <ul class="simple">
@@ -758,20 +783,65 @@ It is also possible to disable follow-up reminders for a sent email.</p>
 </ul>
 <p>These widgets utilize the emails from the email accounts that are set up for your account.</p>
 </section>
+<section id="calendar-integration">
+<h2>Calendar integration<a class="headerlink" href="#calendar-integration" title="Link to this heading"></a></h2>
+<p>The Mail app integrates with the Calendar app to help you manage meeting invitations and keep your calendar up to date.</p>
+<section id="meeting-invitations">
+<h3>Meeting invitations<a class="headerlink" href="#meeting-invitations" title="Link to this heading"></a></h3>
+<p>When you receive a message containing a meeting invitation, the Mail app automatically detects the attached calendar file and displays a formatted action section to help you respond.</p>
+<p>You can:</p>
+<ul class="simple">
+<li><p><strong>Accept</strong> the invitation</p></li>
+<li><p><strong>Decline</strong> the invitation</p></li>
+<li><p><strong>Tentatively accept</strong> the invitation</p></li>
+</ul>
+<p>Your response is sent directly from the Mail app, and the event is added to your primary calendar accordingly.</p>
+<p>You can also manually add a meeting invitation to a specific calendar:</p>
+<ol class="arabic simple">
+<li><p>Open the message with the meeting invitation</p></li>
+<li><p>Scroll to the bottom of the message to the attachments section</p></li>
+<li><p>Select the calendar file (usually with a .ics extension), then click the three dots menu.</p></li>
+<li><p>Click &quot;Import in to calendar&quot; and choose the desired calendar.</p></li>
+</ol>
+</section>
+<section id="meeting-invitation-automation">
+<h3>Meeting invitation automation<a class="headerlink" href="#meeting-invitation-automation" title="Link to this heading"></a></h3>
+<p>When a meeting organizer sends updates to an existing event (such as time changes or location updates), the Mail app processes these automatically and updates the corresponding event in your calendar.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 5.7: </span>Nextcloud 32 or newer</p>
+</div>
+<p>You can also configure Mail to automatically add all new meeting invitations to your calendar without requiring manual acceptance. The invitations will be added to the calendar as tentative.</p>
+<p>To enable this feature:</p>
+<ol class="arabic simple">
+<li><p>Visit account settings of a specific mail account</p></li>
+<li><p>Navigate to Calendar settings section</p></li>
+<li><p>Enable <em>Automatically create tentative appointments in calendar</em></p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>With this setting enabled, invitations will still appear in your mail list, but they will be automatically added to your calendar.</p>
+</div>
+</section>
+</section>
+<section id="keyboard-shortcuts">
+<h2>Keyboard shortcuts<a class="headerlink" href="#keyboard-shortcuts" title="Link to this heading"></a></h2>
+<p>The Mail app implements several keyboard shortcuts to speed up your experience.</p>
+<p>For a full list of the supported shortcuts, check out the Mail settings in your instance.</p>
+</section>
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="calendar.html" class="btn btn-neutral float-left" title="Using the Calendar app" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="absence.html" class="btn btn-neutral float-right" title="Setting out-of-office messages" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="calendar.html" class="btn btn-neutral float-left" title="使用日曆應用程式" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="absence.html" class="btn btn-neutral float-right" title="設置離開辦公室的消息" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2026 Nextcloud GmbH.</p>
+    <p>&#169; Copyright 2016-2026 Nextcloud GmbH and Nextcloud contributors.</p>
   </div>
 
    
@@ -782,542 +852,418 @@ It is also possible to disable follow-up reminders for a sent email.</p>
     </section>
   </div>
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- Here go the languages -->
   
+  <!-- Here go the languages -->
+
+  
+  
+
+  
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+
   <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
-      🌐
-      
-      
-      zh-HK
-      
+      🌐 zh-HK
       <span class="fa fa-caret-down"></span>
-
-       ☁️ 31
+       ☁️ latest
       <span class="fa fa-caret-down"></span>
     </span>
     <div class="rst-other-versions">
       <dl>
-        <dt>🌐 Languages</dt>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/af/"
-                 
-              >
-                
-                Afrikaans
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ar/"
-                 
-              >
-                
-                Arabic
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/br/"
-                 
-              >
-                
-                Breton
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ca/"
-                 
-              >
-                
-                Catalan
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/cs/"
-                 
-              >
-                
-                Czech
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/da/"
-                 
-              >
-                
-                Danish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/de/"
-                 
-              >
-                
-                German
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/el/"
-                 
-              >
-                
-                Greek
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/el_GR/"
-                 
-              >
-                
-                el_GR
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/en/"
-                 
-              >
-                
-                English
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/eo/"
-                 
-              >
-                
-                Esperanto
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/es/"
-                 
-              >
-                
-                Spanish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/eu/"
-                 
-              >
-                
-                eu
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/fi_FI/"
-                 
-              >
-                
-                Finnish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/fr/"
-                 
-              >
-                
-                French
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ga/"
-                 
-              >
-                
-                Irish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/gl/"
-                 
-              >
-                
-                Glacian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/hr/"
-                 
-              >
-                
-                Croatian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/hu/"
-                 
-              >
-                
-                hu
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/hu_HU/"
-                 
-              >
-                
-                Hungarian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/id/"
-                 
-              >
-                
-                Indonesian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/it/"
-                 
-              >
-                
-                Italian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ja_JP/"
-                 
-              >
-                
-                Japanese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ko/"
-                 
-              >
-                
-                Korean
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/mn/"
-                 
-              >
-                
-                Mongolian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/nb_NO/"
-                 
-              >
-                
-                Norwegian (NB)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/nl/"
-                 
-              >
-                
-                Dutch
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/nn/"
-                 
-              >
-                
-                Norwegian (NN)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/pl/"
-                 
-              >
-                
-                Polish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/pt_BR/"
-                 
-              >
-                
-                Portuguese (BR)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/pt_PT/"
-                 
-              >
-                
-                Portuguese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ro/"
-                 
-              >
-                
-                Romanian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ru/"
-                 
-              >
-                
-                Russian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/si/"
-                 
-              >
-                
-                Sinhala
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sk_SK/"
-                 
-              >
-                
-                Slovakian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sq/"
-                 
-              >
-                
-                Albanian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sr/"
-                 
-              >
-                
-                Slovenian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sv/"
-                 
-              >
-                
-                Swedish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ta/"
-                 
-              >
-                
-                Tamil
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/th/"
-                 
-              >
-                
-                th
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/tr/"
-                 
-              >
-                
-                Turkish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/uk/"
-                 
-              >
-                
-                Ukrainian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/uz/"
-                 
-              >
-                
-                Uzbek
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/vi/"
-                 
-              >
-                
-                Vietnamese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/zh_CN/"
-                 
-              >
-                
-                Chinese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/zh_HK/"
-                 
-              >
-                
-                Chinese (HK)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/zh_TW/"
-                 
-              >
-                
-                Chinese (TW)
-                
-              </a>
-            </dd>
-          
+        <dt>🌐 語言</dt>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ar/"
+               
+            >
+              Arabic
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/br/"
+               
+            >
+              Breton
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ca/"
+               
+            >
+              Catalan
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/zh_CN/"
+               
+            >
+              Chinese
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/zh_HK/"
+               
+            >
+              Chinese (HK)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/zh_TW/"
+               
+            >
+              Chinese (TW)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/cs/"
+               
+            >
+              Czech
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/da/"
+               
+            >
+              Danish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/nl/"
+               
+            >
+              Dutch
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/en/"
+               
+            >
+              English
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/fi_FI/"
+               
+            >
+              Finnish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/fr/"
+               
+            >
+              French
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/gl/"
+               
+            >
+              Galician
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/de/"
+               
+            >
+              German
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/el/"
+               
+            >
+              Greek
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/hu_HU/"
+               
+            >
+              Hungarian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/id/"
+               
+            >
+              Indonesian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ga/"
+               
+            >
+              Irish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/it/"
+               
+            >
+              Italian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ja_JP/"
+               
+            >
+              Japanese
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ko/"
+               
+            >
+              Korean
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/mn/"
+               
+            >
+              Mongolian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/nb_NO/"
+               
+            >
+              Norwegian (NB)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/nn/"
+               
+            >
+              Norwegian (NN)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/pl/"
+               
+            >
+              Polish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/pt_PT/"
+               
+            >
+              Portuguese
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/pt_BR/"
+               
+            >
+              Portuguese (BR)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ro/"
+               
+            >
+              Romanian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ru/"
+               
+            >
+              Russian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/si/"
+               
+            >
+              Sinhala
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/sk_SK/"
+               
+            >
+              Slovakian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/sr/"
+               
+            >
+              Slovenian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/es/"
+               
+            >
+              Spanish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/sv/"
+               
+            >
+              Swedish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ta/"
+               
+            >
+              Tamil
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/tr/"
+               
+            >
+              Turkish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/uk_UA/"
+               
+            >
+              Ukrainian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/uz/"
+               
+            >
+              Uzbek
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/vi/"
+               
+            >
+              Vietnamese
+            </a>
+          </dd>
+        
       </dl>
     </div>
     <div class="rst-other-versions">
@@ -1326,6 +1272,8 @@ It is also possible to disable follow-up reminders for a sent email.</p>
         
           <dd style="width: 32%">
             <a href="https://docs.nextcloud.com/server/latest/user_manual"
+               
+               style="color: var(--dark-link-color);"
                
             >
               35 (latest)
@@ -1356,30 +1304,6 @@ It is also possible to disable follow-up reminders for a sent email.</p>
             </a>
           </dd>
         
-          <dd style="width: 32%">
-            <a href="https://docs.nextcloud.com/server/31/user_manual"
-               
-               style="color: var(--dark-link-color);"
-               
-            >
-              31 (unsupported)
-            </a>
-          </dd>
-        
-      </dl>
-      <dl>
-        <dt>下載</dt>
-        
-      </dl>
-      <dl>
-        
-        <dt>於 Read the Docs</dt>
-          <dd>
-            <a href="///projects//?fromdocs=">項目主頁</a>
-          </dd>
-          <dd>
-            <a href="///builds//?fromdocs=">Builds</a>
-          </dd>
       </dl>
     </div>
   </div>

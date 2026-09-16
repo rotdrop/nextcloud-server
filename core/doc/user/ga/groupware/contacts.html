@@ -7,15 +7,16 @@
   <meta name="readthedocs-addons-api-version" content="1"><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ag baint úsáide as an app Teagmhálacha &mdash; Nextcloud latest User Manual latest documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+  <title>Ag baint úsáide as an app Teagmhálacha &mdash; Nextcloud 35 User Manual</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=bad88653" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=8ff6e0db" />
       <link rel="stylesheet" type="text/css" href="../../_static/dark_mode_css/general.css?v=c0a7eb24" />
       <link rel="stylesheet" type="text/css" href="../../_static/dark_mode_css/dark.css?v=70edf1c7" />
 
   
+    <link rel="canonical" href="https://docs.nextcloud.com/server/stable/user_manual/groupware/contacts.html" />
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../../_static/documentation_options.js?v=d9c2735f"></script>
@@ -61,8 +62,7 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Nextcloud | leagan| réamhrá lámhleabhar úsáideora</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../whats_new.html">Cad atá nua d'úsáideoirí in Nextcloud |leagan|</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Nextcloud 35 réamhrá lámhleabhar úsáideora</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../webinterface.html">Comhéadan Gréasáin Nextcloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../files/index.html">Comhaid &amp; sioncronú</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Earraí grúpa</a><ul class="current">
@@ -74,21 +74,25 @@
 <li class="toctree-l4"><a class="reference internal" href="#contact-picture">Pictiúr Teagmháil</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#organize-your-contacts-with-contact-groups">Organize your Contacts with Contact Groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#managing-multiple-contacts-at-a-time">Il-Theagmhálaithe a bhainistiú ag an am céanna</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#merging-duplicate-contacts">Teagmhálacha dúblacha á gcumascadh</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#organize-your-contacts-with-contact-groups">Eagraigh do Theagmhálacha le Grúpaí Teagmhála</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#adding-and-managing-address-books">Leabhair Seoltaí a Chur leis agus a Bhainistiú</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#circles">Ciorcail</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#create-a-circle">Cruthaigh ciorcal</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#circle-roles">Róil ciorcal</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#add-members-to-a-circle">Cuir baill le ciorcal</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#circle-options">Roghanna ciorcal</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#shared-items">Shared items</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#teams">Foirne</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#create-a-team">Cruthaigh foireann</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#team-roles">Róil foirne</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#add-members-to-a-team">Cuir baill le foireann</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#team-options">Roghanna foirne</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shared-items">Míreanna roinnte</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="calendar.html">Ag baint úsáide as an app Calendar</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mail.html">Ag baint úsáide as an aip Mail</a></li>
-<li class="toctree-l2"><a class="reference internal" href="absence.html">Setting out-of-office messages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="absence.html">Teachtaireachtaí as oifig a shocrú</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sync_android.html">Sioncrónú le Android</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sync_ios.html">Sioncrónú le iOS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sync_osx.html">Sioncrónú le macOS</a></li>
@@ -96,10 +100,11 @@
 <li class="toctree-l2"><a class="reference internal" href="sync_kde.html">Ag sioncronú le KDE Kontact</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sync_gnome.html">Ag sioncronú leis an deasc GNOME</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sync_windows10.html">Ag sioncrónú le Windows 10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_migration.html">Migrate data between instances</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../talk/index.html">Caint</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../desktop/index.html">Desktop Clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../desktop/index.html">Cliaint Deisce</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../userpreferences.html">Ag socrú do shainroghanna</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../universal_access.html">Rochtain uilíoch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_2fa.html">Ag baint úsáide as fíordheimhniú dhá-fhachtóir</a></li>
@@ -113,7 +118,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../contents.html">Nextcloud latest User Manual</a>
+          <a href="../contents.html">Nextcloud 35 User Manual</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -134,8 +139,11 @@
              
   <section id="using-the-contacts-app">
 <h1>Ag baint úsáide as an app Teagmhálacha<a class="headerlink" href="#using-the-contacts-app" title="Link to this heading"></a></h1>
-<p>Níl an aip Contacts cumasaithe de réir réamhshocraithe in Nextcloud | version| agus ní mór é a shuiteáil ar leithligh ónár App Store.</p>
-<p>Tá an app Nextcloud Contacts cosúil le feidhmchláir teagmhála soghluaiste eile, ach le feidhmiúlacht níos mó. Rachaimid trí ghnéithe bunúsacha a chabhróidh leat do leabhar seoltaí a choinneáil san fheidhmchlár.</p>
+<p>Níl an aip Contacts cumasaithe de réir réamhshocraithe in Nextcloud 35 agus ní mór é a shuiteáil ar leithligh ónár App Store.</p>
+<p>The Nextcloud Contacts app is similar to other mobile contact applications, but
+with more functionality.
+This section covers the basic features that will help you maintain your address book
+in the application.</p>
 <p>Anseo thíos, beidh tú ag foghlaim conas teagmhálacha a chur leis, teagmhálaithe a chur in eagar nó a bhaint, pictiúr teagmhála a uaslódáil agus do leabhair seoltaí a bhainistiú.</p>
 <section id="adding-contacts">
 <h2>Teagmhálaithe á gcur leis<a class="headerlink" href="#adding-contacts" title="Link to this heading"></a></h2>
@@ -231,15 +239,57 @@
 <figure class="align-default">
 <img alt="../../_images/contact_picture_options.png" src="../../_images/contact_picture_options.png" />
 </figure>
+<p>If the administrator allows updates from social media in the admin groupware settings,
+users can also retrieve contact pictures directly from social networks.
+In that case the contact needs to have stored a user name in the social media section.
+Each entry of a supported social network adds a download entry for the respective
+network. Currently, the following social networks are supported:</p>
+<ul class="simple">
+<li><p>Instagram</p></li>
+<li><p>Mastodon</p></li>
+<li><p>Tumblr</p></li>
+<li><p>Diaspora</p></li>
+<li><p>Xing</p></li>
+<li><p>Telegram</p></li>
+<li><p>Gravatar</p></li>
+</ul>
+<p>Social avatars are only retrieved if publicly available without login to the
+respective social network. In the contact user settings on the contacts page,
+you can activate auto-updates from social media. This will update avatars
+with social profile data on a weekly basis. Social networks are checked in the
+order listed above.</p>
+</section>
+</section>
+<section id="managing-multiple-contacts-at-a-time">
+<h2>Il-Theagmhálaithe a bhainistiú ag an am céanna<a class="headerlink" href="#managing-multiple-contacts-at-a-time" title="Link to this heading"></a></h2>
+<p>Cuireann an aip Teagmhálaithe ar do chumas teagmhálaithe iolracha a roghnú agus gníomhartha baisce a dhéanamh orthu. Chun teagmhálaithe iolracha a roghnú, cliceáil ar phictiúr próifíle gach teagmhálaí ina n-aonar, nó cliceáil ar an bpictiúr próifíle ar an gcéad teagmhálaí agus ansin agus an eochair Shift á coinneáil síos agat cliceáil ar theagmhálaí eile sa liosta chun na teagmhálaithe go léir idir an chéad cheann agus an dara ceann a roghnú.</p>
+<p>Tabharfaidh sé seo roghchlár suas ag barr an liosta teagmhálaithe ina mbeidh gníomhartha éagsúla is féidir leat a dhéanamh ar na teagmhálaithe roghnaithe:</p>
+<figure class="align-default">
+<img alt="Gníomhartha ilroghnaithe teagmhála" src="../../_images/contact_multiselect.png" />
+</figure>
+<p>I mód baisce, díroghnóidh an cnaipe deilbhín croise na teagmhálacha roghnaithe go léir, agus scriosfaidh an cnaipe deilbhín bruscair na teagmhálacha roghnaithe go léir.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>B’fhéidir nach mbeidh tú in ann teagmhálaithe áirithe a mhodhnú ná a scriosadh, mar shampla má tá siad i leabhar seoltaí inléite amháin. Sa chás sin, díchumasófar gníomhartha ábhartha.</p>
+</div>
+<section id="merging-duplicate-contacts">
+<h3>Teagmhálacha dúblacha á gcumascadh<a class="headerlink" href="#merging-duplicate-contacts" title="Link to this heading"></a></h3>
+<p>Chun teagmhálacha a chumasc, roghnaigh dhá theagmhálaí agus ansin cliceáil ar an gcnaipe deilbhín &quot;Cumaisc teagmhálacha&quot; ag barr an liosta teagmhálacha. Osclóidh sé seo dialóg a chabhróidh leat teagmhálacha dúblacha a chumasc. Taispeánfaidh an dialóg chumasc sonraí an dá theagmhálaí taobh le taobh, agus is féidir leat a roghnú cé na sonraí atá le coinneáil sa teagmhálaí cumasctha.</p>
+<p>Ní féidir ach luach amháin a bheith ag aon mhaoin a bhfuil cnaipe Raidió (ciorclach) air, mar sin ní mór ceann amháin den dá luach a roghnú (cosúil le hainm an teagmhálaí, nach féidir ach luach amháin a bheith aige), agus ligeann boscaí seiceála (cnaipí cearnacha) duit an dá luach a choinneáil más mian leat (cosúil le huimhreacha gutháin nó seoltaí ríomhphoist, a bhféadfadh luachanna iolracha a bheith acu).</p>
+<p>Más cuid de ghrúpa(í) ceachtar den dá theagmhálaí, de réir réamhshocraithe beidh an teagmhálaí cumasctha mar chuid de na grúpaí uile a raibh an dá theagmhálaí mar chuid díobh. Is féidir leat aon ghrúpaí a dhíthiceáil agus tú ag cumasc mura dteastaíonn uait go mbeadh an teagmhálaí cumasctha mar chuid díobh.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Faoi láthair ní féidir leat ach dhá theagmhálaí a chumasc ag an am céanna, agus ar ndóigh ní féidir leat ach teagmhálaithe a chumasc is féidir leatsa a mhodhnú. Mura bhfuil an gníomh cumasctha in ann, seiceáil gur roghnaigh tú teagmhálaithe a chomhlíonann na coinníollacha sin.</p>
+</div>
 </section>
 </section>
 <section id="organize-your-contacts-with-contact-groups">
-<h2>Organize your Contacts with Contact Groups<a class="headerlink" href="#organize-your-contacts-with-contact-groups" title="Link to this heading"></a></h2>
-<p>Contact Groups help you to organize your contacts into groups.</p>
-<p>To create a new contact group, click on the plus sign next to &quot;Contact groups&quot; in the left sidebar.</p>
+<h2>Eagraigh do Theagmhálacha le Grúpaí Teagmhála<a class="headerlink" href="#organize-your-contacts-with-contact-groups" title="Link to this heading"></a></h2>
+<p>Cabhraíonn Grúpaí Teagmhála leat do theagmhálaithe a eagrú i ngrúpaí.</p>
+<p>Chun grúpa teagmhála nua a chruthú, cliceáil ar an gcomhartha móide in aice le &quot;Grúpaí teagmhála&quot; sa bharra taoibh clé.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Contact groups need to have at least one member to be saved. Please note that you can only add contacts from writable address books to contact groups. Contacts from read-only address books, such as the system address book, cannot be added.</p>
+<p>Caithfidh ball amháin ar a laghad a bheith i ngrúpaí teagmhála le go sábhálfar iad. Tabhair faoi deara nach féidir leat ach teagmhálaithe ó leabhair sheoltaí inscríofa a chur le grúpaí teagmhála. Ní féidir teagmhálaithe ó leabhair sheoltaí inléite amháin, amhail leabhar seoltaí an chórais, a chur leis.</p>
 </div>
 </section>
 <section id="adding-and-managing-address-books">
@@ -251,58 +301,62 @@
 <p>Is iad na socruithe Teagmhálaithe freisin áit ar féidir leat leabhair seoltaí a roinnt, a onnmhairiú agus a scriosadh. Gheobhaidh tú na URLanna CardDAV ann.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Contacts in disabled address books are not shown in the Contacts app and the Contact menu.</p>
+<p>Ní thaispeántar teagmhálaithe i leabhair seoltaí díchumasaithe san aip Contacts agus sa roghchlár Contact.</p>
 </div>
 <p>Féach <span class="xref std std-doc">innéacs</span> le haghaidh tuilleadh sonraí faoi do leabhair seoltaí a shioncronú le iOS, macOS, Thunderbird agus cliaint eile CardDAV.</p>
 </section>
-<section id="circles">
-<h2>Ciorcail<a class="headerlink" href="#circles" title="Link to this heading"></a></h2>
-<p>Informal collaboration takes place within organizations: an event to organize for a few weeks, a short ideation session between members from different entities, workshops, a place to joke around and support team building, or simply in very organic organizations where formal structure is kept to a minimum.</p>
-<p>Ar na cúiseanna seo go léir, tacaíonn Nextcloud le Ciorcail, gné atá leabaithe san aip Teagmhálacha, áit a bhfuil gach úsáideoir in ann a chiorcal féin a chruthú, comhiomlán cuntas atá sainithe ag an úsáideoir. Is féidir ciorcail a úsáid níos déanaí chun comhaid agus fillteáin a roinnt, a chuirtear le comhráite Talk, cosúil le grúpa rialta.</p>
+<section id="teams">
+<h2>Foirne<a class="headerlink" href="#teams" title="Link to this heading"></a></h2>
+<p>Tarlaíonn comhoibriú neamhfhoirmiúil laistigh d’eagraíochtaí: imeacht le heagrú ar feadh cúpla seachtain, seisiún smaointe gairid idir baill ó aonáin éagsúla, ceardlanna, áit le magadh agus tacú le tógáil foirne, nó go simplí in eagraíochtaí an-orgánacha ina gcoimeádtar struchtúr foirmiúil chomh beag agus is féidir.</p>
+<p>Ar na cúiseanna seo go léir, tacaíonn Nextcloud le Teams, gné atá leabaithe san aip Teagmhálacha, áit a bhfuil gach úsáideoir in ann a fhoireann féin a chruthú, comhiomlán cuntas atá sainithe ag an úsáideoir. Is féidir Teams a úsáid níos déanaí chun comhaid agus fillteáin a roinnt, a chuirtear le comhráite Talk, cosúil le grúpa rialta.</p>
 <figure class="align-default">
-<img alt="Ciorcal sa roghchlár Teagmhálacha ar chlé" src="../../_images/circle.png" />
+<img alt="Foirne sa roghchlár clé den aip Teagmhálaithe" src="../../_images/circle.png" />
 </figure>
-<section id="create-a-circle">
-<h3>Cruthaigh ciorcal<a class="headerlink" href="#create-a-circle" title="Link to this heading"></a></h3>
-<p>Sa roghchlár ar chlé, cliceáil ar an + in aice le Ciorcail. Socraigh ainm ciorcail Ag teacht i dtír ar an scáileán cumraíochta ciorcail, is féidir leat: - baill a chur le do chiorcal - trí chliceáil ar an roghchlár trí phonc in aice le húsáideoir ligean duit a ról laistigh den chiorcal a mhodhnú.</p>
-</section>
-<section id="circle-roles">
-<h3>Róil ciorcal<a class="headerlink" href="#circle-roles" title="Link to this heading"></a></h3>
-<p>Circles support 4 types of roles:</p>
+<section id="create-a-team">
+<h3>Cruthaigh foireann<a class="headerlink" href="#create-a-team" title="Link to this heading"></a></h3>
+<p>Sa roghchlár ar chlé, cliceáil ar an + in aice le Foirne. Socraigh ainm foirne. Nuair a thagann tú ar an scáileán cumraíochta foirne, is féidir leat:</p>
 <ul class="simple">
-<li><p>Member</p></li>
-<li><p>Moderator</p></li>
-<li><p>Admin can configure circle options (+moderator permissions)</p></li>
-<li><p>Owner</p></li>
+<li><p>cuir baill le do fhoireann</p></li>
+<li><p>Trí chliceáil ar an roghchlár trí phointe in aice le húsáideoir, is féidir leat a ról laistigh den fhoireann a mhodhnú.</p></li>
+</ul>
+</section>
+<section id="team-roles">
+<h3>Róil foirne<a class="headerlink" href="#team-roles" title="Link to this heading"></a></h3>
+<p>Tacaíonn foirne le 4 chineál ról:</p>
+<ul class="simple">
+<li><p>Ball</p></li>
+<li><p>Modhnóir</p></li>
+<li><p>Is féidir leis an riarthóir roghanna foirne a chumrú (+ceadanna modhnóra)</p></li>
+<li><p>Úinéir</p></li>
 </ul>
 <p><strong>comhalta</strong></p>
-<p>Is ball é an ról a bhfuil na ceadanna is ísle aige. Ní féidir le ball rochtain a fháil ach ar na hacmhainní a roinntear leis an gciorcal, agus féachaint ar bhaill an chiorcail.</p>
+<p>Is é an ról leis na ceadanna is ísle ná an ball. Ní féidir le ball rochtain a fháil ach ar na hacmhainní atá roinnte leis an bhfoireann, agus baill na foirne a fheiceáil.</p>
 <p><strong>Modhnadóir</strong></p>
-<p>Chomh maith le ceadanna ball, is féidir le modhnóir cuireadh a thabhairt, cuirí a dhearbhú agus baill den chiorcal a bhainistiú.</p>
+<p>Chomh maith le ceadanna ball, is féidir le modhnóir cuireadh a thabhairt do bhaill den fhoireann, cuirí a dheimhniú agus iad a bhainistiú.</p>
 <p><strong>Riarachán</strong></p>
-<p>Chomh maith le ceadanna modhnóra, is féidir le riarthóir roghanna ciorcail a chumrú.</p>
+<p>Chomh maith le ceadanna modhnóra, is féidir le riarthóir roghanna foirne a chumrú.</p>
 <p><strong>Úinéir</strong></p>
-<p>Chomh maith le ceadanna riaracháin, is féidir le húinéir úinéireacht an chiorcail a aistriú chuig ball eile den chiorcal. Ní féidir ach aon úinéir amháin a bheith ann in aghaidh an chiorcail.</p>
+<p>Chomh maith le ceadanna riarthóra, is féidir le húinéir úinéireacht na foirne a aistriú chuig ball eile den fhoireann. Ní féidir ach úinéir amháin a bheith in aghaidh gach foirne.</p>
 </section>
-<section id="add-members-to-a-circle">
-<h3>Cuir baill le ciorcal<a class="headerlink" href="#add-members-to-a-circle" title="Link to this heading"></a></h3>
-<p>Is féidir cuntais áitiúla, grúpaí, seoltaí ríomhphoist nó ciorcail eile a chur le ciorcal mar bhaill. I gcás grúpa nó ciorcal, baineann an ról le gach ball den ghrúpa nó den chiorcal.</p>
+<section id="add-members-to-a-team">
+<h3>Cuir baill le foireann<a class="headerlink" href="#add-members-to-a-team" title="Link to this heading"></a></h3>
+<p>Is féidir cuntais áitiúla, grúpaí, seoltaí ríomhphoist nó foirne eile a chur leis mar bhaill d'fhoireann. I gcás grúpa nó foirne, baineann an ról le gach ball den ghrúpa nó den fhoireann.</p>
 </section>
-<section id="circle-options">
-<h3>Roghanna ciorcal<a class="headerlink" href="#circle-options" title="Link to this heading"></a></h3>
-<p>Tá roghanna féinmhínithe éagsúla ar fáil chun ciorcal a chumrú, chun cuirí agus ballraíocht a bhainistiú, infheictheacht an chiorcail, liúntas ballraíochta ciorcail eile agus cosaint pasfhocail.</p>
+<section id="team-options">
+<h3>Roghanna foirne<a class="headerlink" href="#team-options" title="Link to this heading"></a></h3>
+<p>Tá roghanna éagsúla féinmhínitheacha ar fáil chun foireann a chumrú, cuirí agus ballraíocht a bhainistiú, infheictheacht na foirne, cead ballraíochta foirne eile agus cosaint pasfhocail.</p>
 <p><strong>Prevent teams from being a member of another team</strong></p>
 <p>When this option is enabled, the team can no longer be directly added as a member of another team. However, this restriction only applies to new direct additions. Existing memberships are kept, and inherited memberships are still possible if this team belongs to a parent team that gets added elsewhere.</p>
 </section>
 <section id="shared-items">
-<h3>Shared items<a class="headerlink" href="#shared-items" title="Link to this heading"></a></h3>
+<h3>Míreanna roinnte<a class="headerlink" href="#shared-items" title="Link to this heading"></a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 5.5.</span></p>
+<p><span class="versionmodified added">Added in version 5.5: </span>Nextcloud 25 or newer</p>
 </div>
 <figure class="align-default">
 <img alt="../../_images/shared-items.png" src="../../_images/shared-items.png" />
 </figure>
-<p>Items that are shared between two contacts will be displayed in the contact app. This includes media, calendar events, chat rooms, and shared deck cards, all of which will be visible in the contact details. This functionality is limited to contacts listed in the system address book. Currently, our system only supports shared items between two contacts.</p>
+<p>Taispeánfar míreanna a roinntear idir dhá theagmhálaí san aip teagmhála. Áirítear leis seo meáin, imeachtaí féilire, seomraí comhrá, agus cártaí deic roinnte, agus beidh gach ceann díobh seo le feiceáil sna sonraí teagmhála. Tá an fheidhmiúlacht seo teoranta do na teagmhálaithe atá liostaithe i leabhar seoltaí an chórais. Faoi láthair, ní thacaíonn ár gcóras ach le míreanna roinnte idir dhá theagmhálaí.</p>
 </section>
 </section>
 </section>
@@ -318,7 +372,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2026 Nextcloud GmbH.</p>
+    <p>&#169; Copyright 2016-2026 Nextcloud GmbH and Nextcloud contributors.</p>
   </div>
 
    
@@ -329,544 +383,420 @@
     </section>
   </div>
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- Here go the languages -->
   
+  <!-- Here go the languages -->
+
+  
+  
+
+  
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+
   <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
-      🌐
-      
-      
-      ga
-      
+      🌐 Irish
       <span class="fa fa-caret-down"></span>
-
-       ☁️ 31
+       ☁️ latest
       <span class="fa fa-caret-down"></span>
     </span>
     <div class="rst-other-versions">
       <dl>
-        <dt>🌐 Languages</dt>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/af/"
-                 
-              >
-                
-                Afrikaans
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ar/"
-                 
-              >
-                
-                Arabic
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/br/"
-                 
-              >
-                
-                Breton
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ca/"
-                 
-              >
-                
-                Catalan
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/cs/"
-                 
-              >
-                
-                Czech
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/da/"
-                 
-              >
-                
-                Danish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/de/"
-                 
-              >
-                
-                German
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/el/"
-                 
-              >
-                
-                Greek
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/el_GR/"
-                 
-              >
-                
-                el_GR
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/en/"
-                 
-              >
-                
-                English
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/eo/"
-                 
-              >
-                
-                Esperanto
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/es/"
-                 
-              >
-                
-                Spanish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/eu/"
-                 
-              >
-                
-                eu
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/fi_FI/"
-                 
-              >
-                
-                Finnish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/fr/"
-                 
-              >
-                
-                French
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ga/"
-                 
-                 style="color: var(--dark-link-color);"
-                 
-              >
-                
-                Irish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/gl/"
-                 
-              >
-                
-                Glacian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/hr/"
-                 
-              >
-                
-                Croatian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/hu/"
-                 
-              >
-                
-                hu
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/hu_HU/"
-                 
-              >
-                
-                Hungarian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/id/"
-                 
-              >
-                
-                Indonesian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/it/"
-                 
-              >
-                
-                Italian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ja_JP/"
-                 
-              >
-                
-                Japanese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ko/"
-                 
-              >
-                
-                Korean
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/mn/"
-                 
-              >
-                
-                Mongolian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/nb_NO/"
-                 
-              >
-                
-                Norwegian (NB)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/nl/"
-                 
-              >
-                
-                Dutch
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/nn/"
-                 
-              >
-                
-                Norwegian (NN)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/pl/"
-                 
-              >
-                
-                Polish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/pt_BR/"
-                 
-              >
-                
-                Portuguese (BR)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/pt_PT/"
-                 
-              >
-                
-                Portuguese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ro/"
-                 
-              >
-                
-                Romanian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ru/"
-                 
-              >
-                
-                Russian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/si/"
-                 
-              >
-                
-                Sinhala
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sk_SK/"
-                 
-              >
-                
-                Slovakian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sq/"
-                 
-              >
-                
-                Albanian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sr/"
-                 
-              >
-                
-                Slovenian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sv/"
-                 
-              >
-                
-                Swedish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ta/"
-                 
-              >
-                
-                Tamil
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/th/"
-                 
-              >
-                
-                th
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/tr/"
-                 
-              >
-                
-                Turkish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/uk/"
-                 
-              >
-                
-                Ukrainian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/uz/"
-                 
-              >
-                
-                Uzbek
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/vi/"
-                 
-              >
-                
-                Vietnamese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/zh_CN/"
-                 
-              >
-                
-                Chinese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/zh_HK/"
-                 
-              >
-                
-                Chinese (HK)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/zh_TW/"
-                 
-              >
-                
-                Chinese (TW)
-                
-              </a>
-            </dd>
-          
+        <dt>🌐 Teangacha</dt>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ar/"
+               
+            >
+              Arabic
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/br/"
+               
+            >
+              Breton
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ca/"
+               
+            >
+              Catalan
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/zh_CN/"
+               
+            >
+              Chinese
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/zh_HK/"
+               
+            >
+              Chinese (HK)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/zh_TW/"
+               
+            >
+              Chinese (TW)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/cs/"
+               
+            >
+              Czech
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/da/"
+               
+            >
+              Danish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/nl/"
+               
+            >
+              Dutch
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/en/"
+               
+            >
+              English
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/fi_FI/"
+               
+            >
+              Finnish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/fr/"
+               
+            >
+              French
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/gl/"
+               
+            >
+              Galician
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/de/"
+               
+            >
+              German
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/el/"
+               
+            >
+              Greek
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/hu_HU/"
+               
+            >
+              Hungarian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/id/"
+               
+            >
+              Indonesian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ga/"
+               
+               style="color: var(--dark-link-color);"
+               
+            >
+              Irish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/it/"
+               
+            >
+              Italian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ja_JP/"
+               
+            >
+              Japanese
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ko/"
+               
+            >
+              Korean
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/mn/"
+               
+            >
+              Mongolian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/nb_NO/"
+               
+            >
+              Norwegian (NB)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/nn/"
+               
+            >
+              Norwegian (NN)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/pl/"
+               
+            >
+              Polish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/pt_PT/"
+               
+            >
+              Portuguese
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/pt_BR/"
+               
+            >
+              Portuguese (BR)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ro/"
+               
+            >
+              Romanian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ru/"
+               
+            >
+              Russian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/si/"
+               
+            >
+              Sinhala
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/sk_SK/"
+               
+            >
+              Slovakian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/sr/"
+               
+            >
+              Slovenian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/es/"
+               
+            >
+              Spanish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/sv/"
+               
+            >
+              Swedish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ta/"
+               
+            >
+              Tamil
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/tr/"
+               
+            >
+              Turkish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/uk_UA/"
+               
+            >
+              Ukrainian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/uz/"
+               
+            >
+              Uzbek
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/vi/"
+               
+            >
+              Vietnamese
+            </a>
+          </dd>
+        
       </dl>
     </div>
     <div class="rst-other-versions">
@@ -875,6 +805,8 @@
         
           <dd style="width: 32%">
             <a href="https://docs.nextcloud.com/server/latest/user_manual"
+               
+               style="color: var(--dark-link-color);"
                
             >
               35 (latest)
@@ -905,30 +837,6 @@
             </a>
           </dd>
         
-          <dd style="width: 32%">
-            <a href="https://docs.nextcloud.com/server/31/user_manual"
-               
-               style="color: var(--dark-link-color);"
-               
-            >
-              31 (unsupported)
-            </a>
-          </dd>
-        
-      </dl>
-      <dl>
-        <dt>Íoslódálacha</dt>
-        
-      </dl>
-      <dl>
-        
-        <dt>Ar Léigh na Docs</dt>
-          <dd>
-            <a href="///projects//?fromdocs=">Tionscadal Baile</a>
-          </dd>
-          <dd>
-            <a href="///builds//?fromdocs=">Tógann</a>
-          </dd>
       </dl>
     </div>
   </div>

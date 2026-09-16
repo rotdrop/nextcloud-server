@@ -7,15 +7,16 @@
   <meta name="readthedocs-addons-api-version" content="1"><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Usando Compartilhamentos Federados &mdash; Documentação Nextcloud latest User Manual latest</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+  <title>Uso dos Compartilhamentos de Federação &mdash; Nextcloud 35 User Manual</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=bad88653" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=8ff6e0db" />
       <link rel="stylesheet" type="text/css" href="../../_static/dark_mode_css/general.css?v=c0a7eb24" />
       <link rel="stylesheet" type="text/css" href="../../_static/dark_mode_css/dark.css?v=70edf1c7" />
 
   
+    <link rel="canonical" href="https://docs.nextcloud.com/server/stable/user_manual/files/federated_cloud_sharing.html" />
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../../_static/documentation_options.js?v=5eb80f5b"></script>
@@ -62,16 +63,16 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Menu de navegação">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Introdução ao manual do usuário do Nextcloud latest</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../whats_new.html">O que há de novo para usuários no Nextcloud latest</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../webinterface.html">A interface Web Nextcloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Introdução ao manual do usuário do Nextcloud 35</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../webinterface.html">A interface web do Nextcloud</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Arquivos &amp; sincronização</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="access_webgui.html">Acessando seus arquivos utilizando a interface Web Nextcloud</a></li>
-<li class="toctree-l2"><a class="reference internal" href="access_webdav.html">Acessando arquivos Nextcloud usando o WebDAV</a></li>
+<li class="toctree-l2"><a class="reference internal" href="access_webgui.html">Acesso aos seus arquivos utilizando a interface web do Nextcloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="access_webdav.html">Acesso aos arquivos Nextcloud usando o WebDAV</a></li>
 <li class="toctree-l2"><a class="reference internal" href="deleted_file_management.html">Gerenciar arquivos excluídos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="desktop_mobile_sync.html">Sincronização de desktop e móvel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="encrypting_files.html">Criptografar seus arquivos Nextcloud no servidor</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sharing.html">Compartilhando Arquivos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_e2ee.html">Using end-to-end encryption</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sharing.html">Compartilhamento de Arquivos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sharing.html#federated-shares">Compartilhamentos Federados</a></li>
 <li class="toctree-l2"><a class="reference internal" href="file_drop.html">Fazer uploads anônimos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="large_file_upload.html">Uploads de arquivos grandes</a></li>
@@ -79,19 +80,19 @@
 <li class="toctree-l2"><a class="reference internal" href="version_control.html">Controle de versão</a></li>
 <li class="toctree-l2"><a class="reference internal" href="projects.html">Projetos</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transfer_ownership.html">Transferir Propriedade</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Usando Compartilhamentos Federados</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#creating-a-new-federation-share">Criando um novo Compartilhamento Federado</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#creating-a-new-federated-cloud-share-via-email">Criação de um novo compartilhamento de nuvem federado por e-mail</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Uso dos Compartilhamentos de Federação</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-new-federation-share">Criação de um novo Compartilhamento de Federação</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-a-new-federated-cloud-share-via-email">Criação de um novo Compartilhamento de Nuvem Federada por e-mail</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../groupware/index.html">Groupware</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../talk/index.html">Conversar</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../desktop/index.html">Desktop Clients</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../userpreferences.html">Configurando suas preferências</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../talk/index.html">Talk</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../desktop/index.html">Clientes de Desktop</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userpreferences.html">Configuração de suas preferências</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../universal_access.html">Acesso universal</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_2fa.html">Usando autenticação de dois fatores</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_2fa.html">Uso da autenticação de dois fatores</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../session_management.html">Gerenciar navegadores e dispositivos conectados</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../external_storage/index.html">Armazenamento externo</a></li>
 </ul>
@@ -102,7 +103,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Menu de navegação móvel" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../contents.html">Nextcloud latest User Manual</a>
+          <a href="../contents.html">Nextcloud 35 User Manual</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -111,7 +112,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../contents.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="index.html">Arquivos &amp; sincronização</a></li>
-      <li class="breadcrumb-item active">Usando Compartilhamentos Federados</li>
+      <li class="breadcrumb-item active">Uso dos Compartilhamentos de Federação</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/nextcloud/documentation/edit/master/user_manual/files/federated_cloud_sharing.rst" class="fa fa-github"> Editar no GitHub</a>
       </li>
@@ -122,40 +123,40 @@
            <div itemprop="articleBody">
              
   <section id="using-federation-shares">
-<h1>Usando Compartilhamentos Federados<a class="headerlink" href="#using-federation-shares" title="Link para este cabeçalho"></a></h1>
-<p>O Compartilhamento de Nuvem Federada permite montar compartilhamentos de arquivos de servidores remotos Nextcloud. Você pode criar links de compartilhamento direto com usuários em outros servidores Nextcloud.</p>
+<h1>Uso dos Compartilhamentos de Federação<a class="headerlink" href="#using-federation-shares" title="Link para este cabeçalho"></a></h1>
+<p>O Compartilhamento de Federação permite montar compartilhamentos de arquivos a partir de servidores Nextcloud remotos, criando, na prática, sua própria nuvem de Nextclouds. Você pode criar links de compartilhamento diretos com usuários em outros servidores Nextcloud.</p>
 <section id="creating-a-new-federation-share">
-<h2>Criando um novo Compartilhamento Federado<a class="headerlink" href="#creating-a-new-federation-share" title="Link para este cabeçalho"></a></h2>
-<p>O compartilhamento de federação é habilitado em instalações Nextcloud novas ou atualizadas por padrão. Siga estas etapas para criar um novo compartilhamento com outros servidores Nextcloud ou ownCloud 9+:</p>
-<p>1. Go to your <code class="docutils literal notranslate"><span class="pre">Files</span></code> page and click the <strong>Share</strong> icon on the file or directory
-you want to share. In the sidebar enter the username and URL of the remote user
-in this form: <code class="docutils literal notranslate"><span class="pre">&lt;username&gt;&#64;&lt;oc-server-url&gt;</span></code>. The form automatically confirms the address
-that you type and labels it as “remote”. Click on the label.</p>
-<figure class="align-default">
+<h2>Criação de um novo Compartilhamento de Federação<a class="headerlink" href="#creating-a-new-federation-share" title="Link para este cabeçalho"></a></h2>
+<p>O compartilhamento de federação é habilitado por padrão em instalações Nextcloud novas ou atualizadas. Siga estas etapas para criar um novo compartilhamento com outros servidores Nextcloud ou ownCloud 9+:</p>
+<ol class="arabic">
+<li><p>Vá para a página <code class="docutils literal notranslate"><span class="pre">Arquivos</span></code> e clique no ícone <strong>Compartilhar</strong> no arquivo ou diretório que deseja compartilhar. Na barra lateral, digite o nome de usuário e o URL do usuário remoto neste formato: <code class="docutils literal notranslate"><span class="pre">&lt;username&gt;&#64;&lt;oc-server-url&gt;</span></code>. O formulário confirma automaticamente o endereço que você digitou e adicione o rótulo “remoto” a ele. Clique no rótulo.</p>
+<blockquote>
+<div><figure class="align-default">
 <img alt="../../_images/direct-share-1.png" src="../../_images/direct-share-1.png" />
 </figure>
-<p>2. When your local Nextcloud server makes a successful connection with the remote
-Nextcloud server you’ll see a confirmation. Your only share option is <strong>Can
-edit</strong>.</p>
-<p>Clique no botão Compartilhar a qualquer momento para ver com quem você compartilhou seu arquivo. Remova seu compartilhamento vinculado a qualquer momento clicando no ícone da lixeira. Isso apenas desvincula o compartilhamento e não exclui nenhum arquivo.</p>
+</div></blockquote>
+</li>
+<li><p>Quando o servidor Nextcloud local estabelecer uma conexão bem-sucedida com o servidor Nextcloud remoto, você verá uma confirmação. Sua única opção de compartilhamento é <strong>Pode editar</strong>.</p></li>
+</ol>
+<p>Clique no botão Compartilhar a qualquer momento para ver com quem você compartilhou seu arquivo. Remova seu compartilhamento vinculado a qualquer momento clicando no ícone de lixeira. Isso apenas desvincula o compartilhamento e não exclui nenhum arquivo.</p>
 </section>
 <section id="creating-a-new-federated-cloud-share-via-email">
-<h2>Criação de um novo compartilhamento de nuvem federado por e-mail<a class="headerlink" href="#creating-a-new-federated-cloud-share-via-email" title="Link para este cabeçalho"></a></h2>
+<h2>Criação de um novo Compartilhamento de Nuvem Federada por e-mail<a class="headerlink" href="#creating-a-new-federated-cloud-share-via-email" title="Link para este cabeçalho"></a></h2>
 <p>Use este método quando estiver compartilhando com usuários no ownCloud 8.x e anteriores.</p>
-<p>E se você não souber o nome de usuário ou URL? Em seguida, você pode fazer com que o Nextcloud crie o link para você e o envie por e-mail ao seu destinatário.</p>
+<p>E se você não souber o nome de usuário ou o URL? Nesse caso, você pode solicitar que o Nextcloud crie o link para você e envie-o por e-mail ao destinatário.</p>
 <figure class="align-default">
 <img alt="../../_images/create_public_share-6.png" src="../../_images/create_public_share-6.png" />
 </figure>
-<p>Quando o destinatário receber seu e-mail, ele terá que seguir várias etapas para preencher o link de compartilhamento. Primeiro, eles devem abrir o link que você enviou em um navegador da Web e, em seguida, clicar no botão ** Adicionar ao Nextcloud <a href="#id1"><span class="problematic" id="id2">**</span></a>.</p>
+<p>Quando o destinatário receber seu e-mail, ele terá que seguir várias etapas para preencher o link de compartilhamento. Primeiro, eles devem abrir o link que você enviou em um navegador web e, em seguida, clicar no botão <strong>Adicionar ao seu Nextcloud</strong>.</p>
 <figure class="align-default">
 <img alt="../../_images/create_public_share-8.png" src="../../_images/create_public_share-8.png" />
 </figure>
-<p>O botão ** Adicionar ao Nextcloud ** muda para um campo de formulário e o destinatário precisa inserir o URL do Nextcloud ou do servidor ownCloud neste campo e pressionar a tecla Enter ou clicar na seta.</p>
+<p>O botão <strong>Adicionar ao seu Nextcloud</strong> muda para um campo de formulário e o destinatário precisa inserir o URL do Nextcloud ou do servidor ownCloud neste campo e pressionar a tecla Enter ou clicar na seta.</p>
 <figure class="align-default">
 <img alt="../../_images/create_public_share-9.png" src="../../_images/create_public_share-9.png" />
 </figure>
-<p>Em seguida, eles verão uma caixa de diálogo pedindo para confirmar. Tudo o que eles precisam fazer é clicar no botão ** Adicionar compartilhamento remoto ** e pronto.</p>
-<p>Remova seu compartilhamento vinculado a qualquer momento clicando no ícone da lixeira. Isso apenas desvincula o compartilhamento e não exclui nenhum arquivo.</p>
+<p>Em seguida, eles verão uma caixa de diálogo pedindo para confirmar. Tudo o que eles precisam fazer é clicar no botão <strong>Adicionar compartilhamento remoto</strong> e pronto.</p>
+<p>Remova seu compartilhamento vinculado a qualquer momento clicando no ícone de lixeira. Isso apenas desvincula o compartilhamento e não exclui nenhum arquivo.</p>
 </section>
 </section>
 
@@ -170,7 +171,7 @@ edit</strong>.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Direitos autorais 2026 Nextcloud GmbH.</p>
+    <p>&#169; Direitos autorais 2016-2026 Nextcloud GmbH and Nextcloud contributors.</p>
   </div>
 
    
@@ -181,542 +182,418 @@ edit</strong>.</p>
     </section>
   </div>
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- Here go the languages -->
   
+  <!-- Here go the languages -->
+
+  
+  
+
+  
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+
   <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
-      🌐
-      
-      
-      pt-BR
-      
+      🌐 pt-BR
       <span class="fa fa-caret-down"></span>
-
-       ☁️ 31
+       ☁️ latest
       <span class="fa fa-caret-down"></span>
     </span>
     <div class="rst-other-versions">
       <dl>
-        <dt>🌐 Languages</dt>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/af/"
-                 
-              >
-                
-                Afrikaans
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ar/"
-                 
-              >
-                
-                Arabic
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/br/"
-                 
-              >
-                
-                Breton
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ca/"
-                 
-              >
-                
-                Catalan
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/cs/"
-                 
-              >
-                
-                Czech
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/da/"
-                 
-              >
-                
-                Danish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/de/"
-                 
-              >
-                
-                German
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/el/"
-                 
-              >
-                
-                Greek
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/el_GR/"
-                 
-              >
-                
-                el_GR
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/en/"
-                 
-              >
-                
-                English
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/eo/"
-                 
-              >
-                
-                Esperanto
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/es/"
-                 
-              >
-                
-                Spanish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/eu/"
-                 
-              >
-                
-                eu
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/fi_FI/"
-                 
-              >
-                
-                Finnish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/fr/"
-                 
-              >
-                
-                French
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ga/"
-                 
-              >
-                
-                Irish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/gl/"
-                 
-              >
-                
-                Glacian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/hr/"
-                 
-              >
-                
-                Croatian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/hu/"
-                 
-              >
-                
-                hu
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/hu_HU/"
-                 
-              >
-                
-                Hungarian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/id/"
-                 
-              >
-                
-                Indonesian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/it/"
-                 
-              >
-                
-                Italian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ja_JP/"
-                 
-              >
-                
-                Japanese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ko/"
-                 
-              >
-                
-                Korean
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/mn/"
-                 
-              >
-                
-                Mongolian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/nb_NO/"
-                 
-              >
-                
-                Norwegian (NB)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/nl/"
-                 
-              >
-                
-                Dutch
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/nn/"
-                 
-              >
-                
-                Norwegian (NN)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/pl/"
-                 
-              >
-                
-                Polish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/pt_BR/"
-                 
-              >
-                
-                Portuguese (BR)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/pt_PT/"
-                 
-              >
-                
-                Portuguese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ro/"
-                 
-              >
-                
-                Romanian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ru/"
-                 
-              >
-                
-                Russian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/si/"
-                 
-              >
-                
-                Sinhala
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sk_SK/"
-                 
-              >
-                
-                Slovakian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sq/"
-                 
-              >
-                
-                Albanian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sr/"
-                 
-              >
-                
-                Slovenian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sv/"
-                 
-              >
-                
-                Swedish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ta/"
-                 
-              >
-                
-                Tamil
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/th/"
-                 
-              >
-                
-                th
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/tr/"
-                 
-              >
-                
-                Turkish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/uk/"
-                 
-              >
-                
-                Ukrainian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/uz/"
-                 
-              >
-                
-                Uzbek
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/vi/"
-                 
-              >
-                
-                Vietnamese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/zh_CN/"
-                 
-              >
-                
-                Chinese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/zh_HK/"
-                 
-              >
-                
-                Chinese (HK)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/zh_TW/"
-                 
-              >
-                
-                Chinese (TW)
-                
-              </a>
-            </dd>
-          
+        <dt>🌐 Idiomas</dt>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ar/"
+               
+            >
+              Arabic
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/br/"
+               
+            >
+              Breton
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ca/"
+               
+            >
+              Catalan
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/zh_CN/"
+               
+            >
+              Chinese
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/zh_HK/"
+               
+            >
+              Chinese (HK)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/zh_TW/"
+               
+            >
+              Chinese (TW)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/cs/"
+               
+            >
+              Czech
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/da/"
+               
+            >
+              Danish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/nl/"
+               
+            >
+              Dutch
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/en/"
+               
+            >
+              English
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/fi_FI/"
+               
+            >
+              Finnish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/fr/"
+               
+            >
+              French
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/gl/"
+               
+            >
+              Galician
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/de/"
+               
+            >
+              German
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/el/"
+               
+            >
+              Greek
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/hu_HU/"
+               
+            >
+              Hungarian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/id/"
+               
+            >
+              Indonesian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ga/"
+               
+            >
+              Irish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/it/"
+               
+            >
+              Italian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ja_JP/"
+               
+            >
+              Japanese
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ko/"
+               
+            >
+              Korean
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/mn/"
+               
+            >
+              Mongolian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/nb_NO/"
+               
+            >
+              Norwegian (NB)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/nn/"
+               
+            >
+              Norwegian (NN)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/pl/"
+               
+            >
+              Polish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/pt_PT/"
+               
+            >
+              Portuguese
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/pt_BR/"
+               
+            >
+              Portuguese (BR)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ro/"
+               
+            >
+              Romanian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ru/"
+               
+            >
+              Russian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/si/"
+               
+            >
+              Sinhala
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/sk_SK/"
+               
+            >
+              Slovakian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/sr/"
+               
+            >
+              Slovenian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/es/"
+               
+            >
+              Spanish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/sv/"
+               
+            >
+              Swedish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ta/"
+               
+            >
+              Tamil
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/tr/"
+               
+            >
+              Turkish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/uk_UA/"
+               
+            >
+              Ukrainian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/uz/"
+               
+            >
+              Uzbek
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/vi/"
+               
+            >
+              Vietnamese
+            </a>
+          </dd>
+        
       </dl>
     </div>
     <div class="rst-other-versions">
@@ -725,6 +602,8 @@ edit</strong>.</p>
         
           <dd style="width: 32%">
             <a href="https://docs.nextcloud.com/server/latest/user_manual"
+               
+               style="color: var(--dark-link-color);"
                
             >
               35 (latest)
@@ -755,30 +634,6 @@ edit</strong>.</p>
             </a>
           </dd>
         
-          <dd style="width: 32%">
-            <a href="https://docs.nextcloud.com/server/31/user_manual"
-               
-               style="color: var(--dark-link-color);"
-               
-            >
-              31 (unsupported)
-            </a>
-          </dd>
-        
-      </dl>
-      <dl>
-        <dt>Downloads</dt>
-        
-      </dl>
-      <dl>
-        
-        <dt>Em Leia os Documentos </dt>
-          <dd>
-            <a href="///projects//?fromdocs=">Projeto Home</a>
-          </dd>
-          <dd>
-            <a href="///builds//?fromdocs=">Builds</a>
-          </dd>
       </dl>
     </div>
   </div>

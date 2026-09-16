@@ -7,15 +7,16 @@
   <meta name="readthedocs-addons-api-version" content="1"><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Managing deleted files &mdash; Nextcloud latest User Manual latest 文档</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+  <title>管理已删除的文件 &mdash; Nextcloud 35 User Manual</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=bad88653" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=8ff6e0db" />
       <link rel="stylesheet" type="text/css" href="../../_static/dark_mode_css/general.css?v=c0a7eb24" />
       <link rel="stylesheet" type="text/css" href="../../_static/dark_mode_css/dark.css?v=70edf1c7" />
 
   
+    <link rel="canonical" href="https://docs.nextcloud.com/server/stable/user_manual/files/deleted_file_management.html" />
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../../_static/documentation_options.js?v=aa7869e8"></script>
@@ -62,20 +63,20 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="导航菜单">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Nextcloud |版本| 用户手册介绍</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../whats_new.html">Nextcloud latest 中的新功能</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Nextcloud 35 用户手册介绍</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../webinterface.html">Nextcloud的Web界面</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">文件及同步</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="access_webgui.html">使用Nextcloud的Web界面访问您的文件</a></li>
 <li class="toctree-l2"><a class="reference internal" href="access_webdav.html">Accessing Nextcloud files using WebDAV</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Managing deleted files</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#quotas">Quotas</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#what-happens-when-shared-files-are-deleted">What happens when shared files are deleted</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#how-the-deleted-files-app-manages-storage-space">How the deleted files app manages storage space</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">管理已删除的文件</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#quotas">限额</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-happens-when-shared-files-are-deleted">当共享的文件被删除时会发生</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-the-deleted-files-app-manages-storage-space">已删除文件如何使用存储空间</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="desktop_mobile_sync.html">桌面及移动设备同步</a></li>
 <li class="toctree-l2"><a class="reference internal" href="encrypting_files.html">Encrypting your Nextcloud files on the server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_e2ee.html">Using end-to-end encryption</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sharing.html">文件共享</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sharing.html#federated-shares">联合云共享</a></li>
 <li class="toctree-l2"><a class="reference internal" href="file_drop.html">匿名上传</a></li>
@@ -89,11 +90,11 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../groupware/index.html">Groupware</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../talk/index.html">通话应用</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../desktop/index.html">Desktop Clients</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../userpreferences.html">您的个性化设置</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../desktop/index.html">桌面客户端</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../userpreferences.html">Setting your preferences</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../universal_access.html">Universal access</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_2fa.html">Using two-factor authentication</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../session_management.html">Manage connected browsers and devices</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session_management.html">管理已连接的浏览器和设备</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../external_storage/index.html">外部存储</a></li>
 </ul>
 
@@ -103,7 +104,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="移动版导航菜单" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../contents.html">Nextcloud latest User Manual</a>
+          <a href="../contents.html">Nextcloud 35 User Manual</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -112,7 +113,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../contents.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="index.html">文件及同步</a></li>
-      <li class="breadcrumb-item active">Managing deleted files</li>
+      <li class="breadcrumb-item active">管理已删除的文件</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/nextcloud/documentation/edit/master/user_manual/files/deleted_file_management.rst" class="fa fa-github"> 在 GitHub 上编辑</a>
       </li>
@@ -123,56 +124,33 @@
            <div itemprop="articleBody">
              
   <section id="managing-deleted-files">
-<h1>Managing deleted files<a class="headerlink" href="#managing-deleted-files" title="Link to this heading"></a></h1>
-<p>When you delete a file in Nextcloud, it is not immediately deleted permanently,
-only moved into the trash bin. It is not permanently deleted until you manually
-delete it, or when the Deleted Files app deletes it to make room for new files.</p>
-<p>Find your deleted files by clicking on the <strong>Deleted files</strong>
-button on the Files page of the Nextcloud Web interface. You'll have options to
-either restore or permanently delete files.</p>
+<h1>管理已删除的文件<a class="headerlink" href="#managing-deleted-files" title="Link to this heading"></a></h1>
+<p>Nextcloud不会将你删除的文件立刻永久清除，而是将他们放入垃圾桶，直至你手动将其清除，或当有新文件需要空间时，由删除文件应用将其删除。</p>
+<p>你可以在Nextcloud浏览器界面上的文件页面通过点击“删除文件”来查看已删除的文件。你可以恢复这些文件或是永久删除他们。</p>
 <section id="quotas">
-<h2>Quotas<a class="headerlink" href="#quotas" title="Link to this heading"></a></h2>
-<p>Deleted files are not counted against your storage quota. Only your personal
-files count against your quota, not files which were shared with you.
-(See <a class="reference internal" href="quota.html"><span class="doc">存储配额</span></a> to learn more about quotas.)</p>
+<h2>限额<a class="headerlink" href="#quotas" title="Link to this heading"></a></h2>
+<p>只有你的个人文件会占用你的存储限额，而已删除的文件和分享给你的文件则不会占用限额。(参见文档&quot;限额&quot;查看有关限额的信息)</p>
 </section>
 <section id="what-happens-when-shared-files-are-deleted">
-<h2>What happens when shared files are deleted<a class="headerlink" href="#what-happens-when-shared-files-are-deleted" title="Link to this heading"></a></h2>
-<p>Deleting files gets a little complicated when they are shared files, as this
-scenario illustrates:</p>
+<h2>当共享的文件被删除时会发生<a class="headerlink" href="#what-happens-when-shared-files-are-deleted" title="Link to this heading"></a></h2>
+<p>删除已共享的文件稍微有点复杂，例如以下情形：</p>
 <ol class="arabic simple">
-<li><p>User1 shares a folder &quot;test&quot; with User2 and User3</p></li>
-<li><p>User2 (the recipient) deletes a file/folder &quot;sub&quot; inside of &quot;test&quot;</p></li>
-<li><p>The folder &quot;sub&quot; will be moved to the trash bin of both User1 (owner) and
-User2 (recipient)</p></li>
-<li><p>But User3 will not have a copy of &quot;sub&quot; in their trash bin</p></li>
+<li><p>用户1与用户2和3共享“test”文件夹</p></li>
+<li><p>用户2（被共享方）从“test”文件夹中删除一个名为“sub”的文件或文件夹</p></li>
+<li><p>这个名为“sub”的文件夹会被同时放入用户1（所有者）和用户2（被共享方）的垃圾箱中</p></li>
+<li><p>但是用户3在垃圾箱中没有“sub”的拷贝</p></li>
 </ol>
-<p>When User1 deletes &quot;sub&quot; then it is moved to User1's trash bin. It is
-deleted from User2 and User3, but not placed in their trash bins.</p>
-<p>When you share files, other users may copy, rename, move, and share them with
-other people, just as they can for any computer files; Nextcloud does not have
-magic powers to prevent this.</p>
+<p>当用户1删除“sub”后，“sub”立刻被移动到用户1的垃圾箱。这样，该文件也呗用户2和3删除，但并没有放入他们的垃圾箱中</p>
+<p>当你分享文件时，其他用户可能重命名、移动或者分享给其他人，就像他们能处理其他计算机上的文件一样；NextCloud没有神奇的权限来阻止这些事</p>
 </section>
 <section id="how-the-deleted-files-app-manages-storage-space">
-<h2>How the deleted files app manages storage space<a class="headerlink" href="#how-the-deleted-files-app-manages-storage-space" title="Link to this heading"></a></h2>
-<p>To ensure that users do not run over their storage quotas, the Deleted Files
-app allocates a maximum of 50% of their currently available free space to
-deleted files. If your deleted files exceed this limit, Nextcloud deletes the
-oldest files (files with the oldest timestamps from when they were deleted)
-until it meets the memory usage limit again.</p>
-<p>Nextcloud checks the age of deleted files every time new files are added to the
-deleted files. By default, deleted files stay in the trash bin for 30 days. The
-Nextcloud server administrator can adjust this value in the <code class="docutils literal notranslate"><span class="pre">config.php</span></code> file
-by setting the <code class="docutils literal notranslate"><span class="pre">trashbin_retention_obligation</span></code> value. Files older than the
-<code class="docutils literal notranslate"><span class="pre">trashbin_retention_obligation</span></code> value will be deleted permanently.
-Additionally, Nextcloud calculates the maximum available space every time a new
-file is added. If the deleted files exceed the new maximum allowed space
-Nextcloud will permanently delete those trashed files with the soonest expiration
-until the space limit is met again.</p>
+<h2>已删除文件如何使用存储空间<a class="headerlink" href="#how-the-deleted-files-app-manages-storage-space" title="Link to this heading"></a></h2>
+<p>为了确保用户不会超出存储配额限制，已删除文件应用最多将使用用户当前可用空间的50%来存储已经删除的文件。如果已经删除的文件大小超过这一限制，Nextcloud将删除最旧的文件（从被删除开始计算，时间最久的文件），直至不超过这一限制。</p>
+<p>每次把新文件添加到已删除文件的时候，Nextcloud都会检查已删除文件的存在时长。默认情况下，已删除的文件会在垃圾箱中保留30天。Next cloud服务器管理员可以通过设置“trashbin_retention_obligation” 的值来调整&quot;config.php&quot;文件中的这个值。早于“trashbin_retention_obligation”值的文件将被永久删除。此外，Nextcloud会在每次添加新文件的时候计算最大可用空间。如果删除的文件超过了最新的最大可用空间，Nextcloud将永久删除那些即将过期的垃圾文件，直到剩余空间可以容纳新删除的文件。</p>
 <div class="admonition note">
 <p class="admonition-title">备注</p>
 <p>Your administrator may have configured the trash bin retention period
-to override the storage space management. See <a class="reference external" href="https://docs.nextcloud.com/server/31/admin_manual/configuration_server/config_sample_php_parameters.html#deleted-items-trash-bin">admin documentation</a> for more details.</p>
+to override the storage space management. See <a class="reference external" href="https://docs.nextcloud.com/server/33/admin_manual/configuration_server/config_sample_php_parameters.html#deleted-items-trash-bin">admin documentation</a> for more details.</p>
 </div>
 </section>
 </section>
@@ -188,7 +166,7 @@ to override the storage space management. See <a class="reference external" href
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; 版权所有 2026 Nextcloud GmbH。</p>
+    <p>&#169; 版权所有 2016-2026 Nextcloud GmbH and Nextcloud contributors。</p>
   </div>
 
    
@@ -199,542 +177,418 @@ to override the storage space management. See <a class="reference external" href
     </section>
   </div>
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- Here go the languages -->
   
+  <!-- Here go the languages -->
+
+  
+  
+
+  
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+
   <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
-      🌐
-      
-      
-      zh-CN
-      
+      🌐 zh-CN
       <span class="fa fa-caret-down"></span>
-
-       ☁️ 31
+       ☁️ latest
       <span class="fa fa-caret-down"></span>
     </span>
     <div class="rst-other-versions">
       <dl>
         <dt>🌐 Languages</dt>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/af/"
-                 
-              >
-                
-                Afrikaans
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ar/"
-                 
-              >
-                
-                Arabic
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/br/"
-                 
-              >
-                
-                Breton
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ca/"
-                 
-              >
-                
-                Catalan
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/cs/"
-                 
-              >
-                
-                Czech
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/da/"
-                 
-              >
-                
-                Danish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/de/"
-                 
-              >
-                
-                German
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/el/"
-                 
-              >
-                
-                Greek
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/el_GR/"
-                 
-              >
-                
-                el_GR
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/en/"
-                 
-              >
-                
-                English
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/eo/"
-                 
-              >
-                
-                Esperanto
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/es/"
-                 
-              >
-                
-                Spanish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/eu/"
-                 
-              >
-                
-                eu
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/fi_FI/"
-                 
-              >
-                
-                Finnish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/fr/"
-                 
-              >
-                
-                French
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ga/"
-                 
-              >
-                
-                Irish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/gl/"
-                 
-              >
-                
-                Glacian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/hr/"
-                 
-              >
-                
-                Croatian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/hu/"
-                 
-              >
-                
-                hu
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/hu_HU/"
-                 
-              >
-                
-                Hungarian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/id/"
-                 
-              >
-                
-                Indonesian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/it/"
-                 
-              >
-                
-                Italian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ja_JP/"
-                 
-              >
-                
-                Japanese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ko/"
-                 
-              >
-                
-                Korean
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/mn/"
-                 
-              >
-                
-                Mongolian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/nb_NO/"
-                 
-              >
-                
-                Norwegian (NB)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/nl/"
-                 
-              >
-                
-                Dutch
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/nn/"
-                 
-              >
-                
-                Norwegian (NN)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/pl/"
-                 
-              >
-                
-                Polish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/pt_BR/"
-                 
-              >
-                
-                Portuguese (BR)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/pt_PT/"
-                 
-              >
-                
-                Portuguese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ro/"
-                 
-              >
-                
-                Romanian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ru/"
-                 
-              >
-                
-                Russian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/si/"
-                 
-              >
-                
-                Sinhala
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sk_SK/"
-                 
-              >
-                
-                Slovakian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sq/"
-                 
-              >
-                
-                Albanian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sr/"
-                 
-              >
-                
-                Slovenian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sv/"
-                 
-              >
-                
-                Swedish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ta/"
-                 
-              >
-                
-                Tamil
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/th/"
-                 
-              >
-                
-                th
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/tr/"
-                 
-              >
-                
-                Turkish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/uk/"
-                 
-              >
-                
-                Ukrainian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/uz/"
-                 
-              >
-                
-                Uzbek
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/vi/"
-                 
-              >
-                
-                Vietnamese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/zh_CN/"
-                 
-              >
-                
-                Chinese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/zh_HK/"
-                 
-              >
-                
-                Chinese (HK)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/zh_TW/"
-                 
-              >
-                
-                Chinese (TW)
-                
-              </a>
-            </dd>
-          
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ar/"
+               
+            >
+              Arabic
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/br/"
+               
+            >
+              Breton
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ca/"
+               
+            >
+              Catalan
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/zh_CN/"
+               
+            >
+              Chinese
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/zh_HK/"
+               
+            >
+              Chinese (HK)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/zh_TW/"
+               
+            >
+              Chinese (TW)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/cs/"
+               
+            >
+              Czech
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/da/"
+               
+            >
+              Danish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/nl/"
+               
+            >
+              Dutch
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/en/"
+               
+            >
+              English
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/fi_FI/"
+               
+            >
+              Finnish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/fr/"
+               
+            >
+              French
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/gl/"
+               
+            >
+              Galician
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/de/"
+               
+            >
+              German
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/el/"
+               
+            >
+              Greek
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/hu_HU/"
+               
+            >
+              Hungarian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/id/"
+               
+            >
+              Indonesian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ga/"
+               
+            >
+              Irish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/it/"
+               
+            >
+              Italian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ja_JP/"
+               
+            >
+              Japanese
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ko/"
+               
+            >
+              Korean
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/mn/"
+               
+            >
+              Mongolian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/nb_NO/"
+               
+            >
+              Norwegian (NB)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/nn/"
+               
+            >
+              Norwegian (NN)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/pl/"
+               
+            >
+              Polish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/pt_PT/"
+               
+            >
+              Portuguese
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/pt_BR/"
+               
+            >
+              Portuguese (BR)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ro/"
+               
+            >
+              Romanian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ru/"
+               
+            >
+              Russian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/si/"
+               
+            >
+              Sinhala
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/sk_SK/"
+               
+            >
+              Slovakian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/sr/"
+               
+            >
+              Slovenian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/es/"
+               
+            >
+              Spanish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/sv/"
+               
+            >
+              Swedish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ta/"
+               
+            >
+              Tamil
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/tr/"
+               
+            >
+              Turkish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/uk_UA/"
+               
+            >
+              Ukrainian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/uz/"
+               
+            >
+              Uzbek
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/vi/"
+               
+            >
+              Vietnamese
+            </a>
+          </dd>
+        
       </dl>
     </div>
     <div class="rst-other-versions">
@@ -743,6 +597,8 @@ to override the storage space management. See <a class="reference external" href
         
           <dd style="width: 32%">
             <a href="https://docs.nextcloud.com/server/latest/user_manual"
+               
+               style="color: var(--dark-link-color);"
                
             >
               35 (latest)
@@ -773,30 +629,6 @@ to override the storage space management. See <a class="reference external" href
             </a>
           </dd>
         
-          <dd style="width: 32%">
-            <a href="https://docs.nextcloud.com/server/31/user_manual"
-               
-               style="color: var(--dark-link-color);"
-               
-            >
-              31 (unsupported)
-            </a>
-          </dd>
-        
-      </dl>
-      <dl>
-        <dt>下载</dt>
-        
-      </dl>
-      <dl>
-        
-        <dt>托管于 Read the Docs</dt>
-          <dd>
-            <a href="///projects//?fromdocs=">项目主页</a>
-          </dd>
-          <dd>
-            <a href="///builds//?fromdocs=">构建</a>
-          </dd>
       </dl>
     </div>
   </div>

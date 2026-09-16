@@ -7,15 +7,16 @@
   <meta name="readthedocs-addons-api-version" content="1"><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>WebDAV kullanarak Nextcloud dosyalarına erişmek &mdash; Nextcloud latest User Manual latest belgelendirmesi</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+  <title>WebDAV kullanarak Nextcloud dosyalarına erişmek &mdash; Nextcloud 35 User Manual</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=bad88653" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=8ff6e0db" />
       <link rel="stylesheet" type="text/css" href="../../_static/dark_mode_css/general.css?v=c0a7eb24" />
       <link rel="stylesheet" type="text/css" href="../../_static/dark_mode_css/dark.css?v=70edf1c7" />
 
   
+    <link rel="canonical" href="https://docs.nextcloud.com/server/stable/user_manual/files/access_webdav.html" />
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../../_static/documentation_options.js?v=9f991a48"></script>
@@ -62,17 +63,16 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Nextcloud latest kullanıcı rehberi giriş</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../whats_new.html">Nextcloud latest sürümündeki yenilikler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Nextcloud 35 kullanıcı rehberi giriş</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../webinterface.html">Nextcloud site arayüzü</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Dosyalar ve eşitleme</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="access_webgui.html">Nextcloud site arayüzünü kullanarak dosyalarınıza erişmek</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">WebDAV kullanarak Nextcloud dosyalarına erişmek</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#official-nextcloud-desktop-and-mobile-clients">Resmi Nextcloud masaüstü ve mobil istemcileri</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#official-nextcloud-desktop-and-mobile-clients">Resmi Nextcloud bilgisayar ve mobil istemcileri</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#third-party-webdav-clients">Üçüncü taraf WebDAV istemcileri</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#accessing-files-using-linux">Linux kullanarak dosyalara erişmek</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#nautilus-file-manager">Nautilus dosya yöneticisi</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#accessing-files-with-kde-and-dolphin-file-manager">KDE ve Dolphin dosya yöneticisi ile dosyalara erişmek</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#accessing-files-with-kde-and-dolphin">Accessing files with KDE and Dolphin</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#creating-webdav-mounts-on-the-linux-command-line">Linux komut satırından WebDAV bağlantıları oluşturmak</a></li>
@@ -110,13 +110,14 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="deleted_file_management.html">Silinmiş dosyaları yönetmek</a></li>
-<li class="toctree-l2"><a class="reference internal" href="desktop_mobile_sync.html">Masaüstü ve mobil eşitleme</a></li>
+<li class="toctree-l2"><a class="reference internal" href="desktop_mobile_sync.html">Bilgisayar ve mobil eşitleme</a></li>
 <li class="toctree-l2"><a class="reference internal" href="encrypting_files.html">Nextcloud dosyalarınızı sunucuda şifrelemek</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_e2ee.html">Using end-to-end encryption</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sharing.html">Dosya paylaşımı</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sharing.html#federated-shares">Birleşik paylaşımlar</a></li>
 <li class="toctree-l2"><a class="reference internal" href="file_drop.html">Anonim yüklemeler yapma</a></li>
 <li class="toctree-l2"><a class="reference internal" href="large_file_upload.html">Büyük dosya yüklemeleri</a></li>
-<li class="toctree-l2"><a class="reference internal" href="quota.html">Depolama kotası</a></li>
+<li class="toctree-l2"><a class="reference internal" href="quota.html">Depolama alanı kotası</a></li>
 <li class="toctree-l2"><a class="reference internal" href="version_control.html">Sürüm denetimi</a></li>
 <li class="toctree-l2"><a class="reference internal" href="projects.html">Projeler</a></li>
 <li class="toctree-l2"><a class="reference internal" href="transfer_ownership.html">Sahiplik aktarma</a></li>
@@ -124,13 +125,13 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../groupware/index.html">Groupware</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../talk/index.html">Talk</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../desktop/index.html">Desktop Clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../talk/index.html">Konuş</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../desktop/index.html">Bilgisayar istemcileri</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../userpreferences.html">Kullanıcı ayarları</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../universal_access.html">Evrensel erişim</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../user_2fa.html">İki aşamalı kimlik doğrulamasını kullanmak</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../user_2fa.html">İki adımlı doğrulamayı kullanmak</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../session_management.html">Bağlı tarayıcı ve aygıtların yönetimi</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../external_storage/index.html">Dış Depolama</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../external_storage/index.html">Dış depolama alanı</a></li>
 </ul>
 
         </div>
@@ -139,7 +140,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../contents.html">Nextcloud latest User Manual</a>
+          <a href="../contents.html">Nextcloud 35 User Manual</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -160,20 +161,22 @@
              
   <section id="accessing-nextcloud-files-using-webdav">
 <h1>WebDAV kullanarak Nextcloud dosyalarına erişmek<a class="headerlink" href="#accessing-nextcloud-files-using-webdav" title="Link to this heading"></a></h1>
-<p>Nextcloud, WebDAV iletişim kuralını tam olarak destekler ve Nextcloud Dosyalar uygulamasına WebDAV üzerinden bağlanıp eşitlemenizi sağlar. Bu bölümde Linux, macOS, Windows ve mobil aygıtları WebDAV aracılığıyla Nextcloud sunucunuza nasıl bağlayacağınızı öğreneceksiniz.</p>
-<p>WebDAV stands for Distributed Authoring and Versioning. It is an HTTP extension
-that makes it easy to create, read, and edit files hosted on remote Web servers. With
-a WebDAV client, you can access your Nextcloud Files (including shares) on Linux,
-macOS and Windows in a similar way as any remote network share, and stay synchronized.</p>
-<p>WebDAV yapılandırmasına başlamadan önce, istemci aygıtları Nextcloud sunucularınıza bağlamanın önerilen yoluna hızlı bir göz atalım.</p>
+<p>Nextcloud fully supports the WebDAV protocol, and you can connect to and synchronize
+with Nextcloud Files over WebDAV. This chapter explains how to connect Linux, macOS,
+Windows, and mobile devices to your Nextcloud server.</p>
+<p>WebDAV, dağıtılmış yazma ve sürüm oluşturma anlamına gelir. Uzak internet sunucularında barındırılan dosyaları oluşturmayı, okumayı ve düzenlemeyi kolaylaştıran bir HTTP eklentisidir. Bir WebDAV istemcisi ile Linux, macOS ve Windows üzerinden Nextcloud dosyalarınıza (paylaşımlar ile birlikte) herhangi bir uzak ağ paylaşımına benzer şekilde erişebilir ve eşitleyebilirsiniz.</p>
+<p>Before you configure WebDAV, review the recommended way to connect client devices to
+Nextcloud.</p>
 <section id="official-nextcloud-desktop-and-mobile-clients">
-<h2>Resmi Nextcloud masaüstü ve mobil istemcileri<a class="headerlink" href="#official-nextcloud-desktop-and-mobile-clients" title="Link to this heading"></a></h2>
-<p>Bir masaüstü bilgisayarı bir Nextcloud sunucusuyla eşitlemenin önerilen yolu, <a class="reference external" href="https://nextcloud.com/install/#install-clients">Resmi Nextcloud eşitleme istemcilerini</a> kullanmaktır. İstemciyi dosyaları herhangi bir yerel klasöre kaydedecek şekilde yapılandırabilir ve Nextcloud sunucusunda hangi klasörlerle eşitleneceğini seçebilirsiniz. İstemci var olan bağlantı durumunu görüntüler ve yapılan tüm işlemleri günlüğe kaydeder. Böylece her zaman bilgisayarınıza hangi uzak dosyaların indirildiğini bilirsiniz ve yerel bilgisayarınızda oluşturulan ve güncellenen dosyaların sunucu ile düzgün bir şekilde eşitlendiğini doğrulayabilirsiniz.</p>
+<h2>Resmi Nextcloud bilgisayar ve mobil istemcileri<a class="headerlink" href="#official-nextcloud-desktop-and-mobile-clients" title="Link to this heading"></a></h2>
+<p>Bir bilgisayarı bir Nextcloud sunucusuyla eşitlemenin önerilen yolu, <a class="reference external" href="https://nextcloud.com/install/#install-clients">Resmi Nextcloud eşitleme istemcilerini</a> kullanmaktır. İstemciyi dosyaları herhangi bir yerel klasöre kaydedecek şekilde yapılandırabilir ve Nextcloud sunucusunda hangi klasörlerle eşitleneceğini seçebilirsiniz. İstemci var olan bağlantı durumunu görüntüler ve yapılan tüm işlemleri günlüğe kaydeder. Böylece her zaman bilgisayarınıza hangi uzak dosyaların indirildiğini bilirsiniz ve yerel bilgisayarınızda oluşturulan ve güncellenen dosyaların sunucu ile düzgün bir şekilde eşitlendiğini doğrulayabilirsiniz.</p>
 <p>Android ve Apple iOS aygıtlarını eşitlemenin önerilen yolu, <a class="reference external" href="https://nextcloud.com/install/">resmi Nextcloud mobil uygulamalarını</a> kullanmaktır.</p>
 <p>Resmi Nextcloud uygulamalarını bir Nextcloud sunucusuna bağlamak için, tarayıcınızdan Nextcloud kopyanıza erişmek için kullandığınız adresi kullanın. Örnek:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">cloud</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span>
-
-<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">nextcloud</span> <span class="p">(</span><span class="k">if</span> <span class="n">Nextcloud</span> <span class="ow">is</span> <span class="n">installed</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">subdirectory</span> <span class="n">called</span> <span class="s2">&quot;nextcloud&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Nextcloud “nextcloud” adlı bir alt klasöre kurulmuşsa:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">nextcloud</span>
 </pre></div>
 </div>
 </section>
@@ -189,25 +192,27 @@ macOS and Windows in a similar way as any remote network share, and stay synchro
 </ul>
 <p>Üçüncü taraf uygulamalar ile Nextcloud bağlantısı yapılandırılırken kullanılacak adres, resmi istemcilere göre biraz daha uzundur:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">cloud</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">remote</span><span class="o">.</span><span class="n">php</span><span class="o">/</span><span class="n">dav</span><span class="o">/</span><span class="n">files</span><span class="o">/</span><span class="n">USERNAME</span><span class="o">/</span>
-
-<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">nextcloud</span><span class="o">/</span><span class="n">remote</span><span class="o">.</span><span class="n">php</span><span class="o">/</span><span class="n">dav</span><span class="o">/</span><span class="n">files</span><span class="o">/</span><span class="n">USERNAME</span><span class="o">/</span> <span class="p">(</span><span class="k">if</span> <span class="n">Nextcloud</span> <span class="ow">is</span> <span class="n">installed</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">subdirectory</span> <span class="n">called</span> <span class="s2">&quot;nextcloud&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Nextcloud “nextcloud” adlı bir alt klasöre kurulmuşsa:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">nextcloud</span><span class="o">/</span><span class="n">remote</span><span class="o">.</span><span class="n">php</span><span class="o">/</span><span class="n">dav</span><span class="o">/</span><span class="n">files</span><span class="o">/</span><span class="n">USERNAME</span><span class="o">/</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Not</p>
 <p>When using a third-party WebDAV client (including your operating system’s
 built-in client), you should use an application password for login rather than your
-regular password. In addition improved security, this <a class="reference external" href="https://github.com/nextcloud/server/issues/32729#issuecomment-1556667151">increases performance significantly</a>. To
-configure an application password, log into the Nextcloud Web interface, click on the avatar
-in the top right and choose <em>Personal settings</em>. Then choose <em>Security</em> in the left
+regular password. In addition to improved security, this <a class="reference external" href="https://github.com/nextcloud/server/issues/32729#issuecomment-1556667151">increases performance significantly</a>. To
+configure an application password, log in to the Nextcloud Web interface, click your avatar,
+and choose <em>Personal settings</em>. Then choose <em>Security</em> in the left
 sidebar and scroll to the very bottom. There you can create an app password (which can
 also be revoked in the future without changing your main user password).</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Not</p>
 <p>Aşağıdaki örneklerde, <strong>ornek.com/nextcloud</strong> yerine Nextcloud sunucunuzun adresini (kurulumunuz etki alanınızın kök klasöründeyse klasör bölümünü atlayın) ve <strong>KULLANICI ADI</strong> yerine bağlantı kuran kullanıcının kullanıcı adını yazmalısınız.</p>
-<p>See the WebDAV URL, to be found in Files Settings -&gt; WebDAV in the Files on your Nextcloud account.</p>
-<img alt="Screenshot of the Files settings showing the personal WebDAV link" src="../../_images/webdav_link.png" />
+<p>You can find the WebDAV URL in <strong>Files settings</strong> under <strong>WebDAV</strong> in your Nextcloud account.</p>
+<img alt="Nextcloud Files settings panel showing the personal WebDAV URL" src="../../_images/webdav_link.png" />
 </div>
 </section>
 <section id="accessing-files-using-linux">
@@ -215,7 +220,8 @@ also be revoked in the future without changing your main user password).</p>
 <p>Linux işletim sistemlerindeki dosyalara aşağıdaki yöntemleri kullanarak erişebilirsiniz.</p>
 <section id="nautilus-file-manager">
 <h3>Nautilus dosya yöneticisi<a class="headerlink" href="#nautilus-file-manager" title="Link to this heading"></a></h3>
-<p><strong>Nextcloud hesabınızı `GNOME Control Center &lt;../groupware/sync_gnome.html&gt;`_ içinden yapılandırdığınızda, **dosya erişimi seçeneğini kaldırmadığınızda, dosyalarınız Nautilus tarafından otomatik olarak bir WebDAV paylaşımı olarak eklenir</strong>.</p>
+<p><strong>When you configure your Nextcloud account in the</strong> <a class="reference internal" href="../groupware/sync_gnome.html"><span class="doc">GNOME Control Center</span></a>, <strong>your files will automatically be mounted
+by Nautilus as a WebDAV share, unless you deselect file access</strong>.</p>
 <p>Ayrıca Nextcloud dosyalarınızı el ile de ekleyebilirsiniz. Nautilus dosya yöneticisini Nextcloud paylaşımınıza bağlamak için <code class="docutils literal notranslate"><span class="pre">davs://</span></code> iletişim kuralını kullanın:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">davs</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">nextcloud</span><span class="o">/</span><span class="n">remote</span><span class="o">.</span><span class="n">php</span><span class="o">/</span><span class="n">dav</span><span class="o">/</span><span class="n">files</span><span class="o">/</span><span class="n">USERNAME</span><span class="o">/</span>
 </pre></div>
@@ -230,29 +236,18 @@ also be revoked in the future without changing your main user password).</p>
 <p>Aynı yöntem, MATE Caja ve Cinnamon Nepo gibi GVFS kullanan diğer dosya yöneticileri için de geçerlidir.</p>
 </div>
 </section>
-<section id="accessing-files-with-kde-and-dolphin-file-manager">
-<h3>KDE ve Dolphin dosya yöneticisi ile dosyalara erişmek<a class="headerlink" href="#accessing-files-with-kde-and-dolphin-file-manager" title="Link to this heading"></a></h3>
-<p>KDE Dolphin dosya yöneticisini kullanarak Nextcloud dosyalarınıza erişmek için <code class="docutils literal notranslate"><span class="pre">webdav://</span></code> iletişim kuralını kullanın:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">webdav</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">nextcloud</span><span class="o">/</span><span class="n">remote</span><span class="o">.</span><span class="n">php</span><span class="o">/</span><span class="n">dav</span><span class="o">/</span><span class="n">files</span><span class="o">/</span><span class="n">USERNAME</span><span class="o">/</span>
-</pre></div>
-</div>
-<img alt="Dolphin dosya yöneticisini WebDAV kullanacak şekilde yapılandırma ekran görüntüsü" src="../../_images/webdav_dolphin.png" />
-<p>Nextcloud sunucunuzla kalıcı bir bağlantı oluşturabilirsiniz:</p>
+<section id="accessing-files-with-kde-and-dolphin">
+<h3>Accessing files with KDE and Dolphin<a class="headerlink" href="#accessing-files-with-kde-and-dolphin" title="Link to this heading"></a></h3>
 <ol class="arabic simple">
-<li><p>Dolphin uygulamasını açın ve sol taraftaki “Yerler” sütunundaki “Ağ” üzerine tıklayın.</p></li>
-<li><p><strong>Ağ klasörü ekle</strong> etiketli simgeye tıklayın. Açılan pencerede, WebDAV zaten seçilmiş olarak görünmelidir.</p></li>
-<li><p>WebDAV seçili değilse seçin.</p></li>
-<li><p><strong>Sonraki</strong> üzerine tıklayın.</p></li>
-<li><p>Şu ayarları yazın:</p>
-<ul class="simple">
-<li><p>Ad: <strong>Yerler</strong> altında görmek istediğiniz ad. Örnek: Nextcloud.</p></li>
-<li><p>Kullanıcı: Oturum açmak için kullanılacak Nextcloud kullanıcı adı. Örnek: admin.</p></li>
-<li><p>Sunucu: Nextcloud etki alanı adı. Örnek: <strong>ornek.com</strong> (başında <strong>http://</strong> sonunda klasörler olmadan).</p></li>
-<li><p>Klasör – <code class="docutils literal notranslate"><span class="pre">nextcloud/remote.php/dav/files/KULLANICIADI/</span></code> yolunu yazın.</p></li>
-</ul>
-</li>
-<li><p>(İsteğe bağlı) Yerler sütununda bir yer işaretinin görüntülenmesi için “Simge oluştur” kutusunu işaretleyin.</p></li>
-<li><p>(İsteğe bağlı) “Bağlantı noktası ve şifreli” kutusunda herhangi bir özel ayar veya bir SSL sertifikası belirtin.</p></li>
+<li><p>Sistem ayarları -&gt; Ağ -&gt; Çevrim içi hesaplar bölümüne gidin</p></li>
+<li><p>“Hesap ekle…” üzerine tıklayın</p></li>
+<li><p>Nextcloud üzerine tıklayın</p></li>
+<li><p>Sunucunuzun adresini yazın</p></li>
+<li><p>Oturum açmak için ekrandaki yönergeleri izleyin</p></li>
+<li><p>Oturum açtıktan sonra, “Bu hesabı şunun için kullanılsın” bölümünde “Depolama” seçeneğini seçtiğinizden emin olun</p></li>
+<li><p>Artık Dolphin dosyalarınıza kenar çubuğundaki “Ağ” altından erişebilirsiniz</p></li>
+<li><p>(Optional) To add this location as a shortcut in the sidebar, right-click “Nextcloud Storage”, then click “Add to Places”</p></li>
+<li><p>(Optional) To customize the shortcut, right-click it in the sidebar, then click “Edit…” and customize the icon and label</p></li>
 </ol>
 </section>
 </section>
@@ -348,7 +343,7 @@ for example
 <h2>macOS kullanarak dosyalara erişmek<a class="headerlink" href="#accessing-files-using-macos" title="Link to this heading"></a></h2>
 <div class="admonition note">
 <p class="admonition-title">Not</p>
-<p>The macOS Finder suffers from a <a class="reference external" href="http://sabre.io/dav/clients/finder/">series of implementation problems</a> and should only be used if the Nextcloud server runs on <strong>Apache</strong> and <strong>mod_php</strong>, or <strong>Nginx 1.3.8+</strong>. Alternative macOS-compatible clients capable of accessing WebDAV shares include open source apps like <a class="reference external" href="https://cyberduck.io/">Cyberduck</a> (see instructions <a class="reference external" href="https://docs.nextcloud.com/server/31/user_manual/files/access_webdav.html#accessing-files-using-cyberduck">here</a>) and <a class="reference external" href="https://filezilla-project.org">Filezilla</a>. Commercial clients include <a class="reference external" href="https://mountainduck.io/">Mountain Duck</a>, <a class="reference external" href="https://binarynights.com/">Forklift</a>, <a class="reference external" href="https://panic.com/">Transmit</a>, and <a class="reference external" href="https://mac.eltima.com/">Commander One</a>.</p>
+<p>The macOS Finder suffers from a <a class="reference external" href="http://sabre.io/dav/clients/finder/">series of implementation problems</a> and should only be used if the Nextcloud server runs on <strong>Apache</strong> and <strong>mod_php</strong>, or <strong>Nginx 1.3.8+</strong>. Alternative macOS-compatible clients capable of accessing WebDAV shares include open source apps like <a class="reference external" href="https://cyberduck.io/">Cyberduck</a> (see instructions <a class="reference external" href="#accessing-files-using-cyberduck">here</a>) and <a class="reference external" href="https://filezilla-project.org">Filezilla</a>. Commercial clients include <a class="reference external" href="https://mountainduck.io/">Mountain Duck</a>, <a class="reference external" href="https://binarynights.com/">Forklift</a>, <a class="reference external" href="https://panic.com/">Transmit</a>, and <a class="reference external" href="https://mac.eltima.com/">Commander One</a>.</p>
 </div>
 <p>Dosyalara macOS Finder üzerinden erişmek:</p>
 <ol class="arabic">
@@ -361,20 +356,20 @@ for example
 </div>
 <img alt="Ekran görüntüsü: &quot;Sunucu ile bağlantı kur…&quot; penceresine Nextcloud sunucu adresini yazın" src="../../_images/osx_webdav2.png" />
 </li>
-<li><p><strong>Bağlan</strong>’ üzerine tıklayın. WebDAV sunucunuz Masaüstünde paylaşılan bir disk sürücüsü olarak görünmelidir.</p></li>
+<li><p><strong>Bağlan</strong>’ üzerine tıklayın. WebDAV sunucunuz bilgisayarda paylaşılan bir disk sürücüsü olarak görünmelidir.</p></li>
 </ol>
 </section>
 <section id="accessing-files-using-microsoft-windows">
 <h2>Dosyalara Microsoft Windows üzerinden erişmek<a class="headerlink" href="#accessing-files-using-microsoft-windows" title="Link to this heading"></a></h2>
 <p>Yerel Windows WebDAV uygulamasını kullanıyorsanız, Dosya Gezginini kullanarak Nextcloud sunucunuzu yeni bir sürücü olarak eşleyebilirsiniz. Bir sürücü eşlemek, bir Nextcloud sunucusunda depolanan dosyalara, eşlenmiş bir ağ sürücüsünde bulunan dosyalara yaptığınız gibi göz atabilmenizi sağlar.</p>
-<p>Bu özelliğin kullanılması için ağ bağlantısı gereklidir. Dosyalarınızı çevrimdışı olarak depolamak istiyorsanız, Nextcloud hesabınızdaki tüm dosyaları yerel sabit sürücünüzdeki bir veya daha fazla klasörle eşitlemek için Masaüstü istemcisini kullanın.</p>
+<p>Bu özelliğin kullanılması için ağ bağlantısı gereklidir. Dosyalarınızı çevrim dışı olarak depolamak istiyorsanız, Nextcloud hesabınızdaki tüm dosyaları yerel sabit sürücünüzdeki bir ya da birkaç klasörle eşitlemek için bilgisayar istemcisini kullanın.</p>
 <div class="admonition note">
 <p class="admonition-title">Not</p>
-<p>Sürücünüz eşleştirilmeden önce HTTPS etkinleştirildiyse, Windows 10 varsayılan olarak temel kimlik doğrulama kullanmaya izin verecek şekilde ayarlanmıştır.</p>
+<p>In Windows 10, Basic Authentication is allowed by default when HTTPS is enabled before mapping your drive.</p>
 <p>Daha eski Windows sürümlerinde, Windows kayıt defterini açarak temel kimlik doğrulamasının kullanılmasına izin vermelisiniz:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">regedit</span></code> uygulamasını açarak <code class="docutils literal notranslate"><span class="pre">HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WebClient\Parameters</span></code> anahtarını bulun.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">BasicAuthLevel</span></code> (Windows Vista, 7 ve 8) ya da <code class="docutils literal notranslate"><span class="pre">UseBasicAuth</span></code> (Windows XP ve Windows Server 2003), <code class="docutils literal notranslate"><span class="pre">DWORD</span></code> değerini yoksa oluşturun veya varsa düzenleyin ve değer verisini <code class="docutils literal notranslate"><span class="pre">1</span></code> olarak ayarlayın. SSL bağlantıları için. <code class="docutils literal notranslate"><span class="pre">0</span></code> değeri, Temel kimlik doğrulamasının devre dışı bırakıldığı anlamına gelir ve <code class="docutils literal notranslate"><span class="pre">2</span></code> değeri, hem SSL hem de SSL olmayan bağlantılara izin verir (önerilmez).</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">BasicAuthLevel</span></code> (Windows Vista, 7 ve 8) ya da <code class="docutils literal notranslate"><span class="pre">UseBasicAuth</span></code> (Windows XP ve Windows Server 2003), <code class="docutils literal notranslate"><span class="pre">DWORD</span></code> değerini yoksa oluşturun veya varsa düzenleyin ve değer verisini <code class="docutils literal notranslate"><span class="pre">1</span></code> olarak ayarlayın. SSL bağlantıları için. <code class="docutils literal notranslate"><span class="pre">0</span></code> değeri, Temel kimlik doğrulamasının kullanımdan kaldırıldığı anlamına gelir ve <code class="docutils literal notranslate"><span class="pre">2</span></code> değeri, hem SSL hem de SSL olmayan bağlantılara izin verir (önerilmez).</p></li>
 <li><p>Kayıt defteri uygulamasından çıkıp bilgisayarı yeniden başlatın.</p></li>
 </ul>
 </div>
@@ -396,10 +391,7 @@ for example
 </ol>
 <div class="admonition error">
 <p class="admonition-title">Hata</p>
-<p>If you get the following error
-<code class="docutils literal notranslate"><span class="pre">System</span> <span class="pre">error</span> <span class="pre">67</span> <span class="pre">has</span> <span class="pre">occurred.</span> <span class="pre">The</span> <span class="pre">network</span> <span class="pre">name</span> <span class="pre">cannot</span> <span class="pre">be</span> <span class="pre">found.</span></code>,
-or frequent disconnections, open the <strong>Services</strong> app and make sure
-that the <code class="docutils literal notranslate"><span class="pre">WebClient</span></code> service is running and started automatically at startup.</p>
+<p><code class="docutils literal notranslate"><span class="pre">Sistem</span> <span class="pre">hatası</span> <span class="pre">67</span> <span class="pre">oluştu.</span> <span class="pre">Ağ</span> <span class="pre">adı</span> <span class="pre">bulunamadı</span></code> iletisini görürseniz ya da bağlantı sık sık kesiliyorsa, <strong>Hizmetler</strong> uygulamasını açın ve <code class="docutils literal notranslate"><span class="pre">WebClient</span></code> hizmetinin çalıştığından ve başlangıçta otomatik olarak çalıştırıldığından emin olun.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Not</p>
@@ -431,12 +423,10 @@ that the <code class="docutils literal notranslate"><span class="pre">WebClient<
 <p>SSL ile korunan sunucular için, sonraki yeniden başlatmalarda eşlemenin kalıcı olacağından emin olmak için <strong>Oturum açıldığında yeniden bağlan</strong> seçeneğini işaretleyin. Nextcloud sunucusuna farklı bir kullanıcı olarak oturum açmak istiyorsanız, <strong>Farklı kimlik bilgileri kullanarak bağlan</strong> seçeneğini işaretleyin.</p>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/explorer_webdav.png"><img alt="Windows dosya gezgininde WebDAV eşleme ekran görüntüsü" src="../../_images/explorer_webdav.png" style="width: 487.20000000000005px; height: 358.40000000000003px;" />
+<a class="reference internal image-reference" href="../../_images/explorer_webdav.png"><img alt="Windows Explorer Map Network Drive wizard with a Nextcloud WebDAV URL entered" src="../../_images/explorer_webdav.png" style="width: 487.20000000000005px; height: 358.40000000000003px;" />
 </a>
 </figure>
 </li>
-</ol>
-<ol class="arabic simple" start="5">
 <li><p><code class="docutils literal notranslate"><span class="pre">Son</span></code> düğmesine tıklayın.</p></li>
 </ol>
 <p>Dosya Gezgini, ağ sürücüsünü eşleyerek Nextcloud kopyanızı kullanmanızı sağlar.</p>
@@ -474,13 +464,13 @@ that the <code class="docutils literal notranslate"><span class="pre">WebClient<
 <h2>WebDAV üzerinden herkese açık paylaşımlara erişmek<a class="headerlink" href="#accessing-public-shares-over-webdav" title="Link to this heading"></a></h2>
 <p>Nextcloud, WebDAV üzerinden herkese açık paylaşımlara anonim olarak erişme olanağı sağlar.</p>
 <p>Herkese açık paylaşıma erişmek için şunu açın:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">nextcloud</span><span class="o">/</span><span class="n">public</span><span class="o">.</span><span class="n">php</span><span class="o">/</span><span class="n">webdav</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">nextcloud</span><span class="o">/</span><span class="n">public</span><span class="o">.</span><span class="n">php</span><span class="o">/</span><span class="n">dav</span><span class="o">/</span><span class="n">files</span><span class="o">/</span><span class="n">USERNAME</span>
 </pre></div>
 </div>
 <p>bir WebDAV istemcisinde, paylaşım belirtecini kullanıcı adı olarak ve (isteğe bağlı) paylaşım parolasını parola olarak kullanın. Örneğin, <a class="reference external" href="https://example.co/s/kFy9Lek5sm928xP">https://example.co/s/kFy9Lek5sm928xP</a> paylaşım adresinde parola <code class="docutils literal notranslate"><span class="pre">kFy9Lek5sm928xP</span></code> olur.</p>
 <div class="admonition note">
 <p class="admonition-title">Not</p>
-<p><strong>Ayarlar</strong> → <strong>Yönetim</strong> → <strong>Paylaşım</strong> → <strong>Bu sunucudaki kullanıcılar diğer sunuculara paylaşım gönderebilsin</strong> seçeneğini etkinleştirin. Bu seçenek cURL kullanılması dışında (aşağıya bakın), WebDAV tarafından herkese açık paylaşımlara erişilebilmesini de sağlar ve bu özelliğin çalışması için etkinleştirilmelidir.</p>
+<p><strong>Ayarlar</strong> → <strong>Yönetim</strong> → <strong>Paylaşım</strong> → <strong>Bu sunucudaki kullanıcılar diğer sunuculara paylaşım gönderebilsin</strong> seçeneğini açın. Bu seçenek cURL kullanılması dışında (aşağıya bakın), WebDAV tarafından herkese açık paylaşımlara erişilebilmesini de sağlar ve bu özelliğin çalışması için açılmalıdır.</p>
 </div>
 </section>
 <section id="known-problems">
@@ -491,7 +481,7 @@ that the <code class="docutils literal notranslate"><span class="pre">WebClient<
 </section>
 <section id="solution-1">
 <h3>1. çözüm<a class="headerlink" href="#solution-1" title="Link to this heading"></a></h3>
-<p>Windows WebDAV İstemcisi, şifreli bağlantılarda sunucu adı gösterimini (SNI) desteklemeyebilir. SSL ile şifrelenmiş bir Nextcloud kopyası kurarken bir hatayla karşılaşırsanız, SSL tabanlı sunucunuza bir sabit IP adresi ataması için hizmet sağlayıcınızla görüşün.</p>
+<p>Windows WebDAV İstemcisi, şifrelenmiş bağlantılarda sunucu adı gösterimini (SNI) desteklemeyebilir. SSL ile şifrelenmiş bir Nextcloud kopyası kurarken bir hatayla karşılaşırsanız, SSL tabanlı sunucunuza bir sabit IP adresi ataması için hizmet sağlayıcınızla görüşün.</p>
 </section>
 <section id="solution-2">
 <h3>2. çözüm<a class="headerlink" href="#solution-2" title="Link to this heading"></a></h3>
@@ -503,16 +493,20 @@ that the <code class="docutils literal notranslate"><span class="pre">WebClient<
 </section>
 <section id="id6">
 <h3>Çözüm<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
-<p>Windows, WebDAV paylaşımı ile alınabilecek ya da gönderilebilecek bir dosyanın en büyük boyutunu sınırlar. <strong>Değiştir</strong> üzerine tıklayarak <strong>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WebClient\Parameters</strong> altındaki <strong>FileSizeLimitInBytes</strong> değerini artırabilirsiniz.</p>
-<p>Sınırı olabilecek en büyük 4 GB değerine çıkarmak için <strong>Ondalık</strong> seçin, <strong>4294967295</strong> değerini yazın ve Windows’u ya da <strong>WebClient</strong> hizmetini yeniden başlatın.</p>
+<p>Windows, WebDAV paylaşımı ile alınabilecek ya da gönderilebilecek bir dosyanın en büyük boyutunu sınırlar. <strong>Değiştir</strong> üzerine tıklayarak <code class="docutils literal notranslate"><span class="pre">HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\WebClient\\Parameters</span></code> altındaki <code class="docutils literal notranslate"><span class="pre">FileSizeLimitInBytes</span></code> değerini artırabilirsiniz.</p>
+<p>Sınırı olabilecek en büyük 4 GB değerine çıkarmak için <strong>Ondalık</strong> olarak seçin, <code class="docutils literal notranslate"><span class="pre">4294967295</span></code> değerini yazın ve Windows ya da <strong>WebClient</strong> hizmetini yeniden başlatın.</p>
 </section>
 <section id="id7">
 <h3>Sorun<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
-<p>Yukarıda açıklanan adımlarla Windows üzerinde bir WebDAV sürücüsü eklemek, Nextcloud kullanılabilir alanının doğru boyutunu göstermez. Kullanılabilecek alan olarak C: sürücüsünün boyutunu görüntüler.</p>
+<p>Adding a WebDAV drive on Windows with the steps above does not display the correct
+available Nextcloud space and instead shows the size and free space of the C: drive.</p>
 </section>
 <section id="answer">
 <h3>Yanıt<a class="headerlink" href="#answer" title="Link to this heading"></a></h3>
-<p>Ne yazık ki bu, WebDAV tarafından kaynaklanan bir sınırlamadır, çünkü istemcinin sunucudan kullanılabilir boş alanı almasının bir yolu yoktur. Windows, bunun yerine otomatik olarak C: sürücüsünün boyutunu kullanılabilir alanla birlikte görüntüler. Yani ne yazık ki bu sorunun gerçek bir çözümü yok.</p>
+<p>Unfortunately, this is a limitation of WebDAV itself, because it does not provide a
+way for the client to retrieve available free space from the server. Windows automatically
+falls back to the size and free space of the C: drive. There is no direct solution
+for this limitation.</p>
 </section>
 <section id="id8">
 <h3>Sorun<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
@@ -529,22 +523,18 @@ that the <code class="docutils literal notranslate"><span class="pre">WebClient<
 <section id="id11">
 <h3>Çözüm<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
 <ol class="arabic simple">
-<li><p>Alışık olduğunuz tarayıcı ile Nextcloud kopyanıza erişin.</p></li>
+<li><p>Access your Nextcloud instance in your preferred Web browser.</p></li>
 <li><p>Tarayıcı durum satırında sertifika hatasına ulaşana kadar tıklayın.</p></li>
-<li><p>View the certificate, then from the Details tab, select ‘Copy to File’.</p></li>
+<li><p>Sertifikayı görüntüleyin, Ayrıntılar sekmesinden ‘Dosyaya kopyala’ üzerine tıklayın.</p></li>
 <li><p>Masaüstüne <code class="docutils literal notranslate"><span class="pre">NextcloudSertifikam.pem</span></code> gibi rastgele bir adla kaydedin.</p></li>
-<li><p>Go to Start menu &gt; Run, type MMC, and click ‘OK’ to open Microsoft Management
-Console.</p></li>
+<li><p>Başlat menüsü &gt; Çalıştır yolundan, MMC yazın ve Microsoft Yönetim Konsolu uygulamasını açmak için ‘Tamam’ üzerine tıklayın.</p></li>
 <li><p>Dosya &gt; Ek Bileşen Ekle/Kaldır üzerine tıklayın.</p></li>
-<li><p>Select Certificates, Click ‘Add’, choose ‘My User Account’, then ‘Finish’, and
-finally ‘OK’.</p></li>
+<li><p>Sertifikalar bölümünü seçin, sırasıyla ‘Ekle’, ‘Kullanıcı hesabım’, ‘Bitir’ ve ‘Tamam’ üzerine tıklayın.</p></li>
 <li><p>Güvenilen Kök Sertifika Yetkilileri, Sertifikalar bölümüne gidin.</p></li>
 <li><p>Sertifikaya sağ tıklayın, Tüm Görevleri Seç ve İçe Aktar üzerine tıklayın.</p></li>
 <li><p>Masaüstüne kaydettiğiniz sertifika dosyasını seçin.</p></li>
 <li><p>Tüm Sertifikaları Aşağıdaki Mağazaya Yerleştir komutunu seçin ve Göz at üzerine tıklayın.</p></li>
-<li><p>Check the Box that says Show Physical Stores, expand out Trusted Root
-Certification Authorities, select Local Computer there, click ‘OK’, and
-Complete the Import.</p></li>
+<li><p>Fiziksel Mağazaları Göster kutusunu işaretleyin, Güvenilir Kök Sertifika Yetkililerini genişletin ve oradan Yerel Bilgisayar seçin, içe aktarmayı tamamlamak içn ‘Tamam’ üzerine tıklayın.</p></li>
 <li><p>Yeni sertifikanın göründüğünden emin olmak için listeye bakın. Büyük olasılıkla sertifikanın listede görüntülenmesi için görünümü yenilemeniz gerekecek.</p></li>
 <li><p>Exit MMC.</p></li>
 </ol>
@@ -569,7 +559,7 @@ Complete the Import.</p></li>
 <p>WebDAV bir HTTP uzantısı olduğundan, cURL betik dosyası işlemleri için kullanılabilir.</p>
 <div class="admonition note">
 <p class="admonition-title">Not</p>
-<p><strong>Ayarlar</strong> → <strong>Yönetim</strong> → <strong>Paylaşım</strong> → <strong>Bu sunucudaki kullanıcılar diğer sunuculara paylaşım gönderebilsin</strong> seçeneğini etkinleştirin. Bu seçenek <code class="docutils literal notranslate"><span class="pre">--header</span> <span class="pre">&quot;X-Requested-With:</span> <span class="pre">XMLHttpRequest&quot;</span></code> seçeneğini devre dışı bırakıyorsa cURL üzerine aktarılması gerekir.</p>
+<p><strong>Ayarlar</strong> → <strong>Yönetim</strong> → <strong>Paylaşım</strong> → <strong>Bu sunucudaki kullanıcılar diğer sunuculara paylaşım gönderebilsin</strong> seçeneğini açın. Bu seçenek <code class="docutils literal notranslate"><span class="pre">--header</span> <span class="pre">&quot;X-Requested-With:</span> <span class="pre">XMLHttpRequest&quot;</span></code> seçeneğini kapatıyorsa cURL üzerine aktarılması gerekir.</p>
 </div>
 <p>Adı geçerli tarih olan bir klasör oluşturmak için:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>curl<span class="w"> </span>-u<span class="w"> </span>user:pass<span class="w"> </span>-X<span class="w"> </span>MKCOL<span class="w"> </span><span class="s2">&quot;https://example.com/nextcloud/remote.php/dav/files/USERNAME/</span><span class="k">$(</span>date<span class="w"> </span><span class="s1">&#39;+%d-%b-%Y&#39;</span><span class="k">)</span><span class="s2">&quot;</span>
@@ -584,8 +574,8 @@ Complete the Import.</p></li>
 </pre></div>
 </div>
 <p>Kök klasördeki dosyaların özelliklerini almak için:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w">    </span>$<span class="w"> </span>curl<span class="w"> </span>-X<span class="w"> </span>PROPFIND<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Depth: 1&quot;</span><span class="w"> </span>-u<span class="w"> </span>user:pass<span class="w"> </span>https://example.com/nextcloud/remote.php/dav/files/USERNAME/<span class="w"> </span><span class="p">|</span><span class="w"> </span>xml_pp
-<span class="w">    </span>&lt;?xml<span class="w"> </span><span class="nv">version</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span><span class="w"> </span><span class="nv">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span>?&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>curl<span class="w"> </span>-X<span class="w"> </span>PROPFIND<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Depth: 1&quot;</span><span class="w"> </span>-u<span class="w"> </span>user:pass<span class="w"> </span>https://example.com/nextcloud/remote.php/dav/files/USERNAME/<span class="w"> </span><span class="p">|</span><span class="w"> </span>xml_pp
+&lt;?xml<span class="w"> </span><span class="nv">version</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span><span class="w"> </span><span class="nv">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span>?&gt;
 &lt;d:multistatus<span class="w"> </span>xmlns:d<span class="o">=</span><span class="s2">&quot;DAV:&quot;</span><span class="w"> </span>xmlns:oc<span class="o">=</span><span class="s2">&quot;http://nextcloud.org/ns&quot;</span><span class="w"> </span>xmlns:s<span class="o">=</span><span class="s2">&quot;http://sabredav.org/ns&quot;</span>&gt;
 <span class="w">  </span>&lt;d:response&gt;
 <span class="w">    </span>&lt;d:href&gt;/nextcloud/remote.php/dav/files/USERNAME/&lt;/d:href&gt;
@@ -621,9 +611,13 @@ Complete the Import.</p></li>
 </section>
 <section id="accessing-files-using-winscp">
 <h2>WinSCP kullanarak dosyalara erişmek<a class="headerlink" href="#accessing-files-using-winscp" title="Link to this heading"></a></h2>
-<p><cite>WinSCP &lt;https://winscp.net/eng/docs/introduction/&gt;</cite>, Windows için açık kaynaklı, ücretsiz bir SFTP, FTP, WebDAV, S3 ve SCP istemcisidir. Ana işlevi, yerel ve uzak bilgisayar arasında dosya aktarımı yapmaktır. Bunun ötesinde WinSCP, betik çalıştırma ve temel dosya yönetimi işlevleri sunar.</p>
+<p><a class="reference external" href="https://winscp.net/eng/docs/introduction/">WinSCP</a> is a free, open-source SFTP,
+FTP, WebDAV, S3, and SCP client for Windows. Its main function is file transfer
+between a local and a remote computer. WinSCP also offers scripting and basic file
+management functionality.</p>
 <p>Portable WinSCP sürümünü &lt;<a class="reference external" href="https://winscp.net/eng/downloads.php/">https://winscp.net/eng/downloads.php/</a>&gt;’ indirebilir ve <a class="reference external" href="https://wiki.winehq.org/Main_Page/">Wine</a> ile Linux üzerinde çalıştırabilirsiniz.</p>
-<p>WinSCP uygulamasını Linux üzerinde çalıştırmak için, dağıtımınızın paket yöneticisinden wine uygulamasını indirin. Ardından şu komutla çalıştırın: <code class="docutils literal notranslate"><span class="pre">wine</span> <span class="pre">WinSCP.exe</span></code>.</p>
+<p>To run WinSCP on Linux, install Wine through your distribution’s package manager,
+then run: <code class="docutils literal notranslate"><span class="pre">wine</span> <span class="pre">WinSCP.exe</span></code>.</p>
 <p>Nextcloud bağlantısı kurmak için:</p>
 <ul class="simple">
 <li><p>WinSCP uygulamasını başlatın</p></li>
@@ -644,7 +638,8 @@ Complete the Import.</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Not</p>
-<p>It is recommended to use an app password for the password if you use TOTP as WinSCP does not understand TOTP with Nextcloud at the time of writing (2022-11-07).</p>
+<p>If you use TOTP, use an app password. At the time of writing (2022-11-07),
+WinSCP does not support TOTP with Nextcloud.</p>
 </div>
 </section>
 </section>
@@ -660,7 +655,7 @@ Complete the Import.</p></li>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2026 Nextcloud GmbH.</p>
+    <p>&#169; Copyright 2016-2026 Nextcloud GmbH and Nextcloud contributors.</p>
   </div>
 
    
@@ -671,544 +666,420 @@ Complete the Import.</p></li>
     </section>
   </div>
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- Here go the languages -->
   
+  <!-- Here go the languages -->
+
+  
+  
+
+  
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+
   <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
-      🌐
-      
-      
-      Turkish
-      
+      🌐 Turkish
       <span class="fa fa-caret-down"></span>
-
-       ☁️ 31
+       ☁️ latest
       <span class="fa fa-caret-down"></span>
     </span>
     <div class="rst-other-versions">
       <dl>
-        <dt>🌐 Languages</dt>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/af/"
-                 
-              >
-                
-                Afrikaans
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ar/"
-                 
-              >
-                
-                Arabic
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/br/"
-                 
-              >
-                
-                Breton
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ca/"
-                 
-              >
-                
-                Catalan
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/cs/"
-                 
-              >
-                
-                Czech
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/da/"
-                 
-              >
-                
-                Danish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/de/"
-                 
-              >
-                
-                German
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/el/"
-                 
-              >
-                
-                Greek
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/el_GR/"
-                 
-              >
-                
-                el_GR
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/en/"
-                 
-              >
-                
-                English
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/eo/"
-                 
-              >
-                
-                Esperanto
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/es/"
-                 
-              >
-                
-                Spanish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/eu/"
-                 
-              >
-                
-                eu
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/fi_FI/"
-                 
-              >
-                
-                Finnish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/fr/"
-                 
-              >
-                
-                French
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ga/"
-                 
-              >
-                
-                Irish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/gl/"
-                 
-              >
-                
-                Glacian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/hr/"
-                 
-              >
-                
-                Croatian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/hu/"
-                 
-              >
-                
-                hu
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/hu_HU/"
-                 
-              >
-                
-                Hungarian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/id/"
-                 
-              >
-                
-                Indonesian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/it/"
-                 
-              >
-                
-                Italian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ja_JP/"
-                 
-              >
-                
-                Japanese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ko/"
-                 
-              >
-                
-                Korean
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/mn/"
-                 
-              >
-                
-                Mongolian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/nb_NO/"
-                 
-              >
-                
-                Norwegian (NB)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/nl/"
-                 
-              >
-                
-                Dutch
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/nn/"
-                 
-              >
-                
-                Norwegian (NN)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/pl/"
-                 
-              >
-                
-                Polish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/pt_BR/"
-                 
-              >
-                
-                Portuguese (BR)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/pt_PT/"
-                 
-              >
-                
-                Portuguese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ro/"
-                 
-              >
-                
-                Romanian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ru/"
-                 
-              >
-                
-                Russian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/si/"
-                 
-              >
-                
-                Sinhala
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sk_SK/"
-                 
-              >
-                
-                Slovakian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sq/"
-                 
-              >
-                
-                Albanian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sr/"
-                 
-              >
-                
-                Slovenian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sv/"
-                 
-              >
-                
-                Swedish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ta/"
-                 
-              >
-                
-                Tamil
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/th/"
-                 
-              >
-                
-                th
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/tr/"
-                 
-                 style="color: var(--dark-link-color);"
-                 
-              >
-                
-                Turkish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/uk/"
-                 
-              >
-                
-                Ukrainian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/uz/"
-                 
-              >
-                
-                Uzbek
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/vi/"
-                 
-              >
-                
-                Vietnamese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/zh_CN/"
-                 
-              >
-                
-                Chinese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/zh_HK/"
-                 
-              >
-                
-                Chinese (HK)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/zh_TW/"
-                 
-              >
-                
-                Chinese (TW)
-                
-              </a>
-            </dd>
-          
+        <dt>🌐 Diller</dt>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ar/"
+               
+            >
+              Arabic
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/br/"
+               
+            >
+              Breton
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ca/"
+               
+            >
+              Catalan
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/zh_CN/"
+               
+            >
+              Chinese
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/zh_HK/"
+               
+            >
+              Chinese (HK)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/zh_TW/"
+               
+            >
+              Chinese (TW)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/cs/"
+               
+            >
+              Czech
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/da/"
+               
+            >
+              Danish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/nl/"
+               
+            >
+              Dutch
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/en/"
+               
+            >
+              English
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/fi_FI/"
+               
+            >
+              Finnish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/fr/"
+               
+            >
+              French
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/gl/"
+               
+            >
+              Galician
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/de/"
+               
+            >
+              German
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/el/"
+               
+            >
+              Greek
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/hu_HU/"
+               
+            >
+              Hungarian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/id/"
+               
+            >
+              Indonesian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ga/"
+               
+            >
+              Irish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/it/"
+               
+            >
+              Italian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ja_JP/"
+               
+            >
+              Japanese
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ko/"
+               
+            >
+              Korean
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/mn/"
+               
+            >
+              Mongolian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/nb_NO/"
+               
+            >
+              Norwegian (NB)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/nn/"
+               
+            >
+              Norwegian (NN)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/pl/"
+               
+            >
+              Polish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/pt_PT/"
+               
+            >
+              Portuguese
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/pt_BR/"
+               
+            >
+              Portuguese (BR)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ro/"
+               
+            >
+              Romanian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ru/"
+               
+            >
+              Russian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/si/"
+               
+            >
+              Sinhala
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/sk_SK/"
+               
+            >
+              Slovakian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/sr/"
+               
+            >
+              Slovenian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/es/"
+               
+            >
+              Spanish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/sv/"
+               
+            >
+              Swedish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ta/"
+               
+            >
+              Tamil
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/tr/"
+               
+               style="color: var(--dark-link-color);"
+               
+            >
+              Turkish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/uk_UA/"
+               
+            >
+              Ukrainian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/uz/"
+               
+            >
+              Uzbek
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/vi/"
+               
+            >
+              Vietnamese
+            </a>
+          </dd>
+        
       </dl>
     </div>
     <div class="rst-other-versions">
@@ -1217,6 +1088,8 @@ Complete the Import.</p></li>
         
           <dd style="width: 32%">
             <a href="https://docs.nextcloud.com/server/latest/user_manual"
+               
+               style="color: var(--dark-link-color);"
                
             >
               35 (latest)
@@ -1247,30 +1120,6 @@ Complete the Import.</p></li>
             </a>
           </dd>
         
-          <dd style="width: 32%">
-            <a href="https://docs.nextcloud.com/server/31/user_manual"
-               
-               style="color: var(--dark-link-color);"
-               
-            >
-              31 (unsupported)
-            </a>
-          </dd>
-        
-      </dl>
-      <dl>
-        <dt>İndirmeler</dt>
-        
-      </dl>
-      <dl>
-        
-        <dt>Okunacak Belgeler</dt>
-          <dd>
-            <a href="///projects//?fromdocs=">Proje Ana Sayfası</a>
-          </dd>
-          <dd>
-            <a href="///builds//?fromdocs=">Yapımlar</a>
-          </dd>
       </dl>
     </div>
   </div>

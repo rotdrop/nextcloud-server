@@ -7,15 +7,16 @@
   <meta name="readthedocs-addons-api-version" content="1"><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ag baint úsáide as an aip Mail &mdash; Nextcloud latest User Manual latest documentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+  <title>Ag baint úsáide as an aip Mail &mdash; Nextcloud 35 User Manual</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=bad88653" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=8ff6e0db" />
       <link rel="stylesheet" type="text/css" href="../../_static/dark_mode_css/general.css?v=c0a7eb24" />
       <link rel="stylesheet" type="text/css" href="../../_static/dark_mode_css/dark.css?v=70edf1c7" />
 
   
+    <link rel="canonical" href="https://docs.nextcloud.com/server/stable/user_manual/groupware/mail.html" />
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../../_static/documentation_options.js?v=d9c2735f"></script>
@@ -29,7 +30,7 @@
     <script src="../../_static/js/versions.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Setting out-of-office messages" href="absence.html" />
+    <link rel="next" title="Teachtaireachtaí as oifig a shocrú" href="absence.html" />
     <link rel="prev" title="Ag baint úsáide as an app Calendar" href="calendar.html" />
    
   <meta name="robots" content="noindex, follow" />
@@ -61,8 +62,7 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Nextcloud | leagan| réamhrá lámhleabhar úsáideora</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../whats_new.html">Cad atá nua d'úsáideoirí in Nextcloud |leagan|</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Nextcloud 35 réamhrá lámhleabhar úsáideora</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../webinterface.html">Comhéadan Gréasáin Nextcloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../files/index.html">Comhaid &amp; sioncronú</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Earraí grúpa</a><ul class="current">
@@ -70,29 +70,33 @@
 <li class="toctree-l2"><a class="reference internal" href="calendar.html">Ag baint úsáide as an app Calendar</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Ag baint úsáide as an aip Mail</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#managing-your-mail-account">Do chuntas ríomhphoist a bhainistiú</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#switch-layout">Switch layout</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#message-display-operation-mode">Message Display / Operation Mode</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#switch-layout">Athraigh leagan amach</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#message-display-operation-mode">Taispeántas Teachtaireachtaí / Mód Oibríochta</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#add-a-new-mail-account">Cuir cuntas ríomhphoist nua leis</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#change-sort-order">Change sort order</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#change-sort-order">Athraigh ord sórtála</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#sort-favorites-up">Sort favorites up</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#scheduled-messages">Teachtaireachtaí sceidealaithe</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#priority-inbox">Bosca isteach tosaíochta</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#all-inboxes">Gach bosca isteach</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#account-settings">Socruithe cuntas</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#move-messages-to-junk-folder">Bog teachtaireachtaí chuig an bhfillteán Dramhaíola</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#search-in-mailbox">Search in mailbox</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#advance-search-in-mailbox">Advance search in mailbox</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#enable-mail-body-search">Enable mail body search</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#refresh-mailbox">Refresh mailbox</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#unified-search">Unified search</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#search-in-mailbox">Cuardaigh sa bhosca poist</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#advanced-search-in-mailbox">Cuardach casta sa bhosca poist</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#enable-mail-body-search">Cumasaigh cuardach coirp poist</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#account-delegation">Tarmligean cuntais</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#automatic-trash-deletion">Bruscar a scriosadh go huathoibríoch</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#compose-messages">Teachtaireachtaí a chumadh</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#recipient-info-on-composer">Recipient info on composer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#mention-contacts">Mention contacts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#compose-messages">Teachtaireachtaí a chumadh</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#minimize-the-composer-modal">Íoslaghdaigh modúl an chumadóra</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#outbox">Outbox</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#recipient-info-on-composer">Eolas faighteoir faoin gcumadóir</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mention-contacts">Luaigh teagmhálaithe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#text-blocks">Bloic téacs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#outbox">Bosca Amach</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#mailbox-actions">Gníomhartha bosca poist</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#add-a-mailbox">Cuir bosca poist leis</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#add-a-submailbox">Cuir bosca fo-phoist leis</a></li>
@@ -103,36 +107,42 @@
 <li class="toctree-l4"><a class="reference internal" href="#create-an-event">Cruthaigh imeacht</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#create-a-task">Cruthaigh tasc</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#edit-tags">Cuir clibeanna in eagar</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#change-color-for-tags">Change color for tags</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#delete-tags">Delete tags</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ai-summary">AI summary</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#change-color-for-tags">Athraigh dath le haghaidh clibeanna</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#delete-tags">Scrios clibeanna</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ai-summary">Achoimre AI</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#quick-actions">Quick actions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#message-actions">Gníomhartha teachtaireachta</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#unsubscribe-from-a-mailing-list">Díliostáil ó liosta seoltaí</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#snooze">Cur ar suan</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#smart-replies">Smart replies</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#mail-translation">Mail translation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#smart-replies">Freagraí cliste</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mail-translation">Aistriúchán ríomhphoist</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#thread-summary">Thread summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#filtering-and-autoresponder">Filtering and autoresponder</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#autoresponders">Autoresponders</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#filter">Filter</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#create-a-filter-from-a-message">Create a filter from a message</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#thread-summary">Achoimre snáithe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filtering-and-autoresponder">Scagadh agus uathfhreagróir</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#autoresponders">Uathfhreagróirí</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#filter">Scagaire</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-a-filter-from-a-message">Cruthaigh scagaire ó theachtaireacht</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#follow-up-reminders">Follow-up reminders</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#security">Security</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#phishing-detection">Phishing detection</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#internal-addresses">Internal addresses</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#follow-up-reminders">Meabhrúcháin leantacha</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#security">Slándáil</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#phishing-detection">Brath fioscaireachta</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#internal-addresses">Seoltaí inmheánacha</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#dashboard-integration">Dashboard integration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#dashboard-integration">Comhtháthú painéil</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#calendar-integration">Calendar integration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#meeting-invitations">Meeting invitations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#meeting-invitation-automation">Meeting invitation automation</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="absence.html">Setting out-of-office messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#keyboard-shortcuts">Keyboard shortcuts</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="absence.html">Teachtaireachtaí as oifig a shocrú</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sync_android.html">Sioncrónú le Android</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sync_ios.html">Sioncrónú le iOS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sync_osx.html">Sioncrónú le macOS</a></li>
@@ -140,10 +150,11 @@
 <li class="toctree-l2"><a class="reference internal" href="sync_kde.html">Ag sioncronú le KDE Kontact</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sync_gnome.html">Ag sioncronú leis an deasc GNOME</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sync_windows10.html">Ag sioncrónú le Windows 10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_migration.html">Migrate data between instances</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../talk/index.html">Caint</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../desktop/index.html">Desktop Clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../desktop/index.html">Cliaint Deisce</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../userpreferences.html">Ag socrú do shainroghanna</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../universal_access.html">Rochtain uilíoch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_2fa.html">Ag baint úsáide as fíordheimhniú dhá-fhachtóir</a></li>
@@ -157,7 +168,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../contents.html">Nextcloud latest User Manual</a>
+          <a href="../contents.html">Nextcloud 35 User Manual</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -188,31 +199,29 @@
 <section id="managing-your-mail-account">
 <h2>Do chuntas ríomhphoist a bhainistiú<a class="headerlink" href="#managing-your-mail-account" title="Link to this heading"></a></h2>
 <section id="switch-layout">
-<h3>Switch layout<a class="headerlink" href="#switch-layout" title="Link to this heading"></a></h3>
-<blockquote>
-<div><div class="versionadded">
-<p><span class="versionmodified added">Added in version 3.6.</span></p>
+<h3>Athraigh leagan amach<a class="headerlink" href="#switch-layout" title="Link to this heading"></a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.6: </span>Nextcloud 26 or newer</p>
 </div>
-</div></blockquote>
 <ol class="arabic simple">
-<li><p>Visit mail settings</p></li>
-<li><p>Choose between <em>List</em>, <em>Vertical split</em> and <em>Horizontal split</em></p></li>
+<li><p>Tabhair cuairt ar shocruithe ríomhphoist</p></li>
+<li><p>Roghnaigh idir <em>Liosta</em>, <em>Roinnt ingearach</em> agus <em>Roinnt chothrománach</em></p></li>
 </ol>
 <figure class="align-default">
 <img alt="../../_images/mail_layout.png" src="../../_images/mail_layout.png" />
 </figure>
 </section>
 <section id="message-display-operation-mode">
-<h3>Message Display / Operation Mode<a class="headerlink" href="#message-display-operation-mode" title="Link to this heading"></a></h3>
+<h3>Taispeántas Teachtaireachtaí / Mód Oibríochta<a class="headerlink" href="#message-display-operation-mode" title="Link to this heading"></a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 5.2.</span></p>
+<p><span class="versionmodified added">Added in version 5.2: </span>Nextcloud 30 or newer</p>
 </div>
-<p>Mail has the ability to switch between two different message view and operation modes: <em>Threaded</em> and <em>Singleton</em>.</p>
-<p>In <em>Threaded</em> mode, messages are grouped by conversation. In the mailbox message list, related messages are stacked so only the most recent message is shown, and all relates messages are shown in message display panel after the stacked message is selected. This is useful for following discussions and understanding the context of replies. In this mode, message operation like move and delete apply to the entire thread, meaning that when you move or delete a thread, all messages within that thread are affected.</p>
-<p>In <em>Singleton</em> mode, messages are displayed individually, in both the mailbox message list and message display panel and operation like move and delete apply to only the selected message. This mode is useful when you want to manage messages separately without affecting the entire conversation.</p>
+<p>Tá an cumas ag Mail aistriú idir dhá mhodh éagsúla radhairc agus oibríochta teachtaireachtaí: <em>Snáithithe</em> agus <em>Singleton</em>.</p>
+<p>Sa mhodh <em>Snáithithe</em>, déantar teachtaireachtaí a ghrúpáil de réir comhrá. Sa liosta teachtaireachtaí bosca poist, déantar teachtaireachtaí gaolmhara a chruachadh ionas nach dtaispeántar ach an teachtaireacht is déanaí, agus taispeántar gach teachtaireacht ghaolmhar sa phainéal taispeána teachtaireachtaí tar éis an teachtaireacht chruachta a roghnú. Tá sé seo úsáideach chun plé a leanúint agus comhthéacs na bhfreagraí a thuiscint. Sa mhodh seo, baineann oibríocht teachtaireachta cosúil le bogadh agus scriosadh leis an snáithe ar fad, rud a chiallaíonn nuair a bhogann tú nó a scriosann tú snáithe, go mbíonn tionchar ar gach teachtaireacht laistigh den snáithe sin.</p>
+<p>I mód <em>Singleton</em>, taispeántar teachtaireachtaí ina n-aonar, i liosta teachtaireachtaí an bhosca poist agus sa phainéal taispeána teachtaireachtaí araon, agus ní bhaineann oibríochtaí cosúil le bogadh agus scriosadh ach leis an teachtaireacht roghnaithe. Tá an mód seo úsáideach nuair is mian leat teachtaireachtaí a bhainistiú ar leithligh gan cur isteach ar an gcomhrá ar fad.</p>
 <ol class="arabic simple">
-<li><p>Visit mail settings</p></li>
-<li><p>Choose between <em>Threaded</em>, <em>Singleton</em></p></li>
+<li><p>Tabhair cuairt ar shocruithe ríomhphoist</p></li>
+<li><p>Roghnaigh idir <em>Snáithithe</em>, <em>Singleton</em></p></li>
 </ol>
 <figure class="align-default">
 <img alt="../../_images/mail_display-mode.png" src="../../_images/mail_display-mode.png" />
@@ -230,21 +239,31 @@
 </figure>
 </section>
 <section id="change-sort-order">
-<h3>Change sort order<a class="headerlink" href="#change-sort-order" title="Link to this heading"></a></h3>
-<blockquote>
-<div><div class="versionadded">
-<p><span class="versionmodified added">Added in version 3.5.</span></p>
+<h3>Athraigh ord sórtála<a class="headerlink" href="#change-sort-order" title="Link to this heading"></a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.5: </span>Nextcloud 26 or newer</p>
 </div>
-</div></blockquote>
 <ol class="arabic simple">
-<li><p>Visit mail settings</p></li>
-<li><p>Go to <em>Sorting</em></p></li>
-<li><p>You can choose <em>Oldest</em> or <em>Newest</em> mail first</p></li>
+<li><p>Tabhair cuairt ar shocruithe ríomhphoist</p></li>
+<li><p>Téigh go dtí <em>Sórtáil</em></p></li>
+<li><p>Is féidir leat ríomhphost <em>Is sine</em> nó <em>is Déanaí</em> a roghnú ar dtús</p></li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This change will apply across all your accounts and mailboxes</p>
+<p>Beidh an t-athrú seo i bhfeidhm thar do chuntais agus boscaí poist go léir</p>
 </div>
+</section>
+<section id="sort-favorites-up">
+<h3>Sort favorites up<a class="headerlink" href="#sort-favorites-up" title="Link to this heading"></a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 5.7: </span>Nextcloud 31 or newer</p>
+</div>
+<p>This setting allows you to show messages set as favorite in a separate section on top of the message list.</p>
+<ol class="arabic simple">
+<li><p>Tabhair cuairt ar shocruithe ríomhphoist</p></li>
+<li><p>Go to <em>Appearance</em></p></li>
+<li><p>Enable sorting favorites up</p></li>
+</ol>
 </section>
 <section id="scheduled-messages">
 <span id="mail-scheduled-messages"></span><h3>Teachtaireachtaí sceidealaithe<a class="headerlink" href="#scheduled-messages" title="Link to this heading"></a></h3>
@@ -260,6 +279,7 @@
 <section id="priority-inbox">
 <h3>Bosca isteach tosaíochta<a class="headerlink" href="#priority-inbox" title="Link to this heading"></a></h3>
 <p>Tá 2 roinn <em>Tábhachtach</em> agus <em>Eile</em> sa bhosca isteach tosaíochta. Déanfar teachtaireachtaí a mharcáil go huathoibríoch mar thábhachtach, bunaithe ar na teachtaireachtaí a ndearna tú idirghníomhú leo nó a mharcáil tú a bheith tábhachtach. Ar dtús b'fhéidir go mbeadh ort an tábhacht a bhaineann leis an gcóras a mhúineadh a athrú de láimh, ach feabhsóidh sé le himeacht ama.</p>
+<p>The automatic classification is optional. You can opt-out when setting up an account. The classification can also be turned on and off in the account settings at any time.</p>
 <figure class="align-default">
 <img alt="../../_images/priority-inbox.png" src="../../_images/priority-inbox.png" />
 </figure>
@@ -283,58 +303,65 @@
 </section>
 <section id="move-messages-to-junk-folder">
 <h3>Bog teachtaireachtaí chuig an bhfillteán Dramhaíola<a class="headerlink" href="#move-messages-to-junk-folder" title="Link to this heading"></a></h3>
-<blockquote>
-<div><div class="versionadded">
-<p><span class="versionmodified added">Added in version 3.4.</span></p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.4: </span>Nextcloud 26 or newer</p>
 </div>
-</div></blockquote>
 <p>Is féidir le post teachtaireacht a aistriú go fillteán eile nuair a mharcáiltear é mar dhramhphost.</p>
-<ol class="arabic">
+<ol class="arabic simple">
 <li><p>Tabhair cuairt ar shocruithe Cuntais</p></li>
 <li><p>Téigh go dtí fillteáin Réamhshocraithe</p></li>
 <li><p>Seiceáil go bhfuil fillteán roghnaithe do na dramhtheachtaireachtaí</p></li>
 <li><p>Téigh go dtí socruithe Junk</p></li>
-<li><p>Cliceáil Bog teachtaireachtaí chuig fillteán Junk</p>
+<li><p>Cliceáil Bog teachtaireachtaí chuig fillteán Junk</p></li>
+</ol>
 <figure class="align-default">
 <img alt="../../_images/mail_move-message-to-junk-folder.png" src="../../_images/mail_move-message-to-junk-folder.png" />
 </figure>
-</li>
-</ol>
+</section>
+<section id="refresh-mailbox">
+<h3>Refresh mailbox<a class="headerlink" href="#refresh-mailbox" title="Link to this heading"></a></h3>
+<p>You can manually trigger a sync of your mailbox by clicking the refresh button located at the top of the mailbox list.
+Starting from <code class="docutils literal notranslate"><span class="pre">version</span> <span class="pre">5.7</span></code> triggering the sync will also refresh the list of folders for the selected account.</p>
+</section>
+<section id="unified-search">
+<h3>Unified search<a class="headerlink" href="#unified-search" title="Link to this heading"></a></h3>
+<p>The Mail app integrates with Nextcloud's <a class="reference internal" href="../webinterface.html#id1"><span class="std std-ref">unified search</span></a>
+feature (see <a class="reference internal" href="../webinterface.html"><span class="doc">Comhéadan Gréasáin Nextcloud</span></a> for details). You can search for emails across
+all your accounts using the search bar in the Nextcloud header.</p>
+<p>Mail searches email subjects and sender/recipient fields. To search email bodies,
+use the mailbox search feature in the app.</p>
 </section>
 <section id="search-in-mailbox">
-<h3>Search in mailbox<a class="headerlink" href="#search-in-mailbox" title="Link to this heading"></a></h3>
+<h3>Cuardaigh sa bhosca poist<a class="headerlink" href="#search-in-mailbox" title="Link to this heading"></a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 2.1.</span></p>
+<p><span class="versionmodified added">Added in version 2.1: </span>Nextcloud 25 or newer</p>
 </div>
-<p>At the top of the envelope list in any mail layout, there is a search field shortcut for searching email subjects. Starting from <code class="docutils literal notranslate"><span class="pre">version</span> <span class="pre">3.7</span></code>, this shortcut allows you to search by subject, recipient (to), or sender (from) by default.</p>
+<p>Ag barr an liosta clúdaigh in aon leagan amach ríomhphoist, tá aicearra réimse cuardaigh chun ábhair ríomhphoist a chuardach. Ag tosú le <code class="docutils literal notranslate"><span class="pre">leagan</span> <span class="pre">3.7</span></code>, ceadaíonn an aicearra seo duit cuardach a dhéanamh de réir ábhair, faighteoir (chuig), nó seoltóir (ó) de réir réamhshocraithe.</p>
 </section>
-<section id="advance-search-in-mailbox">
-<h3>Advance search in mailbox<a class="headerlink" href="#advance-search-in-mailbox" title="Link to this heading"></a></h3>
+<section id="advanced-search-in-mailbox">
+<h3>Cuardach casta sa bhosca poist<a class="headerlink" href="#advanced-search-in-mailbox" title="Link to this heading"></a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 3.4.</span></p>
+<p><span class="versionmodified added">Added in version 3.4: </span>Nextcloud 26 or newer</p>
 </div>
-<p>You can access our advanced search feature through a modal located at the end of the search shortcut.</p>
+<p>Is féidir leat ár ngné ardchuardaigh a rochtain trí mhodh atá suite ag deireadh an aicearra cuardaigh.</p>
 </section>
 <section id="enable-mail-body-search">
-<h3>Enable mail body search<a class="headerlink" href="#enable-mail-body-search" title="Link to this heading"></a></h3>
-<blockquote>
-<div><div class="versionadded">
-<p><span class="versionmodified added">Added in version 3.5.</span></p>
+<h3>Cumasaigh cuardach coirp poist<a class="headerlink" href="#enable-mail-body-search" title="Link to this heading"></a></h3>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.5: </span>Nextcloud 26 or newer</p>
 </div>
-</div></blockquote>
-<p>Mail bodies can now be searched, this feature is opt-in because of potential performance issues.</p>
-<p>To enable it:</p>
+<p>Is féidir comhlachtaí poist a chuardach anois, tá rogha an diúltaithe sa ghné seo mar gheall ar cheisteanna feidhmíochta féideartha.</p>
+<p>Chun é a chumasú:</p>
 <ol class="arabic simple">
 <li><p>Tabhair cuairt ar shocruithe Cuntais</p></li>
-<li><p>Go to Mailbox search</p></li>
-<li><p>Enable mail body search</p></li>
+<li><p>Téigh chuig cuardach Bosca Poist</p></li>
+<li><p>Cumasaigh cuardach coirp poist</p></li>
 </ol>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>If you want to also enable it for unified mailboxes you have to do so in Mail settings</p>
+<p>Más mian leat é a chumasú freisin do bhoscaí poist aontaithe caithfidh tú é sin a dhéanamh i socruithe Ríomhphoist</p>
 </div>
-<p>By enabling it the main search box will now search in both subjects and mail bodies, and a separate <em>Body</em> option
-will appear in advanced search.</p>
+<p>Trí é a chumasú déanfaidh an príomhbhosca cuardaigh cuardach anois in ábhair agus i gcomhlachtaí poist, agus beidh rogha <em>Comhlacht</em> ar leith le feiceáil san ardchuardach.</p>
 </section>
 <section id="account-delegation">
 <h3>Tarmligean cuntais<a class="headerlink" href="#account-delegation" title="Link to this heading"></a></h3>
@@ -352,7 +379,7 @@ will appear in advanced search.</p>
 <section id="automatic-trash-deletion">
 <h3>Bruscar a scriosadh go huathoibríoch<a class="headerlink" href="#automatic-trash-deletion" title="Link to this heading"></a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 3.4.</span></p>
+<p><span class="versionmodified added">Added in version 3.4: </span>Nextcloud 26 or newer</p>
 </div>
 <p>Is féidir leis an app Mail teachtaireachtaí a scriosadh go huathoibríoch sa fhillteán bruscar tar éis roinnt laethanta áirithe.</p>
 <ol class="arabic simple">
@@ -376,65 +403,62 @@ will appear in advanced search.</p>
 <li><p>Cliceáil ar theachtaireacht nua ar bharr do scáileáin ar chlé</p></li>
 <li><p>Tosaigh ag scríobh do theachtaireacht</p></li>
 </ol>
-</section>
-<section id="recipient-info-on-composer">
-<h2>Recipient info on composer<a class="headerlink" href="#recipient-info-on-composer" title="Link to this heading"></a></h2>
-<div class="versionadded">
-<p><span class="versionmodified added">Added in version 4.2.</span></p>
-</div>
-<p>When you add your first recipient or contact in the &quot;To&quot; field, a right pane will appear displaying the saved profile details of that contact.
-Adding a second contact will collapse the list, allowing you to select and expand any contact you added to view their details.
-If you prefer to focus solely on writing in the composer, you can hide the right pane by clicking the expand icon in the top-right corner.
-To show the right pane again, simply click the minimize icon in the same location.</p>
-</section>
-<section id="mention-contacts">
-<h2>Mention contacts<a class="headerlink" href="#mention-contacts" title="Link to this heading"></a></h2>
-<div class="versionadded">
-<p><span class="versionmodified added">Added in version 4.2.</span></p>
-</div>
-<p>You can mention contacts in your message by typing <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> and then selecting the contact from the list.
-By doing so the contact will be automatically added as a recipient.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Only contacts with a valid email address will be suggested.</p>
-</div>
 <section id="minimize-the-composer-modal">
 <h3>Íoslaghdaigh modúl an chumadóra<a class="headerlink" href="#minimize-the-composer-modal" title="Link to this heading"></a></h3>
-<blockquote>
-<div><div class="versionadded">
-<p><span class="versionmodified added">Added in version 3.2.</span></p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 3.2: </span>Nextcloud 26 or newer</p>
 </div>
-</div></blockquote>
-<p>Is féidir modh an chumadóra a íoslaghdú agus teachtaireacht nua á scríobh, dréacht atá ann cheana a chur in eagar nó teachtaireacht ón mbosca amach a chur in eagar. Níl le déanamh ach cliceáil ar an gcnaipe íoslaghdaithe ar bharr an mhodha ar dheis nó cliceáil áit ar bith lasmuigh den mhodh.</p>
-<blockquote>
-<div><figure class="align-default">
+<p>Is féidir an modúl cumadóra a íoslaghdú agus teachtaireacht nua á scríobh, dréacht atá ann cheana féin á chur in eagar nó teachtaireacht ón mbosca amach. Cliceáil an cnaipe íoslaghdaithe ag barr ar dheis an mhodúil nó cliceáil áit ar bith lasmuigh den mhodúil.</p>
+<figure class="align-default">
 <img alt="../../_images/mail-minimize-composer.png" src="../../_images/mail-minimize-composer.png" />
 </figure>
-</div></blockquote>
 <p>Is féidir leat do theachtaireacht íoslaghdaithe a atosú trí chliceáil áit ar bith ar an táscaire ar thaobh na láimhe deise ag bun do scáileáin.</p>
-<blockquote>
-<div><figure class="align-default">
+<figure class="align-default">
 <img alt="../../_images/mail-composer-indicator.png" src="../../_images/mail-composer-indicator.png" />
 </figure>
-</div></blockquote>
-<p>Brúigh an cnaipe gar ar an modúl nó ar an táscaire sa chúinne ag bun ar dheis chun deireadh a chur le heagarthóireacht teachtaireacht. Déanfar dréacht a shábháil go huathoibríoch i do dhréachtbhosca poist.</p>
+<p>Brúigh an cnaipe dúnta ar an modal nó an táscaire sa chúinne íochtarach ar dheis chun stop a chur le teachtaireacht a chur in eagar. Sábhálfar dréacht go huathoibríoch i do bhosca poist dréachta.</p>
 </section>
 </section>
-<section id="outbox">
-<h2>Outbox<a class="headerlink" href="#outbox" title="Link to this heading"></a></h2>
-<p>When a message has been composed and the &quot;Send&quot; button was clicked, the message is added to the outbox which can be found in the bottom left corner of the left sidebar.</p>
-<p>You can also set the date and time for the send operation to a point in the future (see <a class="reference internal" href="#mail-scheduled-messages"><span class="std std-ref">Scheduled messages</span></a>)- the message will be kept in the outbox until your chosen date and time arrives, then it will be sent automatically.</p>
-<p>The outbox is only visible when there is a message waiting to be handled by the outbox.</p>
-<p>You can re- open the composer for a message in the outbox any time before the &quot;send&quot;- operation is triggered.</p>
+<section id="recipient-info-on-composer">
+<h2>Eolas faighteoir faoin gcumadóir<a class="headerlink" href="#recipient-info-on-composer" title="Link to this heading"></a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 4.2: </span>Nextcloud 30 or newer</p>
+</div>
+<p>Nuair a chuirfidh tú do chéad faighteoir nó teagmhálaí sa réimse &quot;Chuig&quot;, feicfear pana ar dheis a thaispeánfaidh sonraí próifíle sábháilte an teagmhála sin. Má chuirtear an dara teagmhálaí leis, scriosfar an liosta, rud a ligfidh duit aon teagmhálaí a chuir tú leis a roghnú agus a leathnú chun féachaint ar a gcuid sonraí. Más fearr leat díriú ar scríbhneoireacht amháin sa chumadóir, is féidir leat an phána ar dheis a cheilt ach cliceáil ar an deilbhín leathnaithe sa chúinne uachtarach ar dheis. Chun an phána ceart a thaispeáint arís, níl le déanamh ach cliceáil ar an deilbhín íoslaghdaithe san áit chéanna.</p>
+</section>
+<section id="mention-contacts">
+<h2>Luaigh teagmhálaithe<a class="headerlink" href="#mention-contacts" title="Link to this heading"></a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 4.2: </span>Nextcloud 30 or newer</p>
+</div>
+<p>Is féidir leat teagmhálaithe a lua i do theachtaireacht trí <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> a chlóscríobh agus ansin an teagmhálaí a roghnú ón liosta. Trí seo a dhéanamh cuirfear an teagmhálaí leis go huathoibríoch mar fhaighteoir.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>When an error occurs during sending, three error messages are possible:</p>
+<p>Ní mholtar ach teagmhálaithe a bhfuil seoladh ríomhphoist bailí acu.</p>
+</div>
+</section>
+<section id="text-blocks">
+<h2>Bloic téacs<a class="headerlink" href="#text-blocks" title="Link to this heading"></a></h2>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 5.2: </span>Nextcloud 30 or newer</p>
+</div>
+<p>Is píosaí téacs réamhshainithe iad bloic téacs is féidir a chur isteach i do ríomhphost. Is féidir iad a chruthú agus a bhainistiú i socruithe an ríomhphoist. Is féidir iad a chur isteach sa chumadóir trí <code class="docutils literal notranslate"><span class="pre">!</span></code> a chlóscríobh agus ansin an bloc a roghnú ón liosta nó ó ghníomhartha an chumadóra. Is féidir bloic téacs a roinnt le húsáideoirí agus le grúpaí úsáideoirí.</p>
+</section>
+<section id="outbox">
+<h2>Bosca Amach<a class="headerlink" href="#outbox" title="Link to this heading"></a></h2>
+<p>Nuair a bhíonn teachtaireacht curtha le chéile agus cliceáil ar an gcnaipe &quot;Seol&quot;, cuirtear an teachtaireacht leis an mbosca amach atá le fáil sa chúinne ag bun ar chlé den bharra taoibh ar chlé.</p>
+<p>Is féidir leat freisin an dáta agus an t-am don oibríocht seolta a shocrú go pointe sa todhchaí (féach <a href="#id1"><span class="problematic" id="id2">:tag:`Teachtaireachtaí sceidealta &lt;mail-scheduled-messages&gt;`</span></a>) - coinneofar an teachtaireacht sa bhosca amach go dtí go dtiocfaidh an dáta agus an t-am roghnaithe agat, ansin seolfar go huathoibríoch í.</p>
+<p>Ní bhíonn an bosca amach le feiceáil ach amháin nuair a bhíonn teachtaireacht ag fanacht le láimhseáil ag an mbosca amach.</p>
+<p>You can reopen the composer for a message in the outbox any time before the send operation is triggered.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Nuair a tharlaíonn earráid le linn seolta, is féidir trí theachtaireacht earráide:</p>
 <dl class="simple">
-<dt>Could not copy to &quot;Sent&quot; mailbox</dt><dd><p>The mail was sent but couldn't be copied to the &quot;Sent&quot; mailbox. This error will be handled by the outbox and the copy operation will be tried again.</p>
+<dt>Níorbh fhéidir cóip a dhéanamh chuig an mbosca ríomhphoist &quot;Seolta&quot;.</dt><dd><p>Seoladh an ríomhphost ach níorbh fhéidir é a chóipeáil chuig an mbosca ríomhphoist &quot;Seolta&quot;. Déanfaidh an bosca amach an earráid seo a láimhseáil agus bainfear triail eile as an oibríocht chóipeála.</p>
 </dd>
-<dt>Mail server error</dt><dd><p>Sending was unsuccessful with a state than can be retried (ex: the SMTP server couldn't be reached). The outbox will retry sending the message.</p>
+<dt>Earráid freastalaí ríomhphoist</dt><dd><p>Sending was unsuccessful with a state that can be retried (ex: the SMTP server couldn't be reached). The outbox will retry sending the message.</p>
 </dd>
-<dt>Message could not be sent</dt><dd><p>Sending might or might not have failed. The mail server can't tell us the state of the message. Since the Mail app has no way to determine the state of the message (sent or unsent) the message will stay in the outbox and the account user has to decide how to proceed.</p>
+<dt>Níorbh fhéidir an teachtaireacht a sheoladh</dt><dd><p>Seans gur theip nó nár theip ar an seoladh. Ní féidir leis an bhfreastalaí ríomhphoist staid na teachtaireachta a insint dúinn. Ós rud é nach bhfuil aon bhealach ag an aip Mail chun staid na teachtaireachta a chinneadh (seolta nó nár seoladh) fanfaidh an teachtaireacht sa bhosca amach agus caithfidh úsáideoir an chuntais cinneadh a dhéanamh conas dul ar aghaidh.</p>
 </dd>
 </dl>
 </div>
@@ -467,27 +491,27 @@ By doing so the contact will be automatically added as a recipient.</p>
 <h2>Gníomhartha clúdaigh<a class="headerlink" href="#envelope-actions" title="Link to this heading"></a></h2>
 <section id="create-an-event">
 <h3>Cruthaigh imeacht<a class="headerlink" href="#create-an-event" title="Link to this heading"></a></h3>
-<p>Create an event for a certain message/thread directly via mail app</p>
+<p>Cruthaigh imeacht le haghaidh teachtaireacht / snáithe áirithe go díreach tríd an aip ríomhphoist</p>
 <ol class="arabic simple">
 <li><p>Oscail roghchlár gníomhaíochta an chlúdaigh</p></li>
-<li><p>Click <em>More actions</em></p></li>
-<li><p>Click <em>Create event</em></p></li>
+<li><p>Cliceáil <em>Tuilleadh gníomhartha</em></p></li>
+<li><p>Cliceáil <em>Cruthaigh imeacht</em></p></li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Event title and an agenda is created for you if the administrator has enabled it.</p>
+<p>An event title and agenda are created for you if the administrator has enabled it.</p>
 </div>
 </section>
 <section id="create-a-task">
 <h3>Cruthaigh tasc<a class="headerlink" href="#create-a-task" title="Link to this heading"></a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 3.2.</span></p>
+<p><span class="versionmodified added">Added in version 3.2: </span>Nextcloud 26 or newer</p>
 </div>
-<p>Create an task for a certain message/thread directly via mail app</p>
+<p>Cruthaigh tasc le haghaidh teachtaireacht / snáithe áirithe go díreach tríd an aip ríomhphoist</p>
 <ol class="arabic simple">
 <li><p>Oscail roghchlár gníomhaíochta an chlúdaigh</p></li>
-<li><p>Click <em>more actions</em></p></li>
-<li><p>Click <em>create task</em></p></li>
+<li><p>Cliceáil <em>tuilleadh gníomhartha</em></p></li>
+<li><p>Cliceáil <em>cruthaigh tasc</em></p></li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -503,50 +527,50 @@ By doing so the contact will be automatically added as a recipient.</p>
 </ol>
 </section>
 <section id="change-color-for-tags">
-<h3>Change color for tags<a class="headerlink" href="#change-color-for-tags" title="Link to this heading"></a></h3>
+<h3>Athraigh dath le haghaidh clibeanna<a class="headerlink" href="#change-color-for-tags" title="Link to this heading"></a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 3.5.</span></p>
+<p><span class="versionmodified added">Added in version 3.5: </span>Nextcloud 26 or newer</p>
 </div>
 <figure class="align-default">
 <img alt="../../_images/change-tag-color.png" src="../../_images/change-tag-color.png" />
 </figure>
-<p>Upon creating a tag, a randomly assigned color is automatically chosen. Once the tag is saved, you have the flexibility to customize its color according to your preferences. This feature can be found on the Tag modal action menu.</p>
+<p>Nuair a chruthaítear clib, roghnaítear dath a shanntar go randamach go huathoibríoch. Nuair a bheidh an chlib sábháilte, tá an tsolúbthacht agat chun a dath a shaincheapadh de réir do chuid sainroghanna. Is féidir an ghné seo a fháil ar an roghchlár gníomhaíochta módúil Clib.</p>
 </section>
 <section id="delete-tags">
-<h3>Delete tags<a class="headerlink" href="#delete-tags" title="Link to this heading"></a></h3>
+<h3>Scrios clibeanna<a class="headerlink" href="#delete-tags" title="Link to this heading"></a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 3.5.</span></p>
+<p><span class="versionmodified added">Added in version 3.5: </span>Nextcloud 26 or newer</p>
 </div>
 <figure class="align-default">
 <img alt="../../_images/delete-tag.png" src="../../_images/delete-tag.png" />
 </figure>
-<p>You now have the ability to delete tags that you have previously created. To access this feature:</p>
+<p>Tá an cumas agat anois clibeanna a chruthaigh tú roimhe seo a scriosadh. Chun an ghné seo a rochtain:</p>
 <ol class="arabic simple">
-<li><p>Open the action menu of an envelope/thread.</p></li>
-<li><p>Select Edit tags.</p></li>
-<li><p>Within the tags modal, open the action menu for the specific tag you wish to delete.</p></li>
+<li><p>Oscail an roghchlár gníomhaíochta de chlúdach / snáithe.</p></li>
+<li><p>Roghnaigh Cuir na clibeanna in eagar.</p></li>
+<li><p>Laistigh den mhodh clibeanna, oscail an roghchlár gníomhaíochta don chlib shonrach is mian leat a scriosadh.</p></li>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Please note that default tags such as Work, To do, Personal, and Later cannot be deleted, they can only be renamed.</p>
+<p>Tabhair faoi deara nach féidir clibeanna réamhshocraithe ar nós Obair, Le Déanamh, Pearsanta agus Níos Déanaí a scriosadh, ní féidir ach iad a athainmniú.</p>
 </div>
 </section>
 <section id="ai-summary">
-<h3>AI summary<a class="headerlink" href="#ai-summary" title="Link to this heading"></a></h3>
+<h3>Achoimre AI<a class="headerlink" href="#ai-summary" title="Link to this heading"></a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 4.2.</span></p>
+<p><span class="versionmodified added">Added in version 4.2: </span>Nextcloud 30 or newer</p>
 </div>
-<p>When looking through your mailbox you will see a short AI generated summary of your emails as a preview.</p>
+<p>Agus tú ag féachaint trí do bhosca poist feicfidh tú achoimre ghearr a ghintear le AI ar do ríomhphoist mar réamhamharc.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Please note that the feature has to be enabled by the administrator</p>
+<p>Tabhair faoi deara go gcaithfidh an riarthóir an ghné a chumasú</p>
 </div>
 </section>
 </section>
 <section id="quick-actions">
 <h2>Quick actions<a class="headerlink" href="#quick-actions" title="Link to this heading"></a></h2>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 5.5: </span>(Nextcloud 30)</p>
+<p><span class="versionmodified added">Added in version 5.5: </span>Nextcloud 30 or newer</p>
 </div>
 <p>Allows you to group action steps that you would normally perform on envelopes such as tagging, moving, marking as read ... into quick actions that can be executed with a single click.
 Quick actions are scoped to one mail account and can be created and managed in the mail settings under &quot;Quick actions&quot; or directly from the envelope action menu.</p>
@@ -564,14 +588,14 @@ Quick actions are scoped to one mail account and can be created and managed in t
 <section id="unsubscribe-from-a-mailing-list">
 <h3>Díliostáil ó liosta seoltaí<a class="headerlink" href="#unsubscribe-from-a-mailing-list" title="Link to this heading"></a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 3.1.</span></p>
+<p><span class="versionmodified added">Added in version 3.1: </span>Nextcloud 26 or newer</p>
 </div>
 <p>Ligeann roinnt liostaí seoltaí agus nuachtlitreacha díliostáil go héasca. Má bhraitheann an aip Mail teachtaireachtaí ó sheoltóir den sórt sin, taispeánfaidh sé cnaipe <em>Díliostáil</em> in aice le faisnéis an tseoltóra. Cliceáil agus deimhnigh chun díliostáil ón liosta.</p>
 </section>
 <section id="snooze">
 <h3>Cur ar suan<a class="headerlink" href="#snooze" title="Link to this heading"></a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 3.4.</span></p>
+<p><span class="versionmodified added">Added in version 3.4: </span>Nextcloud 26 or newer</p>
 </div>
 <p>Má chuirtear teachtaireacht nó snáithe ar suan, bogtar isteach i mbosca poist tiomnaithe é go dtí go sroichtear an dáta ar suan roghnaithe agus bogtar an teachtaireacht nó an snáithe ar ais go dtí an bosca poist bunaidh.</p>
 <ol class="arabic simple">
@@ -581,179 +605,225 @@ Quick actions are scoped to one mail account and can be created and managed in t
 </ol>
 </section>
 <section id="smart-replies">
-<h3>Smart replies<a class="headerlink" href="#smart-replies" title="Link to this heading"></a></h3>
+<h3>Freagraí cliste<a class="headerlink" href="#smart-replies" title="Link to this heading"></a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 3.6.</span></p>
+<p><span class="versionmodified added">Added in version 3.6: </span>Nextcloud 26 or newer</p>
 </div>
-<p>When you open a message in the Mail app, it proposes AI-generated replies. By simply clicking on a suggested reply, the composer opens with the response pre-filled.</p>
+<p>Nuair a osclaíonn tú teachtaireacht san aip Mail, molann sé freagraí a ghintear le AI. Trí chliceáil ar fhreagra molta, osclaíonn an cumadóir agus an freagra réamhlíonta.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Please note that the feature has to be enabled by the administrator</p>
+<p>Tabhair faoi deara go gcaithfidh an riarthóir an ghné a chumasú</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Supported languages depend on the used large language model</p>
+<p>Braitheann teangacha a dtacaítear leo ar an múnla mór teangacha a úsáidtear</p>
 </div>
 </section>
 <section id="mail-translation">
-<h3>Mail translation<a class="headerlink" href="#mail-translation" title="Link to this heading"></a></h3>
+<h3>Aistriúchán ríomhphoist<a class="headerlink" href="#mail-translation" title="Link to this heading"></a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 4.2.</span></p>
+<p><span class="versionmodified added">Added in version 4.2: </span>Nextcloud 30 or newer</p>
 </div>
-<p>You are able to translate messages to your configured languages similarly to Talk.</p>
+<p>Tá tú in ann teachtaireachtaí a aistriú chuig do theangacha cumraithe mar an gcéanna le Talk.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Please note that translation features have to be enabled on the server</p>
+<p>Tabhair faoi deara go gcaithfidh gnéithe aistriúcháin a bheith cumasaithe ar an bhfreastalaí</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ó leagan 5.3, má tá LLM cumasaithe ag an riarthóir, molfar aistriúcháin</p>
 </div>
 </section>
 </section>
 <section id="thread-summary">
-<h2>Thread summary<a class="headerlink" href="#thread-summary" title="Link to this heading"></a></h2>
-<p>The mail app supports summarizing message threads that contain 3 or more messages.</p>
+<h2>Achoimre snáithe<a class="headerlink" href="#thread-summary" title="Link to this heading"></a></h2>
+<p>Tacaíonn an aip ríomhphoist le snáitheanna teachtaireachta a achoimriú ina bhfuil 3 theachtaireacht nó níos mó.</p>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 3.4.</span></p>
+<p><span class="versionmodified added">Added in version 3.4: </span>Nextcloud 26 or newer</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Please note that the feature has to be enabled by the administrator</p>
+<p>Tabhair faoi deara go gcaithfidh an riarthóir an ghné a chumasú</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Please note that this feature only works well with integration_openai. Local LLMs take too long to respond and the summary request is likely to time out and still create significant system load.</p>
+<p>Tabhair faoi deara nach n-oibríonn an ghné seo ach go maith le integration_openai. Tógann sé ró-fhada ar LLManna áitiúla freagra a thabhairt agus is dócha go dtiocfaidh deireadh leis an iarratas achomair agus go gcruthóidh sé ualach suntasach córais fós.</p>
 </div>
 </section>
 <section id="filtering-and-autoresponder">
-<h2>Filtering and autoresponder<a class="headerlink" href="#filtering-and-autoresponder" title="Link to this heading"></a></h2>
-<p>The Mail app has a simple editor for Sieve scripts and an interface to configure autoresponders. Sieve has to be enabled in the <a class="reference internal" href="#mail-account-settings"><span class="std std-ref">account settings</span></a>.</p>
+<h2>Scagadh agus uathfhreagróir<a class="headerlink" href="#filtering-and-autoresponder" title="Link to this heading"></a></h2>
+<p>Tá eagarthóir ag an aip Mail le haghaidh scripteanna Sieve, comhéadan chun uathfhreagróirí a chumrú agus comhéadan chun scagairí a chumrú. Ní mór criathar a chumasú sna <a class="reference internal" href="#mail-account-settings"><span class="std std-ref">socruithe cuntais</span></a>.</p>
 <section id="autoresponders">
-<h3>Autoresponders<a class="headerlink" href="#autoresponders" title="Link to this heading"></a></h3>
+<h3>Uathfhreagróirí<a class="headerlink" href="#autoresponders" title="Link to this heading"></a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 3.5: </span>Autoresponder can follow system settings.</p>
+<p><span class="versionmodified added">Added in version 3.5: </span>Nextcloud 26 or newer</p>
 </div>
-<p>The autoresponder is off by default. It can be set manually, or follow the system settings. Following system settings means that the long absence message entered on the <a class="reference internal" href="absence.html#groupware-absence"><span class="std std-ref">Absence settings section</span></a> is applied automatically.</p>
+<p>Tá an t-uathfhreagraí múchta de réir réamhshocraithe. Is féidir é a shocrú de láimh, nó socruithe an chórais a leanúint. Nuair a leanann tú socruithe an chórais, cuirtear an teachtaireacht asláithreachta fada a iontráladh ar an <a class="reference internal" href="absence.html#groupware-absence"><span class="std std-ref">Socruithe Neamhláithreachta rannán</span></a> i bhfeidhm go huathoibríoch.</p>
 </section>
 <section id="filter">
-<h3>Filter<a class="headerlink" href="#filter" title="Link to this heading"></a></h3>
+<h3>Scagaire<a class="headerlink" href="#filter" title="Link to this heading"></a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 4.1.</span></p>
+<p><span class="versionmodified added">Added in version 4.1: </span>Nextcloud 30 or newer</p>
 </div>
-<p>Mail 4.1 includes a simple editor to configure filter rules.</p>
+<p>Cuimsíonn Mail 4.1 eagarthóir simplí chun rialacha scagaire a chumrú.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Importing existing filters is not supported. However, all existing filters will remain active and unchanged.  We recommend backing up your current script through the Sieve script editor as a precaution.</p>
+<p>Ní thacaítear le hiompórtáil na scagairí atá ann cheana. Mar sin féin, fanfaidh na scagairí atá ann cheana féin gníomhach agus gan athrú. Molaimid tacaíocht a thabhairt do do script reatha tríd an eagarthóir scripte Sieve mar réamhchúram.</p>
 </div>
 <section id="how-to-add-a-new-filter">
-<h4>How to Add a New Filter<a class="headerlink" href="#how-to-add-a-new-filter" title="Link to this heading"></a></h4>
+<h4>Conas Scagaire Nua a Chur Leis<a class="headerlink" href="#how-to-add-a-new-filter" title="Link to this heading"></a></h4>
 <ol class="arabic simple">
-<li><p>Open your account settings.</p></li>
-<li><p>Verify that Sieve is enabled for your account (see Sieve server settings).</p></li>
-<li><p>Click on Filters.</p></li>
-<li><p>Select New Filter to create a new rule.</p></li>
+<li><p>Oscail do shocruithe cuntais.</p></li>
+<li><p>Fíoraigh go bhfuil Sieve cumasaithe do do chuntas (féach socruithe freastalaí Sieve).</p></li>
+<li><p>Cliceáil ar Scagairí.</p></li>
+<li><p>Roghnaigh Scagaire Nua chun riail nua a chruthú.</p></li>
 </ol>
 </section>
 <section id="how-to-delete-a-filter">
-<h4>How to Delete a Filter<a class="headerlink" href="#how-to-delete-a-filter" title="Link to this heading"></a></h4>
+<h4>Conas Scagaire a Scriosadh<a class="headerlink" href="#how-to-delete-a-filter" title="Link to this heading"></a></h4>
 <ol class="arabic simple">
-<li><p>Open your account settings.</p></li>
-<li><p>Ensure that Sieve is enabled for your account (see Sieve server settings).</p></li>
-<li><p>Click on Filters.</p></li>
-<li><p>Hover over the filter you wish to delete, then click the trash icon.</p></li>
+<li><p>Oscail do shocruithe cuntais.</p></li>
+<li><p>Cinntigh go bhfuil Sieve cumasaithe do do chuntas (féach socruithe freastalaí Sieve).</p></li>
+<li><p>Cliceáil ar Scagairí.</p></li>
+<li><p>Ainligh thar an scagaire is mian leat a scriosadh, ansin cliceáil ar an deilbhín bruscar.</p></li>
 </ol>
 </section>
 <section id="conditions">
-<h4>Conditions<a class="headerlink" href="#conditions" title="Link to this heading"></a></h4>
-<p>Conditions are applied to incoming emails on your mail server, targeting fields such as Subject, Sender, and Recipient. You can use the following operators to define conditions for these fields:</p>
+<h4>Coinníollacha<a class="headerlink" href="#conditions" title="Link to this heading"></a></h4>
+<p>Cuirtear coinníollacha i bhfeidhm ar ríomhphoist isteach ar do fhreastalaí ríomhphoist, ag díriú ar réimsí ar nós Ábhar, Seoltóir, agus Faighteoir. Is féidir leat na hoibreoirí seo a leanas a úsáid chun coinníollacha a shainiú do na réimsí seo:</p>
 <ul class="simple">
-<li><p><strong>is exactly</strong>: An exact match. The field must be identical to the provided value.</p></li>
-<li><p><strong>contains</strong>: A substring match. The field matches if the provided value is contained within it. For example, &quot;report&quot; would match &quot;port&quot;.</p></li>
-<li><p><strong>matches</strong>: A pattern match using wildcards. The &quot;*&quot; symbol represents any number of characters (including none), while &quot;?&quot; represents exactly one character. For example, &quot;<em>report</em>&quot; would match &quot;Business report 2024&quot;.</p></li>
+<li><p><strong>tá sé go díreach</strong>: Meaitseáil chruinn. Ní mór don réimse a bheith comhionann leis an luach a cuireadh ar fáil.</p></li>
+<li><p><strong>tá</strong>: Cluiche fotheaghrán. Meaitseálann an réimse má tá an luach soláthraithe istigh ann. Mar shampla, bheadh ​​&quot;tuairisc&quot; ag teacht le &quot;port&quot;.</p></li>
+<li><p><strong>meaitseanna</strong>: Meaitseáil phatrúin ag baint úsáide as saoróga. Seasann an tsiombail &quot;*&quot; d'aon líon carachtar (gan aon cheann san áireamh), agus &quot;?&quot; is ionann é agus carachtar amháin. Mar shampla, bheadh ​​&quot;<em>tuairisc</em>&quot; ag teacht le &quot;Tuarascáil Gnó 2024&quot;.</p></li>
 </ul>
 </section>
 <section id="actions">
-<h4>Actions<a class="headerlink" href="#actions" title="Link to this heading"></a></h4>
-<p>Actions are triggered when the specified tests are true. The following actions are available:</p>
+<h4>Gníomhartha<a class="headerlink" href="#actions" title="Link to this heading"></a></h4>
+<p>Spreagtar gníomhartha nuair a bhíonn na tástálacha sonraithe fíor. Tá na gníomhartha seo a leanas ar fáil:</p>
 <ul class="simple">
-<li><p><strong>fileinto</strong>: Moves the message into a specified folder.</p></li>
-<li><p><strong>addflag</strong>: Adds a flag to the message.</p></li>
-<li><p><strong>stop</strong>: Halts the execution of the filter script. No further filters with will be processed after this action.</p></li>
+<li><p><strong>fileinto</strong>: Bogtar an teachtaireacht isteach i bhfillteán sonraithe.</p></li>
+<li><p><strong>addflag</strong>: Cuireann sé bratach leis an teachtaireacht.</p></li>
+<li><p><strong>stop</strong>: Cuireann sé seo stop le feidhmiú na scripte scagaire. Ní dhéanfar aon scagairí eile a phróiseáil tar éis an ghnímh seo.</p></li>
 </ul>
 </section>
 </section>
 <section id="create-a-filter-from-a-message">
-<h3>Create a filter from a message<a class="headerlink" href="#create-a-filter-from-a-message" title="Link to this heading"></a></h3>
+<h3>Cruthaigh scagaire ó theachtaireacht<a class="headerlink" href="#create-a-filter-from-a-message" title="Link to this heading"></a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 5.2.</span></p>
+<p><span class="versionmodified added">Added in version 5.2: </span>Nextcloud 30 or newer</p>
 </div>
-<p>To create a filter from a given message, open the message and then open the menu by clicking on the three dots. Next, click on &quot;More actions&quot; followed by &quot;Create mail filter.&quot;</p>
-<p>In the dialog, please select the conditions to match incoming messages and continue by clicking on &quot;Create mail filter.&quot;</p>
+<p>Chun scagaire a chruthú ó theachtaireacht ar leith, oscail an teachtaireacht agus ansin oscail an roghchlár trí chliceáil ar na trí phonc. Ansin, cliceáil ar &quot;Tuilleadh gníomhartha&quot; agus ansin &quot;Cruthaigh scagaire ríomhphoist&quot;.</p>
+<p>Sa dialóg, roghnaigh na coinníollacha chun teachtaireachtaí isteach a mheaitseáil agus lean ar aghaidh trí chliceáil ar &quot;Cruthaigh scagaire ríomhphoist&quot;.</p>
 <figure class="align-default">
 <img alt="../../_images/mail_create_filter_from_message.png" src="../../_images/mail_create_filter_from_message.png" />
 </figure>
 </section>
 </section>
 <section id="follow-up-reminders">
-<h2>Follow-up reminders<a class="headerlink" href="#follow-up-reminders" title="Link to this heading"></a></h2>
+<h2>Meabhrúcháin leantacha<a class="headerlink" href="#follow-up-reminders" title="Link to this heading"></a></h2>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 4.0.</span></p>
+<p><span class="versionmodified added">Added in version 4.0: </span>Nextcloud 30 or newer</p>
 </div>
-<p>The Mail app will automatically remind you when an outgoing email did not receive a response.
-Each sent email will be analyzed by an AI to check whether a reply is expected.
-After four days all relevant emails will be shown in your priority inbox.</p>
-<p>When clicking on such an email a button will be shown to quickly follow up with all recipients.
-It is also possible to disable follow-up reminders for a sent email.</p>
+<p>Cuirfidh an aip Mail i gcuimhne duit go huathoibríoch nuair nach bhfuair ríomhphost amach freagra. Déanfaidh AI anailís ar gach ríomhphost seolta chun a sheiceáil an bhfuiltear ag súil le freagra. Tar éis ceithre lá taispeánfar gach ríomhphost ábhartha i do bhosca tosaíochta.</p>
+<p>Nuair a chliceálann tú ar ríomhphost den sórt sin taispeánfar cnaipe chun na faighteoirí go léir a leanúint go tapa. Is féidir freisin meabhrúcháin leantacha a dhíchumasú le haghaidh ríomhphost seolta.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Please note that the feature has to be enabled by the administrator.</p>
+<p>Tabhair faoi deara go gcaithfidh an riarthóir an ghné a chumasú.</p>
 </div>
 </section>
 <section id="security">
-<h2>Security<a class="headerlink" href="#security" title="Link to this heading"></a></h2>
+<h2>Slándáil<a class="headerlink" href="#security" title="Link to this heading"></a></h2>
 <section id="phishing-detection">
-<h3>Phishing detection<a class="headerlink" href="#phishing-detection" title="Link to this heading"></a></h3>
+<h3>Brath fioscaireachta<a class="headerlink" href="#phishing-detection" title="Link to this heading"></a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 4.0.</span></p>
+<p><span class="versionmodified added">Added in version 4.0: </span>Nextcloud 30 or newer</p>
 </div>
-<p>The Mail app will check for potential phishing attempts and will display a warning to the user.</p>
-<p>The checks are the following:</p>
+<p>Seiceálfaidh an aip Mail le haghaidh iarrachtaí fioscaireachta féideartha agus taispeánfaidh sé rabhadh don úsáideoir.</p>
+<p>Seo a leanas na seiceálacha:</p>
 <ul class="simple">
-<li><p>The sender address saved in the addressbook is not the same as the one in the mail account</p></li>
-<li><p>The sender is using a custom email address that doesn't match the from address</p></li>
-<li><p>The sent date is set in the future</p></li>
-<li><p>Links in the message body are not pointing to the displayed text</p></li>
-<li><p>The reply-to address is not the same as the sender address</p></li>
+<li><p>Níl an seoladh seoltóra atá sábháilte sa leabhar seoltaí mar an gcéanna leis an seoladh sa chuntas ríomhphoist</p></li>
+<li><p>Tá seoladh ríomhphoist saincheaptha in úsáid ag an seoltóir nach bhfuil ag teacht leis an seoladh ón seoladh</p></li>
+<li><p>Socraítear an dáta seolta amach anseo</p></li>
+<li><p>Níl naisc i gcorp na teachtaireachta ag díriú ar an téacs atá ar taispeáint</p></li>
+<li><p>Níl an seoladh freagartha mar an gcéanna leis an seoladh seoltóra</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Please note that the warning does not mean that the message is a phishing attempt. It only means that the Mail app detected a potential phishing attempt.</p>
+<p>Tabhair faoi deara le do thoil nach gciallaíonn an rabhadh gur iarracht fioscaireachta atá sa teachtaireacht. Ní chiallaíonn sé ach gur bhraith an app Mail iarracht fioscaireachta féideartha.</p>
 </div>
 </section>
 <section id="internal-addresses">
-<h3>Internal addresses<a class="headerlink" href="#internal-addresses" title="Link to this heading"></a></h3>
+<h3>Seoltaí inmheánacha<a class="headerlink" href="#internal-addresses" title="Link to this heading"></a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 4.0.</span></p>
+<p><span class="versionmodified added">Added in version 4.0: </span>Nextcloud 30 or newer</p>
 </div>
-<p>The Mail app allows adding internal addresses and domains, and will warn the user if the address is not in the list, when sending and upon receiving a message.</p>
-<p>To add an internal address:</p>
+<p>Ceadaíonn an app Mail seoltaí inmheánacha agus fearainn a chur leis, agus tabharfaidh sé rabhadh don úsáideoir mura bhfuil an seoladh ar an liosta, nuair a sheoltar agus nuair a fhaigheann sé teachtaireacht.</p>
+<p>Chun seoladh inmheánach a chur leis:</p>
 <ol class="arabic simple">
-<li><p>Open the mail settings</p></li>
-<li><p>Navigate to Privacy and security section</p></li>
-<li><p>Enable the internal addresses by ckicjin on the checkbox</p></li>
-<li><p>Click the Add internal address button</p></li>
-<li><p>Enter the address or domain and click Add</p></li>
+<li><p>Oscail na socruithe ríomhphoist</p></li>
+<li><p>Déan nascleanúint chuig an rannán Príobháideachta agus slándála</p></li>
+<li><p>Cumasaigh na seoltaí inmheánacha trí chliceáil ar an ticbhosca</p></li>
+<li><p>Cliceáil ar an gcnaipe Cuir seoladh inmheánach leis</p></li>
+<li><p>Cuir isteach an seoladh nó an fearann ​​agus cliceáil Cuir</p></li>
 </ol>
 </section>
 </section>
 <section id="dashboard-integration">
-<h2>Dashboard integration<a class="headerlink" href="#dashboard-integration" title="Link to this heading"></a></h2>
+<h2>Comhtháthú painéil<a class="headerlink" href="#dashboard-integration" title="Link to this heading"></a></h2>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 1.8.</span></p>
+<p><span class="versionmodified added">Added in version 1.8: </span>Nextcloud 20 or newer</p>
 </div>
-<p>The mail app offers two widgets designed for integration with Nextcloud's dashboard:</p>
+<p>Cuireann an aip ríomhphoist dhá ghiuirléid ar fáil atá deartha le haghaidh comhtháthú le painéal Nextcloud:</p>
 <ul class="simple">
-<li><p>Unread mails: This widget displays unread emails.</p></li>
-<li><p>Important mails: This widget shows emails that have been flagged as important.</p></li>
+<li><p>Ríomhphoist neamhléite: Taispeánann an giuirléid seo ríomhphoist neamhléite.</p></li>
+<li><p>Ríomhphoist thábhachtacha: Taispeánann an giuirléid seo ríomhphoist atá marcáilte mar thábhachtach.</p></li>
 </ul>
-<p>These widgets utilize the emails from the email accounts that are set up for your account.</p>
+<p>Úsáideann na giuirléidí seo na ríomhphoist ó na cuntais ríomhphoist atá socraithe do do chuntas.</p>
+</section>
+<section id="calendar-integration">
+<h2>Calendar integration<a class="headerlink" href="#calendar-integration" title="Link to this heading"></a></h2>
+<p>The Mail app integrates with the Calendar app to help you manage meeting invitations and keep your calendar up to date.</p>
+<section id="meeting-invitations">
+<h3>Meeting invitations<a class="headerlink" href="#meeting-invitations" title="Link to this heading"></a></h3>
+<p>When you receive a message containing a meeting invitation, the Mail app automatically detects the attached calendar file and displays a formatted action section to help you respond.</p>
+<p>You can:</p>
+<ul class="simple">
+<li><p><strong>Accept</strong> the invitation</p></li>
+<li><p><strong>Decline</strong> the invitation</p></li>
+<li><p><strong>Tentatively accept</strong> the invitation</p></li>
+</ul>
+<p>Your response is sent directly from the Mail app, and the event is added to your primary calendar accordingly.</p>
+<p>You can also manually add a meeting invitation to a specific calendar:</p>
+<ol class="arabic simple">
+<li><p>Open the message with the meeting invitation</p></li>
+<li><p>Scroll to the bottom of the message to the attachments section</p></li>
+<li><p>Select the calendar file (usually with a .ics extension), then click the three dots menu.</p></li>
+<li><p>Click &quot;Import in to calendar&quot; and choose the desired calendar.</p></li>
+</ol>
+</section>
+<section id="meeting-invitation-automation">
+<h3>Meeting invitation automation<a class="headerlink" href="#meeting-invitation-automation" title="Link to this heading"></a></h3>
+<p>When a meeting organizer sends updates to an existing event (such as time changes or location updates), the Mail app processes these automatically and updates the corresponding event in your calendar.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 5.7: </span>Nextcloud 32 or newer</p>
+</div>
+<p>You can also configure Mail to automatically add all new meeting invitations to your calendar without requiring manual acceptance. The invitations will be added to the calendar as tentative.</p>
+<p>To enable this feature:</p>
+<ol class="arabic simple">
+<li><p>Visit account settings of a specific mail account</p></li>
+<li><p>Navigate to Calendar settings section</p></li>
+<li><p>Enable <em>Automatically create tentative appointments in calendar</em></p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>With this setting enabled, invitations will still appear in your mail list, but they will be automatically added to your calendar.</p>
+</div>
+</section>
+</section>
+<section id="keyboard-shortcuts">
+<h2>Keyboard shortcuts<a class="headerlink" href="#keyboard-shortcuts" title="Link to this heading"></a></h2>
+<p>The Mail app implements several keyboard shortcuts to speed up your experience.</p>
+<p>For a full list of the supported shortcuts, check out the Mail settings in your instance.</p>
 </section>
 </section>
 
@@ -762,13 +832,13 @@ It is also possible to disable follow-up reminders for a sent email.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="calendar.html" class="btn btn-neutral float-left" title="Ag baint úsáide as an app Calendar" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="absence.html" class="btn btn-neutral float-right" title="Setting out-of-office messages" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="absence.html" class="btn btn-neutral float-right" title="Teachtaireachtaí as oifig a shocrú" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2026 Nextcloud GmbH.</p>
+    <p>&#169; Copyright 2016-2026 Nextcloud GmbH and Nextcloud contributors.</p>
   </div>
 
    
@@ -779,544 +849,420 @@ It is also possible to disable follow-up reminders for a sent email.</p>
     </section>
   </div>
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- Here go the languages -->
   
+  <!-- Here go the languages -->
+
+  
+  
+
+  
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+
   <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
-      🌐
-      
-      
-      ga
-      
+      🌐 Irish
       <span class="fa fa-caret-down"></span>
-
-       ☁️ 31
+       ☁️ latest
       <span class="fa fa-caret-down"></span>
     </span>
     <div class="rst-other-versions">
       <dl>
-        <dt>🌐 Languages</dt>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/af/"
-                 
-              >
-                
-                Afrikaans
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ar/"
-                 
-              >
-                
-                Arabic
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/br/"
-                 
-              >
-                
-                Breton
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ca/"
-                 
-              >
-                
-                Catalan
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/cs/"
-                 
-              >
-                
-                Czech
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/da/"
-                 
-              >
-                
-                Danish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/de/"
-                 
-              >
-                
-                German
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/el/"
-                 
-              >
-                
-                Greek
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/el_GR/"
-                 
-              >
-                
-                el_GR
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/en/"
-                 
-              >
-                
-                English
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/eo/"
-                 
-              >
-                
-                Esperanto
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/es/"
-                 
-              >
-                
-                Spanish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/eu/"
-                 
-              >
-                
-                eu
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/fi_FI/"
-                 
-              >
-                
-                Finnish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/fr/"
-                 
-              >
-                
-                French
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ga/"
-                 
-                 style="color: var(--dark-link-color);"
-                 
-              >
-                
-                Irish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/gl/"
-                 
-              >
-                
-                Glacian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/hr/"
-                 
-              >
-                
-                Croatian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/hu/"
-                 
-              >
-                
-                hu
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/hu_HU/"
-                 
-              >
-                
-                Hungarian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/id/"
-                 
-              >
-                
-                Indonesian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/it/"
-                 
-              >
-                
-                Italian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ja_JP/"
-                 
-              >
-                
-                Japanese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ko/"
-                 
-              >
-                
-                Korean
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/mn/"
-                 
-              >
-                
-                Mongolian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/nb_NO/"
-                 
-              >
-                
-                Norwegian (NB)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/nl/"
-                 
-              >
-                
-                Dutch
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/nn/"
-                 
-              >
-                
-                Norwegian (NN)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/pl/"
-                 
-              >
-                
-                Polish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/pt_BR/"
-                 
-              >
-                
-                Portuguese (BR)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/pt_PT/"
-                 
-              >
-                
-                Portuguese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ro/"
-                 
-              >
-                
-                Romanian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ru/"
-                 
-              >
-                
-                Russian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/si/"
-                 
-              >
-                
-                Sinhala
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sk_SK/"
-                 
-              >
-                
-                Slovakian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sq/"
-                 
-              >
-                
-                Albanian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sr/"
-                 
-              >
-                
-                Slovenian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sv/"
-                 
-              >
-                
-                Swedish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ta/"
-                 
-              >
-                
-                Tamil
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/th/"
-                 
-              >
-                
-                th
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/tr/"
-                 
-              >
-                
-                Turkish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/uk/"
-                 
-              >
-                
-                Ukrainian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/uz/"
-                 
-              >
-                
-                Uzbek
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/vi/"
-                 
-              >
-                
-                Vietnamese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/zh_CN/"
-                 
-              >
-                
-                Chinese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/zh_HK/"
-                 
-              >
-                
-                Chinese (HK)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/zh_TW/"
-                 
-              >
-                
-                Chinese (TW)
-                
-              </a>
-            </dd>
-          
+        <dt>🌐 Teangacha</dt>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ar/"
+               
+            >
+              Arabic
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/br/"
+               
+            >
+              Breton
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ca/"
+               
+            >
+              Catalan
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/zh_CN/"
+               
+            >
+              Chinese
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/zh_HK/"
+               
+            >
+              Chinese (HK)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/zh_TW/"
+               
+            >
+              Chinese (TW)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/cs/"
+               
+            >
+              Czech
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/da/"
+               
+            >
+              Danish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/nl/"
+               
+            >
+              Dutch
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/en/"
+               
+            >
+              English
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/fi_FI/"
+               
+            >
+              Finnish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/fr/"
+               
+            >
+              French
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/gl/"
+               
+            >
+              Galician
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/de/"
+               
+            >
+              German
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/el/"
+               
+            >
+              Greek
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/hu_HU/"
+               
+            >
+              Hungarian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/id/"
+               
+            >
+              Indonesian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ga/"
+               
+               style="color: var(--dark-link-color);"
+               
+            >
+              Irish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/it/"
+               
+            >
+              Italian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ja_JP/"
+               
+            >
+              Japanese
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ko/"
+               
+            >
+              Korean
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/mn/"
+               
+            >
+              Mongolian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/nb_NO/"
+               
+            >
+              Norwegian (NB)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/nn/"
+               
+            >
+              Norwegian (NN)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/pl/"
+               
+            >
+              Polish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/pt_PT/"
+               
+            >
+              Portuguese
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/pt_BR/"
+               
+            >
+              Portuguese (BR)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ro/"
+               
+            >
+              Romanian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ru/"
+               
+            >
+              Russian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/si/"
+               
+            >
+              Sinhala
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/sk_SK/"
+               
+            >
+              Slovakian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/sr/"
+               
+            >
+              Slovenian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/es/"
+               
+            >
+              Spanish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/sv/"
+               
+            >
+              Swedish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ta/"
+               
+            >
+              Tamil
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/tr/"
+               
+            >
+              Turkish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/uk_UA/"
+               
+            >
+              Ukrainian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/uz/"
+               
+            >
+              Uzbek
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/vi/"
+               
+            >
+              Vietnamese
+            </a>
+          </dd>
+        
       </dl>
     </div>
     <div class="rst-other-versions">
@@ -1325,6 +1271,8 @@ It is also possible to disable follow-up reminders for a sent email.</p>
         
           <dd style="width: 32%">
             <a href="https://docs.nextcloud.com/server/latest/user_manual"
+               
+               style="color: var(--dark-link-color);"
                
             >
               35 (latest)
@@ -1355,30 +1303,6 @@ It is also possible to disable follow-up reminders for a sent email.</p>
             </a>
           </dd>
         
-          <dd style="width: 32%">
-            <a href="https://docs.nextcloud.com/server/31/user_manual"
-               
-               style="color: var(--dark-link-color);"
-               
-            >
-              31 (unsupported)
-            </a>
-          </dd>
-        
-      </dl>
-      <dl>
-        <dt>Íoslódálacha</dt>
-        
-      </dl>
-      <dl>
-        
-        <dt>Ar Léigh na Docs</dt>
-          <dd>
-            <a href="///projects//?fromdocs=">Tionscadal Baile</a>
-          </dd>
-          <dd>
-            <a href="///builds//?fromdocs=">Tógann</a>
-          </dd>
       </dl>
     </div>
   </div>
