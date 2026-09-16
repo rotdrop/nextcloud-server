@@ -7,15 +7,16 @@
   <meta name="readthedocs-addons-api-version" content="1"><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Přístup k souborům v Nextcloud prostřednictvím protokolu WebDAV &mdash; Dokumentace pro Nextcloud latest User Manual latest</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+  <title>Přístup k souborům v Nextcloud prostřednictvím protokolu WebDAV &mdash; Nextcloud 35 User Manual</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=bad88653" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=8ff6e0db" />
       <link rel="stylesheet" type="text/css" href="../../_static/dark_mode_css/general.css?v=c0a7eb24" />
       <link rel="stylesheet" type="text/css" href="../../_static/dark_mode_css/dark.css?v=70edf1c7" />
 
   
+    <link rel="canonical" href="https://docs.nextcloud.com/server/stable/user_manual/files/access_webdav.html" />
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../../_static/documentation_options.js?v=672a239f"></script>
@@ -62,8 +63,7 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Úvod do uživatelské příručky k Nextcloud verze latest</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../whats_new.html">Novinky pro uživatele v Nextcloud verze latest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Úvod do uživatelské příručky k Nextcloud verze 35</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../webinterface.html">Webové rozhraní Nextcloud</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Soubory a synchronizace</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="access_webgui.html">Přístup k souborům prostřednictvím webového rozhraní Nextcloud</a></li>
@@ -72,7 +72,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#third-party-webdav-clients">WebDAV klienti třetích stran</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#accessing-files-using-linux">Přístup k souborům ze systému Linux</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#nautilus-file-manager">Správce souborů Nautilus</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#accessing-files-with-kde-and-dolphin-file-manager">Přístup k souborům z desktopového prostředí KDE (prostřednictvím správce souborů Dolphin)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#accessing-files-with-kde-and-dolphin">Accessing files with KDE and Dolphin</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#creating-webdav-mounts-on-the-linux-command-line">Vytváření WebDAV připojení z linuxového příkazového řádku</a></li>
@@ -112,6 +112,7 @@
 <li class="toctree-l2"><a class="reference internal" href="deleted_file_management.html">Správa smazaných souborů</a></li>
 <li class="toctree-l2"><a class="reference internal" href="desktop_mobile_sync.html">Synchronizace s desktopovými a mobilními platformami</a></li>
 <li class="toctree-l2"><a class="reference internal" href="encrypting_files.html">Šifrování souborů v Nextcloud na straně serveru</a></li>
+<li class="toctree-l2"><a class="reference internal" href="using_e2ee.html">Using end-to-end encryption</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sharing.html">Sdílení souborů</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sharing.html#federated-shares">Federovaná sdílení</a></li>
 <li class="toctree-l2"><a class="reference internal" href="file_drop.html">Provádění anonymních nahrání</a></li>
@@ -125,7 +126,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../groupware/index.html">Software pro podporu spolupráce</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../talk/index.html">Talk</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../desktop/index.html">Desktop Clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../desktop/index.html">Klienti pro desktop</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../userpreferences.html">Nastavení vašich předvoleb</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../universal_access.html">Zpřístupnění pro všechny</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_2fa.html">Používání dvoufázového ověřování se</a></li>
@@ -139,7 +140,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../contents.html">Nextcloud latest User Manual</a>
+          <a href="../contents.html">Nextcloud 35 User Manual</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -160,20 +161,22 @@
              
   <section id="accessing-nextcloud-files-using-webdav">
 <h1>Přístup k souborům v Nextcloud prostřednictvím protokolu WebDAV<a class="headerlink" href="#accessing-nextcloud-files-using-webdav" title="Link to this heading"></a></h1>
-<p>Nexcloud plně podporuje protokol WebDAV a proto ho můžete použít pro připojení se a synchronizaci s Nextcloud Soubory. V této kapitole se dozvíte jak připojit Linux, macOS, Windows a mobilní zařízení k vámi využívanému Nextcloud serveru prostřednictvím WebDAV.</p>
-<p>WebDAV stands for Distributed Authoring and Versioning. It is an HTTP extension
-that makes it easy to create, read, and edit files hosted on remote Web servers. With
-a WebDAV client, you can access your Nextcloud Files (including shares) on Linux,
-macOS and Windows in a similar way as any remote network share, and stay synchronized.</p>
-<p>Než se pustíme do nastavování WebDAV, krátce se podívejme na doporučený způsob připojování klientských zařízení k Nextcloud.</p>
+<p>Nextcloud fully supports the WebDAV protocol, and you can connect to and synchronize
+with Nextcloud Files over WebDAV. This chapter explains how to connect Linux, macOS,
+Windows, and mobile devices to your Nextcloud server.</p>
+<p>WebDAV je zkratka pro „Distributed Authoring and Versioning“ (distribuované vytváření a správa verzí). Jedná se o rozšíření protokolu HTTP, které usnadňuje vytváření, čtení upravování souborů, hostovaných na vzdálených webových serverech. Pomocí WebDAV může klient přistupovat k souborům v Nextcloud (včetně sdílení) na Linuxu, macOS a Windows podobně, jako k jakémukoli jinému síťovému sdílení a být synchronní.</p>
+<p>Before you configure WebDAV, review the recommended way to connect client devices to
+Nextcloud.</p>
 <section id="official-nextcloud-desktop-and-mobile-clients">
 <h2>Oficiální Nextcloud klienti pro desktopové a mobilní platformy<a class="headerlink" href="#official-nextcloud-desktop-and-mobile-clients" title="Link to this heading"></a></h2>
 <p>Doporučeným způsobem synchronizace osobního počítače s Nextcloud serverem je pomocí <a class="reference external" href="https://nextcloud.com/install/#install-clients">oficiálních Nextcloud synchronizačních klientů</a>. Klienta je možné nastavit, aby ukládal soubory v libovolném adresáři v počítači a můžete zvolit, se kterými adresáři na Nextcloud serveru synchronizovat. Klient zobrazuje stav stávajícího spojení a zaznamenává veškerou aktivitu, takže vždy víte, které soubory z protějšku byly staženy na počítač a můžete si ověřit, že soubory vytvořené/aktualizované na počítači jsou správně synchronizovány na server.</p>
 <p>Doporučený způsob, jak synchronizovat Android a Apple iOS zařízení je pomocí <a class="reference external" href="https://nextcloud.com/install/">oficiálních Nextcloud mobilních aplikací</a>.</p>
 <p>Pro připojení oficiálních Nextcloud aplikací k Nextcloud serveru použijte stejnou URL, přes kterou přistupujete k Nextcloud z webového prohlížeče – např.:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">cloud</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span>
-
-<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">nextcloud</span> <span class="p">(</span><span class="k">if</span> <span class="n">Nextcloud</span> <span class="ow">is</span> <span class="n">installed</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">subdirectory</span> <span class="n">called</span> <span class="s2">&quot;nextcloud&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Pokud je Nextcloud nainstalovaný v podsložce nazvané „nextcloud“:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">nextcloud</span>
 </pre></div>
 </div>
 </section>
@@ -189,25 +192,27 @@ macOS and Windows in a similar way as any remote network share, and stay synchro
 </ul>
 <p>URL, kterou používat při nastavování aplikací třetích stran pro připojování k Nextcloud je poněkud delší, než ta pro oficiální klienty:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">cloud</span><span class="o">.</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">remote</span><span class="o">.</span><span class="n">php</span><span class="o">/</span><span class="n">dav</span><span class="o">/</span><span class="n">files</span><span class="o">/</span><span class="n">USERNAME</span><span class="o">/</span>
-
-<span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">nextcloud</span><span class="o">/</span><span class="n">remote</span><span class="o">.</span><span class="n">php</span><span class="o">/</span><span class="n">dav</span><span class="o">/</span><span class="n">files</span><span class="o">/</span><span class="n">USERNAME</span><span class="o">/</span> <span class="p">(</span><span class="k">if</span> <span class="n">Nextcloud</span> <span class="ow">is</span> <span class="n">installed</span> <span class="ow">in</span> <span class="n">a</span> <span class="n">subdirectory</span> <span class="n">called</span> <span class="s2">&quot;nextcloud&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Pokud je Nextcloud nainstalovaný v podsložce nazvané „nextcloud“:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">nextcloud</span><span class="o">/</span><span class="n">remote</span><span class="o">.</span><span class="n">php</span><span class="o">/</span><span class="n">dav</span><span class="o">/</span><span class="n">files</span><span class="o">/</span><span class="n">USERNAME</span><span class="o">/</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Poznámka</p>
 <p>When using a third-party WebDAV client (including your operating system’s
 built-in client), you should use an application password for login rather than your
-regular password. In addition improved security, this <a class="reference external" href="https://github.com/nextcloud/server/issues/32729#issuecomment-1556667151">increases performance significantly</a>. To
-configure an application password, log into the Nextcloud Web interface, click on the avatar
-in the top right and choose <em>Personal settings</em>. Then choose <em>Security</em> in the left
+regular password. In addition to improved security, this <a class="reference external" href="https://github.com/nextcloud/server/issues/32729#issuecomment-1556667151">increases performance significantly</a>. To
+configure an application password, log in to the Nextcloud Web interface, click your avatar,
+and choose <em>Personal settings</em>. Then choose <em>Security</em> in the left
 sidebar and scroll to the very bottom. There you can create an app password (which can
 also be revoked in the future without changing your main user password).</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Poznámka</p>
 <p>V následujících příkladech, je třeba nahradit <strong>example.com/nextcloud</strong> URL adresou vámi využívaného Nextcloud serveru (vynechte část se složkou, pokud je jeho instalace v kořeni domény). A <strong>UZIVATELSKEJMENO</strong> nahraďte identifikátorem připojujícího se uživatele.</p>
-<p>See the WebDAV URL, to be found in Files Settings -&gt; WebDAV in the Files on your Nextcloud account.</p>
-<img alt="Screenshot of the Files settings showing the personal WebDAV link" src="../../_images/webdav_link.png" />
+<p>You can find the WebDAV URL in <strong>Files settings</strong> under <strong>WebDAV</strong> in your Nextcloud account.</p>
+<img alt="Nextcloud Files settings panel showing the personal WebDAV URL" src="../../_images/webdav_link.png" />
 </div>
 </section>
 <section id="accessing-files-using-linux">
@@ -215,7 +220,8 @@ also be revoked in the future without changing your main user password).</p>
 <p>Z linuxových systémů můžete k souborům přistupovat následujícími způsoby.</p>
 <section id="nautilus-file-manager">
 <h3>Správce souborů Nautilus<a class="headerlink" href="#nautilus-file-manager" title="Link to this heading"></a></h3>
-<p><strong>Když zadáte svůj Nextcloud účet do</strong> <a class="reference external" href="../groupware/sync_gnome.html">Ovládacích panelů GNOME</a>, <strong>budou vaše soubory automaticky připojeny správcem souborů Nautilus jako WebDAV sdílení (pokud nezrušíte zaškrtnutí přístupu k souborům)</strong>.</p>
+<p><strong>When you configure your Nextcloud account in the</strong> <a class="reference internal" href="../groupware/sync_gnome.html"><span class="doc">GNOME Control Center</span></a>, <strong>your files will automatically be mounted
+by Nautilus as a WebDAV share, unless you deselect file access</strong>.</p>
 <p>Soubory z Nextcloud je možné také připojit (mount) ručně. Pro připojení správce souborů k svému Nextcloud sdílení použijte protokol <code class="docutils literal notranslate"><span class="pre">davs://</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">davs</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">nextcloud</span><span class="o">/</span><span class="n">remote</span><span class="o">.</span><span class="n">php</span><span class="o">/</span><span class="n">dav</span><span class="o">/</span><span class="n">files</span><span class="o">/</span><span class="n">USERNAME</span><span class="o">/</span>
 </pre></div>
@@ -230,29 +236,18 @@ also be revoked in the future without changing your main user password).</p>
 <p>Stejná metoda funguje i pro ostatní správce souborů, kteří používají GVFS, jako například Caja z prostředí MATE a Nemo z Cinnamon.</p>
 </div>
 </section>
-<section id="accessing-files-with-kde-and-dolphin-file-manager">
-<h3>Přístup k souborům z desktopového prostředí KDE (prostřednictvím správce souborů Dolphin)<a class="headerlink" href="#accessing-files-with-kde-and-dolphin-file-manager" title="Link to this heading"></a></h3>
-<p>Pro přístup k vašim souborům v Nextcloud pomocí správce souborů Dolphin z desktopového prostředí KDE, použijte protokol <code class="docutils literal notranslate"><span class="pre">webdav://</span></code>:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">webdav</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">nextcloud</span><span class="o">/</span><span class="n">remote</span><span class="o">.</span><span class="n">php</span><span class="o">/</span><span class="n">dav</span><span class="o">/</span><span class="n">files</span><span class="o">/</span><span class="n">USERNAME</span><span class="o">/</span>
-</pre></div>
-</div>
-<img alt="Snímek obrazovky s nastavováním správce souborů Dolphin pro použití WebDAV" src="../../_images/webdav_dolphin.png" />
-<p>Můžete vytvořit trvalý odkaz na vámi využívaný Nextcloud server:</p>
+<section id="accessing-files-with-kde-and-dolphin">
+<h3>Accessing files with KDE and Dolphin<a class="headerlink" href="#accessing-files-with-kde-and-dolphin" title="Link to this heading"></a></h3>
 <ol class="arabic simple">
-<li><p>Otevřete Dolphin a ve sloupci „Místa“ (vlevo) klikněte na „Síť“.</p></li>
-<li><p>Klikněte na ikonu označenou jako <strong>Přidat síťovou složku</strong>. Výsledný dialog by se měl objevit s už předvybraným WebDAV.</p></li>
-<li><p>Pokud WebDAV není vybraný, vyberte ho.</p></li>
-<li><p>Klikněte na <strong>Další</strong>.</p></li>
-<li><p>Zadejte následující nastavení:</p>
-<ul class="simple">
-<li><p>Název: Název pod kterým chcete, aby se se zobrazovalo jako záložka v <strong>Místa</strong>, například Nextcloud.</p></li>
-<li><p>Uživatel: Uživatelské jméno, kterým se hlásíte do Nexcloud, například admin.</p></li>
-<li><p>Server: Název domény s Nextcloud, například <strong>example.com</strong> (bez <strong>http://</strong> na začátku nebo složek za).</p></li>
-<li><p>Složka – Zadejte popis umístění <code class="docutils literal notranslate"><span class="pre">nextcloud/remote.php/dav/files/UZIVATELSKEJMENO/</span></code>.</p></li>
-</ul>
-</li>
-<li><p>(Volitelné) aby se ve sloupci Místa objevila záložka, zaškrtněte „Vytvořit ikonu“.</p></li>
-<li><p>(Volitelné) v zaškrtávací kolonce „Port a šifrováno“ zadejte případná speciální nastavení nebo SSL certifikát.</p></li>
+<li><p>Jděte do Nastavení systému -&gt; Síťování -&gt; Účty online</p></li>
+<li><p>Klikněte na „Přidat účet…“</p></li>
+<li><p>Klikněte na Nextcloud</p></li>
+<li><p>Zadejte adresu vámi využívaného serveru</p></li>
+<li><p>Následujte pokyny na obrazovce ohledně přihlášení se</p></li>
+<li><p>Po přihlášení se ověřte, že jste zaškrtli „Úložiště“ v sekci „Použít tento účet pro“</p></li>
+<li><p>Nyní můžete přistupovat ke svým souborů v Dolpin pod „Síť“ v postranním panelu</p></li>
+<li><p>(Optional) To add this location as a shortcut in the sidebar, right-click „Nextcloud Storage“, then click „Add to Places“</p></li>
+<li><p>(Optional) To customize the shortcut, right-click it in the sidebar, then click „Edit…“ and customize the icon and label</p></li>
 </ol>
 </section>
 </section>
@@ -348,7 +343,7 @@ for example
 <h2>Přístup k souborům ze systému macOS<a class="headerlink" href="#accessing-files-using-macos" title="Link to this heading"></a></h2>
 <div class="admonition note">
 <p class="admonition-title">Poznámka</p>
-<p>The macOS Finder suffers from a <a class="reference external" href="http://sabre.io/dav/clients/finder/">series of implementation problems</a> and should only be used if the Nextcloud server runs on <strong>Apache</strong> and <strong>mod_php</strong>, or <strong>Nginx 1.3.8+</strong>. Alternative macOS-compatible clients capable of accessing WebDAV shares include open source apps like <a class="reference external" href="https://cyberduck.io/">Cyberduck</a> (see instructions <a class="reference external" href="https://docs.nextcloud.com/server/31/user_manual/files/access_webdav.html#accessing-files-using-cyberduck">here</a>) and <a class="reference external" href="https://filezilla-project.org">Filezilla</a>. Commercial clients include <a class="reference external" href="https://mountainduck.io/">Mountain Duck</a>, <a class="reference external" href="https://binarynights.com/">Forklift</a>, <a class="reference external" href="https://panic.com/">Transmit</a>, and <a class="reference external" href="https://mac.eltima.com/">Commander One</a>.</p>
+<p>The macOS Finder suffers from a <a class="reference external" href="http://sabre.io/dav/clients/finder/">series of implementation problems</a> and should only be used if the Nextcloud server runs on <strong>Apache</strong> and <strong>mod_php</strong>, or <strong>Nginx 1.3.8+</strong>. Alternative macOS-compatible clients capable of accessing WebDAV shares include open source apps like <a class="reference external" href="https://cyberduck.io/">Cyberduck</a> (see instructions <a class="reference external" href="#accessing-files-using-cyberduck">here</a>) and <a class="reference external" href="https://filezilla-project.org">Filezilla</a>. Commercial clients include <a class="reference external" href="https://mountainduck.io/">Mountain Duck</a>, <a class="reference external" href="https://binarynights.com/">Forklift</a>, <a class="reference external" href="https://panic.com/">Transmit</a>, and <a class="reference external" href="https://mac.eltima.com/">Commander One</a>.</p>
 </div>
 <p>Pro přístup k souborům z macOS Finder:</p>
 <ol class="arabic">
@@ -370,7 +365,7 @@ for example
 <p>Použití této funkce vyžaduje připojení k síti. Pokud chcete ukládat své soubory offline, použijte desktopového klienta pro synchronizování všech souborů na vámi využívané instanci Nexcloud na úložiště ve vašem počítači.</p>
 <div class="admonition note">
 <p class="admonition-title">Poznámka</p>
-<p>Před namapováním disku, pokud je zapnuté HTTPS, Windows 10 nyní ve výchozím stavu umožňuje Basic Authentication.</p>
+<p>In Windows 10, Basic Authentication is allowed by default when HTTPS is enabled before mapping your drive.</p>
 <p>Ve starších verzích Windows je třeba povolit používání Basic Authentication v registrech Windows:</p>
 <ul class="simple">
 <li><p>spusťte <code class="docutils literal notranslate"><span class="pre">regedit</span></code> a jděte do <code class="docutils literal notranslate"><span class="pre">HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WebClient\Parameters</span></code>.</p></li>
@@ -396,10 +391,7 @@ for example
 </ol>
 <div class="admonition error">
 <p class="admonition-title">Chyba</p>
-<p>If you get the following error
-<code class="docutils literal notranslate"><span class="pre">System</span> <span class="pre">error</span> <span class="pre">67</span> <span class="pre">has</span> <span class="pre">occurred.</span> <span class="pre">The</span> <span class="pre">network</span> <span class="pre">name</span> <span class="pre">cannot</span> <span class="pre">be</span> <span class="pre">found.</span></code>,
-or frequent disconnections, open the <strong>Services</strong> app and make sure
-that the <code class="docutils literal notranslate"><span class="pre">WebClient</span></code> service is running and started automatically at startup.</p>
+<p>Pokud obdržíte následující chybu <code class="docutils literal notranslate"><span class="pre">Došlo</span> <span class="pre">k</span> <span class="pre">systémové</span> <span class="pre">chybě</span> <span class="pre">67.</span> <span class="pre">Název</span> <span class="pre">na</span> <span class="pre">síti</span> <span class="pre">se</span> <span class="pre">nepodařilo</span> <span class="pre">nalézt.</span></code>, nebo častá odpojení, otevřete aplikaci <strong>Služby</strong> a zajistěte, aby byla spuštěná služba <code class="docutils literal notranslate"><span class="pre">WebClient</span></code> a spouštěna automaticky při startu systému.</p>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Poznámka</p>
@@ -431,12 +423,10 @@ that the <code class="docutils literal notranslate"><span class="pre">WebClient<
 <p>Pro servery, chráněné pomocí SSL, zaškrtněte <strong>Znovu připojit při přihlášení se</strong>, abyste zajistili, že mapování zůstane zachováno po následných restartech počítače. Pokud se chcete k Nexcloud serveru připojit jako jiný uživatel (než kterým jste právě přihlášeni do systému), zaškrtněte <strong>Připojit se pomocí jiných přihlašovacích údajů</strong>.</p>
 </div>
 <figure class="align-default">
-<a class="reference internal image-reference" href="../../_images/explorer_webdav.png"><img alt="Snímek obrazovky s mapováním WebDAV ve Windows Průzkumníkovi" src="../../_images/explorer_webdav.png" style="width: 487.20000000000005px; height: 358.40000000000003px;" />
+<a class="reference internal image-reference" href="../../_images/explorer_webdav.png"><img alt="Windows Explorer Map Network Drive wizard with a Nextcloud WebDAV URL entered" src="../../_images/explorer_webdav.png" style="width: 487.20000000000005px; height: 358.40000000000003px;" />
 </a>
 </figure>
 </li>
-</ol>
-<ol class="arabic simple" start="5">
 <li><p>Klikněte na <code class="docutils literal notranslate"><span class="pre">Dokončit</span></code>.</p></li>
 </ol>
 <p>Průzkumník Windows namapuje síťovou jednotku, čímž zpřístupní vámi využívanou instanci Nexcloud.</p>
@@ -474,7 +464,7 @@ that the <code class="docutils literal notranslate"><span class="pre">WebClient<
 <h2>Přístup k veřejným sdílením prostřednictvím WebDAV<a class="headerlink" href="#accessing-public-shares-over-webdav" title="Link to this heading"></a></h2>
 <p>Nextcloud poskytuje možnost přistupovat k veřejným sdílením anonymně prostřednictvím WebDAV.</p>
 <p>Pro přístup k veřejnému sdílení, otevřete:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">nextcloud</span><span class="o">/</span><span class="n">public</span><span class="o">.</span><span class="n">php</span><span class="o">/</span><span class="n">webdav</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">example</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">nextcloud</span><span class="o">/</span><span class="n">public</span><span class="o">.</span><span class="n">php</span><span class="o">/</span><span class="n">dav</span><span class="o">/</span><span class="n">files</span><span class="o">/</span><span class="n">USERNAME</span>
 </pre></div>
 </div>
 <p>Ve WebDAV klientovi, použijte token pro sdílení jako uživatelské jméno a (volitelné) heslo do sdílení. Například, pro odkaz na sdílení <a class="reference external" href="https://example.com/s/kFy9Lek5sm928xP">https://example.com/s/kFy9Lek5sm928xP</a>, <code class="docutils literal notranslate"><span class="pre">kFy9Lek5sm928xP</span></code> bude uživatelské jméno.</p>
@@ -503,16 +493,20 @@ that the <code class="docutils literal notranslate"><span class="pre">WebClient<
 </section>
 <section id="id6">
 <h3>Řešení<a class="headerlink" href="#id6" title="Link to this heading"></a></h3>
-<p>Systém Windows omezuje maximální velikost, jakou může mít soubor přenášený z nebo na WebDAV sdílení.  Tuto hodnotu je možné zvýšit a to úpravou v registrech, konkrétně klíče <strong>FileSizeLimitInBytes</strong> v <strong>HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\WebClient\Parameters</strong>, kliknutím na <strong>Změnit</strong>.</p>
-<p>Pro zvýšení limitu na maximální hodnotu 4GB, vyberte <strong>Desítková</strong>, zadejte hodnotu <strong>4294967295</strong> a restartujte počítač nebo jen systémovou službu <strong>WebClient</strong>.</p>
+<p>Systém Windows omezuje maximální velikost, jakou může mít soubor přenášený z nebo na WebDAV sdílení.  Tuto hodnotu je možné zvýšit a to úpravou v registrech, konkrétně klíče <code class="docutils literal notranslate"><span class="pre">FileSizeLimitInBytes</span></code> v <code class="docutils literal notranslate"><span class="pre">HKEY_LOCAL_MACHINE\\SYSTEM\\CurrentControlSet\\Services\\WebClient\\Parameters</span></code>, kliknutím na <strong>Změnit</strong>.</p>
+<p>Pro zvýšení limitu na maximální hodnotu 4GB, vyberte <strong>Desítková</strong>, zadejte hodnotu <code class="docutils literal notranslate"><span class="pre">4294967295</span></code> a restartujte počítač nebo jen systémovou službu <strong>WebClient</strong>.</p>
 </section>
 <section id="id7">
 <h3>Problém<a class="headerlink" href="#id7" title="Link to this heading"></a></h3>
-<p>Přidání WebDAV disku do Windows prostřednictvím výše popsaných kroků nezobrazí správnou velikost prostoru, dostupného na Nextcloud a namísto toho zobrazí velikost disku C: a prostor dostupný na něm.</p>
+<p>Adding a WebDAV drive on Windows with the steps above does not display the correct
+available Nextcloud space and instead shows the size and free space of the C: drive.</p>
 </section>
 <section id="answer">
 <h3>Odpověď<a class="headerlink" href="#answer" title="Link to this heading"></a></h3>
-<p>Žel toto je omezení WebDAV samotného, protože neposkytuje klientovi způsob, jak získat údaj o volném místě na serveru. Windows automaticky náhradně zobrazuje velikost disku C: a prostor dostupný na něm. Takže žel tento problém nemá skutečné řešení.</p>
+<p>Unfortunately, this is a limitation of WebDAV itself, because it does not provide a
+way for the client to retrieve available free space from the server. Windows automatically
+falls back to the size and free space of the C: drive. There is no direct solution
+for this limitation.</p>
 </section>
 <section id="id8">
 <h3>Problém<a class="headerlink" href="#id8" title="Link to this heading"></a></h3>
@@ -529,22 +523,18 @@ that the <code class="docutils literal notranslate"><span class="pre">WebClient<
 <section id="id11">
 <h3>Řešení<a class="headerlink" href="#id11" title="Link to this heading"></a></h3>
 <ol class="arabic simple">
-<li><p>Přistupte do vámi využívané instance Nextcloud ze svého oblíbeného webového prohlížeče.</p></li>
+<li><p>Access your Nextcloud instance in your preferred Web browser.</p></li>
 <li><p>Proklikejte se až obdržíte chybu certifikátu ve stavovém řádku prohlížeče.</p></li>
-<li><p>View the certificate, then from the Details tab, select ‚Copy to File‘.</p></li>
+<li><p>Zobrazte certifikát a pak na panelu Podrobnosti vyberte „Zkopírovat do souboru“.</p></li>
 <li><p>Uložte na plochu pod libovolným názvem, například <code class="docutils literal notranslate"><span class="pre">mujNextcloud.pem</span></code>.</p></li>
-<li><p>Go to Start menu &gt; Run, type MMC, and click ‚OK‘ to open Microsoft Management
-Console.</p></li>
+<li><p>Jděte do nabídky start &gt; Spustit, napište MMC a klikněte na „OK“ a otevře se Microsoft Management Console.</p></li>
 <li><p>Jděte do Soubor &gt; Přidat/odebrat snap-in.</p></li>
-<li><p>Select Certificates, Click ‚Add‘, choose ‚My User Account‘, then ‚Finish‘, and
-finally ‚OK‘.</p></li>
+<li><p>Vyberte Certifikáty, klikněte na „Přidat“, zvolte „Můj uživatelský účet“, pak „Dokončit“ a nakonec „OK“.</p></li>
 <li><p>Jděte až do Důvěryhodné kořenové certifikační autority, Certifikáty.</p></li>
 <li><p>Klikněte na certifikát pravým tlačítkem, vyberte Všechny úlohy a Import.</p></li>
 <li><p>Vyberte uložený certifikát z plochy.</p></li>
 <li><p>Vyberte „Umístit veškeré certifikáty do následujícího úložiště“ a klikněte na Procházet.</p></li>
-<li><p>Check the Box that says Show Physical Stores, expand out Trusted Root
-Certification Authorities, select Local Computer there, click ‚OK‘, and
-Complete the Import.</p></li>
+<li><p>Zaškrtněte „Zobrazit fyzická úložiště“, rozbalte „Důvěryhodné kořenové certifikační autority“, vyberte zde „Místní počítač“, klikněte na „OK“ a dokončete tak import.</p></li>
 <li><p>Ověřte, že se na seznamu objevilo. Nejspíš pro to bude třeba nechat Znovu načíst.</p></li>
 <li><p>Ukončete MMC.</p></li>
 </ol>
@@ -584,8 +574,8 @@ Complete the Import.</p></li>
 </pre></div>
 </div>
 <p>Pro získání vlastností souborů v kořenové složce:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w">    </span>$<span class="w"> </span>curl<span class="w"> </span>-X<span class="w"> </span>PROPFIND<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Depth: 1&quot;</span><span class="w"> </span>-u<span class="w"> </span>user:pass<span class="w"> </span>https://example.com/nextcloud/remote.php/dav/files/USERNAME/<span class="w"> </span><span class="p">|</span><span class="w"> </span>xml_pp
-<span class="w">    </span>&lt;?xml<span class="w"> </span><span class="nv">version</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span><span class="w"> </span><span class="nv">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span>?&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>curl<span class="w"> </span>-X<span class="w"> </span>PROPFIND<span class="w"> </span>-H<span class="w"> </span><span class="s2">&quot;Depth: 1&quot;</span><span class="w"> </span>-u<span class="w"> </span>user:pass<span class="w"> </span>https://example.com/nextcloud/remote.php/dav/files/USERNAME/<span class="w"> </span><span class="p">|</span><span class="w"> </span>xml_pp
+&lt;?xml<span class="w"> </span><span class="nv">version</span><span class="o">=</span><span class="s2">&quot;1.0&quot;</span><span class="w"> </span><span class="nv">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span>?&gt;
 &lt;d:multistatus<span class="w"> </span>xmlns:d<span class="o">=</span><span class="s2">&quot;DAV:&quot;</span><span class="w"> </span>xmlns:oc<span class="o">=</span><span class="s2">&quot;http://nextcloud.org/ns&quot;</span><span class="w"> </span>xmlns:s<span class="o">=</span><span class="s2">&quot;http://sabredav.org/ns&quot;</span>&gt;
 <span class="w">  </span>&lt;d:response&gt;
 <span class="w">    </span>&lt;d:href&gt;/nextcloud/remote.php/dav/files/USERNAME/&lt;/d:href&gt;
@@ -621,9 +611,13 @@ Complete the Import.</p></li>
 </section>
 <section id="accessing-files-using-winscp">
 <h2>Přístup souborům pomocí WinSCP<a class="headerlink" href="#accessing-files-using-winscp" title="Link to this heading"></a></h2>
-<p><a class="reference external" href="https://winscp.net/eng/docs/introduction/">WinSCP</a>  je open source klient pro SFTP, FTP, WebDAV, S3 and SCP protokoly pro Windows. Jeho hlavní funkcí je přenos souborů mezi lokálním a vzdáleným počítačem. Krom toho, WinSCP nabízí skriptování a základní funkce pro správu souborů.</p>
+<p><a class="reference external" href="https://winscp.net/eng/docs/introduction/">WinSCP</a> is a free, open-source SFTP,
+FTP, WebDAV, S3, and SCP client for Windows. Its main function is file transfer
+between a local and a remote computer. WinSCP also offers scripting and basic file
+management functionality.</p>
 <p>Je možné si <a class="reference external" href="https://winscp.net/eng/downloads.php/">stáhnout</a> přímo spouštitelnou verzi WinSCP a a spouštět ji na Linuxu prostřednictvím <a class="reference external" href="https://wiki.winehq.org/Main_Page/">Wine</a>.</p>
-<p>Pokud chcete WinSCP spustit na Linuxu, nainstalujte si wine prostřednictvím správce balíčků vámi používané distribuce a pak spusťte pomocí příkazu: <code class="docutils literal notranslate"><span class="pre">wine</span> <span class="pre">WinSCP.exe</span></code>.</p>
+<p>To run WinSCP on Linux, install Wine through your distribution’s package manager,
+then run: <code class="docutils literal notranslate"><span class="pre">wine</span> <span class="pre">WinSCP.exe</span></code>.</p>
 <p>Pro připojení se k Nextcloud:</p>
 <ul class="simple">
 <li><p>Spusťte WinSCP</p></li>
@@ -635,7 +629,7 @@ Complete the Import.</p></li>
 <li><p>Vyplňte kolonku pro uživatelské jméno: <code class="docutils literal notranslate"><span class="pre">NEXTCLOUDUZIVATELSKEJMENO</span></code></p></li>
 <li><p>Vyplňte kolonku pro heslo: <code class="docutils literal notranslate"><span class="pre">NEXTCLOUDHESLO</span></code></p></li>
 <li><p>Klikněte na tlačítko ‚Pokročilé…‘</p></li>
-<li><p>Přejděte do ‚Prostředí, ‚Adresáře‘ vlevo</p></li>
+<li><p>Přejděte do „Prostředí“, „Adresáře“ (vlevo)</p></li>
 <li><p>Vyplňte kolonku ‚Vzdálená složka‘ následujícím (např.): <code class="docutils literal notranslate"><span class="pre">/nextcloud/remote.php/dav/files/NEXTCLOUDUZIVATELSKEJMENO/</span></code></p></li>
 <li><p>Stiskněte tlačítko „0K“</p></li>
 <li><p>Stiskněte tlačítko „Uložit“</p></li>
@@ -644,7 +638,8 @@ Complete the Import.</p></li>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Poznámka</p>
-<p>It is recommended to use an app password for the password if you use TOTP as WinSCP does not understand TOTP with Nextcloud at the time of writing (2022-11-07).</p>
+<p>If you use TOTP, use an app password. At the time of writing (2022-11-07),
+WinSCP does not support TOTP with Nextcloud.</p>
 </div>
 </section>
 </section>
@@ -660,7 +655,7 @@ Complete the Import.</p></li>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2026 Nextcloud GmbH.</p>
+    <p>&#169; Copyright 2016-2026 Nextcloud GmbH and Nextcloud contributors.</p>
   </div>
 
    
@@ -671,544 +666,420 @@ Complete the Import.</p></li>
     </section>
   </div>
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- Here go the languages -->
   
+  <!-- Here go the languages -->
+
+  
+  
+
+  
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+
   <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
-      🌐
-      
-      
-      Czech
-      
+      🌐 Czech
       <span class="fa fa-caret-down"></span>
-
-       ☁️ 31
+       ☁️ latest
       <span class="fa fa-caret-down"></span>
     </span>
     <div class="rst-other-versions">
       <dl>
-        <dt>🌐 Languages</dt>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/af/"
-                 
-              >
-                
-                Afrikaans
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ar/"
-                 
-              >
-                
-                Arabic
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/br/"
-                 
-              >
-                
-                Breton
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ca/"
-                 
-              >
-                
-                Catalan
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/cs/"
-                 
-                 style="color: var(--dark-link-color);"
-                 
-              >
-                
-                Czech
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/da/"
-                 
-              >
-                
-                Danish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/de/"
-                 
-              >
-                
-                German
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/el/"
-                 
-              >
-                
-                Greek
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/el_GR/"
-                 
-              >
-                
-                el_GR
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/en/"
-                 
-              >
-                
-                English
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/eo/"
-                 
-              >
-                
-                Esperanto
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/es/"
-                 
-              >
-                
-                Spanish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/eu/"
-                 
-              >
-                
-                eu
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/fi_FI/"
-                 
-              >
-                
-                Finnish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/fr/"
-                 
-              >
-                
-                French
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ga/"
-                 
-              >
-                
-                Irish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/gl/"
-                 
-              >
-                
-                Glacian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/hr/"
-                 
-              >
-                
-                Croatian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/hu/"
-                 
-              >
-                
-                hu
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/hu_HU/"
-                 
-              >
-                
-                Hungarian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/id/"
-                 
-              >
-                
-                Indonesian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/it/"
-                 
-              >
-                
-                Italian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ja_JP/"
-                 
-              >
-                
-                Japanese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ko/"
-                 
-              >
-                
-                Korean
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/mn/"
-                 
-              >
-                
-                Mongolian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/nb_NO/"
-                 
-              >
-                
-                Norwegian (NB)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/nl/"
-                 
-              >
-                
-                Dutch
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/nn/"
-                 
-              >
-                
-                Norwegian (NN)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/pl/"
-                 
-              >
-                
-                Polish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/pt_BR/"
-                 
-              >
-                
-                Portuguese (BR)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/pt_PT/"
-                 
-              >
-                
-                Portuguese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ro/"
-                 
-              >
-                
-                Romanian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ru/"
-                 
-              >
-                
-                Russian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/si/"
-                 
-              >
-                
-                Sinhala
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sk_SK/"
-                 
-              >
-                
-                Slovakian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sq/"
-                 
-              >
-                
-                Albanian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sr/"
-                 
-              >
-                
-                Slovenian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sv/"
-                 
-              >
-                
-                Swedish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ta/"
-                 
-              >
-                
-                Tamil
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/th/"
-                 
-              >
-                
-                th
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/tr/"
-                 
-              >
-                
-                Turkish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/uk/"
-                 
-              >
-                
-                Ukrainian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/uz/"
-                 
-              >
-                
-                Uzbek
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/vi/"
-                 
-              >
-                
-                Vietnamese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/zh_CN/"
-                 
-              >
-                
-                Chinese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/zh_HK/"
-                 
-              >
-                
-                Chinese (HK)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/zh_TW/"
-                 
-              >
-                
-                Chinese (TW)
-                
-              </a>
-            </dd>
-          
+        <dt>🌐 Jazyky</dt>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ar/"
+               
+            >
+              Arabic
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/br/"
+               
+            >
+              Breton
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ca/"
+               
+            >
+              Catalan
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/zh_CN/"
+               
+            >
+              Chinese
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/zh_HK/"
+               
+            >
+              Chinese (HK)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/zh_TW/"
+               
+            >
+              Chinese (TW)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/cs/"
+               
+               style="color: var(--dark-link-color);"
+               
+            >
+              Czech
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/da/"
+               
+            >
+              Danish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/nl/"
+               
+            >
+              Dutch
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/en/"
+               
+            >
+              English
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/fi_FI/"
+               
+            >
+              Finnish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/fr/"
+               
+            >
+              French
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/gl/"
+               
+            >
+              Galician
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/de/"
+               
+            >
+              German
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/el/"
+               
+            >
+              Greek
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/hu_HU/"
+               
+            >
+              Hungarian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/id/"
+               
+            >
+              Indonesian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ga/"
+               
+            >
+              Irish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/it/"
+               
+            >
+              Italian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ja_JP/"
+               
+            >
+              Japanese
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ko/"
+               
+            >
+              Korean
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/mn/"
+               
+            >
+              Mongolian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/nb_NO/"
+               
+            >
+              Norwegian (NB)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/nn/"
+               
+            >
+              Norwegian (NN)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/pl/"
+               
+            >
+              Polish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/pt_PT/"
+               
+            >
+              Portuguese
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/pt_BR/"
+               
+            >
+              Portuguese (BR)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ro/"
+               
+            >
+              Romanian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ru/"
+               
+            >
+              Russian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/si/"
+               
+            >
+              Sinhala
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/sk_SK/"
+               
+            >
+              Slovakian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/sr/"
+               
+            >
+              Slovenian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/es/"
+               
+            >
+              Spanish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/sv/"
+               
+            >
+              Swedish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ta/"
+               
+            >
+              Tamil
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/tr/"
+               
+            >
+              Turkish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/uk_UA/"
+               
+            >
+              Ukrainian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/uz/"
+               
+            >
+              Uzbek
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/vi/"
+               
+            >
+              Vietnamese
+            </a>
+          </dd>
+        
       </dl>
     </div>
     <div class="rst-other-versions">
@@ -1217,6 +1088,8 @@ Complete the Import.</p></li>
         
           <dd style="width: 32%">
             <a href="https://docs.nextcloud.com/server/latest/user_manual"
+               
+               style="color: var(--dark-link-color);"
                
             >
               35 (latest)
@@ -1247,30 +1120,6 @@ Complete the Import.</p></li>
             </a>
           </dd>
         
-          <dd style="width: 32%">
-            <a href="https://docs.nextcloud.com/server/31/user_manual"
-               
-               style="color: var(--dark-link-color);"
-               
-            >
-              31 (unsupported)
-            </a>
-          </dd>
-        
-      </dl>
-      <dl>
-        <dt>Stahování</dt>
-        
-      </dl>
-      <dl>
-        
-        <dt>Na službě Read the Docs</dt>
-          <dd>
-            <a href="///projects//?fromdocs=">Domovská stránka projektu</a>
-          </dd>
-          <dd>
-            <a href="///builds//?fromdocs=">Sestavení</a>
-          </dd>
       </dl>
     </div>
   </div>

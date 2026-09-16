@@ -7,15 +7,16 @@
   <meta name="readthedocs-addons-api-version" content="1"><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Synchronizing with macOS &mdash; Τεκμηρίωση του Nextcloud latest User Manual - latest</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+  <title>Συγχρονισμός με macOS &mdash; Nextcloud 35 User Manual</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=bad88653" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=8ff6e0db" />
       <link rel="stylesheet" type="text/css" href="../../_static/dark_mode_css/general.css?v=c0a7eb24" />
       <link rel="stylesheet" type="text/css" href="../../_static/dark_mode_css/dark.css?v=70edf1c7" />
 
   
+    <link rel="canonical" href="https://docs.nextcloud.com/server/stable/user_manual/groupware/sync_osx.html" />
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../../_static/documentation_options.js?v=ba845f4f"></script>
@@ -30,8 +31,8 @@
     <script src="../../_static/js/versions.js"></script>
     <link rel="index" title="Ευρετήριο" href="../genindex.html" />
     <link rel="search" title="Αναζήτηση" href="../search.html" />
-    <link rel="next" title="Synchronizing with Thunderbird" href="sync_thunderbird.html" />
-    <link rel="prev" title="Synchronizing with iOS" href="sync_ios.html" />
+    <link rel="next" title="Συγχρονισμός με Thunderbird" href="sync_thunderbird.html" />
+    <link rel="prev" title="Συγχρονισμός με iOS" href="sync_ios.html" />
    
   <meta name="robots" content="noindex, follow" />
 
@@ -62,30 +63,30 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Nextcloud | έκδοση | εγχειρίδιο χρήστη εισαγωγή</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../whats_new.html">Τι νέο υπάρχει για τους χρήστες στο Nextcloud | έκδοση |</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../webinterface.html">Η διεπαφή Nextcloud Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Εισαγωγή εγχειριδίου χρήστη Nextcloud |έκδοση|</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../webinterface.html">Η Διεπαφή Web του Nextcloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../files/index.html">Αρχεία και συγχρονισμός</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Groupware</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="contacts.html">Using the Contacts app</a></li>
-<li class="toctree-l2"><a class="reference internal" href="calendar.html">Using the Calendar app</a></li>
-<li class="toctree-l2"><a class="reference internal" href="mail.html">Using the Mail app</a></li>
-<li class="toctree-l2"><a class="reference internal" href="absence.html">Setting out-of-office messages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sync_android.html">Synchronizing with Android</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sync_ios.html">Synchronizing with iOS</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Synchronizing with macOS</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#setup-your-accounts">Setup your Accounts</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contacts.html">Χρήση της εφαρμογής Επαφές</a></li>
+<li class="toctree-l2"><a class="reference internal" href="calendar.html">Χρήση της εφαρμογής Ημερολόγιο</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mail.html">Χρήση της εφαρμογής Αλληλογραφίας</a></li>
+<li class="toctree-l2"><a class="reference internal" href="absence.html">Ρύθμιση μηνυμάτων απουσίας</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sync_android.html">Συγχρονισμός με Android</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sync_ios.html">Συγχρονισμός με iOS</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Συγχρονισμός με macOS</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#setup-your-accounts">Ρύθμιση των Λογαριασμών σας</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#troubleshooting">Αντιμετώπιση Προβλημάτων</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="sync_thunderbird.html">Synchronizing with Thunderbird</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sync_kde.html">Synchronizing with KDE Kontact</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sync_gnome.html">Synchronizing with the GNOME desktop</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sync_windows10.html">Synchronizing with Windows 10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sync_thunderbird.html">Συγχρονισμός με Thunderbird</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sync_kde.html">Συγχρονισμός με KDE Kontact</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sync_gnome.html">Συγχρονισμός με την επιφάνεια εργασίας GNOME</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sync_windows10.html">Συγχρονισμός με Windows 10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_migration.html">Migrate data between instances</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../talk/index.html">Talk</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../desktop/index.html">Desktop Clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../desktop/index.html">Πελάτες Επιφάνειας Εργασίας</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../userpreferences.html">Ορισμός των προτιμήσεών σας</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../universal_access.html">Καθολική Πρόσβαση</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_2fa.html">Χρήση ελέγχου ταυτότητας δύο παραγόντων</a></li>
@@ -99,7 +100,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../contents.html">Nextcloud latest User Manual</a>
+          <a href="../contents.html">Nextcloud 35 User Manual</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -108,7 +109,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../contents.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="index.html">Groupware</a></li>
-      <li class="breadcrumb-item active">Synchronizing with macOS</li>
+      <li class="breadcrumb-item active">Συγχρονισμός με macOS</li>
       <li class="wy-breadcrumbs-aside">
               <a href="https://github.com/nextcloud/documentation/edit/master/user_manual/groupware/sync_osx.rst" class="fa fa-github"> Edit on GitHub</a>
       </li>
@@ -119,57 +120,66 @@
            <div itemprop="articleBody">
              
   <section id="synchronizing-with-macos">
-<h1>Synchronizing with macOS<a class="headerlink" href="#synchronizing-with-macos" title="Link to this heading"></a></h1>
+<h1>Συγχρονισμός με macOS<a class="headerlink" href="#synchronizing-with-macos" title="Link to this heading"></a></h1>
 <section id="setup-your-accounts">
-<h2>Setup your Accounts<a class="headerlink" href="#setup-your-accounts" title="Link to this heading"></a></h2>
-<p>In the following steps you will add your server resources for <strong>CalDAV</strong> (Calendar)
-and <strong>CardDAV</strong> (Contacts) to your Nextcloud.</p>
+<h2>Ρύθμιση των Λογαριασμών σας<a class="headerlink" href="#setup-your-accounts" title="Link to this heading"></a></h2>
+<p>In the following steps you will add <strong>CalDAV</strong> (Calendar)
+and <strong>CardDAV</strong> (Contacts) to your macOS integrated Calendar and Contacts applications.
+At the time of writing this guide, macOS is at version 26.3.1.</p>
 <ol class="arabic simple">
-<li><p>Open the <strong>system preferences</strong> of your macOS device.</p></li>
-<li><p>Navigate to <strong>Internet Accounts</strong>:</p></li>
+<li><p>Click on the Apple logo in the top left corner of your screen and select
+<strong>System Settings…</strong> from the dropdown menu.</p></li>
 </ol>
 <figure class="align-default">
 <img alt="../../_images/macos_1.png" src="../../_images/macos_1.png" />
 </figure>
-<ol class="arabic simple" start="3">
-<li><p>Click on <strong>Add Other Account…</strong> and click on <strong>CalDAV Account</strong> for Calendar
-or <strong>CardDAV Account</strong> for Contacts:</p></li>
+<ol class="arabic simple" start="2">
+<li><p>Πλοηγηθείτε στους <strong>Διαδικτυακούς Λογαριασμούς</strong>:</p></li>
 </ol>
 <figure class="align-default">
 <img alt="../../_images/macos_2.png" src="../../_images/macos_2.png" />
 </figure>
-<div class="admonition note">
-<p class="admonition-title">Σημείωση</p>
-<p>You can not setup Calendar/Contacts together. You need to setup them
-in <strong>separate accounts</strong>.</p>
-</div>
-<ol class="arabic" start="4">
-<li><p>Select <strong>Manual</strong> as Account-Type and type in your respective credentials:</p>
-<p><strong>Username</strong>: Your Nextcloud username or email</p>
-<p><strong>Password</strong>: Your generated app-password/token (<a class="reference internal" href="../session_management.html#managing-devices"><span class="std std-ref">Learn more</span></a>).</p>
-<p><strong>Server Address</strong>: URL of your Nextcloud server (e.g. <code class="docutils literal notranslate"><span class="pre">https://cloud.example.com</span></code>)</p>
-</li>
+<ol class="arabic simple" start="3">
+<li><p>Click on the small blue <strong>choose from a list.</strong></p></li>
 </ol>
 <figure class="align-default">
 <img alt="../../_images/macos_3.png" src="../../_images/macos_3.png" />
 </figure>
-<ol class="arabic simple" start="5">
-<li><p>Click on <strong>Sign In</strong>.</p></li>
+<ol class="arabic simple" start="4">
+<li><p>Click on <strong>add Other Account…</strong></p></li>
 </ol>
-<p>For <strong>CalDAV (Calendar)</strong>: You can now select, with which applications you want
-to use this resource. In the most cases, this will be the «Calendar» application,
-sometimes you may also want to use it for your <strong>Tasks and reminders</strong>.</p>
 <figure class="align-default">
 <img alt="../../_images/macos_4.png" src="../../_images/macos_4.png" />
 </figure>
+<ol class="arabic simple" start="5">
+<li><p>Select <strong>CalDAV Account</strong> for calendar and <strong>CardDAV Account</strong> for contacts.</p></li>
+</ol>
+<figure class="align-default">
+<img alt="../../_images/macos_5.png" src="../../_images/macos_5.png" />
+</figure>
+<div class="admonition note">
+<p class="admonition-title">Σημείωση</p>
+<p>You can not setup Calendar/Contacts together. You need to setup them <strong>separately</strong>.</p>
+</div>
+<ol class="arabic" start="6">
+<li><p>Select <strong>Manual</strong> as Account Type and type in your respective credentials:</p>
+<p><strong>Όνομα χρήστη</strong>: Το όνομα χρήστη ή email σας στο Nextcloud</p>
+<p><strong>Password</strong>: Either your password or if you use 2FA your generated app-password/token (<a class="reference internal" href="../session_management.html#managing-devices"><span class="std std-ref">Learn more</span></a>).</p>
+<p><strong>Server Address</strong>: URL of your Nextcloud server (e.g. <code class="docutils literal notranslate"><span class="pre">https://nextcloud.yourdomain.com</span></code>)</p>
+</li>
+</ol>
+<figure class="align-default">
+<img alt="../../_images/macos_6.png" src="../../_images/macos_6.png" />
+</figure>
+<ol class="arabic simple" start="7">
+<li><p>Κάντε κλικ στο <strong>Σύνδεση</strong>.</p></li>
+</ol>
 </section>
 <section id="troubleshooting">
-<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
+<h2>Αντιμετώπιση Προβλημάτων<a class="headerlink" href="#troubleshooting" title="Link to this heading"></a></h2>
 <ul class="simple">
-<li><p>macOS does <strong>not</strong> support syncing CalDAV/CardDAV over non-encrypted <code class="docutils literal notranslate"><span class="pre">http://</span></code>
-connections. Make sure you have <code class="docutils literal notranslate"><span class="pre">https://</span></code> enabled and configured on server- and
-client-side.</p></li>
-<li><p><strong>Self-signed certificates</strong> need to be properly set up in the macOS keychain.</p></li>
+<li><p>Το macOS <strong>δεν</strong> υποστηρίζει συγχρονισμό CalDAV/CardDAV μέσω μη κρυπτογραφημένων συνδέσεων <code class="docutils literal notranslate"><span class="pre">http://</span></code>. Βεβαιωθείτε ότι έχετε ενεργοποιημένο και διαμορφωμένο το <code class="docutils literal notranslate"><span class="pre">https://</span></code> τόσο από την πλευρά του διακομιστή όσο και του πελάτη.</p></li>
+<li><p>Τα <strong>πιστοποιητικά αυτο-υπογεγραμμένα</strong> πρέπει να ρυθμιστούν σωστά στο keychain του macOS.</p></li>
 </ul>
 </section>
 </section>
@@ -178,14 +188,14 @@ client-side.</p></li>
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="sync_ios.html" class="btn btn-neutral float-left" title="Synchronizing with iOS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="sync_thunderbird.html" class="btn btn-neutral float-right" title="Synchronizing with Thunderbird" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="sync_ios.html" class="btn btn-neutral float-left" title="Συγχρονισμός με iOS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="sync_thunderbird.html" class="btn btn-neutral float-right" title="Συγχρονισμός με Thunderbird" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2026 Nextcloud GmbH.</p>
+    <p>&#169; Copyright 2016-2026 Nextcloud GmbH and Nextcloud contributors.</p>
   </div>
 
    
@@ -196,544 +206,420 @@ client-side.</p></li>
     </section>
   </div>
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- Here go the languages -->
   
+  <!-- Here go the languages -->
+
+  
+  
+
+  
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+
   <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
-      🌐
-      
-      
-      Greek
-      
+      🌐 Greek
       <span class="fa fa-caret-down"></span>
-
-       ☁️ 31
+       ☁️ latest
       <span class="fa fa-caret-down"></span>
     </span>
     <div class="rst-other-versions">
       <dl>
-        <dt>🌐 Languages</dt>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/af/"
-                 
-              >
-                
-                Afrikaans
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ar/"
-                 
-              >
-                
-                Arabic
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/br/"
-                 
-              >
-                
-                Breton
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ca/"
-                 
-              >
-                
-                Catalan
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/cs/"
-                 
-              >
-                
-                Czech
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/da/"
-                 
-              >
-                
-                Danish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/de/"
-                 
-              >
-                
-                German
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/el/"
-                 
-                 style="color: var(--dark-link-color);"
-                 
-              >
-                
-                Greek
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/el_GR/"
-                 
-              >
-                
-                el_GR
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/en/"
-                 
-              >
-                
-                English
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/eo/"
-                 
-              >
-                
-                Esperanto
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/es/"
-                 
-              >
-                
-                Spanish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/eu/"
-                 
-              >
-                
-                eu
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/fi_FI/"
-                 
-              >
-                
-                Finnish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/fr/"
-                 
-              >
-                
-                French
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ga/"
-                 
-              >
-                
-                Irish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/gl/"
-                 
-              >
-                
-                Glacian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/hr/"
-                 
-              >
-                
-                Croatian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/hu/"
-                 
-              >
-                
-                hu
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/hu_HU/"
-                 
-              >
-                
-                Hungarian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/id/"
-                 
-              >
-                
-                Indonesian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/it/"
-                 
-              >
-                
-                Italian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ja_JP/"
-                 
-              >
-                
-                Japanese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ko/"
-                 
-              >
-                
-                Korean
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/mn/"
-                 
-              >
-                
-                Mongolian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/nb_NO/"
-                 
-              >
-                
-                Norwegian (NB)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/nl/"
-                 
-              >
-                
-                Dutch
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/nn/"
-                 
-              >
-                
-                Norwegian (NN)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/pl/"
-                 
-              >
-                
-                Polish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/pt_BR/"
-                 
-              >
-                
-                Portuguese (BR)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/pt_PT/"
-                 
-              >
-                
-                Portuguese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ro/"
-                 
-              >
-                
-                Romanian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ru/"
-                 
-              >
-                
-                Russian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/si/"
-                 
-              >
-                
-                Sinhala
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sk_SK/"
-                 
-              >
-                
-                Slovakian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sq/"
-                 
-              >
-                
-                Albanian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sr/"
-                 
-              >
-                
-                Slovenian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sv/"
-                 
-              >
-                
-                Swedish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ta/"
-                 
-              >
-                
-                Tamil
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/th/"
-                 
-              >
-                
-                th
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/tr/"
-                 
-              >
-                
-                Turkish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/uk/"
-                 
-              >
-                
-                Ukrainian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/uz/"
-                 
-              >
-                
-                Uzbek
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/vi/"
-                 
-              >
-                
-                Vietnamese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/zh_CN/"
-                 
-              >
-                
-                Chinese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/zh_HK/"
-                 
-              >
-                
-                Chinese (HK)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/zh_TW/"
-                 
-              >
-                
-                Chinese (TW)
-                
-              </a>
-            </dd>
-          
+        <dt>🌐 Γλώσσες</dt>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ar/"
+               
+            >
+              Arabic
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/br/"
+               
+            >
+              Breton
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ca/"
+               
+            >
+              Catalan
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/zh_CN/"
+               
+            >
+              Chinese
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/zh_HK/"
+               
+            >
+              Chinese (HK)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/zh_TW/"
+               
+            >
+              Chinese (TW)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/cs/"
+               
+            >
+              Czech
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/da/"
+               
+            >
+              Danish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/nl/"
+               
+            >
+              Dutch
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/en/"
+               
+            >
+              English
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/fi_FI/"
+               
+            >
+              Finnish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/fr/"
+               
+            >
+              French
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/gl/"
+               
+            >
+              Galician
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/de/"
+               
+            >
+              German
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/el/"
+               
+               style="color: var(--dark-link-color);"
+               
+            >
+              Greek
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/hu_HU/"
+               
+            >
+              Hungarian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/id/"
+               
+            >
+              Indonesian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ga/"
+               
+            >
+              Irish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/it/"
+               
+            >
+              Italian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ja_JP/"
+               
+            >
+              Japanese
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ko/"
+               
+            >
+              Korean
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/mn/"
+               
+            >
+              Mongolian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/nb_NO/"
+               
+            >
+              Norwegian (NB)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/nn/"
+               
+            >
+              Norwegian (NN)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/pl/"
+               
+            >
+              Polish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/pt_PT/"
+               
+            >
+              Portuguese
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/pt_BR/"
+               
+            >
+              Portuguese (BR)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ro/"
+               
+            >
+              Romanian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ru/"
+               
+            >
+              Russian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/si/"
+               
+            >
+              Sinhala
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/sk_SK/"
+               
+            >
+              Slovakian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/sr/"
+               
+            >
+              Slovenian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/es/"
+               
+            >
+              Spanish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/sv/"
+               
+            >
+              Swedish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ta/"
+               
+            >
+              Tamil
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/tr/"
+               
+            >
+              Turkish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/uk_UA/"
+               
+            >
+              Ukrainian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/uz/"
+               
+            >
+              Uzbek
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/vi/"
+               
+            >
+              Vietnamese
+            </a>
+          </dd>
+        
       </dl>
     </div>
     <div class="rst-other-versions">
@@ -742,6 +628,8 @@ client-side.</p></li>
         
           <dd style="width: 32%">
             <a href="https://docs.nextcloud.com/server/latest/user_manual"
+               
+               style="color: var(--dark-link-color);"
                
             >
               35 (latest)
@@ -772,30 +660,6 @@ client-side.</p></li>
             </a>
           </dd>
         
-          <dd style="width: 32%">
-            <a href="https://docs.nextcloud.com/server/31/user_manual"
-               
-               style="color: var(--dark-link-color);"
-               
-            >
-              31 (unsupported)
-            </a>
-          </dd>
-        
-      </dl>
-      <dl>
-        <dt>Λήψεις</dt>
-        
-      </dl>
-      <dl>
-        
-        <dt>On Διαβάστε τα Έγγραφα</dt>
-          <dd>
-            <a href="///projects//?fromdocs=">Έργο του σπιτιού</a>
-          </dd>
-          <dd>
-            <a href="///builds//?fromdocs=">Κατασκευάζει</a>
-          </dd>
       </dl>
     </div>
   </div>

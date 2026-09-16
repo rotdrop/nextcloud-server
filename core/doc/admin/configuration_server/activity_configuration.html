@@ -7,18 +7,19 @@
   <meta name="readthedocs-addons-api-version" content="1"><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Activity app &mdash; Nextcloud latest Administration Manual latest documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+  <title>Activity app &mdash; Nextcloud 35 Administration Manual</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=bad88653" />
+      <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=8ff6e0db" />
       <link rel="stylesheet" type="text/css" href="../_static/dark_mode_css/general.css?v=c0a7eb24" />
       <link rel="stylesheet" type="text/css" href="../_static/dark_mode_css/dark.css?v=70edf1c7" />
 
   
+    <link rel="canonical" href="https://docs.nextcloud.com/server/stable/admin_manual/configuration_server/activity_configuration.html" />
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-      <script src="../_static/documentation_options.js?v=f4332903"></script>
+      <script src="../_static/documentation_options.js?v=a49d5d77"></script>
       <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -60,22 +61,40 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul class="current">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../index.html">Introduction</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../release_notes/index.html">Release notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../release_schedule.html">Maintenance and release schedule</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gdpr/index.html">GDPR-compliance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../declarations/index.html">Declarations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Release notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../release_notes/index.html">Critical changes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Installation</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../installation/index.html">Installation and server configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../configuration_database/index.html">Database configuration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Configuration</span></p>
+<ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Nextcloud configuration</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="security_setup_warnings.html">Warnings on admin page</a></li>
 <li class="toctree-l2"><a class="reference internal" href="config_sample_php_parameters.html">Configuration Parameters</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Activity app</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#enabling-the-activity-app">Enabling the activity app</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#configuring-your-nextcloud-for-the-activity-app">Configuring your Nextcloud for the activity app</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#configuring-your-nextcloud-for-the-activity-app">Configuring your Nextcloud for the activity app</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#admin-settings">Admin settings</a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#activities-in-groupfolders-or-external-storages">Activities in groupfolders or external storages</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#better-scheduling-of-activity-emails">Better scheduling of activity emails</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#excluding-users-from-the-activity-expiration">Excluding users from the activity expiration</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="admin_delegation_configuration.html">Administration privileges (Delegation)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="android_deep_link_handling.html">Android Deep Link Handling</a></li>
 <li class="toctree-l2"><a class="reference internal" href="antivirus_configuration.html">Antivirus scanner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="automatic_configuration.html">Automatic setup</a></li>
 <li class="toctree-l2"><a class="reference internal" href="background_jobs_configuration.html">Background jobs</a></li>
@@ -94,23 +113,54 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../occ_command.html">Using the occ command</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../apps_management.html">Apps management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../exapps_management/index.html">ExApps management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../configuration_user/index.html">User management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../configuration_files/index.html">File sharing and management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../file_workflows/index.html">Flow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../groupware/index.html">Groupware</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../office/index.html">Office</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference management</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ai/index.html">Artificial Intelligence</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../webhook_listeners/index.html">Webhook Listeners</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../windmill_workflows/index.html">Windmill Workflows</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../configuration_database/index.html">Database configuration</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Files</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configuration_files/index.html">File sharing and management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../file_workflows/index.html">Flow</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../configuration_mimetypes/index.html">Mimetypes management</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Apps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../apps_management.html">Apps management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../exapps_management/index.html">ExApps management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ai/index.html">Artificial Intelligence</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Users</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configuration_user/index.html">User management</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../desktop/index.html">Desktop Clients</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Groupware</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../groupware/index.html">Groupware</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Office</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../office/index.html">Office</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Maintenance</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../configuration_monitoring/index.html">Monitoring</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../maintenance/index.html">Maintenance</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../issues/index.html">Issues and troubleshooting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../gdpr/index.html">GDPR-compliance</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../declarations/index.html">Declarations</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://help.nextcloud.com/">Community Help Forum</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.nextcloud.com/">User Manuals</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://docs.nextcloud.com/">Developer Manuals</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://nextcloud.com/install/">Download</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://apps.nextcloud.com">App Store</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://help.nextcloud.com/t/translation-knowledge-valid-for-the-entire-nextcloud-project-wiki/51550">Translations</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/nextcloud/">GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/nextcloud/server/wiki/Maintenance-and-Release-Schedule">Supported versions</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://nextcloud.com/enterprise/">Nextcloud Enterprise</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/nextcloud/server/blob/master/COPYING-README">License</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://nextcloud.com/">Nextcloud GmbH</a></li>
 </ul>
 
         </div>
@@ -119,7 +169,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../contents.html">Nextcloud latest Administration Manual</a>
+          <a href="../contents.html">Nextcloud 35 Administration Manual</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -162,8 +212,21 @@ simply go to your Nextcloud Apps page to enable it.</p>
 <p>Furthermore it is recommended to configure the background job <code class="docutils literal notranslate"><span class="pre">Webcron</span></code> or
 <code class="docutils literal notranslate"><span class="pre">Cron</span></code> as described in <a class="reference internal" href="background_jobs_configuration.html"><span class="doc">Background jobs</span></a>.</p>
 <p>There is also a configuration option <code class="docutils literal notranslate"><span class="pre">activity_expire_days</span></code> available in your
-<code class="docutils literal notranslate"><span class="pre">config.php</span></code> (See <a class="reference internal" href="config_sample_php_parameters.html#label-activity-app-config"><span class="std std-ref">Activity app</span></a>) which allows
-you to clean-up older activities from the database.</p>
+<code class="docutils literal notranslate"><span class="pre">config.php</span></code> which allows you to clean-up older activities from the database.</p>
+<section id="admin-settings">
+<h3>Admin settings<a class="headerlink" href="#admin-settings" title="Link to this heading"></a></h3>
+<p>As an administrator, you can:</p>
+<ul>
+<li><p>Configure the maximum number of activities fully displayed in notification emails
+using the <code class="docutils literal notranslate"><span class="pre">mail_max_items</span></code> setting. Activities beyond this limit are summarised
+as <em>“and X more”</em> at the bottom of the email. The default is <code class="docutils literal notranslate"><span class="pre">200</span></code> and the
+maximum allowed value is <code class="docutils literal notranslate"><span class="pre">1000</span></code>. For example, to set it to <code class="docutils literal notranslate"><span class="pre">500</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">occ</span> <span class="n">config</span><span class="p">:</span><span class="n">app</span><span class="p">:</span><span class="nb">set</span> <span class="n">activity</span> <span class="n">mail_max_items</span> <span class="o">--</span><span class="n">value</span><span class="o">=</span><span class="mi">500</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
 </section>
 <section id="activities-in-groupfolders-or-external-storages">
 <span id="label-activities-groupfolders"></span><h2>Activities in groupfolders or external storages<a class="headerlink" href="#activities-in-groupfolders-or-external-storages" title="Link to this heading"></a></h2>
@@ -201,6 +264,21 @@ on scheduling.</p>
 <p>If you want to manually send out all activity emails which are queued, you can run
 <code class="docutils literal notranslate"><span class="pre">occ</span> <span class="pre">activity:send-mails</span></code> without any argument.</p>
 </section>
+<section id="excluding-users-from-the-activity-expiration">
+<h2>Excluding users from the activity expiration<a class="headerlink" href="#excluding-users-from-the-activity-expiration" title="Link to this heading"></a></h2>
+<p>For certain users, it might make sense to never expire their activity data, for example
+administrators.
+You can set the config value <cite>activity_expire_exclude_users</cite> in your Nextcloud config to
+exclude these users from expiration:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;activity_expire_exclude_users&#39;</span> <span class="o">=&gt;</span> <span class="p">[</span>
+  <span class="s1">&#39;admin&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;group_admin&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;second_admin&#39;</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>For these users, their activity records will never deleted from the database.</p>
+</section>
 </section>
 
 
@@ -214,7 +292,7 @@ on scheduling.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2026 Nextcloud GmbH.</p>
+    <p>&#169; Copyright 2016-2026 Nextcloud GmbH and Nextcloud contributors.</p>
   </div>
 
    
@@ -228,7 +306,7 @@ on scheduling.</p>
 
   <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
-      ☁️ 31
+      ☁️ latest
       <span class="fa fa-caret-down"></span>
     </span>
     <div class="rst-other-versions">
@@ -237,6 +315,8 @@ on scheduling.</p>
         
         <dd style="width: 32%">
           <a href="https://docs.nextcloud.com/server/latest/admin_manual"
+             
+             style="color: var(--dark-link-color);"
              
           >
             35 (latest)
@@ -264,16 +344,6 @@ on scheduling.</p>
              
           >
             32
-          </a>
-        </dd>
-        
-        <dd style="width: 32%">
-          <a href="https://docs.nextcloud.com/server/31/admin_manual"
-             
-             style="color: var(--dark-link-color);"
-             
-          >
-            31 (unsupported)
           </a>
         </dd>
         

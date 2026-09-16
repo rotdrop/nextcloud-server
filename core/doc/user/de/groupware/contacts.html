@@ -7,15 +7,16 @@
   <meta name="readthedocs-addons-api-version" content="1"><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Verwenden der Kontakte-App &mdash; Nextcloud latest User Manual latest Dokumentation</title>
-      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
+  <title>Verwenden der Kontakte-App &mdash; Nextcloud 35 User Manual</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
       <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=bad88653" />
+      <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=8ff6e0db" />
       <link rel="stylesheet" type="text/css" href="../../_static/dark_mode_css/general.css?v=c0a7eb24" />
       <link rel="stylesheet" type="text/css" href="../../_static/dark_mode_css/dark.css?v=70edf1c7" />
 
   
+    <link rel="canonical" href="https://docs.nextcloud.com/server/stable/user_manual/groupware/contacts.html" />
       <script src="../../_static/jquery.js?v=5d32c60e"></script>
       <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../../_static/documentation_options.js?v=d9e2867d"></script>
@@ -62,8 +63,7 @@
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../index.html">Nextcloud latest - Einführung zur Benutzeranleitung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../whats_new.html">Was gibt es Neues für Benutzer in Nextcloud latest</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../index.html">Nextcloud 35 - Einführung zur Benutzeranleitung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../webinterface.html">Die Weboberfläche von Nextcloud</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../files/index.html">Dateien &amp; Synchronisation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html">Groupware</a><ul class="current">
@@ -75,36 +75,41 @@
 <li class="toctree-l4"><a class="reference internal" href="#contact-picture">Kontaktbild</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#organize-your-contacts-with-contact-groups">Organize your Contacts with Contact Groups</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#managing-multiple-contacts-at-a-time">Verwalten mehrerer Kontakte gleichzeitig</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#merging-duplicate-contacts">Zusammenführen doppelter Kontakte</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#organize-your-contacts-with-contact-groups">Organisieren Sie Ihre Kontakte mit Kontaktgruppen</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#adding-and-managing-address-books">Adressbücher hinzufügen und verwalten</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#circles">Kreise</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#create-a-circle">Einen Kreis erstellen</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#circle-roles">Rollen in Kreisen</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#add-members-to-a-circle">Mitglieder zu einem Kreis hinzufügen</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#circle-options">Kreisoptionen</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#shared-items">Shared items</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#teams">Teams</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#create-a-team">Eine Team erstellen</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#team-roles">Teamrollen</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#add-members-to-a-team">Mitglieder zu einem Team hinzufügen</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#team-options">Teamoptionen</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#shared-items">Geteilte Elemente</a></li>
 </ul>
 </li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="calendar.html">Verwenden der Kalender-App</a></li>
 <li class="toctree-l2"><a class="reference internal" href="mail.html">Verwenden der E-Mail-App</a></li>
-<li class="toctree-l2"><a class="reference internal" href="absence.html">Setting out-of-office messages</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sync_android.html">Mit Android synchronisieren</a></li>
+<li class="toctree-l2"><a class="reference internal" href="absence.html">Abwesenheitsnachricht setzen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sync_android.html">Synchronisierung mit Android</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sync_ios.html">Synchronisierung mit iOS</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sync_osx.html">Synchronisierung mit macOS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sync_thunderbird.html">Synchronisieren mit Thunderbird</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sync_kde.html">Mit KDE Kontakt synchronisieren</a></li>
-<li class="toctree-l2"><a class="reference internal" href="sync_gnome.html">Synchronisation mit dem GNOME-Desktop</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sync_thunderbird.html">Synchronisierung mit Thunderbird</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sync_kde.html">Synchronisierung mit KDE Kontakt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sync_gnome.html">Synchronisierung mit dem GNOME-Desktop</a></li>
 <li class="toctree-l2"><a class="reference internal" href="sync_windows10.html">Synchronisierung mit Windows 10</a></li>
+<li class="toctree-l2"><a class="reference internal" href="user_migration.html">Migrate data between instances</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../talk/index.html">Talk</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../desktop/index.html">Desktop Clients</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../desktop/index.html">Desktop-Clients</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../userpreferences.html">Einstellungen vornehmen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../universal_access.html">Universeller Zugriff</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../user_2fa.html">Verwendung der Zwei-Faktor-Authentifizierung</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../session_management.html">Verwalten Sie verbundene Browser und Geräte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../session_management.html">Verwaltung verbundener Browser und Geräte</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../external_storage/index.html">Externer Speicher</a></li>
 </ul>
 
@@ -114,7 +119,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../contents.html">Nextcloud latest User Manual</a>
+          <a href="../contents.html">Nextcloud 35 User Manual</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -135,8 +140,11 @@
              
   <section id="using-the-contacts-app">
 <h1>Verwenden der Kontakte-App<a class="headerlink" href="#using-the-contacts-app" title="Link to this heading"></a></h1>
-<p>Die Kontakte-App ist in Nextcloud standardmäßig nicht aktiviert und muss separat aus unserem App Store installiert werden.</p>
-<p>Die Kontakte-App von Nextcloud ist vergleichbar mit anderen mobilen Adressbuch-Anwendungen, hat aber mehr Funktionen. Gehen wir einmal die wesentlichen Funktionen durch, mit denen Sie Ihr Adressbuch in der Anwendung pflegen können.</p>
+<p>Die Kontakte-App ist in Nextcloud 35 standardmäßig nicht aktiviert und muss separat aus unserem App Store installiert werden.</p>
+<p>The Nextcloud Contacts app is similar to other mobile contact applications, but
+with more functionality.
+This section covers the basic features that will help you maintain your address book
+in the application.</p>
 <p>Im Folgenden erfahren Sie, wie Sie Kontakte hinzufügen, bearbeiten oder entfernen, ein Kontaktbild hochladen und Ihre Adressbücher verwalten können.</p>
 <section id="adding-contacts">
 <h2>Kontakte hinzufügen<a class="headerlink" href="#adding-contacts" title="Link to this heading"></a></h2>
@@ -232,15 +240,57 @@
 <figure class="align-default">
 <img alt="../../_images/contact_picture_options.png" src="../../_images/contact_picture_options.png" />
 </figure>
+<p>If the administrator allows updates from social media in the admin groupware settings,
+users can also retrieve contact pictures directly from social networks.
+In that case the contact needs to have stored a user name in the social media section.
+Each entry of a supported social network adds a download entry for the respective
+network. Currently, the following social networks are supported:</p>
+<ul class="simple">
+<li><p>Instagram</p></li>
+<li><p>Mastodon</p></li>
+<li><p>Tumblr</p></li>
+<li><p>Diaspora</p></li>
+<li><p>Xing</p></li>
+<li><p>Telegram</p></li>
+<li><p>Gravatar</p></li>
+</ul>
+<p>Social avatars are only retrieved if publicly available without login to the
+respective social network. In the contact user settings on the contacts page,
+you can activate auto-updates from social media. This will update avatars
+with social profile data on a weekly basis. Social networks are checked in the
+order listed above.</p>
+</section>
+</section>
+<section id="managing-multiple-contacts-at-a-time">
+<h2>Verwalten mehrerer Kontakte gleichzeitig<a class="headerlink" href="#managing-multiple-contacts-at-a-time" title="Link to this heading"></a></h2>
+<p>Mit der Kontakte-App können Sie mehrere Kontakte auswählen und Stapelaktionen für sie ausführen. Um mehrere Kontakte auszuwählen, klicken Sie entweder einzeln auf das Profilbild jedes Kontakts oder auf das Profilbild des ersten Kontakts und dann bei gedrückter Umschalttaste auf einen weiteren Kontakt in der Liste, um alle Kontakte zwischen dem ersten und dem zweiten auszuwählen.</p>
+<p>Dadurch wird oben in der Kontaktliste ein Menü mit verschiedenen Aktionen angezeigt, die Sie für die ausgewählten Kontakte ausführen können:</p>
+<figure class="align-default">
+<img alt="Aktionen für Kontakt-Mehrfachauswahl" src="../../_images/contact_multiselect.png" />
+</figure>
+<p>Im Stapelmodus hebt die Schaltfläche mit dem Kreuzsymbol die Auswahl aller ausgewählten Kontakte auf, während die Schaltfläche mit dem Papierkorbsymbol alle ausgewählten Kontakte löscht.</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Möglicherweise können Sie bestimmte Kontakte nicht ändern oder löschen, beispielsweise wenn sie sich in einem schreibgeschützten Adressbuch befinden. In diesem Fall werden entsprechende Aktionen deaktiviert.</p>
+</div>
+<section id="merging-duplicate-contacts">
+<h3>Zusammenführen doppelter Kontakte<a class="headerlink" href="#merging-duplicate-contacts" title="Link to this heading"></a></h3>
+<p>Um Kontakte zusammenzuführen, wählen Sie zwei Kontakte aus und klicken Sie dann oben in der Kontaktliste auf das Symbol „Kontakte zusammenführen“. Daraufhin öffnet sich ein Dialog, der Ihnen beim Zusammenführen doppelter Kontakte hilft. Im Zusammenführungsdialog werden die Details beider Kontakte nebeneinander angezeigt, und Sie können auswählen, welche Details im zusammengeführten Kontakt erhalten bleiben sollen.</p>
+<p>Alle Eigenschaften mit einer Radio-Schaltfläche (kreisförmig) können nur einen Wert haben, daher muss einer der beiden Werte ausgewählt werden (wie der Name des Kontakts, der nur einen Wert haben kann), während Kontrollkästchen (quadratische Schaltflächen) es Ihnen ermöglichen, beide Werte beizubehalten, falls gewünscht (wie Telefonnummern oder E-Mail-Adressen, die mehrere Werte haben können).</p>
+<p>Wenn einer der Kontakte Teil einer oder mehrerer Gruppen ist, wird der zusammengeführte Kontakt standardmäßig allen Gruppen zugeordnet, denen die beiden Kontakte angehörten. Sie können während der Zusammenführung die Gruppen deaktivieren, wenn der zusammengeführte Kontakt nicht Teil dieser Gruppen sein soll.</p>
+<div class="admonition note">
+<p class="admonition-title">Bemerkung</p>
+<p>Derzeit können Sie jeweils nur zwei Kontakte zusammenführen. Dies gilt natürlich nur für Kontakte, die Sie bearbeiten können. Wenn die Zusammenführungsfunktion deaktiviert ist, überprüfen Sie, ob Sie Kontakte ausgewählt haben, die diesen Bedingungen entsprechen.</p>
+</div>
 </section>
 </section>
 <section id="organize-your-contacts-with-contact-groups">
-<h2>Organize your Contacts with Contact Groups<a class="headerlink" href="#organize-your-contacts-with-contact-groups" title="Link to this heading"></a></h2>
-<p>Contact Groups help you to organize your contacts into groups.</p>
-<p>To create a new contact group, click on the plus sign next to „Contact groups“ in the left sidebar.</p>
+<h2>Organisieren Sie Ihre Kontakte mit Kontaktgruppen<a class="headerlink" href="#organize-your-contacts-with-contact-groups" title="Link to this heading"></a></h2>
+<p>Kontaktgruppen helfen Ihnen, Ihre Kontakte in Gruppen zu organisieren.</p>
+<p>Um eine neue Kontaktgruppe zu erstellen, klicken Sie in der linken Seitenleiste auf das Plus-Zeichen neben „Kontaktgruppen“.</p>
 <div class="admonition note">
 <p class="admonition-title">Bemerkung</p>
-<p>Contact groups need to have at least one member to be saved. Please note that you can only add contacts from writable address books to contact groups. Contacts from read-only address books, such as the system address book, cannot be added.</p>
+<p>Kontaktgruppen müssen mindestens ein Mitglied haben, um gespeichert zu werden. Bitte beachten Sie, dass Sie Kontaktgruppen nur Kontakte aus beschreibbaren Adressbüchern hinzufügen können. Kontakte aus schreibgeschützten Adressbüchern, wie z. B. dem Systemadressbuch, können nicht hinzugefügt werden.</p>
 </div>
 </section>
 <section id="adding-and-managing-address-books">
@@ -252,58 +302,62 @@
 <p>Im Bereich „Einstellungen“ können Sie auch Adressbücher teilen, exportieren und löschen. Hier finden Sie auch die URLs für CardDAV.</p>
 <div class="admonition note">
 <p class="admonition-title">Bemerkung</p>
-<p>Contacts in disabled address books are not shown in the Contacts app and the Contact menu.</p>
+<p>Kontakte in deaktivierten Adressbüchern werden in der Kontakte-App und im Kontaktmenü nicht angezeigt.</p>
 </div>
 <p>Mehr Informationen über das Synchronisieren Ihres Adressbuchs mit iOS, macOS, Thunderbird und anderen CardDAV-Clients finden Sie unter <a class="reference internal" href="index.html"><span class="doc">Groupware</span></a>.</p>
 </section>
-<section id="circles">
-<h2>Kreise<a class="headerlink" href="#circles" title="Link to this heading"></a></h2>
-<p>Informal collaboration takes place within organizations: an event to organize for a few weeks, a short ideation session between members from different entities, workshops, a place to joke around and support team building, or simply in very organic organizations where formal structure is kept to a minimum.</p>
-<p>Aus all diesen Gründen unterstützt Nextcloud Kreise, eine in die Kontakte-App eingebettete Funktion, bei der jeder Benutzer seinen eigenen Kreis erstellen kann, eine benutzerdefinierte Zusammenfassung von Konten. Kreise können später wie eine normale Gruppe zum Teilen von Dateien und Ordnern verwendet und zu Talk-Unterhaltungen hinzugefügt werden.</p>
+<section id="teams">
+<h2>Teams<a class="headerlink" href="#teams" title="Link to this heading"></a></h2>
+<p>Informelle Zusammenarbeit findet innerhalb von Organisationen statt: eine mehrwöchige Veranstaltung, eine kurze Ideenfindungssitzung zwischen Mitgliedern verschiedener Einheiten, Workshops, ein Ort zum Scherzen und zur Unterstützung der Teambildung, oder einfach in sehr organischen Organisationen, in denen die formale Struktur auf einem Minimum beibehalten wird.</p>
+<p>Aus all diesen Gründen unterstützt Nextcloud Teams, eine in die Kontakte-App eingebettete Funktion, mit der jeder Benutzer sein eigenes Team erstellen kann, eine benutzerdefinierte Gruppe von Konten. Teams können später wie eine normale Gruppe zum Teilen von Dateien und Ordnern verwendet und zu Talk-Konversationen hinzugefügt werden.</p>
 <figure class="align-default">
-<img alt="Kreise im linken Menü der Kontakte-App" src="../../_images/circle.png" />
+<img alt="Teams im linken Menü der Kontakte-App" src="../../_images/circle.png" />
 </figure>
-<section id="create-a-circle">
-<h3>Einen Kreis erstellen<a class="headerlink" href="#create-a-circle" title="Link to this heading"></a></h3>
-<p>Klicken Sie im linken Menü auf das + neben den Kreisen. Legen Sie einen Kreisnamen fest. Wenn Sie auf dem Kreiskonfigurationsbildschirm landen, können Sie: - Mitglieder zu Ihrem Kreis hinzufügen. - Durch Klicken auf das Dreipunktmenü neben einem Benutzer können Sie seine Rolle innerhalb des Kreises ändern.</p>
-</section>
-<section id="circle-roles">
-<h3>Rollen in Kreisen<a class="headerlink" href="#circle-roles" title="Link to this heading"></a></h3>
-<p>Circles support 4 types of roles:</p>
+<section id="create-a-team">
+<h3>Eine Team erstellen<a class="headerlink" href="#create-a-team" title="Link to this heading"></a></h3>
+<p>Im linken Menü auf das + neben Teams klicken. Danach einen Teamnamen festlegen. Wenn Sie auf dem Teamkonfigurationsbildschirm landen, können Sie:</p>
 <ul class="simple">
-<li><p>Member</p></li>
-<li><p>Moderator</p></li>
-<li><p>Admin can configure circle options (+moderator permissions)</p></li>
-<li><p>Owner</p></li>
+<li><p>Fügen Sie Ihrem Team Mitglieder hinzu</p></li>
+<li><p>Durch Klicken auf das Drei-Punkte-Menü neben einem Benutzer können Sie seine Rolle innerhalb des Teams ändern.</p></li>
+</ul>
+</section>
+<section id="team-roles">
+<h3>Teamrollen<a class="headerlink" href="#team-roles" title="Link to this heading"></a></h3>
+<p>Teams unterstützen vier Arten von Rollen:</p>
+<ul class="simple">
+<li><p>Mitglied</p></li>
+<li><p>Moderation</p></li>
+<li><p>Die Administration kann Teamoptionen konfigurieren (+ Moderationsberechtigungen)</p></li>
+<li><p>Besitzer</p></li>
 </ul>
 <p><strong>Mitglied</strong></p>
-<p>Mitglied ist die Rolle mit den geringsten Berechtigungen. Ein Mitglied kann nur auf die für den Kreis freigegebenen Ressourcen zugreifen und die Mitglieder des Kreises sehen.</p>
+<p>Mitglied ist die Rolle mit den niedrigsten Berechtigungen. Ein Mitglied kann nur auf die mit dem Team geteilten Ressourcen zugreifen und die Mitglieder des Teams anzeigen.</p>
 <p><strong>Moderator</strong></p>
-<p>Zusätzlich zu den Mitgliederberechtigungen kann ein Moderator Personen in Kreise einladen, Einladungen bestätigen und Kreise verwalten.</p>
-<p><a href="#id1"><span class="problematic" id="id2">**</span></a>Admin*</p>
-<p>Zusätzlich zu den Moderatorberechtigungen kann ein Administrator Kreisoptionen konfigurieren.</p>
+<p>Zusätzlich zu den Mitgliederberechtigungen kann die Moderation Mitglieder des Teams einladen, Einladungen bestätigen und verwalten.</p>
+<p><strong>Administration</strong></p>
+<p>Zusätzlich zu den Moderationsberechtigungen kann die Administration Teamoptionen konfigurieren.</p>
 <p><strong>Besitzer</strong></p>
-<p>Zusätzlich zu den Administratorberechtigungen kann ein Besitzer die Kreisbesitzschaft auf ein anderes Mitglied des Kreises übertragen. Pro Kreis kann es nur einen einzigen Besitzer geben.</p>
+<p>Zusätzlich zu den Administrationsberechtigungen kann ein Eigentümer die Teamverantwortung auf ein anderes Teammitglied übertragen. Pro Team kann es nur einen Eigentümer geben.</p>
 </section>
-<section id="add-members-to-a-circle">
-<h3>Mitglieder zu einem Kreis hinzufügen<a class="headerlink" href="#add-members-to-a-circle" title="Link to this heading"></a></h3>
-<p>Lokale Konten, Gruppen, E-Mail-Adressen oder andere Kreise können als Mitglieder zu einem Kreis hinzugefügt werden. Bei einer Gruppe oder einem Kreis gilt die Rolle für alle Mitglieder der Gruppe oder des Kreises.</p>
+<section id="add-members-to-a-team">
+<h3>Mitglieder zu einem Team hinzufügen<a class="headerlink" href="#add-members-to-a-team" title="Link to this heading"></a></h3>
+<p>Lokale Konten, Gruppen, E-Mail-Adressen oder andere Teams können als Mitglieder zu einem Team hinzugefügt werden. Für eine Gruppe oder ein Team gilt die Rolle für alle Mitglieder der Gruppe oder des Teams.</p>
 </section>
-<section id="circle-options">
-<h3>Kreisoptionen<a class="headerlink" href="#circle-options" title="Link to this heading"></a></h3>
-<p>Für die Konfiguration eines Kreises, die Verwaltung von Einladungen und Mitgliedschaften, die Sichtbarkeit des Kreises, die Zulassung weiterer Kreismitgliedschaften und den Passwortschutz stehen Ihnen verschiedene selbsterklärende Optionen zur Verfügung.</p>
+<section id="team-options">
+<h3>Teamoptionen<a class="headerlink" href="#team-options" title="Link to this heading"></a></h3>
+<p>Zur Konfiguration eines Teams, zur Verwaltung von Einladungen und Mitgliedschaften, der Sichtbarkeit des Teams, der Zulassung weiterer Teammitgliedschaften und des Passwortschutzes stehen Ihnen verschiedene, selbsterklärende Optionen zur Verfügung.</p>
 <p><strong>Prevent teams from being a member of another team</strong></p>
 <p>When this option is enabled, the team can no longer be directly added as a member of another team. However, this restriction only applies to new direct additions. Existing memberships are kept, and inherited memberships are still possible if this team belongs to a parent team that gets added elsewhere.</p>
 </section>
 <section id="shared-items">
-<h3>Shared items<a class="headerlink" href="#shared-items" title="Link to this heading"></a></h3>
+<h3>Geteilte Elemente<a class="headerlink" href="#shared-items" title="Link to this heading"></a></h3>
 <div class="versionadded">
-<p><span class="versionmodified added">Added in version 5.5.</span></p>
+<p><span class="versionmodified added">Added in version 5.5: </span>Nextcloud 25 or newer</p>
 </div>
 <figure class="align-default">
 <img alt="../../_images/shared-items.png" src="../../_images/shared-items.png" />
 </figure>
-<p>Items that are shared between two contacts will be displayed in the contact app. This includes media, calendar events, chat rooms, and shared deck cards, all of which will be visible in the contact details. This functionality is limited to contacts listed in the system address book. Currently, our system only supports shared items between two contacts.</p>
+<p>Elemente, die zwischen zwei Kontakten geteilt werden, werden in der Kontakt-App angezeigt. Dazu gehören Medien, Kalenderereignisse, Chatrooms und geteilte Deck-Karten, die alle in den Kontaktdaten sichtbar sind. Diese Funktion ist auf Kontakte beschränkt, die im Systemadressbuch aufgeführt sind. Derzeit unterstützt unser System nur geteilte Elemente zwischen zwei Kontakten.</p>
 </section>
 </section>
 </section>
@@ -319,7 +373,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2026 Nextcloud GmbH.</p>
+    <p>&#169; Copyright 2016-2026 Nextcloud GmbH and Nextcloud contributors.</p>
   </div>
 
    
@@ -330,544 +384,420 @@
     </section>
   </div>
   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  <!-- Here go the languages -->
   
+  <!-- Here go the languages -->
+
+  
+  
+
+  
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+
   <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
     <span class="rst-current-version" data-toggle="rst-current-version">
-      🌐
-      
-      
-      German
-      
+      🌐 German
       <span class="fa fa-caret-down"></span>
-
-       ☁️ 31
+       ☁️ latest
       <span class="fa fa-caret-down"></span>
     </span>
     <div class="rst-other-versions">
       <dl>
-        <dt>🌐 Languages</dt>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/af/"
-                 
-              >
-                
-                Afrikaans
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ar/"
-                 
-              >
-                
-                Arabic
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/br/"
-                 
-              >
-                
-                Breton
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ca/"
-                 
-              >
-                
-                Catalan
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/cs/"
-                 
-              >
-                
-                Czech
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/da/"
-                 
-              >
-                
-                Danish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/de/"
-                 
-                 style="color: var(--dark-link-color);"
-                 
-              >
-                
-                German
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/el/"
-                 
-              >
-                
-                Greek
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/el_GR/"
-                 
-              >
-                
-                el_GR
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/en/"
-                 
-              >
-                
-                English
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/eo/"
-                 
-              >
-                
-                Esperanto
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/es/"
-                 
-              >
-                
-                Spanish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/eu/"
-                 
-              >
-                
-                eu
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/fi_FI/"
-                 
-              >
-                
-                Finnish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/fr/"
-                 
-              >
-                
-                French
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ga/"
-                 
-              >
-                
-                Irish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/gl/"
-                 
-              >
-                
-                Glacian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/hr/"
-                 
-              >
-                
-                Croatian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/hu/"
-                 
-              >
-                
-                hu
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/hu_HU/"
-                 
-              >
-                
-                Hungarian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/id/"
-                 
-              >
-                
-                Indonesian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/it/"
-                 
-              >
-                
-                Italian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ja_JP/"
-                 
-              >
-                
-                Japanese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ko/"
-                 
-              >
-                
-                Korean
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/mn/"
-                 
-              >
-                
-                Mongolian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/nb_NO/"
-                 
-              >
-                
-                Norwegian (NB)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/nl/"
-                 
-              >
-                
-                Dutch
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/nn/"
-                 
-              >
-                
-                Norwegian (NN)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/pl/"
-                 
-              >
-                
-                Polish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/pt_BR/"
-                 
-              >
-                
-                Portuguese (BR)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/pt_PT/"
-                 
-              >
-                
-                Portuguese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ro/"
-                 
-              >
-                
-                Romanian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ru/"
-                 
-              >
-                
-                Russian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/si/"
-                 
-              >
-                
-                Sinhala
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sk_SK/"
-                 
-              >
-                
-                Slovakian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sq/"
-                 
-              >
-                
-                Albanian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sr/"
-                 
-              >
-                
-                Slovenian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/sv/"
-                 
-              >
-                
-                Swedish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/ta/"
-                 
-              >
-                
-                Tamil
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/th/"
-                 
-              >
-                
-                th
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/tr/"
-                 
-              >
-                
-                Turkish
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/uk/"
-                 
-              >
-                
-                Ukrainian
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/uz/"
-                 
-              >
-                
-                Uzbek
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/vi/"
-                 
-              >
-                
-                Vietnamese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/zh_CN/"
-                 
-              >
-                
-                Chinese
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/zh_HK/"
-                 
-              >
-                
-                Chinese (HK)
-                
-              </a>
-            </dd>
-          
-            <dd style="width: 32%; vertical-align: top;">
-              <a href="/core/doc/user/zh_TW/"
-                 
-              >
-                
-                Chinese (TW)
-                
-              </a>
-            </dd>
-          
+        <dt>🌐 Sprachen</dt>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ar/"
+               
+            >
+              Arabic
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/br/"
+               
+            >
+              Breton
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ca/"
+               
+            >
+              Catalan
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/zh_CN/"
+               
+            >
+              Chinese
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/zh_HK/"
+               
+            >
+              Chinese (HK)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/zh_TW/"
+               
+            >
+              Chinese (TW)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/cs/"
+               
+            >
+              Czech
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/da/"
+               
+            >
+              Danish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/nl/"
+               
+            >
+              Dutch
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/en/"
+               
+            >
+              English
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/fi_FI/"
+               
+            >
+              Finnish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/fr/"
+               
+            >
+              French
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/gl/"
+               
+            >
+              Galician
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/de/"
+               
+               style="color: var(--dark-link-color);"
+               
+            >
+              German
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/el/"
+               
+            >
+              Greek
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/hu_HU/"
+               
+            >
+              Hungarian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/id/"
+               
+            >
+              Indonesian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ga/"
+               
+            >
+              Irish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/it/"
+               
+            >
+              Italian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ja_JP/"
+               
+            >
+              Japanese
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ko/"
+               
+            >
+              Korean
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/mn/"
+               
+            >
+              Mongolian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/nb_NO/"
+               
+            >
+              Norwegian (NB)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/nn/"
+               
+            >
+              Norwegian (NN)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/pl/"
+               
+            >
+              Polish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/pt_PT/"
+               
+            >
+              Portuguese
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/pt_BR/"
+               
+            >
+              Portuguese (BR)
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ro/"
+               
+            >
+              Romanian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ru/"
+               
+            >
+              Russian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/si/"
+               
+            >
+              Sinhala
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/sk_SK/"
+               
+            >
+              Slovakian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/sr/"
+               
+            >
+              Slovenian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/es/"
+               
+            >
+              Spanish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/sv/"
+               
+            >
+              Swedish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/ta/"
+               
+            >
+              Tamil
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/tr/"
+               
+            >
+              Turkish
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/uk_UA/"
+               
+            >
+              Ukrainian
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/uz/"
+               
+            >
+              Uzbek
+            </a>
+          </dd>
+        
+          <dd style="width: 32%; vertical-align: top;">
+            <a href="/core/doc/user/vi/"
+               
+            >
+              Vietnamese
+            </a>
+          </dd>
+        
       </dl>
     </div>
     <div class="rst-other-versions">
@@ -876,6 +806,8 @@
         
           <dd style="width: 32%">
             <a href="https://docs.nextcloud.com/server/latest/user_manual"
+               
+               style="color: var(--dark-link-color);"
                
             >
               35 (latest)
@@ -906,30 +838,6 @@
             </a>
           </dd>
         
-          <dd style="width: 32%">
-            <a href="https://docs.nextcloud.com/server/31/user_manual"
-               
-               style="color: var(--dark-link-color);"
-               
-            >
-              31 (unsupported)
-            </a>
-          </dd>
-        
-      </dl>
-      <dl>
-        <dt>Downloads</dt>
-        
-      </dl>
-      <dl>
-        
-        <dt>Auf "Read the docs"</dt>
-          <dd>
-            <a href="///projects//?fromdocs=">Projekt Startseite</a>
-          </dd>
-          <dd>
-            <a href="///builds//?fromdocs=">Builds</a>
-          </dd>
       </dl>
     </div>
   </div>
