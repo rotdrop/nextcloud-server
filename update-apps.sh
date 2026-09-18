@@ -96,6 +96,7 @@ STABLE_BRANCHES=(
     [context_chat]=main
     [emlviewer]=master
     [mail]=stable5.12
+    [terms_of_service]=stable4.8
 )
 
 declare -A REBASE_BRANCHES
