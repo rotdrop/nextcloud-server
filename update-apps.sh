@@ -20,6 +20,7 @@ ALL_APPS="
  files_pdfviewer
  files_texteditor
  groupfolders
+ htmlviewer
  ldap_write_support
  logreader
  mail
@@ -72,6 +73,7 @@ BUILD_COMMANDS=(
     [files_archive]="make \$BUILD_MODE"
     [files_lock]="rm -rf node_modules package-lock.json && npm install --legacy-peer-deps && npm ci --legacy-peer-deps && npm run build"
     [groupfolders]="make"
+    [htmlviewer]="make"
     [ldap_write_support]="run-krankerl.sh"
     [logreader]="make"
     [mail]="make install-deps optimize-js"
@@ -94,6 +96,7 @@ STABLE_BRANCHES=(
     [contacts]=stable8.9
     [context_chat]=main
     [emlviewer]=master
+    [htmlviewer]=master
     [mail]=stable5.12
 )
 
@@ -104,6 +107,7 @@ REBASE_BRANCHES=(
     [groupfolders]=origin/$CORE_BRANCH
     [ldap_write_support]=origin/$CORE_BRANCH
     [logreader]=origin/$CORE_BRANCH
+    [htmlviewer]=origin/master
     [mail]=origin/stable5.12
     [maps]=origin/master
     [related_resources]=origin/$CORE_BRANCH
@@ -133,6 +137,7 @@ RESET_BRANCHES=(
     [files_pdfviewer]=origin/$CORE_BRANCH
     [files_texteditor]=origin/master
     [groupfolders]=cjh/production/cafevdb/$CORE_BRANCH
+    [htmlviwer]=cjh/bugfix/mimetype-element-need-not-be-there
     [ldap_write_support]=cjh/production/cafevdb/$CORE_BRANCH
     [logreader]=cjh/production/cafevdb/$CORE_BRANCH
     [mail]=cjh/feature/stable5.12/provision-additional-email-addresses
