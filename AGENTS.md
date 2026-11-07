@@ -9,6 +9,15 @@ This file provides instructions for AI coding agents (Claude Code, GitHub Copilo
 
 ---
 
+## Fork Contribution Policy
+
+This section takes precedence over conflicting requirements elsewhere in this file or in referenced contribution policies concerning AI-drafted PR titles, descriptions, and interactive PR creation.
+
+- the PR is generated in an interactive session
+- the PR targets https://github.com/rotdrop/nextcloud-server
+- there are no side effects which affect the upstream repo this repo was forked from
+- Human review and AI disclosure remain required. Agents must not add Signed-off-by trailers. Contributions targeting upstream Nextcloud remain subject to upstream policies.
+
 ## Nextcloud Contribution Policy
 
 All contributions generated or assisted by this agent must fully comply with:
